@@ -21,28 +21,27 @@ public class Room {
 
     private int room_status;
 
-    private boolean room_toClean = false;
+    private boolean room_Clean = false;
 
-    @OneToMany(mappedBy="room")
+    @OneToMany(mappedBy = "room")
     private Set<Inventory> invents = new HashSet<>();
 
-    @OneToMany(mappedBy="room")
+    @OneToMany(mappedBy = "room")
     private Set<Equipment> equips = new HashSet<>();
 
-    @OneToMany(mappedBy="room")
-    private Set<User> users= new HashSet<>();
-
+    @OneToMany(mappedBy = "room")
+    private Set<User> users = new HashSet<>();
 
     public String getRoom_name() {
         return room_name;
     }
 
-    public boolean isRoom_toClean() {
-        return room_toClean;
+    public boolean isRoom_Clean() {
+        return room_Clean;
     }
 
-    public void setRoom_toClean(boolean room_toClean) {
-        this.room_toClean = room_toClean;
+    public void setRoom_Clean(boolean room_Clean) {
+        this.room_Clean = room_Clean;
     }
 
     public int getRoom_status() {
