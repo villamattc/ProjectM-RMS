@@ -23,6 +23,8 @@ public class Room {
 
     private boolean room_Clean = false;
 
+
+
     @OneToMany(mappedBy = "room")
     private Set<Inventory> invents = new HashSet<>();
 
@@ -31,6 +33,10 @@ public class Room {
 
     @OneToMany(mappedBy = "room")
     private Set<User> users = new HashSet<>();
+
+    public Long getRoom_id(){
+        return this.room_id;
+    }
 
     public String getRoom_name() {
         return room_name;
@@ -56,6 +62,24 @@ public class Room {
         this.room_name = room_name;
     }
 
+    public Set<Inventory> getInvents(){
+        return this.invents;
+    }
+    public Set<Equipment> getEquips(){
+        return this.equips;
+    }
+    public Set<User> getUsers(){
+        return this.users;
+    }
+
+    public void setInfo(Room room){
+        this.room_name=room.getRoom_name();
+        this.room_status=room.getRoom_status();
+        this.room_Clean = room.isRoom_Clean();
+        this.invents = room.getInvents();
+        this.equips = room.getEquips();
+        this.users = room.getUsers();
+    }
 
 
     
