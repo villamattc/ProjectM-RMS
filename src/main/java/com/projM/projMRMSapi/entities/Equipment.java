@@ -26,6 +26,7 @@ public class Equipment {
 
     private Date dateof_lastMaintenance;
 
+
     @ManyToOne
     @JoinColumn(name = "room_id", nullable = false)
     private Room room;

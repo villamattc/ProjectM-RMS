@@ -34,6 +34,16 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private Set<User> users = new HashSet<>();
 
+
+    public Room(){}
+
+    public Room(String name, int status, boolean clean){
+        this.room_name= name;
+        this.room_status=status;
+        this.room_Clean=clean;
+    }
+
+
     public Long getRoom_id(){
         return this.room_id;
     }
