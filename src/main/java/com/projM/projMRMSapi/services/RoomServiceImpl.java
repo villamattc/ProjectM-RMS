@@ -3,14 +3,16 @@ package com.projM.projMRMSapi.services;
 import java.util.List;
 
 import com.projM.projMRMSapi.entities.Room;
-import com.projM.projMRMSapi.repositories.RoomRepo;
+import com.projM.projMRMSapi.repositories.RoomRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RoomServiceImpl implements RoomService{
 
-    RoomRepo roomRepo;
+    @Autowired
+    RoomRepository roomRepo;
 
     public boolean saveRoom(Room room){
         Room savedRoom = roomRepo.saveAndFlush(room);
