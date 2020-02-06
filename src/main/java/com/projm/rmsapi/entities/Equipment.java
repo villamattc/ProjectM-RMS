@@ -1,4 +1,4 @@
-package com.projM.projMRMSapi.entities;
+package com.projm.rmsapi.entities;
 
 import java.sql.Date;
 

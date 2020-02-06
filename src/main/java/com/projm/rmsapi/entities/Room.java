@@ -1,4 +1,4 @@
-package com.projM.projMRMSapi.entities;
+package com.projm.rmsapi.entities;
 
 import java.util.HashSet;
 import java.util.Set;

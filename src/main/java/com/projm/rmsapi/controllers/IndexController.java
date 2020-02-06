@@ -1,4 +1,4 @@
-package com.projM.projMRMSapi.controllers;
+package com.projm.rmsapi.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

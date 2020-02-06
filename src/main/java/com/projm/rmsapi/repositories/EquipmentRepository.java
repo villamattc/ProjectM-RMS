@@ -1,6 +1,6 @@
-package com.projM.projMRMSapi.repositories;
+package com.projm.rmsapi.repositories;
 
-import com.projM.projMRMSapi.entities.Equipment;
+import com.projm.rmsapi.entities.Equipment;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
