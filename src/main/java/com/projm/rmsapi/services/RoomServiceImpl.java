@@ -8,7 +8,7 @@ import com.projm.rmsapi.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("RoomServiceImpl")
+@Service
 public class RoomServiceImpl implements RoomService{
 
     @Autowired
@@ -23,15 +23,15 @@ public class RoomServiceImpl implements RoomService{
         return false;
     }
 
-    // public boolean deleteRoomById(Long id){
-    //     return roomRepo.deleteByRoom_id(id);
-    // }
+    public boolean deleteRoomById(Long id){
+         return roomRepo.deleteByRoom_id(id);
+    }
 
-    // public Room updateRoom(Room room){
-    //     Room updateRoom = roomRepo.findByRoom_id(room.getRoom_id());
-    //     updateRoom.setInfo(room);
-    //     return updateRoom;
-    // }
+    public Room updateRoom(Room room){
+        Room updateRoom = roomRepo.findByRoom_id(room.getRoom_id());
+        updateRoom.setInfo(room);
+        return updateRoom;
+    }
 
     public List<Room> getAllRooms(){
         return roomRepo.findAll();
