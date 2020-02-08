@@ -82,6 +82,16 @@ public class Room {
         return this.users;
     }
 
+    public void setUsers(Set<User> users){
+        this.users=users;
+    }
+    public void setEquips(Set<Equipment> equips){
+        this.equips=equips;
+    }
+    public void setInvents(Set<Inventory> invents){
+        this.invents=invents;
+    }
+
     public void setInfo(Room room) {
         this.setRoomName(room.getRoomName());
         this.setRoomStatus(room.getRoomStatus());
@@ -91,7 +101,21 @@ public class Room {
         this.users = room.getUsers();
     }
 
-
+    public void addUser(User user){
+        Set<User> newUser = this.getUsers();
+        newUser.add(user);
+        this.setUsers(newUser);
+    }
+    public void addInvent(Inventory invent){
+        Set<Inventory> newInvent = this.getInvents();
+        newInvent.add(invent);
+        this.setInvents(newInvent);
+    }
+    public void addEquip(Equipment equip){
+        Set<Equipment> newEquip = this.getEquips();
+        newEquip.add(equip);
+        this.setEquips(newEquip);
+    }
     
 
 

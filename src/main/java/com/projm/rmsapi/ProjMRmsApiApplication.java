@@ -8,9 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 
-
 //@ComponentScan({"com.projm.rmsapi.repositories","com.projm.rmsapi.controllers", "com.projm.rmsapi.services"})
-@EnableAutoConfiguration
 @SpringBootApplication
 //@ComponentScan({"com.projm.rmsapi.services"})
 @EnableJpaRepositories({"com.projm.rmsapi.repositories", "com.app"})
