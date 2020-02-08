@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RoomRepository extends JpaRepository<Room, Long>{
 
-    public Room findByRoom_id(Long id);
-    public boolean deleteByRoom_id(Long id);
+    public Room findByRoomName(Room room);
+    public Room findByRoomId(Long id);
+    //public boolean deleteByRoom_id(Long id);
+
 
 }

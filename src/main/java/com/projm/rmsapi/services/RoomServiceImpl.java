@@ -24,14 +24,15 @@ public class RoomServiceImpl implements RoomService{
     }
 
     public boolean deleteRoomById(Long id){
-         return roomRepo.deleteByRoom_id(id);
+        // return roomRepo.deleteByRoom_id(id);
+         return false;
     }
 
-    public Room updateRoom(Room room){
-        Room updateRoom = roomRepo.findByRoom_id(room.getRoom_id());
-        updateRoom.setInfo(room);
-        return updateRoom;
-    }
+    // public Room updateRoom(Room room){
+    //     Room updateRoom = roomRepo.findByRoom_id(room.getRoom_id());
+    //     updateRoom.setInfo(room);
+    //     return updateRoom;
+    // }
 
     public List<Room> getAllRooms(){
         return roomRepo.findAll();

@@ -21,17 +21,5 @@ public class IndexController{
         return "index";
     }
     
-    @RequestMapping(value = "/add", method= RequestMethod.POST)
-    public String newRoomm(@RequestParam String room_name, @RequestParam int room_status, @RequestParam boolean room_clean){
-
-        System.out.println(room_name);
-        System.out.println(room_status);
-        System.out.println(room_clean);
-
-        Room plswork = new Room(room_name,room_status,room_clean);
-     //   rp.save(plswork);
-        //rs.saveRoom(plswork);
-        return "index";
-    }
 
 }

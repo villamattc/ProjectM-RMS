@@ -21,35 +21,21 @@ public class RoomController{
     @Autowired
     private  RoomService rs;
 
-    // @Autowired
-    // RoomRepository roomRepo;
+    @Autowired
+    RoomRepository rr;
 
-    // @RequestMapping(value = "/add", method= RequestMethod.POST)
-    // public ResponseEntity<Object> newRoom(@RequestParam String room_name, @RequestParam int room_status, @RequestParam boolean room_clean){
+    @RequestMapping(value = "/add", method= RequestMethod.POST)
+    public ResponseEntity<Object> newRoom(@RequestParam String room_name, @RequestParam int room_status, @RequestParam boolean room_clean){
 
-    //     System.out.println(room_name);
-    //     System.out.println(room_status);
-    //     System.out.println(room_clean);
+        Room plswork = new Room(room_name,room_status,room_clean);
+        boolean truth = rs.saveRoom(plswork);
 
-    //     Room plswork = new Room(room_name,room_status,room_clean);
-    //  //   rp.save(plswork);
-    //     //rs.saveRoom(plswork);
-    //     return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
-    // }
-    
-    // @RequestMapping(value = "/addd", method= RequestMethod.POST)
-    // public String newRoomm(@RequestParam String room_name, @RequestParam int room_status, @RequestParam boolean room_clean){
+        if(truth==true)
+            return new ResponseEntity<>("ROOM CREATION SUCCESS", HttpStatus.CREATED);
+        else
+            return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
+    }
 
-    //     System.out.println(room_name);
-    //     System.out.println(room_status);
-    //     System.out.println(room_clean);
-
-    //     Room plswork = new Room(room_name,room_status,room_clean);
-    //  //   rp.save(plswork);
-    //     //rs.saveRoom(plswork);
-    //     return "index";
-    // }
-    
 
 
 }
