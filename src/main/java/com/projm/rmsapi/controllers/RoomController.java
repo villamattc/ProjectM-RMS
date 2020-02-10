@@ -6,9 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import com.projm.rmsapi.entities.Equipment;
+import com.projm.rmsapi.entities.Inventory;
 import com.projm.rmsapi.entities.Room;
 import com.projm.rmsapi.entities.User;
 import com.projm.rmsapi.repositories.RoomRepository;
+import com.projm.rmsapi.repositories.UserRepository;
 import com.projm.rmsapi.services.RoomService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,47 +30,94 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @ControllerAdvice
-public class RoomController{
-
-
-    @Autowired
-    private  RoomService rs;
+public class RoomController {
 
     @Autowired
-    RoomRepository rr;
+    private RoomService roomService;
 
-    @RequestMapping(value = "/add", method= RequestMethod.POST)
-    public ResponseEntity<Object> newRoom(/*@RequestParam String roomName, @RequestParam int roomStatus, @RequestParam boolean roomClean*/
-        @Valid @ModelAttribute("room")Room room , BindingResult result){
+    @Autowired
+    RoomRepository roomRepo;
+
+    @Autowired
+    UserRepository userRepo;
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public ResponseEntity<Object> newRoom(/*
+                                           * @RequestParam String roomName, @RequestParam int roomStatus, @RequestParam
+                                           * boolean roomClean
+                                           */
+            @Valid @ModelAttribute("room") Room room, BindingResult result) {
         if (result.hasErrors()) {
             return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
         }
 
-        //model.addAttribute("room", new Room());
-        //model.addAttribute("roomName", "");
-        
-        //Room newRoom = new Room(roomName,roomStatus,roomClean);
-        //boolean truth = rs.saveRoom(newRoom);
-        boolean truth = rs.saveRoom(room);
+        // model.addAttribute("room", new Room());
+        // model.addAttribute("roomName", "");
 
-        if(truth)
+        // Room newRoom = new Room(roomName,roomStatus,roomClean);
+        // boolean truth = rs.saveRoom(newRoom);
+        boolean truth = roomService.saveRoom(room);
+
+        if (truth)
             return new ResponseEntity<>("ROOM CREATION SUCCESS", HttpStatus.CREATED);
         else
             return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
     }
 
-    @RequestMapping(value="/room/{id}/adduser", method=RequestMethod.POST)
-    public ResponseEntity<Object> addUsertoRoom(@PathVariable("id") long id,  
-        @Valid @ModelAttribute("room")Room room , BindingResult result) {
+    @RequestMapping(value = "/room/{id}/adduser", method = RequestMethod.POST)
+    public ResponseEntity<Object> addUsertoRoom(@PathVariable("id") long id, @Valid @ModelAttribute("user") User user,
+            BindingResult result) {
+        if (result.hasErrors()) {
+            return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
+        }
 
-        Room getRoom = rr.findByRoomId(id);
-        
-        
+        Room getRoom = roomRepo.findByRoomId(id);
+        getRoom.addUser(user);
 
-        return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
+        boolean truth = roomService.saveRoom(getRoom);
+
+        if (truth)
+            return new ResponseEntity<>("SUCCESSFULLY ADDED USER", HttpStatus.FORBIDDEN);
+        else
+            return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
+
     }
 
+    @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
+    public ResponseEntity<Object> addEquiptoRoom(@PathVariable("id") long id, @Valid @ModelAttribute("equip")Equipment equip,
+            BindingResult result) {
+        if (result.hasErrors()) {
+            return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
+        }
 
-    
+        Room getRoom = roomRepo.findByRoomId(id);
+        getRoom.addEquip(equip);
 
+        boolean truth = roomService.saveRoom(getRoom);
+
+        if (truth)
+            return new ResponseEntity<>("SUCCESSFULLY ADDED USER", HttpStatus.FORBIDDEN);
+        else
+            return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
+
+    }
+
+    @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
+    public ResponseEntity<Object> addInventtoRoom(@PathVariable("id") long id, @Valid @ModelAttribute("invent")Inventory invent,
+            BindingResult result) {
+        if (result.hasErrors()) {
+            return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
+        }
+
+        Room getRoom = roomRepo.findByRoomId(id);
+        getRoom.addInvent(invent);
+
+        boolean truth = roomService.saveRoom(getRoom);
+
+        if (truth)
+            return new ResponseEntity<>("SUCCESSFULLY ADDED USER", HttpStatus.FORBIDDEN);
+        else
+            return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
+
+    }
 }

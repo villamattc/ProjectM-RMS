@@ -44,6 +44,13 @@ public class Room {
         this.setRoomStatus(status);
     }
 
+    public Long getRoomId(){
+        return this.roomId;
+    }
+    public void setRoomId(Long id){
+        this.roomId=id;
+    }
+
     public boolean isRoomClean() {
         return roomClean;
     }

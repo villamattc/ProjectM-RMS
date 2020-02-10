@@ -24,6 +24,7 @@
 
     <form:form action= "/add" method ="POST" 
         modelAttribute = "room">
+
         <form:label path = "roomName">RoomName:</form:label><form:input path="roomName" /><br>
         <form:label path = "roomStatus">RoomStatus</form:label><form:input type="number" path="roomStatus" /><br>
         <form:label path = "roomClean">Is room clean:</form:label><form:input path="roomClean" value="true"/><br>
@@ -35,8 +36,8 @@
 
 
 
-    <table>
-        <c:forEach items="${roomlist}" var="item">
+    <table border="1px">
+        <c:forEach items="${roomlist}" var="item" varStatus="loop">
             <tr>
                 <td>
                     ${item.roomName}
@@ -48,7 +49,10 @@
                     ${item.roomClean}
                 </td>
                 <td>
-                    <a href= "localhost:8010/room/${item.roomId}"> ${item.roomName}</a>
+                    ${item.roomId}
+                </td>
+                <td>
+                    <a href= "/room/${item.roomId}"> ${item.roomName}</a>
                 </td>
             </tr>
         </c:forEach>
