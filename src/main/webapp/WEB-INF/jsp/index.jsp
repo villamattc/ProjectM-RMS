@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
 <!-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> -->
@@ -13,13 +14,26 @@
 </head>
 <body>
         hgelppeepelepflpl
-
+<!-- 
     <form action="<%=request.getContextPath()%>/add" method="POST" >
         Roomname:<input type = "text" name = "roomName"/><br>
         RoomStatus:<input type = "number" name = "roomStatus"/><br>
         roomisclean: <input name = "roomClean" value="true"><br>
         <button type="submit">uwu</button>
-    </form>
+    </form> -->
+
+    <form:form action= "/add" method ="POST" 
+        modelAttribute = "room">
+        <form:label path = "roomName">RoomName:</form:label><form:input path="roomName" /><br>
+        <form:label path = "roomStatus">RoomStatus</form:label><form:input type="number" path="roomStatus" /><br>
+        <form:label path = "roomClean">Is room clean:</form:label><form:input path="roomClean" value="true"/><br>
+        <input type="submit" value="Submit"/>
+
+    </form:form>
+
+    
+
+
 
     <table>
         <c:forEach items="${roomlist}" var="item">
@@ -32,6 +46,9 @@
                 </td>
                 <td>
                     ${item.roomClean}
+                </td>
+                <td>
+                    <a href= "localhost:8010/room/${item.roomId}"> ${item.roomName}</a>
                 </td>
             </tr>
         </c:forEach>

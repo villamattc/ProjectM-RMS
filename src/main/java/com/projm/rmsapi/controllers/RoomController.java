@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import com.projm.rmsapi.entities.Room;
 import com.projm.rmsapi.entities.User;
@@ -13,15 +14,19 @@ import com.projm.rmsapi.services.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@ControllerAdvice
 public class RoomController{
 
 
@@ -32,10 +37,18 @@ public class RoomController{
     RoomRepository rr;
 
     @RequestMapping(value = "/add", method= RequestMethod.POST)
-    public ResponseEntity<Object> newRoom(@RequestParam String roomName, @RequestParam int roomStatus, @RequestParam boolean roomClean){
+    public ResponseEntity<Object> newRoom(/*@RequestParam String roomName, @RequestParam int roomStatus, @RequestParam boolean roomClean*/
+        @Valid @ModelAttribute("room")Room room , BindingResult result){
+        if (result.hasErrors()) {
+            return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
+        }
 
-        Room newRoom = new Room(roomName,roomStatus,roomClean);
-        boolean truth = rs.saveRoom(newRoom);
+        //model.addAttribute("room", new Room());
+        //model.addAttribute("roomName", "");
+        
+        //Room newRoom = new Room(roomName,roomStatus,roomClean);
+        //boolean truth = rs.saveRoom(newRoom);
+        boolean truth = rs.saveRoom(room);
 
         if(truth)
             return new ResponseEntity<>("ROOM CREATION SUCCESS", HttpStatus.CREATED);
@@ -43,17 +56,16 @@ public class RoomController{
             return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
     }
 
-    // @RequestMapping(value="/room/{id}/adduser", method=RequestMethod.POST)
-    // public ResponseEntity<Object> addUsertoRoom(@PathVariable("id") long id, @RequestParam int ) {
+    @RequestMapping(value="/room/{id}/adduser", method=RequestMethod.POST)
+    public ResponseEntity<Object> addUsertoRoom(@PathVariable("id") long id,  
+        @Valid @ModelAttribute("room")Room room , BindingResult result) {
 
-    //     Room getRoom = rr.findByRoomId(id);
-
-
-    //     getRoom.addUser(user);
+        Room getRoom = rr.findByRoomId(id);
+        
         
 
-    //     return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
-    // }
+        return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
+    }
 
 
     
