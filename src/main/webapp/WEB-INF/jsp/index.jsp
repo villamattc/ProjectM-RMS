@@ -37,7 +37,7 @@
 
 
     <table border="1px">
-        <c:forEach items="${roomlist}" var="item" varStatus="loop">
+        <c:forEach items="${roomlist}" var="item">
             <tr>
                 <td>
                     ${item.roomName}
@@ -54,6 +54,10 @@
                 <td>
                     <a href= "/room/${item.roomId}"> ${item.roomName}</a>
                 </td>
+                <td>
+                    <a href= "/room/${item.roomId}/showusers"> USERRRRSSZZZXXXX</a>
+                </td>
+
             </tr>
         </c:forEach>
     </table>

@@ -16,9 +16,9 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long user_id;
+    private Long user_id;
 
-    private String lastName;
+    private String lastName; 
 
     private String firstName;
 
@@ -28,17 +28,32 @@ public class User {
 
     private String nationality;
 
-    private String age;
+    private int age;
 
     private String occupation;
     // refers to the number of visits
-    private int visits;
+    //private int visits; // removed cuz u can just count in the log or smthing idk
 
     private int businessOrvacay;
 
     @ManyToOne
     @JoinColumn(name = "room_id", nullable = false)
     private Room room;
+
+    public User(){
+    }
+    public User(String lastName, String firstName, Date checkin, Date checkout, String nationality, int age, String occupation, int businessOrvacay){
+       
+        this.lastName=lastName;
+        this.firstName=firstName;
+        this.checkin=checkin;
+        this.checkout=checkout;
+        this.nationality=nationality;
+        this.age=age;
+        this.occupation=occupation;
+        this.businessOrvacay=businessOrvacay;
+    }
+
 
     public String getLastName() {
         return lastName;
@@ -52,14 +67,6 @@ public class User {
         this.businessOrvacay = businessOrvacay;
     }
 
-    public int getVisits() {
-        return visits;
-    }
-
-    public void setVisits(int visits) {
-        this.visits = visits;
-    }
-
     public String getOccupation() {
         return occupation;
     }
@@ -68,11 +75,11 @@ public class User {
         this.occupation = occupation;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -113,7 +120,9 @@ public class User {
     }
 
 
-
+    public void setRoom(Room room){
+        this.room = room;
+    }
     
 
 }

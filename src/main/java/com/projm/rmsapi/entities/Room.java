@@ -108,20 +108,25 @@ public class Room {
         this.users = room.getUsers();
     }
 
-    public void addUser(User user){
-        Set<User> newUser = this.getUsers();
-        newUser.add(user);
-        this.setUsers(newUser);
-    }
-    public void addInvent(Inventory invent){
-        Set<Inventory> newInvent = this.getInvents();
-        newInvent.add(invent);
-        this.setInvents(newInvent);
-    }
-    public void addEquip(Equipment equip){
-        Set<Equipment> newEquip = this.getEquips();
-        newEquip.add(equip);
-        this.setEquips(newEquip);
+    // public void addUser(User user){
+    //     Set<User> newUser = this.getUsers();
+    //     newUser.add(user);
+    //     this.setUsers(newUser);
+    // }
+    // public void addInvent(Inventory invent){
+    //     Set<Inventory> newInvent = this.getInvents();
+    //     newInvent.add(invent);
+    //     this.setInvents(newInvent);
+    // }
+    // public void addEquip(Equipment equip){
+    //     Set<Equipment> newEquip = this.getEquips();
+    //     newEquip.add(equip);
+    //     this.setEquips(newEquip);
+    // }
+
+    public void addUser(User u){
+        users.add(u);
+        u.setRoom(this);
     }
     
 

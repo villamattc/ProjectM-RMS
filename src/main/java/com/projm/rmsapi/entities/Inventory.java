@@ -15,7 +15,7 @@ public class Inventory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long invent_id;
+    private Long invent_id;
 
     private String invent_name;
 
