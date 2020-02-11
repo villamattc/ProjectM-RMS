@@ -6,11 +6,10 @@ import com.projm.rmsapi.services.RoomService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController{
@@ -22,9 +21,17 @@ public class IndexController{
 
     // test view for pure testing random shit
     @RequestMapping(value = "index")
-    public String testJsp(ModelMap map){
+    public ModelAndView testJsp(ModelMap map){
         map.addAttribute("roomlist", roomRepo.findAll());
-        return "index";
+        return new ModelAndView("index", "room", new Room());
+    }
+
+    @RequestMapping(value = "room/{id}")
+    public ModelAndView roomtestJsp(@PathVariable("id") long id, ModelMap map){
+
+        Room getRoom = roomRepo.findByRoomId(id);
+        map.addAttribute("room", getRoom);
+        return new ModelAndView("room");
     }
 
 }
