@@ -62,6 +62,13 @@ public class IndexController{
      //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
+
+    @RequestMapping(value = "room")
+    public ModelAndView Room(ModelMap map){
+
+        map.addAttribute("roomlist", roomRepo.findAll());
+        return new ModelAndView("room", "room", new Room());
+    }
     
 
 

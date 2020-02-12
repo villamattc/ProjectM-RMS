@@ -167,7 +167,7 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div>
   
   <jsp:invoke fragment="content"></jsp:invoke>
    
