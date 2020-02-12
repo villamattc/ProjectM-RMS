@@ -63,7 +63,9 @@ public class Equipment {
         this.equip_name = equip_name;
     }
 
-
+    public void setRoom(Room room){
+        this.room = room;
+    }
     
     
 

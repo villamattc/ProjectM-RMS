@@ -53,7 +53,8 @@ public class Inventory {
     }
 
 
-
-
+    public void setRoom(Room room){
+        this.room = room;
+    }
 
 }

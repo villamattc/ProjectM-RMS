@@ -128,7 +128,14 @@ public class Room {
         users.add(u);
         u.setRoom(this);
     }
+    public void addEquipment(Equipment e){
+        equips.add(e);
+        e.setRoom(this);
+    }
+    public void addInventory(Inventory i){
+        invents.add(i);
+        i.setRoom(this);
+    }
     
-
 
 }

@@ -1,15 +1,12 @@
 package com.projm.rmsapi.controllers;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import com.projm.rmsapi.entities.Equipment;
 import com.projm.rmsapi.entities.Inventory;
 import com.projm.rmsapi.entities.Room;
 import com.projm.rmsapi.entities.User;
+import com.projm.rmsapi.repositories.EquipmentRepository;
 import com.projm.rmsapi.repositories.RoomRepository;
 import com.projm.rmsapi.repositories.UserRepository;
 import com.projm.rmsapi.services.RoomService;
@@ -17,15 +14,12 @@ import com.projm.rmsapi.services.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -40,6 +34,9 @@ public class RoomController {
 
     @Autowired
     UserRepository userRepo;
+
+    @Autowired
+    EquipmentRepository equipmentRepo;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ResponseEntity<Object> newRoom(@Valid @ModelAttribute("room") Room room, BindingResult result) {
@@ -76,13 +73,15 @@ public class RoomController {
         System.out.println(user.getBusinessOrvacay());
         System.out.println(user.getAge());
 
-        try{
+        try {
 
-        Room getRoom = roomRepo.findByRoomId(id);
-        getRoom.addUser(user);
-        roomRepo.save(getRoom);
+            Room getRoom = roomRepo.findByRoomId(id);
+            getRoom.addUser(user);
+            userRepo.save(user);
+            roomRepo.save(getRoom);
 
-        }catch(Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
             return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
         }
 
@@ -90,41 +89,49 @@ public class RoomController {
 
     }
 
+    @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
+    public ResponseEntity<Object> addEquiptoRoom(@PathVariable("id") long id,
+    @Valid @ModelAttribute("equip")Equipment equip,
+    BindingResult result) {
+    if (result.hasErrors()) {
+        return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
+    }
+
+    try{
+
+        Room getRoom = roomRepo.findByRoomId(id);
+        getRoom.addEquipment(equip);
+        equipmentRepo.save(equip);
+        roomRepo.save(getRoom);
+        
+    }catch(Exception e){
+
+        e.printStackTrace();
+        return new ResponseEntity<>("SUCCESSFULLY ADDED EQUIPMENT", HttpStatus.CREATED);
+    }
+
+        return new ResponseEntity<>("SUCCESSFULLY ADDED USER", HttpStatus.CREATED);
+    }
+
+
+
     // @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
-    // public ResponseEntity<Object> addEquiptoRoom(@PathVariable("id") long id, @Valid @ModelAttribute("equip")Equipment equip,
-    //         BindingResult result) {
-    //     if (result.hasErrors()) {
-    //         return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
-    //     }
-
-    //     Room getRoom = roomRepo.findByRoomId(id);
-    //     getRoom.addEquip(equip);
-
-    //     boolean truth = roomService.saveRoom(getRoom);
-
-    //     if (truth)
-    //         return new ResponseEntity<>("SUCCESSFULLY ADDED USER", HttpStatus.FORBIDDEN);
-    //     else
-    //         return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
-
+    // public ResponseEntity<Object> addInventtoRoom(@PathVariable("id") long id,
+    // @Valid @ModelAttribute("invent")Inventory invent,
+    // BindingResult result) {
+    // if (result.hasErrors()) {
+    // return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
     // }
 
-//     @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
-//     public ResponseEntity<Object> addInventtoRoom(@PathVariable("id") long id, @Valid @ModelAttribute("invent")Inventory invent,
-//             BindingResult result) {
-//         if (result.hasErrors()) {
-//             return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
-//         }
+    // Room getRoom = roomRepo.findByRoomId(id);
+    // getRoom.addInvent(invent);
 
-//         Room getRoom = roomRepo.findByRoomId(id);
-//         getRoom.addInvent(invent);
+    // boolean truth = roomService.saveRoom(getRoom);
 
-//         boolean truth = roomService.saveRoom(getRoom);
+    // if (truth)
+    // return new ResponseEntity<>("SUCCESSFULLY ADDED USER", HttpStatus.FORBIDDEN);
+    // else
+    // return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
 
-//         if (truth)
-//             return new ResponseEntity<>("SUCCESSFULLY ADDED USER", HttpStatus.FORBIDDEN);
-//         else
-//             return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
-
-//     }
- }
+    // }
+    }
