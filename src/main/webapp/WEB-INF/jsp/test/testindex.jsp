@@ -49,10 +49,10 @@
                     ${item.roomId}
                 </td>
                 <td>
-                    <a href= "/room/${item.roomId}"> ${item.roomName}</a>
+                    <a href= "/testroom/${item.roomId}"> ${item.roomName}</a>
                 </td>
                 <td>
-                    <a href= "/room/${item.roomId}/showusers"> USERRRRSSZZZXXXX</a>
+                    <a href= "/testroom/${item.roomId}/showusers"> USERRRRSSZZZXXXX</a>
                 </td>
 
             </tr>
