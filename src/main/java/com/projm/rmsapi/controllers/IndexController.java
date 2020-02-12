@@ -23,11 +23,12 @@ public class IndexController{
     @Autowired
     private UserRepository userRepo;
 
-    @RequestMapping(value = "index")
+    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@TESTING VIEW@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @RequestMapping(value = "testindex")
     public ModelAndView testJsp(ModelMap map){
 
         map.addAttribute("roomlist", roomRepo.findAll());
-        return new ModelAndView("index", "room", new Room());
+        return new ModelAndView("test/testindex", "room", new Room());
     }
 
     @RequestMapping(value = "room/{id}")
@@ -36,7 +37,7 @@ public class IndexController{
         Room getRoom = roomRepo.findByRoomId(id);
 
         map.addAttribute("room", getRoom);
-        return new ModelAndView("index2");
+        return new ModelAndView("test/index2");
     }
 
     @RequestMapping(value = "room/{id}/adduserform")
@@ -47,7 +48,7 @@ public class IndexController{
         map.addAttribute("roomId", id);
         map.addAttribute("room", getRoom);
         map.addAttribute("user", new User());
-        return new ModelAndView("indexadduser");
+        return new ModelAndView("test/indexadduser");
     }
 
     @RequestMapping(value = "room/{id}/showusers")
@@ -55,11 +56,15 @@ public class IndexController{
 
         Room getRoom = roomRepo.findByRoomId(id);
         map.addAttribute("userlog", getRoom.getUsers());
-        return new ModelAndView("indexshowusers");
+        return new ModelAndView("test/indexshowusers");
     }
 
+     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
     
+
+
+
 
 }
