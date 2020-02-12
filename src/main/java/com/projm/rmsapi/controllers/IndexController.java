@@ -23,7 +23,6 @@ public class IndexController{
     @Autowired
     private UserRepository userRepo;
 
-    // test view for pure testing random shit
     @RequestMapping(value = "index")
     public ModelAndView testJsp(ModelMap map){
 
@@ -58,5 +57,9 @@ public class IndexController{
         map.addAttribute("userlog", getRoom.getUsers());
         return new ModelAndView("indexshowusers");
     }
+
+
+
+    
 
 }
