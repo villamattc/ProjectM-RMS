@@ -52,29 +52,26 @@
 
 								<div class="box-tools">
 									<ul class="pagination pagination-sm no-margin pull-right">
-										<li><a href="#">�</a></li>
+										<li><a href="#">«</a></li>
 										<li><a href="#">1</a></li>
 										<li><a href="#">2</a></li>
 										<li><a href="#">3</a></li>
-										<li><a href="#">�</a></li>
+										<li><a href="#">»</a></li>
 									</ul>
 								</div>
 							</div>
 							<!-- /.box-header -->
 							<div class="box-body no-padding">
-								<c:forEach items="${roomlist}" var="item">
 								<table class="table table-striped table-hover">
-
 									<tbody>
 										<tr>
 											<th>Room</th>
-											<th>Status</th>
 											<th>Condition</th>
 										</tr>
 										<c:forEach items="${vacantRooms}" var="item">
 											<tr>
-												<td><c:out value="${item.roomName}"></td>
-												<td><c:out value="${item.roomClean}"></td>
+												<td>${item.roomName}</td>
+												<td>${item.roomClean}</td>
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -95,11 +92,11 @@
 
 								<div class="box-tools">
 									<ul class="pagination pagination-sm no-margin pull-right">
-										<li><a href="#">�</a></li>
+										<li><a href="#">«</a></li>
 										<li><a href="#">1</a></li>
 										<li><a href="#">2</a></li>
 										<li><a href="#">3</a></li>
-										<li><a href="#">�</a></li>
+										<li><a href="#">»</a></li>
 									</ul>
 								</div>
 							</div>
@@ -108,16 +105,16 @@
 								<table class="table table-striped table-hover">
 
 
-
 									<tbody><tr>
 										<th>Room</th>
-										<th>Status</th>
 										<th>Condition</th>
 									</tr>
+									<c:forEach items="${occupiedRooms}" var="item">
 									<tr>
 										<td>${item.roomName}</td>
 										<td>${item.roomClean}</td>
 									</tr>
+									</c:forEach>
 									</tbody></table>
 
 							</div>
@@ -133,11 +130,11 @@
 
 								<div class="box-tools">
 									<ul class="pagination pagination-sm no-margin pull-right">
-										<li><a href="#">�</a></li>
+										<li><a href="#">«</a></li>
 										<li><a href="#">1</a></li>
 										<li><a href="#">2</a></li>
 										<li><a href="#">3</a></li>
-										<li><a href="#">�</a></li>
+										<li><a href="#">»</a></li>
 									</ul>
 								</div>
 							</div>
@@ -150,29 +147,14 @@
 									<tbody>
 										<tr>
 											<th>Room</th>
-											<th>Status</th>
 											<th>Condition</th>
 										</tr>
 										<tr>
+										<c:forEach items="${reservedRooms}" var="item">
 											<td>${item.roomName}</td>
-											<td>${item.roomStatus}</td>
 											<td>${item.roomClean}</td>
 										</tr>
-										<tr>
-											<td>${item.roomName}</td>
-											<td>${item.roomStatus}</td>
-											<td>${item.roomClean}</td>
-										</tr>
-										<tr>
-											<td>${item.roomName}</td>
-											<td>${item.roomStatus}</td>
-											<td>${item.roomClean}</td>
-										</tr>
-										<tr>
-											<td>${item.roomName}</td>
-											<td>${item.roomStatus}</td>
-											<td>${item.roomClean}</td>
-										</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 
@@ -198,7 +180,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">�</span></button>
+							<span aria-hidden="true">x</span></button>
 						<h4 class="modal-title">Add Room</h4>
 					</div>
 					<div class="modal-body">
@@ -234,7 +216,8 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary">Save changes</button>
+						<button type="submit" class="btn btn-primary" >Save changes</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="saveRoom();">SweetAlert2</button>
 					</div>
 					</form:form>
 				</div>
@@ -244,6 +227,19 @@
 			<!-- /.modal-dialog -->
 		</div>
 
+
+
+<script type="text/javascript">
+function saveRoom(){
+	Swal.fire({
+  position: 'center',
+  icon: 'success',
+  title: 'Your work has been saved',
+  showConfirmButton: false,
+  timer: 1500
+})
+}
+</script>
 
 	</jsp:attribute>
 </mt:admin_template>
