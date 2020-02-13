@@ -71,33 +71,31 @@ public class IndexController{
 
 
 
-    @RequestMapping(value = "room")
-    public ModelAndView Room(ModelMap map){
-
-        //map.addAttribute("roomlist", roomRepo.findAll());
-
-        Map<Integer, String> options = new HashMap<Integer, String>();
-        options.put(1, "Vacant");
-        options.put(2, "Occupied");
-        options.put(3, "Reserved");
-
-        List<Room> x = roomRepo.findAllByRoomStatus(1);
-        List<Room> y = roomRepo.findAll();
-        if(y.isEmpty())
-            System.out.println("ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
-
-        if(x.isEmpty())
-            System.out.println("fuck you reposirotyy go dieea;lkfsa;ldkfjlk");
-
-        map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
-        map.addAttribute("occupiedRooms", roomService.getAllOccupiedRooms());
-        map.addAttribute("vacantRooms", roomService.getAllReservedRooms());
-        map.addAttribute("options", options);
-
-
-
-
-        return new ModelAndView("room", "room", new Room());
+//    @RequestMapping(value = "room")
+//    public ModelAndView Room(ModelMap map){
+//
+//        //map.addAttribute("roomlist", roomRepo.findAll());
+//
+//        Map<Integer, String> options = new HashMap<Integer, String>();
+//        options.put(1, "Vacant");
+//        options.put(2, "Occupied");
+//        options.put(3, "Reserved");
+//
+//        List<Room> x = roomRepo.findAllByRoomStatus(1);
+//        List<Room> y = roomRepo.findAll();
+//        if(y.isEmpty())
+//            System.out.println("ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
+//
+//        if(x.isEmpty())
+//            System.out.println("fuck you reposirotyy go dieea;lkfsa;ldkfjlk");
+//
+//        map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
+//        map.addAttribute("occupiedRooms", roomService.getAllOccupiedRooms());
+//        map.addAttribute("vacantRooms", roomService.getAllReservedRooms());
+//        map.addAttribute("options", options);
+//
+//
+//        return new ModelAndView("room", "room", new Room());
     }
     
 

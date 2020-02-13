@@ -8,8 +8,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
+
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <mt:admin_template title="Room">
 	<jsp:attribute name="content">
 		<div class="content-wrapper" style="min-height: 925.8px;">
@@ -59,19 +61,20 @@
 							</div>
 							<!-- /.box-header -->
 							<div class="box-body no-padding">
+								<c:forEach items="${roomlist}" var="item">
 								<table class="table table-striped table-hover">
 									<tbody><tr>
 										<th>Room</th>
 										<th>Status</th>
 										<th>Condition</th>
 									</tr>
-									<c:forEach items="${vacantRooms}" var="item">
 									<tr>
 										<td>${item.roomName}</td>
 										<td>${item.roomClean}</td>
 									</tr>
-									</c:forEach>
-									</tbody></table>
+									</tbody>
+								</table>
+								</c:forEach>
 							</div>
 							<!-- /.box-body -->
 						</div>
@@ -103,22 +106,6 @@
 									</tr>
 									<tr>
 										<td>${item.roomName}</td>
-										<td>${item.roomStatus}</td>
-										<td>${item.roomClean}</td>
-									</tr>
-									<tr>
-										<td>${item.roomName}</td>
-										<td>${item.roomStatus}</td>
-										<td>${item.roomClean}</td>
-									</tr>
-									<tr>
-										<td>${item.roomName}</td>
-										<td>${item.roomStatus}</td>
-										<td>${item.roomClean}</td>
-									</tr>
-									<tr>
-										<td>${item.roomName}</td>
-										<td>${item.roomStatus}</td>
 										<td>${item.roomClean}</td>
 									</tr>
 									</tbody></table>
@@ -127,6 +114,7 @@
 						</div>
 						<!-- /.box -->
 					</div>
+					<!--Occupied-->
 					<div class="col-md-4">
 						<div class="box">
 							<div class="box-header">
@@ -143,6 +131,8 @@
 								</div>
 							</div>
 							<!-- /.box-header -->
+
+							<!--Reserved-->
 							<div class="box-body no-padding">
 								<table class="table table-striped table-hover">
 									<tbody><tr>
@@ -152,22 +142,6 @@
 									</tr>
 									<tr>
 										<td>${item.roomName}</td>
-										<td>${item.roomStatus}</td>
-										<td>${item.roomClean}</td>
-									</tr>
-									<tr>
-										<td>${item.roomName}</td>
-										<td>${item.roomStatus}</td>
-										<td>${item.roomClean}</td>
-									</tr>
-									<tr>
-										<td>${item.roomName}</td>
-										<td>${item.roomStatus}</td>
-										<td>${item.roomClean}</td>
-									</tr>
-									<tr>
-										<td>${item.roomName}</td>
-										<td>${item.roomStatus}</td>
 										<td>${item.roomClean}</td>
 									</tr>
 									</tbody></table>
