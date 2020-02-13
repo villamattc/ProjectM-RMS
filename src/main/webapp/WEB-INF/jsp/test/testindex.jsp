@@ -57,7 +57,41 @@
 
             </tr>
         </c:forEach>
+
+        <div class="box-body no-padding">
+        <table class="table table-striped table-hover">
+            <tbody>
+                <tr>
+                    <th>Room</th>
+                    <th>Status</th>
+                    <th>Condition</th>
+                </tr>
+            <c:forEach items="${vacantRooms}" var="item">
+                <tr>
+                    <td>
+                        ${item.roomName}
+                    </td>
+                    <td>
+                        ${item.roomStatus}
+                    </td>
+                    <td>
+                        ${item.roomClean}
+                    </td>
+                    <td>
+                        ${item.roomId}
+                    </td>
+                    <td>
+                        <a href= "/testroom/${item.roomId}"> ${item.roomName}</a>
+                    </td>
+                    <td>
+                        <a href= "/testroom/${item.roomId}/showusers"> USERRRRSSZZZXXXX</a>
+                    </td>
+    
+                </tr>
+            </c:forEach>
+        </tbody>
     </table>
+</div>
 </body>
 </html>
 

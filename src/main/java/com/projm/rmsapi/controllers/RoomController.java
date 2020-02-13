@@ -44,11 +44,6 @@ public class RoomController {
             return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
         }
 
-        // model.addAttribute("room", new Room());
-        // model.addAttribute("roomName", "");
-
-        // Room newRoom = new Room(roomName,roomStatus,roomClean);
-        // boolean truth = rs.saveRoom(newRoom);
         boolean truth = roomService.saveRoom(room);
 
         if (truth)

@@ -1,17 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Dan
-  Date: 10/02/2020
-  Time: 8:38 PM
-  To change this template use File | Settings | File Templates.
---%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
-<%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
-
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
+
 
 <mt:admin_template title="Room">
 	<jsp:attribute name="content">
@@ -63,16 +56,18 @@
 							<!-- /.box-header -->
 							<div class="box-body no-padding">
 								<table class="table table-striped table-hover">
-									<tbody>
-										<tr>
+                                    <thead>
+                                        <tr>
 											<th>Room</th>
 											<th>Status</th>
 											<th>Condition</th>
 										</tr>
+                                    </thead>
+                                    <tbody>
 										<c:forEach items="${vacantRooms}" var="item">
 											<tr>
-												<td><c:out value="${item.roomName}"></td>
-												<td><c:out value="${item.roomClean}"></td>
+												<td>${item.roomName}</td>
+												<td>${item.roomClean}</td>
 											</tr>
 										</c:forEach>
 									</tbody>

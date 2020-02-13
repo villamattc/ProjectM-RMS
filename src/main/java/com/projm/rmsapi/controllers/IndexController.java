@@ -35,6 +35,8 @@ public class IndexController{
         if(y.isEmpty())
             System.out.println("ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
 
+
+        map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
         map.addAttribute("roomlist", roomRepo.findAll());
         return new ModelAndView("test/testindex", "room", new Room());
     }
@@ -67,6 +69,28 @@ public class IndexController{
         return new ModelAndView("test/indexshowusers");
     }
 
+
+    @RequestMapping(value = "testroom")
+    public ModelAndView testroom(ModelMap map){
+
+        List<Room> y = roomRepo.findAll();
+        if(y.isEmpty())
+            System.out.println("ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
+
+        Map<Integer, String> options = new HashMap<Integer, String>();
+        options.put(1, "Vacant");
+        options.put(2, "Occupied");
+        options.put(3, "Reserved");
+
+        map.addAttribute("room", new Room());
+        map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
+        map.addAttribute("occupiedRooms", roomService.getAllOccupiedRooms());
+        map.addAttribute("reservedRooms", roomService.getAllReservedRooms());
+        map.addAttribute("options", options);
+
+        return new ModelAndView("test/danstestroom");
+    }
+
      //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
@@ -91,7 +115,7 @@ public class IndexController{
 
         map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
         map.addAttribute("occupiedRooms", roomService.getAllOccupiedRooms());
-        map.addAttribute("vacantRooms", roomService.getAllReservedRooms());
+        map.addAttribute("reservedRooms", roomService.getAllReservedRooms()); //<c:forEach items="${vacantRooms}" var="item">
         map.addAttribute("options", options);
 
 
