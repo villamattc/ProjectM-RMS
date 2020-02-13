@@ -128,7 +128,22 @@ public class IndexController{
     }
     
 
+//login
+@RequestMapping(value = "login")
+    public ModelAndView Login(ModelMap map){
 
+        return new ModelAndView("login");
+    }
+//add user form
+@RequestMapping(value = "room/{id}/adduserform")
+    public ModelAndView AddUser(@PathVariable("id") long id, ModelMap map){
 
+        Room getRoom = roomRepo.findByRoomId(id);
+
+        map.addAttribute("roomId", id);
+        map.addAttribute("room", getRoom);
+        map.addAttribute("user", new User());
+        return new ModelAndView("test/indexadduser");
+    }
 
 }

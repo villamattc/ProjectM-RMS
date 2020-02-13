@@ -67,11 +67,20 @@
 										<tr>
 											<th>Room</th>
 											<th>Condition</th>
+											<th width="10px"></th>
+											<td width="10px"></th>
 										</tr>
 										<c:forEach items="${vacantRooms}" var="item">
 											<tr>
 												<td>${item.roomName}</td>
 												<td>${item.roomClean}</td>
+												<td><a class="btn btn-xs btn-default" data-toggle="modal" data-target="#addRoomUserModal">
+               										<i class="fa  fa-user-plus"></i>
+              									</a></td>
+												<td><a class="btn btn-xs btn-default" data-toggle="modal" data-target="#viewRoomModal">
+               										<i class="fa fa-eye"></i>
+              									</a></td>
+												  
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -148,11 +157,13 @@
 										<tr>
 											<th>Room</th>
 											<th>Condition</th>
+											<th></th>
 										</tr>
 										<tr>
 										<c:forEach items="${reservedRooms}" var="item">
 											<td>${item.roomName}</td>
 											<td>${item.roomClean}</td>
+											<td></td>
 										</tr>
 										</c:forEach>
 									</tbody>
@@ -173,7 +184,7 @@
 
 		</div>
 
-		<!-- Modal -->
+		<!-- Modal for Add Room-->
 		<div class="modal fade" id="roomModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 			aria-hidden="true">
 			<div class="modal-dialog">
@@ -198,14 +209,7 @@
 								<form:select class="form-control" path="roomStatus" multiple="false">
 									<form:options items="${options}"></form:options>
 								</form:select>
-
 							</div>
-							<%--							<div class="form-group">--%>
-							<%--								<label><form:label path = "roomStatus">Room Status:</form:label></label>--%>
-							<%--								<form:select class="form-control" path="roomStatus" multiple="false" size="3">--%>
-							<%--									<form:options items="${options}"></form:options>--%>
-							<%--								</form:select>--%>
-							<%--							</div>--%>
 							<div class="form-group">
 								<label>
 									<form:label path="roomClean">Room Clean:</form:label>
@@ -220,6 +224,123 @@
 						<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="saveRoom();">SweetAlert2</button>
 					</div>
 					</form:form>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+
+			<!-- /.modal-dialog -->
+		</div>
+
+<!--Modal for ViewRoom-->
+<div class="modal fade" id="viewRoomModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">x</span></button>
+						<h4 class="modal-title">View Room</h4>
+					</div>
+					<div class="modal-body">
+					<c:forEach items="${vacantRooms}" var="item">
+							<div class="form-group">
+								<label>
+								Room Name:
+								</label>
+							<input type="text" class="form-control" readonly name="id" value="${item.roomName}">
+							</div>
+							<div class="form-group">
+								<label>
+							Room Status:
+								</label>
+							<input type="text" class="form-control" readonly name="id" value="${item.roomStatus}">
+							</div>
+							<div class="form-group">
+								<label>	
+								Room Clean:
+								</label>
+								<input type="text" class="form-control" readonly name="id" value="${item.roomClean}">
+							</div>
+					</c:forEach>
+					</div>
+				
+					
+				</div>
+				<!-- /.modal-content -->
+			</div>
+
+			<!-- /.modal-dialog -->
+		</div>
+
+<!--Add User Modal-->
+<div class="modal fade" id="addRoomUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">x</span></button>
+						<h4 class="modal-title">Add User to Room</h4>
+					</div>
+					<div class="modal-body">
+						 <%-- <form:form action= "/room/${roomId}/adduser" method ="POST" modelAttribute = "user">
+							<div class="form-group">
+								<label>
+									<form:label path = "lastName">Last Name:</form:label>
+								</label>
+								<form:input class="form-control" path="lastName" />
+							</div>
+							<div class="form-group">
+								<label>
+								<form:label path = "firstName">First Name</form:label>
+								</label>
+								<form:input class="form-control" path="firstName" />
+							</div>
+							<div class="form-group">
+								<label>
+								<form:label path = "checkin">Check in date:</form:label>
+								</label>
+								<form:input class="form-control" path="checkin" type="date"/>
+							</div>
+							<div class="form-group">
+								<label>
+									<form:label path = "checkout">Check out date:</form:label>
+								</label>
+								<form:input class="form-control" path="checkout" type="date"/>
+							</div>
+							<div class="form-group">
+								<label>
+									<form:label path = "nationality">Nationality: </form:label>
+								</label>
+								<form:input class="form-control" path="nationality" />
+							</div>
+							<div class="form-group">
+								<label>
+									<form:label path = "age">Age:</form:label>
+								</label>
+								<form:input class="form-control" path="age" input="number"/>
+							</div>
+							<div class="form-group">
+								<label>
+									<form:label path = "occupation">Occupation:</form:label>
+								</label>
+								<form:input class="form-control" path="occupation" />
+							</div>
+							<div class="form-group">
+								<label>
+									<form:label path = "businessOrvacay">Is room clean:</form:label>
+								</label>
+								<form:input class="form-control" path="businessOrvacay" input="number"/>
+							</div> --%>
+
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary" >Save changes</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="saveRoom();">SweetAlert2</button>
+					</div>
+					<%-- </form:form> --%>
 				</div>
 				<!-- /.modal-content -->
 			</div>
