@@ -93,6 +93,7 @@ public class IndexController{
 
      //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+//asda
 
 
     @RequestMapping(value = "room")
@@ -122,6 +123,8 @@ public class IndexController{
 
 
         return new ModelAndView("room", "room", new Room());
+
+
     }
     
 

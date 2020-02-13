@@ -62,7 +62,9 @@
 							</div>
 							<!-- /.box-header -->
 							<div class="box-body no-padding">
+								<c:forEach items="${roomlist}" var="item">
 								<table class="table table-striped table-hover">
+
 									<tbody>
 										<tr>
 											<th>Room</th>
@@ -77,6 +79,9 @@
 										</c:forEach>
 									</tbody>
 								</table>
+
+
+
 							</div>
 							<!-- /.box-body -->
 						</div>
@@ -101,39 +106,26 @@
 							<!-- /.box-header -->
 							<div class="box-body no-padding">
 								<table class="table table-striped table-hover">
-									<tbody>
-										<tr>
-											<th>Room</th>
-											<th>Status</th>
-											<th>Condition</th>
-										</tr>
-										<tr>
-											<td>${item.roomName}</td>
-											<td>${item.roomStatus}</td>
-											<td>${item.roomClean}</td>
-										</tr>
-										<tr>
-											<td>${item.roomName}</td>
-											<td>${item.roomStatus}</td>
-											<td>${item.roomClean}</td>
-										</tr>
-										<tr>
-											<td>${item.roomName}</td>
-											<td>${item.roomStatus}</td>
-											<td>${item.roomClean}</td>
-										</tr>
-										<tr>
-											<td>${item.roomName}</td>
-											<td>${item.roomStatus}</td>
-											<td>${item.roomClean}</td>
-										</tr>
-									</tbody>
-								</table>
+
+
+
+									<tbody><tr>
+										<th>Room</th>
+										<th>Status</th>
+										<th>Condition</th>
+									</tr>
+									<tr>
+										<td>${item.roomName}</td>
+										<td>${item.roomClean}</td>
+									</tr>
+									</tbody></table>
+
 							</div>
 							<!-- /.box-body -->
 						</div>
 						<!-- /.box -->
 					</div>
+					<!--Occupied-->
 					<div class="col-md-4">
 						<div class="box">
 							<div class="box-header">
@@ -150,8 +142,11 @@
 								</div>
 							</div>
 							<!-- /.box-header -->
+
+							<!--Reserved-->
 							<div class="box-body no-padding">
 								<table class="table table-striped table-hover">
+
 									<tbody>
 										<tr>
 											<th>Room</th>
@@ -180,6 +175,9 @@
 										</tr>
 									</tbody>
 								</table>
+
+
+
 							</div>
 							<!-- /.box-body -->
 						</div>
