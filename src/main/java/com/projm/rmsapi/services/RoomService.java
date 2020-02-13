@@ -11,4 +11,9 @@ public interface RoomService{
     public abstract boolean deleteRoomById(Long id);
     //public abstract Room updateRoom(Room room);
     public abstract List<Room> getAllRooms();
+    public abstract List<Room> getAllVacantRooms();
+    public abstract List<Room> getAllOccupiedRooms();
+    public abstract List<Room> getAllReservedRooms();
+
+
 }

@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Controller
 public class IndexController{
 
@@ -27,11 +31,15 @@ public class IndexController{
     @RequestMapping(value = "testindex")
     public ModelAndView testJsp(ModelMap map){
 
+        List<Room> y = roomRepo.findAll();
+        if(y.isEmpty())
+            System.out.println("ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
+
         map.addAttribute("roomlist", roomRepo.findAll());
         return new ModelAndView("test/testindex", "room", new Room());
     }
 
-    @RequestMapping(value = "room/{id}")
+    @RequestMapping(value = "testroom/{id}")
     public ModelAndView roomtestJsp(@PathVariable("id") long id, ModelMap map){
 
         Room getRoom = roomRepo.findByRoomId(id);
@@ -40,7 +48,7 @@ public class IndexController{
         return new ModelAndView("test/index2");
     }
 
-    @RequestMapping(value = "room/{id}/adduserform")
+    @RequestMapping(value = "testroom/{id}/adduserform")
     public ModelAndView roomuseraddtestJsp(@PathVariable("id") long id, ModelMap map){
 
         Room getRoom = roomRepo.findByRoomId(id);
@@ -51,7 +59,7 @@ public class IndexController{
         return new ModelAndView("test/indexadduser");
     }
 
-    @RequestMapping(value = "room/{id}/showusers")
+    @RequestMapping(value = "testroom/{id}/showusers")
     public ModelAndView showusertestJsp(@PathVariable("id") long id, ModelMap map){
 
         Room getRoom = roomRepo.findByRoomId(id);
@@ -66,7 +74,29 @@ public class IndexController{
     @RequestMapping(value = "room")
     public ModelAndView Room(ModelMap map){
 
-        map.addAttribute("roomlist", roomRepo.findAll());
+        //map.addAttribute("roomlist", roomRepo.findAll());
+
+        Map<Integer, String> options = new HashMap<Integer, String>();
+        options.put(1, "Vacant");
+        options.put(2, "Occupied");
+        options.put(3, "Reserved");
+
+        List<Room> x = roomRepo.findAllByRoomStatus(1);
+        List<Room> y = roomRepo.findAll();
+        if(y.isEmpty())
+            System.out.println("ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
+
+        if(x.isEmpty())
+            System.out.println("fuck you reposirotyy go dieea;lkfsa;ldkfjlk");
+
+        map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
+        map.addAttribute("occupiedRooms", roomService.getAllOccupiedRooms());
+        map.addAttribute("vacantRooms", roomService.getAllReservedRooms());
+        map.addAttribute("options", options);
+
+
+
+
         return new ModelAndView("room", "room", new Room());
     }
     

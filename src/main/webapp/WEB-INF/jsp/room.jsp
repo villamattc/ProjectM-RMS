@@ -65,26 +65,12 @@
 										<th>Status</th>
 										<th>Condition</th>
 									</tr>
+									<c:forEach items="${vacantRooms}" var="item">
 									<tr>
 										<td>${item.roomName}</td>
-										<td>${item.roomStatus}</td>
 										<td>${item.roomClean}</td>
 									</tr>
-									<tr>
-										<td>${item.roomName}</td>
-										<td>${item.roomStatus}</td>
-										<td>${item.roomClean}</td>
-									</tr>
-									<tr>
-										<td>${item.roomName}</td>
-										<td>${item.roomStatus}</td>
-										<td>${item.roomClean}</td>
-									</tr>
-									<tr>
-										<td>${item.roomName}</td>
-										<td>${item.roomStatus}</td>
-										<td>${item.roomClean}</td>
-									</tr>
+									</c:forEach>
 									</tbody></table>
 							</div>
 							<!-- /.box-body -->
@@ -211,18 +197,21 @@
 						<form:form action= "/add" method ="POST" modelAttribute = "room">
 							<div class="form-group">
 								<label><form:label path = "roomName">Room Name:</form:label></label>
-								<form:input class="form-control" type="number" path="roomStatus" />
+								<form:input class="form-control" path="roomName" />
 							</div>
 							<div class="form-group">
 								<label><form:label path = "roomStatus">Room Status:</form:label></label>
-								<select class="form-control">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-								</select>
+								<form:select class="form-control" path="roomStatus" multiple="false">
+									<form:options items="${options}"></form:options>
+								</form:select>
+
 							</div>
+<%--							<div class="form-group">--%>
+<%--								<label><form:label path = "roomStatus">Room Status:</form:label></label>--%>
+<%--								<form:select class="form-control" path="roomStatus" multiple="false" size="3">--%>
+<%--									<form:options items="${options}"></form:options>--%>
+<%--								</form:select>--%>
+<%--							</div>--%>
 							<div class="form-group">
 								<label><form:label path = "roomClean">Room Clean:</form:label></label>
 								<form:input class="form-control" path="roomClean" value="true"/>

@@ -38,6 +38,34 @@ public class RoomServiceImpl implements RoomService{
         return roomRepo.findAll();
     }
 
+    public List<Room> getAllVacantRooms(){
+        return roomRepo.findAllByRoomStatus(1);
+
+    }
+
+    public List<Room> getAllOccupiedRooms(){
+        return roomRepo.findAllByRoomStatus(2);
+
+    }
+    public List<Room> getAllReservedRooms(){
+        return roomRepo.findAllByRoomStatus(3);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 
 
