@@ -124,10 +124,10 @@
 										<tr>
 											<td>${item.roomName}</td>
 											<td>${item.roomClean}</td>
-											<td><a class="btn btn-xs btn-default" data-toggle="modal" data-target="#addRoomUserModal">
+											<td><a class="btn btn-xs btn-default">
 														<i class="fa  fa-user-plus"></i>
 													</a></td>
-													<td><a class="btn btn-xs btn-default" data-toggle="modal" data-target="#viewRoomForOccupiedModal">
+													<td><a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}">
 														<i class="fa fa-eye"></i>
 													</a></td>
 										</tr>
@@ -175,8 +175,8 @@
 												<td><a class="btn btn-xs btn-default" >
 														<i class="fa  fa-user-plus"></i>
 													</a></td>
-													<td><a class="btn btn-xs btn-default">
-														<i class="fa fa-eye"></i>
+													<td><a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}">
+														<i class="fa fa-eye" ></i>
 													</a></td>
 												
 											</tr>
