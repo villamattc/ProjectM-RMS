@@ -31,11 +31,6 @@ public class IndexController{
     @RequestMapping(value = "testindex")
     public ModelAndView testJsp(ModelMap map){
 
-        List<Room> y = roomRepo.findAll();
-        if(y.isEmpty())
-            System.out.println("ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
-
-
         map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
         map.addAttribute("roomlist", roomRepo.findAll());
         return new ModelAndView("test/testindex", "room", new Room());
@@ -85,6 +80,11 @@ public class IndexController{
         map.addAttribute("options", options);
 
         return new ModelAndView("test/danstestroom");
+    }
+
+    @RequestMapping(value = "testlogin")
+    public ModelAndView testlogin(){
+        return new ModelAndView("testlogin");
     }
 
      //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

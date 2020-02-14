@@ -20,36 +20,115 @@ public class Equipment {
 
     private String equipName;
 
-    private String equipStatus;
+    // Good, Needs Repair, Needs Maintenance, Needs to be replaced
+    private int equipStatus;
 
     private Date dateOfPurchase;
 
     private Date dateOfLastMaintenance;
 
-    // refers to the life span according to the manufacturer
-    private int functionalLife; 
+    // refers to the life span according to the manufacturer in years
+    private int functionalLife;
 
-    //  the 3 attributes below is a score system that determines whether the equipments 
-    //  needs to have maintenance/repairs or be replace.. the criteria weight is determined by the engineer
+    // the 3 attributes below is a score system that determines whether the
+    // equipments
+    // needs to have maintenance/repairs or be replace.. the criteria weight is
+    // determined by the engineer
 
     // score 1-100 based on presence and condition of the parts of the equipment
     private int completenessOfParts;
 
-    // score 1-100 based on the outer physical appearance 
+    // score 1-100 based on the outer physical appearance
     private int appearance;
 
-    // score 1-100 based on the how 
+    // score 1-100 based on the how
     private int functionality;
-
-    
-
 
     @ManyToOne
     @JoinColumn(name = "room_id", nullable = false)
     private Room room;
 
-    public void setRoom(Room room){
+    public Equipment(){
+
+    }
+    public Equipment(String equipName, int equipStatus, Date dateOfPurchase, 
+    Date dateOfLastMaintenance, int functionalLife){
+        this.equipName=equipName;
+        this.equipStatus=equipStatus;
+        this.dateOfPurchase=dateOfPurchase;
+        this.dateOfLastMaintenance=dateOfLastMaintenance;
+        this.functionalLife=functionalLife;
+        
+    }
+
+
+
+    public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public int getFunctionality() {
+        return functionality;
+    }
+
+    public void setFunctionality(int functionality) {
+        this.functionality = functionality;
+    }
+
+    public int getAppearance() {
+        return appearance;
+    }
+
+    public void setAppearance(int appearance) {
+        this.appearance = appearance;
+    }
+
+    public int getCompletenessOfParts() {
+        return completenessOfParts;
+    }
+
+    public void setCompletenessOfParts(int completenessOfParts) {
+        this.completenessOfParts = completenessOfParts;
+    }
+
+    public int getFunctionalLife() {
+        return functionalLife;
+    }
+
+    public void setFunctionalLife(int functionalLife) {
+        this.functionalLife = functionalLife;
+    }
+
+    public Date getDateOfLastMaintenance() {
+        return dateOfLastMaintenance;
+    }
+
+    public void setDateOfLastMaintenance(Date dateOfLastMaintenance) {
+        this.dateOfLastMaintenance = dateOfLastMaintenance;
+    }
+
+    public Date getDateOfPurchase() {
+        return dateOfPurchase;
+    }
+
+    public void setDateOfPurchase(Date dateOfPurchase) {
+        this.dateOfPurchase = dateOfPurchase;
+    }
+
+    public int getEquipStatus() {
+        return equipStatus;
+    }
+
+    public void setEquipStatus(int equipStatus) {
+        this.equipStatus = equipStatus;
+    }
+
+    public String getEquipName() {
+        return equipName;
+    }
+
+    public void setEquipName(String equipName) {
+        this.equipName = equipName;
     }
     
     

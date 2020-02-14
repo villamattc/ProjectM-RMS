@@ -1,5 +1,7 @@
 package com.projm.rmsapi.entities;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,4 +45,20 @@ public class Admin {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+    if (this == o)
+        return true;
+    if (o == null)
+        return false;
+
+    if (getClass() != o.getClass())
+        return false;
+
+    Admin admin = (Admin) o;
+
+    return Objects.equals(username, admin.username)
+            && Objects.equals(password, admin.password)
+            && Objects.equals(name, admin.name);
+}
 }
