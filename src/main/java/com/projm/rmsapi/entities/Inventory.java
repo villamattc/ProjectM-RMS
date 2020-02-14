@@ -1,6 +1,5 @@
 package com.projm.rmsapi.entities;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,46 +14,46 @@ public class Inventory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long invent_id;
+    private Long inventId;
 
-    private String invent_name;
+    private String inventName;
 
-    private int invent_currentQuantity;
+    private int inventCurrentQuantity;
 
-    private int invent_maxQuantity;
+    private int inventMaxQuantity;
 
     @ManyToOne
     @JoinColumn(name = "room_id", nullable = false)
     private Room room;
 
-
-    public int getInvent_maxQuantity() {
-        return invent_maxQuantity;
+    public String getInventName() {
+        return inventName;
     }
 
-    public String getInvent_name() {
-        return invent_name;
+    public int getInventMaxQuantity() {
+        return inventMaxQuantity;
     }
 
-    public void setInvent_name(String invent_name) {
-        this.invent_name = invent_name;
+    public void setInventMaxQuantity(int inventMaxQuantity) {
+        this.inventMaxQuantity = inventMaxQuantity;
     }
 
-    public int getInvent_currentQuantity() {
-        return invent_currentQuantity;
+    public int getInventCurrentQuantity() {
+        return inventCurrentQuantity;
     }
 
-    public void setInvent_currentQuantity(int invent_currentQuantity) {
-        this.invent_currentQuantity = invent_currentQuantity;
+    public void setInventCurrentQuantity(int inventCurrentQuantity) {
+        this.inventCurrentQuantity = inventCurrentQuantity;
     }
 
-    public void setInvent_maxQuantity(int invent_maxQuantity) {
-        this.invent_maxQuantity = invent_maxQuantity;
+    public void setInventName(String inventName) {
+        this.inventName = inventName;
     }
-
 
     public void setRoom(Room room){
         this.room = room;
     }
+
+  
 
 }

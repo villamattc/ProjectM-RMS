@@ -21,6 +21,8 @@ public class Room {
 
     private int roomStatus;
 
+    private int roomType;
+
     private boolean roomClean = false;
 
     @OneToMany(mappedBy = "room")
@@ -34,6 +36,15 @@ public class Room {
 
     public Room() {
     }
+
+    public int getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(int roomType) {
+        this.roomType = roomType;
+    }
+
     public Room(String name, int status, boolean clean) {
         this.setRoomName(name);
         this.setRoomStatus(status);
@@ -47,6 +58,7 @@ public class Room {
     public Long getRoomId(){
         return this.roomId;
     }
+
     public void setRoomId(Long id){
         this.roomId=id;
     }
