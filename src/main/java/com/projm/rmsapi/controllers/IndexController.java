@@ -1,5 +1,7 @@
 package com.projm.rmsapi.controllers;
 
+import com.projm.rmsapi.entities.Admin;
+import com.projm.rmsapi.entities.Equipment;
 import com.projm.rmsapi.entities.Room;
 import com.projm.rmsapi.entities.User;
 import com.projm.rmsapi.repositories.RoomRepository;
@@ -29,7 +31,9 @@ public class IndexController{
 
     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@TESTING VIEW@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     @RequestMapping(value = "testindex")
-    public ModelAndView testJsp(ModelMap map){
+    public ModelAndView testJsp(ModelMap map, Admin admin){
+
+
 
         map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
         map.addAttribute("roomlist", roomRepo.findAll());
@@ -87,6 +91,17 @@ public class IndexController{
         return new ModelAndView("testlogin");
     }
 
+    @RequestMapping(value = "testroom/{id}/addequipform")
+    public ModelAndView roomequipaddtestJsp(@PathVariable("id") long id, ModelMap map){
+
+        Room getRoom = roomRepo.findByRoomId(id);
+
+        map.addAttribute("roomId", id);
+        map.addAttribute("room", getRoom);
+        map.addAttribute("equip", new Equipment());
+        return new ModelAndView("test/indexadduser");
+    }
+
      //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 //asda
@@ -112,21 +127,35 @@ public class IndexController{
 
     }
 
+    
     @RequestMapping(value = "viewroom/{id}")
-    public ModelAndView roomView(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView viewRoomDetails(@PathVariable("id") long id, ModelMap map){
 
         Room getRoom = roomRepo.findByRoomId(id);
 
-        map.addAttribute("viewroom", getRoom);
-        return new ModelAndView("viewroom/{id}");
+        
+        map.addAttribute("room", getRoom);
+        return new ModelAndView("viewroom");
     }
+
     
 
-//login
-@RequestMapping(value = "login")
+    //login
+    @RequestMapping(value = "login")
     public ModelAndView Login(ModelMap map){
 
         return new ModelAndView("login");
+    }
+    //add user form
+    @RequestMapping(value = "room/{id}/adduserform")
+    public ModelAndView AddUser(@PathVariable("id") long id, ModelMap map){
+
+        Room getRoom = roomRepo.findByRoomId(id);
+
+        map.addAttribute("roomId", id);
+        map.addAttribute("room", getRoom);
+        map.addAttribute("user", new User());
+        return new ModelAndView("test/indexadduser");
     }
 
 }
