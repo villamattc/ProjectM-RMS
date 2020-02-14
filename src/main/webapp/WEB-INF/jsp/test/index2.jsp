@@ -22,7 +22,7 @@
         ${room.roomName}<br>
         ${room.roomStatus}<br>
         ${room.roomClean}<br>
-        <a href="/room/${room.roomId}/adduserform">ADD USER</a>
+        <a href="/testroom/${room.roomId}/adduserform">ADD USER</a>
 
 
 </body>
