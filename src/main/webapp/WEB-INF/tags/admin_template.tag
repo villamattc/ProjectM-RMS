@@ -168,9 +168,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div>
-  
   <jsp:invoke fragment="content"></jsp:invoke>
-   
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -414,6 +412,9 @@
 <script src="${pageContext.request.contextPath}/assets/admin/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="${pageContext.request.contextPath}/assets/admin/dist/js/demo.js"></script>
+<!-- DataTables -->
+<script src="${pageContext.request.contextPath}/assets/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="sweetalert2.all.min.js"></script>
