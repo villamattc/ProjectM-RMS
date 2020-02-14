@@ -72,11 +72,7 @@ public class IndexController{
 
     @RequestMapping(value = "testroom")
     public ModelAndView testroom(ModelMap map){
-
-        List<Room> y = roomRepo.findAll();
-        if(y.isEmpty())
-            System.out.println("ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
-
+        
         Map<Integer, String> options = new HashMap<Integer, String>();
         options.put(1, "Vacant");
         options.put(2, "Occupied");
@@ -106,21 +102,10 @@ public class IndexController{
         options.put(2, "Occupied");
         options.put(3, "Reserved");
 
-        List<Room> x = roomRepo.findAllByRoomStatus(1);
-        List<Room> y = roomRepo.findAll();
-        if(y.isEmpty())
-            System.out.println("ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
-
-        if(x.isEmpty())
-            System.out.println("fuck you reposirotyy go dieea;lkfsa;ldkfjlk");
-
         map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
         map.addAttribute("occupiedRooms", roomService.getAllOccupiedRooms());
         map.addAttribute("reservedRooms", roomService.getAllReservedRooms()); //<c:forEach items="${vacantRooms}" var="item">
         map.addAttribute("options", options);
-
-
-
 
         return new ModelAndView("room", "room", new Room());
 

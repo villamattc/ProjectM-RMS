@@ -16,52 +16,37 @@ public class Equipment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long equip_id;
+    private Long equipId;
 
-    private String equip_name;
+    private String equipName;
 
-    private String equip_status;
+    private String equipStatus;
 
-    private Date dateof_purchase;
+    private Date dateOfPurchase;
 
-    private Date dateof_lastMaintenance;
+    private Date dateOfLastMaintenance;
+
+    // refers to the life span according to the manufacturer
+    private int functionalLife; 
+
+    //  the 3 attributes below is a score system that determines whether the equipments 
+    //  needs to have maintenance/repairs or be replace.. the criteria weight is determined by the engineer
+
+    // score 1-100 based on presence and condition of the parts of the equipment
+    private int completenessOfParts;
+
+    // score 1-100 based on the outer physical appearance 
+    private int appearance;
+
+    // score 1-100 based on the how 
+    private int functionality;
+
+    
 
 
     @ManyToOne
     @JoinColumn(name = "room_id", nullable = false)
     private Room room;
-
-    public String getEquip_name() {
-        return equip_name;
-    }
-
-    public Date getDateof_lastMaintenance() {
-        return dateof_lastMaintenance;
-    }
-
-    public void setDateof_lastMaintenance(Date dateof_lastMaintenance) {
-        this.dateof_lastMaintenance = dateof_lastMaintenance;
-    }
-
-    public Date getDateof_purchase() {
-        return dateof_purchase;
-    }
-
-    public void setDateof_purchase(Date dateof_purchase) {
-        this.dateof_purchase = dateof_purchase;
-    }
-
-    public String getEquip_status() {
-        return equip_status;
-    }
-
-    public void setEquip_status(String equip_status) {
-        this.equip_status = equip_status;
-    }
-
-    public void setEquip_name(String equip_name) {
-        this.equip_name = equip_name;
-    }
 
     public void setRoom(Room room){
         this.room = room;
