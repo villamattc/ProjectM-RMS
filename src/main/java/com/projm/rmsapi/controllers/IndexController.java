@@ -2,6 +2,7 @@ package com.projm.rmsapi.controllers;
 
 import com.projm.rmsapi.entities.Admin;
 import com.projm.rmsapi.entities.Equipment;
+import com.projm.rmsapi.entities.Inventory;
 import com.projm.rmsapi.entities.Room;
 import com.projm.rmsapi.entities.User;
 import com.projm.rmsapi.repositories.RoomRepository;
@@ -61,13 +62,28 @@ public class IndexController{
     }
 
     @RequestMapping(value = "testroom/{id}/showusers")
-    public ModelAndView showusertestJsp(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView showuserstestJsp(@PathVariable("id") long id, ModelMap map){
 
         Room getRoom = roomRepo.findByRoomId(id);
-        map.addAttribute("userlog", getRoom.getUsers());
+        map.addAttribute("user", getRoom.getUsers());
         return new ModelAndView("test/indexshowusers");
     }
 
+    @RequestMapping(value = "testroom/{id}/showequips")
+    public ModelAndView showequipstestJsp(@PathVariable("id") long id, ModelMap map){
+
+        Room getRoom = roomRepo.findByRoomId(id);
+        map.addAttribute("equip", getRoom.getEquips());
+        return new ModelAndView("test/indexshowequips");
+    }
+
+    @RequestMapping(value = "testroom/{id}/showinvent")
+    public ModelAndView showinventtestJsp(@PathVariable("id") long id, ModelMap map){
+
+        Room getRoom = roomRepo.findByRoomId(id);
+        map.addAttribute("invent", getRoom.getInvents());
+        return new ModelAndView("test/indexshowinvent");
+    }
 
     @RequestMapping(value = "testroom")
     public ModelAndView testroom(ModelMap map){
@@ -99,7 +115,20 @@ public class IndexController{
         map.addAttribute("roomId", id);
         map.addAttribute("room", getRoom);
         map.addAttribute("equip", new Equipment());
-        return new ModelAndView("test/indexadduser");
+        return new ModelAndView("test/indexaddequip");
+    }
+
+    // /testroom/${room.roomId}/addinventoryform
+    
+    @RequestMapping(value = "testroom/{id}/addinventoryform")
+    public ModelAndView roominventoryaddtestJsp(@PathVariable("id") long id, ModelMap map){
+
+        Room getRoom = roomRepo.findByRoomId(id);
+
+        map.addAttribute("roomId", id);
+        map.addAttribute("room", getRoom);
+        map.addAttribute("inventory", new Inventory());
+        return new ModelAndView("test/indexaddinventory");
     }
 
      //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

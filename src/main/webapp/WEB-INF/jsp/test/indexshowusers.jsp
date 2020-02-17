@@ -22,7 +22,7 @@
         <button type="submit">uwu</button>
     </form> -->
     <table border="1px">
-        <c:forEach items="${userlog}" var="item">
+        <c:forEach items="${user}" var="item">
             <tr>
                 <td>
                     ${item.lastName}

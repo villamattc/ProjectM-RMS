@@ -49,10 +49,16 @@
                     ${item.roomId}
                 </td>
                 <td>
-                    <a href= "/testroom/${item.roomId}"> ${item.roomName}</a>
+                    <a href= "/testroom/${item.roomId}"> Room info</a>
                 </td>
                 <td>
-                    <a href= "/testroom/${item.roomId}/showusers"> USERRRRSSZZZXXXX</a>
+                    <a href= "/testroom/${item.roomId}/showusers"> show user</a>
+                </td>
+                <td>
+                    <a href= "/testroom/${item.roomId}/showequips"> show equip</a>
+                </td>
+                <td>
+                    <a href= "/testroom/${item.roomId}/showinvent"> show invent</a>
                 </td>
 
             </tr>

@@ -31,7 +31,7 @@
         <form:label path = "nationality">Nationality: </form:label><form:input path="nationality" /><br>
         <form:label path = "age">Age:</form:label><form:input path="age" input="number"/><br>
         <form:label path = "occupation">Occupation:</form:label><form:input path="occupation" /><br>
-        <form:label path = "businessOrvacay">Is room clean:</form:label><form:input path="businessOrvacay" input="number"/><br>
+        <form:label path = "businessOrvacay">business or vacation:</form:label><form:input path="businessOrvacay" input="number"/><br>
         <input type="submit" value="Submit"/>
 
     </form:form>
