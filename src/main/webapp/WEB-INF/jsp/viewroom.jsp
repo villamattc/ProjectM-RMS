@@ -49,7 +49,7 @@
                   <input type="text" class="form-control" value="${room.roomClean}" readonly>
                 </div>
                 <div class="box-footer with-border">
-                <a class="btn btn-primary" href="/viewroom/${room.roomId}/adduserform">Add User</a>
+                <a class="btn btn-primary" href="/viewroom/${id}/adduserform">Add User</a>
                 <a type="button" class="btn btn-primary" href="#">Add Equipment</a>
                 <a type="button" class="btn btn-primary" href="#">Add Inventory</a>
                 </div>

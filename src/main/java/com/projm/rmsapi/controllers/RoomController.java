@@ -12,6 +12,7 @@ import com.projm.rmsapi.entities.Room;
 import com.projm.rmsapi.entities.User;
 import com.projm.rmsapi.repositories.AdminRepository;
 import com.projm.rmsapi.repositories.EquipmentRepository;
+import com.projm.rmsapi.repositories.InventoryRepository;
 import com.projm.rmsapi.repositories.RoomRepository;
 import com.projm.rmsapi.repositories.UserRepository;
 import com.projm.rmsapi.services.RoomService;
@@ -47,6 +48,9 @@ public class RoomController {
 
     @Autowired
     AdminRepository adminRepo;
+
+    @Autowired
+    InventoryRepository inventRepo;
     
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public void newRoom(@Valid @ModelAttribute("room") Room room, BindingResult result, HttpServletResponse response) {
@@ -100,8 +104,32 @@ public class RoomController {
 
     }
 
-    @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
+    @RequestMapping(value = "/room/{id}/addinventory", method = RequestMethod.POST)
     public ResponseEntity<Object> addEquiptoRoom(@PathVariable("id") long id,
+    @Valid @ModelAttribute("inventory")Inventory inventory,
+    BindingResult result) {
+    if (result.hasErrors()) {
+        return new ResponseEntity<>("FAILED TO ADD INVENTORY", HttpStatus.FORBIDDEN);
+    }
+
+    try{
+
+        Room getRoom = roomRepo.findByRoomId(id);
+        getRoom.addInventory(inventory);
+        inventRepo.save(inventory);
+        roomRepo.save(getRoom);
+        
+    }catch(Exception e){
+
+        e.printStackTrace();
+        return new ResponseEntity<>("FAILED TO ADD INVENTORY", HttpStatus.FORBIDDEN);
+    }
+
+        return new ResponseEntity<>("SUCCESSFULLY ADDED INVENTORY", HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
+    public ResponseEntity<Object> addInventorytoRoom(@PathVariable("id") long id,
     @Valid @ModelAttribute("equip")Equipment equip,
     BindingResult result) {
     if (result.hasErrors()) {
@@ -124,7 +152,8 @@ public class RoomController {
         return new ResponseEntity<>("SUCCESSFULLY ADDED EQUIPMENT", HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    // not done... still need sessions
+    @RequestMapping(value = "/testlogin", method = RequestMethod.POST)
     public ModelAndView adminLogin(@RequestParam String username, @RequestParam String password) {
 
         Admin userAdmin = new Admin(username,password);
@@ -145,23 +174,4 @@ public class RoomController {
         return new ModelAndView("testlogin"); 
     }
 
-    // @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
-    // public ResponseEntity<Object> addInventtoRoom(@PathVariable("id") long id,
-    // @Valid @ModelAttribute("invent")Inventory invent,
-    // BindingResult result) {
-    // if (result.hasErrors()) {
-    // return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
-    // }
-
-    // Room getRoom = roomRepo.findByRoomId(id);
-    // getRoom.addInvent(invent);
-
-    // boolean truth = roomService.saveRoom(getRoom);
-
-    // if (truth)
-    // return new ResponseEntity<>("SUCCESSFULLY ADDED USER", HttpStatus.FORBIDDEN);
-    // else
-    // return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
-
-    // }
     }
