@@ -23,9 +23,8 @@
 						<small>Date today</small>
 					</h1>
 					<ol class="breadcrumb">
-						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-						<li><a href="#">Tables</a></li>
-						<li class="active">Simple</li>
+						<li><a href="/room"><i class="fa fa-dashboard"></i> Home</a></li>
+						
 					</ol>
 				</section>
 
@@ -62,24 +61,29 @@
 								</div>
 								<!-- /.box-header -->
 								<div class="box-body no-padding">
-									<table class="table table-striped table-hover">
+									<table class="table table-striped">
 										<tbody>
 											<tr>
 												<th>Room</th>
 												<th>Condition</th>
-												<th width="10px"></th>
-												<th width="10px"></th>
+												<th width="140px"></th>
+												
+										
 											</tr>
+											<tr>
 											<c:forEach items="${vacantRooms}" var="item">
-												<tr>
 													<td>${item.roomName}</td>
-													<td>${item.roomClean}</td>
-													<td><a class="btn btn-xs btn-default">
-														<i class="fa  fa-user-plus"></i>
-													</a></td>
+													<td>${item.roomClean}</td>											
 													<td><a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}">
-														<i class="fa fa-eye"></i>
-													</a></td>
+														<i class="fa fa-eye"></i></a>
+													<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewusers">
+													<i class="fa  fa-users"></i></a>
+												<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewequip">
+													<i class="fa  fa-briefcase"></i></a>
+														<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewinvent">
+														<i class="fa  fa-cubes"></i></a>
+													</td>
+											
 													
 												</tr>
 											</c:forEach>
@@ -117,19 +121,23 @@
 										<tbody><tr>
 											<th>Room</th>
 											<th>Condition</th>
-											<th width="10px"></th>
-												<th width="10px"></th>
+											<th width="140px"></th>
+											
 										</tr>
 										<c:forEach items="${occupiedRooms}" var="item">
 										<tr>
 											<td>${item.roomName}</td>
 											<td>${item.roomClean}</td>
-											<td><a class="btn btn-xs btn-default">
-														<i class="fa  fa-user-plus"></i>
-													</a></td>
-													<td><a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}">
-														<i class="fa fa-eye"></i>
-													</a></td>
+											<td><a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}">
+														<i class="fa fa-eye"></i></a>
+													<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewusers">
+													<i class="fa  fa-users"></i></a>
+												<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewequip">
+													<i class="fa  fa-briefcase"></i></a>
+														<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewinvent">
+														<i class="fa  fa-cubes"></i></a>
+													</td>
+													
 										</tr>
 										</c:forEach>
 										</tbody></table>
@@ -165,20 +173,23 @@
 											<tr>
 												<th>Room</th>
 												<th>Condition</th>
-												<th width="10px"></th>
-												<th width="10px"></th>
+												<th width="140px"></th>
+					
 											</tr>
 											<tr>
 											<c:forEach items="${reservedRooms}" var="item">
 												<td>${item.roomName}</td>
 												<td>${item.roomClean}</td>
-												<td><a class="btn btn-xs btn-default" >
-														<i class="fa  fa-user-plus"></i>
-													</a></td>
-													<td><a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}">
-														<i class="fa fa-eye" ></i>
-													</a></td>
-												
+												<td><a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}">
+														<i class="fa fa-eye"></i></a>
+													<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewusers">
+													<i class="fa  fa-users"></i></a>
+												<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewequip">
+													<i class="fa  fa-briefcase"></i></a>
+														<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewinvent">
+														<i class="fa  fa-cubes"></i></a>
+													</td>
+											
 											</tr>
 											</c:forEach>
 										</tbody>

@@ -13,7 +13,7 @@
         <small>advanced tables</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="http://localhost:8010/room"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/room"><i class="fa fa-dashboard"></i> Home</a></li>
         
       </ol>
     </section>

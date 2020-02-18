@@ -186,15 +186,48 @@ public class IndexController{
         map.addAttribute("user", new User());
         return new ModelAndView("adduserform");
     }
-    @RequestMapping(value = "equipment")
-    public ModelAndView Equipment(ModelMap map){
+    @RequestMapping(value = "viewroom/{id}/addequipform")
+    public ModelAndView AddEquipForm(@PathVariable("id") long id, ModelMap map){
 
-        return new ModelAndView("equipment");
+        Room getRoom = roomRepo.findByRoomId(id);
+
+        map.addAttribute("roomId", id);
+        map.addAttribute("room", getRoom);
+        map.addAttribute("equip", new Equipment());
+        return new ModelAndView("addequipform");
     }
-    @RequestMapping(value = "inventory")
-    public ModelAndView Inventory(ModelMap map){
+    @RequestMapping(value = "viewroom/{id}/addinventoryform")
+    public ModelAndView AddInventoryForm(@PathVariable("id") long id, ModelMap map){
 
-        return new ModelAndView("inventory");
+        Room getRoom = roomRepo.findByRoomId(id);
+
+        map.addAttribute("roomId", id);
+        map.addAttribute("room", getRoom);
+        map.addAttribute("inventory", new Inventory());
+        return new ModelAndView("addinventoryform");
     }
 
+    @RequestMapping(value = "viewroom/{id}/viewusers")
+    public ModelAndView ViewUsers(@PathVariable("id") long id, ModelMap map){
+
+        Room getRoom = roomRepo.findByRoomId(id);
+        map.addAttribute("user", getRoom.getUsers());
+        return new ModelAndView("viewusers");
+    }
+
+    @RequestMapping(value = "viewroom/{id}/viewequip")
+    public ModelAndView ViewEquipment(@PathVariable("id") long id, ModelMap map){
+
+        Room getRoom = roomRepo.findByRoomId(id);
+        map.addAttribute("equip", getRoom.getEquips());
+        return new ModelAndView("viewequip");
+    }
+
+    @RequestMapping(value = "viewroom/{id}/viewinvent")
+    public ModelAndView ViewInventory(@PathVariable("id") long id, ModelMap map){
+
+        Room getRoom = roomRepo.findByRoomId(id);
+        map.addAttribute("invent", getRoom.getInvents());
+        return new ModelAndView("viewinvent");
+    }
 }
