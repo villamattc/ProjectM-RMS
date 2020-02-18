@@ -157,5 +157,15 @@ public class IndexController{
         map.addAttribute("user", new User());
         return new ModelAndView("adduserform");
     }
+    @RequestMapping(value = "equipment")
+    public ModelAndView Equipment(ModelMap map){
+
+        return new ModelAndView("equipment");
+    }
+    @RequestMapping(value = "inventory")
+    public ModelAndView Inventory(ModelMap map){
+
+        return new ModelAndView("inventory");
+    }
 
 }

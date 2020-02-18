@@ -1,5 +1,8 @@
 package com.projm.rmsapi.controllers;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import com.projm.rmsapi.entities.Admin;
@@ -46,17 +49,23 @@ public class RoomController {
     AdminRepository adminRepo;
     
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ResponseEntity<Object> newRoom(@Valid @ModelAttribute("room") Room room, BindingResult result) {
-        if (result.hasErrors()) {
-            return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
-        }
+    public void newRoom(@Valid @ModelAttribute("room") Room room, BindingResult result, HttpServletResponse response) {
+        // if (result.hasErrors()) {
+        //     return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
+        // }
 
-        boolean truth = roomService.saveRoom(room);
+        roomService.saveRoom(room);
 
-        if (truth)
-            return new ResponseEntity<>("ROOM CREATION SUCCESS", HttpStatus.CREATED);
-        else
-            return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
+        // if (truth)
+        //     return new ResponseEntity<>("ROOM CREATION SUCCESS", HttpStatus.CREATED);
+        // else
+        //     return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
+        try {
+			response.sendRedirect("/room");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     @RequestMapping(value = "/room/{id}/adduser", method = RequestMethod.POST)
