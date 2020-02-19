@@ -128,29 +128,6 @@ public class RoomController {
         return new ResponseEntity<>("SUCCESSFULLY ADDED INVENTORY", HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
-    public ResponseEntity<Object> addInventorytoRoom(@PathVariable("id") long id,
-    @Valid @ModelAttribute("equip")Equipment equip,
-    BindingResult result) {
-    if (result.hasErrors()) {
-        return new ResponseEntity<>("FAILED TO ADD EQUIPMENT", HttpStatus.FORBIDDEN);
-    }
-
-    try{
-
-        Room getRoom = roomRepo.findByRoomId(id);
-        getRoom.addEquipment(equip);
-        equipmentRepo.save(equip);
-        roomRepo.save(getRoom);
-        
-    }catch(Exception e){
-
-        e.printStackTrace();
-        return new ResponseEntity<>("FAILED TO ADD EQUIPMENT", HttpStatus.FORBIDDEN);
-    }
-
-        return new ResponseEntity<>("SUCCESSFULLY ADDED EQUIPMENT", HttpStatus.CREATED);
-    }
 
     // not done... still need sessions
     @RequestMapping(value = "/testlogin", method = RequestMethod.POST)

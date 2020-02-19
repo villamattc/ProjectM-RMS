@@ -46,6 +46,16 @@
                    <form:label path = "firstName">First Name</form:label>
                  <form:input class="form-control" path="firstName" />
                 </div>
+                <div class="row">
+                <div class="col-md-6 form-group">
+                <label>Adult/s:</label>
+                 <input class="form-control" type="number"/>
+                </div>
+                <div class="col-md-6 form-group">
+                <label>Child/Children:</label>
+                <input class="form-control" type="number"/>
+                </div>
+                </div>
                  <div class="form-group">
                   <form:label path = "checkin">Check in date:</form:label>
                   <form:input class="form-control" path="checkin" type="date"/>

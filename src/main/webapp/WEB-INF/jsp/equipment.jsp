@@ -12,6 +12,220 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <mt:admin_template title="Equipment">
 	<jsp:attribute name="content">
-		<p>equipment</p>
+			<div class="content-wrapper" style="min-height: 925.8px;">
+				<!-- Content Header (Page header) -->
+				<section class="content-header">
+					<h1>
+						Equipment
+						<small>Date today</small>
+					</h1>
+					<ol class="breadcrumb">
+						<li><a href="/room"><i class="fa fa-dashboard"></i> Home</a></li>
+						
+					</ol>
+				</section>
+
+				<!-- Main content -->
+				<section class="content">
+					<br>
+					<div class="row">
+						<div class="col-md-10">
+
+						</div>
+						<div class="col-md-2">
+							<!-- Button trigger modal -->
+
+						</div>
+					</div>
+					<br>
+					<div class="row">
+
+					<!--Option 1-->
+						<div class="col-md-3">
+							<div class="box box-success">
+								<div class="box-header bg-green">
+									<h3 class="box-title">Good Condition:</h3>
+
+									<div class="box-tools">
+										<ul class="pagination pagination-sm no-margin pull-right">
+											<li><a href="#">«</a></li>
+											<li><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">»</a></li>
+										</ul>
+									</div>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body no-padding">
+									<table class="table table-striped">
+										<tbody>
+											<tr>
+												<th>Name</th>
+												<th>Room No.</th>
+												
+												
+										
+											</tr>
+										<c:forEach items="${goodcondition}" var="item" varStatus = "status">
+											<tr>											
+													<td>${item.equipName}</td>
+													<td>${goodconditionRoomName[status.index]}</td>											
+												<td>${item.dateOfLastMaintenance}</td>		
+											
+													
+												</tr>
+						</c:forEach>
+										</tbody>
+									</table>
+
+
+
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+						</div>
+						<!-- /.col -->
+						<!--Option 2-->
+						<div class="col-md-3">
+							<div class="box box-danger">
+								<div class="box-header bg-red">
+									<h3 class="box-title">Need Maintainance:</h3>
+
+									<div class="box-tools">
+										<ul class="pagination pagination-sm no-margin pull-right">
+											<li><a href="#">«</a></li>
+											<li><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">»</a></li>
+										</ul>
+									</div>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body no-padding">
+									<table class="table table-striped table-hover">
+
+
+										<tbody><tr>
+											<th>Name</th>
+											<th>Room No.</th>
+											
+											
+										</tr>
+										<c:forEach items="${needsmaint}" var="item" varStatus = "status">
+										<tr>
+											<td>${item.equipName}</td>
+													<td>${needsmaintRoomName[status.index]}</td>											
+												<td>${item.dateOfLastMaintenance}</td>				
+													
+										</tr>
+										</c:forEach>
+									
+										</tbody></table>
+
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+						</div>
+						<!--Option 3-->
+						<div class="col-md-3">
+							<div class="box box-danger">
+								<div class="box-header bg-red">
+									<h3 class="box-title">Need Repair:</h3>
+
+									<div class="box-tools">
+										<ul class="pagination pagination-sm no-margin pull-right">
+											<li><a href="#">«</a></li>
+											<li><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">»</a></li>
+										</ul>
+									</div>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body no-padding">
+									<table class="table table-striped table-hover">
+
+
+										<tbody><tr>
+											<th>Name</th>
+											<th>Room No.</th>
+											
+										</tr>
+										<c:forEach items="${needsrepair}" var="item" varStatus = "status">
+										<tr>
+												<td>${item.equipName}</td>
+													<td>${needsrepairRoomName[status.index]}</td>											
+												<td>${item.dateOfLastMaintenance}</td>		
+													
+										</tr>
+										</c:forEach>
+									
+										</tbody></table>
+
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+						</div>
+						<!--Option 4-->
+						<div class="col-md-3">
+							<div class="box box-warning">
+								<div class="box-header bg-yellow">
+									<h3 class="box-title">Need Replace:</h3>
+
+									<div class="box-tools">
+										<ul class="pagination pagination-sm no-margin pull-right">
+											<li><a href="#">«</a></li>
+											<li><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">»</a></li>
+										</ul>
+									</div>
+								</div>
+								<!-- /.box-header -->
+									<div class="box-body no-padding">
+									<table class="table table-striped table-hover">
+										<tbody>
+											<tr>
+											<th>Name</th>
+											<th>Room No.</th>
+																
+											</tr>
+
+											<c:forEach items="${needreplace}" var="item" varStatus = "status">
+											<tr>										
+												<td>${item.equipName}</td>
+													<td>${needreplaceRoomName[status.index]}</td>											
+												<td>${item.dateOfLastMaintenance}</td>												
+											</tr>	
+											</c:forEach>								
+										</tbody>
+									</table>
+								</div>
+						
+
+								</div>
+								<!-- /.box-header -->
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+						</div>
+					</div>
+				</section>
+				<!-- /.content -->
+
+
+			</div>
+
+		
+
+
+	</div>
 	</jsp:attribute>
 </mt:admin_template>

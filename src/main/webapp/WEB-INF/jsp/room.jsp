@@ -45,8 +45,8 @@
 					<br>
 					<div class="row">
 						<div class="col-md-4">
-							<div class="box">
-								<div class="box-header">
+							<div class="box box-success">
+								<div class="box-header bg-green">
 									<h3 class="box-title">Vacant</h3>
 
 									<div class="box-tools">
@@ -66,14 +66,17 @@
 											<tr>
 												<th>Room</th>
 												<th>Condition</th>
+												<th>Type</th>
 												<th width="140px"></th>
 												
 										
 											</tr>
-											<tr>
 											<c:forEach items="${vacantRooms}" var="item">
+											<tr>
+											
 													<td>${item.roomName}</td>
-													<td>${item.roomClean}</td>											
+													<td>${item.roomClean}</td>		
+													<td>${item.roomType}</td>									
 													<td><a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}">
 														<i class="fa fa-eye"></i></a>
 													<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewusers">
@@ -99,8 +102,8 @@
 						</div>
 						<!-- /.col -->
 						<div class="col-md-4">
-							<div class="box">
-								<div class="box-header">
+							<div class="box box-danger">
+								<div class="box-header bg-red">
 									<h3 class="box-title">Occupied</h3>
 
 									<div class="box-tools">
@@ -121,6 +124,7 @@
 										<tbody><tr>
 											<th>Room</th>
 											<th>Condition</th>
+											<th>Type</th>
 											<th width="140px"></th>
 											
 										</tr>
@@ -128,6 +132,7 @@
 										<tr>
 											<td>${item.roomName}</td>
 											<td>${item.roomClean}</td>
+											<td>${item.roomType}</td>
 											<td><a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}">
 														<i class="fa fa-eye"></i></a>
 													<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewusers">
@@ -149,8 +154,8 @@
 						</div>
 						<!--Occupied-->
 						<div class="col-md-4">
-							<div class="box">
-								<div class="box-header">
+							<div class="box box-warning">
+								<div class="box-header bg-yellow">
 									<h3 class="box-title">Reserved</h3>
 
 									<div class="box-tools">
@@ -173,6 +178,7 @@
 											<tr>
 												<th>Room</th>
 												<th>Condition</th>
+												<th>Type</th>
 												<th width="140px"></th>
 					
 											</tr>
@@ -180,6 +186,7 @@
 											<c:forEach items="${reservedRooms}" var="item">
 												<td>${item.roomName}</td>
 												<td>${item.roomClean}</td>
+												<td>${item.roomType}</td>
 												<td><a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}">
 														<i class="fa fa-eye"></i></a>
 													<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewusers">
@@ -230,10 +237,18 @@
 								</div>
 								<div class="form-group">
 									<label>
+										<form:label path="roomType">Room Type:</form:label>
+									</label>
+									<form:select class="form-control" path="roomType" multiple="false">
+										<form:options items="${roomTypeOptions}"></form:options>
+									</form:select>
+								</div>
+								<div class="form-group">
+									<label>
 										<form:label path="roomStatus">Room Status:</form:label>
 									</label>
 									<form:select class="form-control" path="roomStatus" multiple="false">
-										<form:options items="${options}"></form:options>
+										<form:options items="${roomStatusOptions}"></form:options>
 									</form:select>
 								</div>
 								<div class="form-group">
@@ -242,6 +257,7 @@
 									</label>
 									<form:input class="form-control" path="roomClean" value="true" />
 								</div>
+								
 
 						</div>
 						<div class="modal-footer">

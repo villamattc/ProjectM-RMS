@@ -16,8 +16,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Tables
-        <small>advanced tables</small>
+        Equipment Form
+        <small>Add Equipment</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/room"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -50,8 +50,12 @@
                   <form:input class="form-control" path="equipName" />
                 </div>
                 <div class="form-group">
-                 <form:label path = "equipStatus">Equipment Status:</form:label>
-                  <form:input class="form-control" path="equipStatus" type="number"/>
+                  <label>
+										<form:label path="equipStatus">Equipment Status:</form:label>
+									</label>
+									<form:select class="form-control" path="equipStatus" multiple="false">
+										<form:options items="${equipmentStatusOptions}"></form:options>
+									</form:select>
                 </div>
                 <div class="form-group">
                  <form:label path = "dateOfPurchase">Date of Purchase:</form:label>
@@ -62,7 +66,7 @@
                   <form:input class="form-control" path="dateOfLastMaintenance" type="date"/>
                 </div>
                 <div class="form-group">
-                 <form:label path = "functionalLife">Functional Life:</form:label>
+                 <form:label path = "functionalLife">Functional Life (Year/s):</form:label>
                   <form:input class="form-control" path="functionalLife" type="number"/>
                 </div>
                 <div class="box-footer with-border">
