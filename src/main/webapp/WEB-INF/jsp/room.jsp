@@ -51,11 +51,11 @@
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">Â«</a></li>
+											<li><a href="#">«</a></li>
 											<li><a href="#">1</a></li>
 											<li><a href="#">2</a></li>
 											<li><a href="#">3</a></li>
-											<li><a href="#">Â»</a></li>
+											<li><a href="#">»</a></li>
 										</ul>
 									</div>
 								</div>
@@ -108,11 +108,11 @@
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">Â«</a></li>
+											<li><a href="#">«</a></li>
 											<li><a href="#">1</a></li>
 											<li><a href="#">2</a></li>
 											<li><a href="#">3</a></li>
-											<li><a href="#">Â»</a></li>
+											<li><a href="#">»</a></li>
 										</ul>
 									</div>
 								</div>
@@ -160,11 +160,11 @@
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">Â«</a></li>
+											<li><a href="#">«</a></li>
 											<li><a href="#">1</a></li>
 											<li><a href="#">2</a></li>
 											<li><a href="#">3</a></li>
-											<li><a href="#">Â»</a></li>
+											<li><a href="#">»</a></li>
 										</ul>
 									</div>
 								</div>
@@ -212,13 +212,13 @@
 					</div>
 				</section>
 				<!-- /.content -->
-				<!-- The Modal -->
+				
 
 
 			</div>
 
 			<!-- Modal for Add Room-->
-			<div class="modal fade" id="roomModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			<div class="modal fade in" id="roomModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 				aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -257,7 +257,7 @@
 									</label>
 									<form:input class="form-control" path="roomClean" value="true" />
 								</div>
-								
+
 
 						</div>
 						<div class="modal-footer">
