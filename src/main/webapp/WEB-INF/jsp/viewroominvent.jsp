@@ -12,7 +12,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <mt:admin_template title="Inventory">
 	<jsp:attribute name="content">
-			<div class="content-wrapper" style="min-height: 901.2px;">
+			<div class="content-wrapper" style="min-height: 925.8px;">
 				<!-- Content Header (Page header) -->
 				<section class="content-header">
 					<h1>
@@ -46,12 +46,10 @@
 					</div>
 					<br>
 					<div class="row">
-
-					<!--Option 1-->
-						<div class="col-md-6">
+						<div class="col-md-4">
 							<div class="box box-success">
 								<div class="box-header bg-green">
-									<h3 class="box-title">Room Name</h3>
+									<h3 class="box-title">Bathroom</h3>
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
@@ -68,32 +66,19 @@
 									<table class="table table-striped">
 										<tbody>
 											<tr>
-												<th width="500px">Name</th>
-												<th>Quantity:</th>
-												
-												
+												<th>Inventory Name</th>
+											<th>Quantity</th>
+											<th width="140px"></th>
 												
 										
 											</tr>
 										
-											<tr>											
-													<td>equip 1</td>
-													<td><div>
-                                        <div class="input-group">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus" data-field="">
-                                          <span class="glyphicon glyphicon-minus"></span>
-                                        </button>
-                                    </span>
-                                    <input type="text" id="quantity" name="quantity" class="form-control input-number" value="0" min="0" max="5">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                                            <span class="glyphicon glyphicon-plus"></span>
-                                        </button>
-                                    </span>
-                                </div>
-                        </div></td>											
-												
+											<tr>
+											
+													<td>${item.roomName}</td>
+													<td>${item.roomClean}</td>											
+													<td><input class="form-control" path="functionalLife" type="number"/>
+													</td>
 											
 													
 												</tr>
@@ -108,11 +93,54 @@
 							</div>
 							<!-- /.box -->
 						</div>
+						<!-- /.col -->
+						<div class="col-md-4">
+							<div class="box box-danger">
+								<div class="box-header bg-red">
+									<h3 class="box-title">Bedroom</h3>
 
-						<div class="col-md-6">
+									<div class="box-tools">
+										<ul class="pagination pagination-sm no-margin pull-right">
+											<li><a href="#">«</a></li>
+											<li><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">»</a></li>
+										</ul>
+									</div>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body no-padding">
+									<table class="table table-striped table-hover">
+
+
+										<tbody><tr>
+											<th>Inventory Name</th>
+											<th>Quantity</th>
+											<th width="140px"></th>
+											
+										</tr>
+										
+										<tr>
+											<td>${item.roomName}</td>
+											<td>${item.roomClean}</td>
+											<td><input class="form-control" path="functionalLife" type="number"/>
+													</td>
+													
+										</tr>
+									
+										</tbody></table>
+
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+						</div>
+						<!--Occupied-->
+						<div class="col-md-4">
 							<div class="box box-warning">
 								<div class="box-header bg-yellow">
-									<h3 class="box-title">Logs</h3>
+									<h3 class="box-title">Bedroom 2</h3>
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
@@ -125,26 +153,27 @@
 									</div>
 								</div>
 								<!-- /.box-header -->
+
+								<!--Reserved-->
 								<div class="box-body no-padding">
-									<table class="table table-striped">
+									<table class="table table-striped table-hover">
+
 										<tbody>
 											<tr>
-												<th>Date:</th>
-												<th>Inventory log:</th>
-												<th>Last Maintainance:</th>
-												
-												
-										
+												<th>Inventory Name</th>
+											<th>Quantity</th>
+											<th width="140px"></th>
+					
 											</tr>
+											<tr>
 										
-											<tr>											
-													<td>equip 1</td>
-													<td>420</td>											
-												<td>2020-02-28</td>		
+												<td>${item.roomName}</td>
+												<td>${item.roomClean}</td>
+												<td><input class="form-control" path="functionalLife" type="number"/>
+													</td>
 											
-													
-												</tr>
-						
+											</tr>
+									
 										</tbody>
 									</table>
 
@@ -155,10 +184,16 @@
 							</div>
 							<!-- /.box -->
 						</div>
-					
-						
-							<!-- /.box -->
-						</div>
-					</section></div>
+					</div>
+				</section>
+				<!-- /.content -->
+				<!-- The Modal -->
+
+
+			</div>
+
+
+
+	</div>
 	</jsp:attribute>
 </mt:admin_template>

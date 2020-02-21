@@ -319,4 +319,11 @@ public class IndexController{
 
      return new ModelAndView("inventory");
  }
+
+ //viewroominventory
+ @RequestMapping(value = "viewroominvent")
+ public ModelAndView viewRoomInventory(ModelMap map){
+
+     return new ModelAndView("viewroominvent");
+ }
 }

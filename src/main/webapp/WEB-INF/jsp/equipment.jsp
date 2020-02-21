@@ -63,6 +63,7 @@
 											<tr>
 												<th>Name</th>
 												<th>Room No.</th>
+												<th>Last Maintainance:</th>
 												
 												
 										
@@ -111,6 +112,7 @@
 										<tbody><tr>
 											<th>Name</th>
 											<th>Room No.</th>
+											<th>Last Maintainance:</th>
 											
 											
 										</tr>
@@ -154,6 +156,7 @@
 										<tbody><tr>
 											<th>Name</th>
 											<th>Room No.</th>
+											<th>Last Maintainance:</th>
 											
 										</tr>
 										<c:forEach items="${needsrepair}" var="item" varStatus = "status">
@@ -195,6 +198,7 @@
 											<tr>
 											<th>Name</th>
 											<th>Room No.</th>
+											<th>Last Maintainance:</th>
 																
 											</tr>
 
