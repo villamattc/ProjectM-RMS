@@ -68,7 +68,22 @@ public class AdminController {
         return new ModelAndView("redirect:/testlogin");
 
     }
+
+        // not complete... just to add admin to a the database
+        @RequestMapping(value = "/testcreateAdmin", method = RequestMethod.POST)
+        public ModelAndView adminregister(@RequestParam String username, @RequestParam String password) {
     
+            Admin admin = new Admin(username,password);
+            adminRepo.save(admin);
+    
+            return new ModelAndView("testlogin"); 
+        }
+    
+        @RequestMapping(value = "/destorysession", method = RequestMethod.POST)
+        public void destroySession(HttpServletRequest request) {
+            request.getSession().invalidate();
+        }
+        
 
     
 

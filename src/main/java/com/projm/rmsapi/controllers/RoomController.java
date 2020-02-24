@@ -52,7 +52,7 @@ public class RoomController {
     
     // add room
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ResponseEntity<Object> newRoom(@Valid @ModelAttribute("room") Room room, BindingResult result) {
+    public ResponseEntity<Object> addRoom(@Valid @ModelAttribute("room") Room room, BindingResult result) {
         if (result.hasErrors()) {
             return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
         }
@@ -65,76 +65,35 @@ public class RoomController {
             return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
     }
 
-    // add user through viewing the room info
-    @RequestMapping(value = "/room/{id}/adduser", method = RequestMethod.POST)
-    public ResponseEntity<Object> addUsertoRoom(@PathVariable("id") long id, @Valid @ModelAttribute("user") User user,
-        BindingResult result) {
-        if (result.hasErrors()) {
-            return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
-        }
+    // DELETE BUTTON ON THE ROW
+    @RequestMapping(value = "/deleteroom/{id}", method = RequestMethod.POST)
+    public ResponseEntity<Object> deleteRoom(@PathVariable("id") long id) {
 
-        System.out.println(user.getLastName());
-        System.out.println(user.getFirstName());
-        System.out.println(user.getCheckin());
-        System.out.println(user.getCheckout());
-        System.out.println(user.getNationality());
-        System.out.println(user.getOccupation());
-        System.out.println(user.getBusinessOrvacay());
-        System.out.println(user.getAge());
-
-        try {
-
-            Room getRoom = roomRepo.findByRoomId(id);
-            getRoom.addUser(user);
-            userRepo.save(user);
-            roomRepo.save(getRoom);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
-        }
-
-        return new ResponseEntity<>("SUCCESSFULLY ADDED USER", HttpStatus.CREATED);
-
-    }
-    // add inventory through viewing the room info
-    @RequestMapping(value = "/room/{id}/addinventory", method = RequestMethod.POST)
-    public ResponseEntity<Object> addInventorytoRoom(@PathVariable("id") long id,
-        @Valid @ModelAttribute("inventory")Inventory inventory, BindingResult result) {
-    if (result.hasErrors()) {
-        return new ResponseEntity<>("FAILED TO ADD INVENTORY", HttpStatus.FORBIDDEN);
-    }
-
-    try{
-
-        Room getRoom = roomRepo.findByRoomId(id);
-        getRoom.addInventory(inventory);
-        inventRepo.save(inventory);
-        roomRepo.save(getRoom);
-        
-    }catch(Exception e){
-
-        e.printStackTrace();
-        return new ResponseEntity<>("FAILED TO ADD INVENTORY", HttpStatus.FORBIDDEN);
-    }
-
-        return new ResponseEntity<>("SUCCESSFULLY ADDED INVENTORY", HttpStatus.CREATED);
-    }
-
-    // not complete... just to add admin to a the database
-    @RequestMapping(value = "/testcreateAdmin", method = RequestMethod.POST)
-    public ModelAndView adminregister(@RequestParam String username, @RequestParam String password) {
-
-        Admin admin = new Admin(username,password);
-        adminRepo.save(admin);
-
-        return new ModelAndView("testlogin"); 
-    }
-
-    @RequestMapping(value = "/destorysession", method = RequestMethod.POST)
-	public void destroySession(HttpServletRequest request) {
-		request.getSession().invalidate();
+        boolean truth = roomRepo.deleteByRoomId(id);
+        if (truth)
+            return new ResponseEntity<>("ROOM DELETEION SUCCESS", HttpStatus.CREATED);
+        else
+            return new ResponseEntity<>("ROOM DELETIO FAILED", HttpStatus.FORBIDDEN);
     }
     
+    // HAVE TO EDIT THE VIEW ROOM IN A WAY TO MATCH THIS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
+    @RequestMapping(value = "/updateroom/{id}", method = RequestMethod.POST)
+    public ResponseEntity<Object> updateRoom(@Valid @ModelAttribute("room") Room room, BindingResult result, @PathVariable("id") long id){
+            if (result.hasErrors()) {
+                return new ResponseEntity<>("ROOM UPDATE FAILED", HttpStatus.FORBIDDEN);
+            }
+
+            Room updatedRoom = roomRepo.findByRoomId(id);
+            updatedRoom.setRoomName(room.getRoomName());
+            updatedRoom.setRoomStatus(room.getRoomStatus());
+            updatedRoom.setRoomType(room.getRoomType());
+            updatedRoom.setRoomClean(room.isRoomClean());
+
+            return new ResponseEntity<>("ROOM UPDATE SUCCESS", HttpStatus.ACCEPTED);
+
+
+    }
+
+
 
     }

@@ -12,6 +12,7 @@ public interface EquipmentRepository extends JpaRepository<Equipment, Long>{
 
 
     public List<Equipment> findAllByEquipStatus(int status);
+    public boolean deleteByEquipId(Long id);
     
 
 }
