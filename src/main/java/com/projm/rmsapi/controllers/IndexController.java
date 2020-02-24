@@ -22,6 +22,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class IndexController{
 
@@ -36,9 +39,11 @@ public class IndexController{
 
     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@TESTING VIEW@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     @RequestMapping(value = "testindex")
-    public ModelAndView testJsp(ModelMap map, Admin admin){
-
-
+    public ModelAndView testJsp(ModelMap map, HttpSession session){
+        String username = (String)session.getAttribute("userSession");
+        if(username == null){
+            return new ModelAndView("test/testlogin");
+        }
 
         map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
         map.addAttribute("roomlist", roomRepo.findAll());
@@ -107,8 +112,15 @@ public class IndexController{
     }
 
     @RequestMapping(value = "testlogin")
-    public ModelAndView testlogin(){
-        return new ModelAndView("testlogin");
+    public ModelAndView testlogin(HttpSession session){
+
+        String x = (String)session.getAttribute("userSession");
+
+        if(session.getAttribute("userSession")==null){
+            return new ModelAndView("test/testlogin");
+        }
+        System.out.println("wtf is going on la????"+x+x+x+x+x+x);
+        return new ModelAndView("redirect:/testindex");
     }
 
     @RequestMapping(value = "testroom/{id}/addequipform")
@@ -133,6 +145,14 @@ public class IndexController{
         map.addAttribute("room", getRoom);
         map.addAttribute("inventory", new Inventory());
         return new ModelAndView("test/indexaddinventory");
+    }
+
+    @RequestMapping(value = "createadminpage")
+    public ModelAndView createAdminPage(ModelMap map){
+
+
+        map.addAttribute("admin", new Admin());
+        return new ModelAndView("test/createadminpage");
     }
 
      //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
