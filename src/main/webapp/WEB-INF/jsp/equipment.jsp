@@ -37,7 +37,7 @@
 						<div class="col-md-3">
 							<div class="box box-success">
 								<div class="box-header bg-green">
-									<h3 class="box-title">Good Condition:</h3>
+									<h3 class="box-title">Good Condition</h3>
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
@@ -83,9 +83,9 @@
 						<!-- /.col -->
 						<!--Option 2-->
 						<div class="col-md-3">
-							<div class="box box-danger">
-								<div class="box-header bg-red">
-									<h3 class="box-title">Need Maintainance:</h3>
+							<div class="box box-primary">
+								<div class="box-header bg-blue">
+									<h3 class="box-title">Need Maintainance</h3>
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
@@ -127,9 +127,9 @@
 						</div>
 						<!--Option 3-->
 						<div class="col-md-3">
-							<div class="box box-danger">
-								<div class="box-header bg-red">
-									<h3 class="box-title">Need Repair:</h3>
+							<div class="box box-warning">
+								<div class="box-header bg-yellow">
+									<h3 class="box-title">Need Repair</h3>
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
@@ -170,9 +170,9 @@
 						</div>
 						<!--Option 4-->
 						<div class="col-md-3">
-							<div class="box box-warning">
-								<div class="box-header bg-yellow">
-									<h3 class="box-title">Need Replace:</h3>
+							<div class="box box-danger">
+								<div class="box-header bg-red">
+									<h3 class="box-title">Need Replace</h3>
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
