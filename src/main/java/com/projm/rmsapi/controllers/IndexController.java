@@ -178,7 +178,7 @@ public class IndexController{
 
         map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
         map.addAttribute("occupiedRooms", roomService.getAllOccupiedRooms());
-        map.addAttribute("reservedRooms", roomService.getAllReservedRooms()); //<c:forEach items="${vacantRooms}" var="item">
+        map.addAttribute("reservedRooms", roomService.getAllReservedRooms()); //<c:forEach items="${vacantRooms}" var="item">.
         map.addAttribute("roomStatusOptions", roomStatusOptions);
         map.addAttribute("roomTypeOptions", roomTypeOptions);
 
@@ -192,8 +192,13 @@ public class IndexController{
     public ModelAndView viewRoomDetails(@PathVariable("id") long id, ModelMap map){
 
         Room getRoom = roomRepo.findByRoomId(id);
-
+        Map<Integer, String> roomTypeOptions = new HashMap<Integer, String>();
+        roomTypeOptions.put(1, "Deluxe Room");
+        roomTypeOptions.put(2, "Amuma Spa Suite");
+        roomTypeOptions.put(3, "Premier Deluxe Room");
+        roomTypeOptions.put(4, "Royal Bungalow");
         
+        map.addAttribute("roomTypeOptions", roomTypeOptions);
         map.addAttribute("room", getRoom);
         return new ModelAndView("viewroom");
     }

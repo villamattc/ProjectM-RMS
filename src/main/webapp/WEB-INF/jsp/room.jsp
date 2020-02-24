@@ -31,23 +31,34 @@
 				<!-- Main content -->
 				<section class="content">
 					<br>
+					
 					<div class="row">
 						<div class="col-md-2">
 					<div class="form-group">
-                  <label>Select Room</label>
+                
                   <select class="form-control">
-                    <option value="viewroominvent"><a href="/viewroominvent">View Room Inventory</a></option>
+                    <option value="viewroominvent">View Room Inventory</option>
                     <option>option 2</option>
                     <option>option 3</option>
                     <option>option 4</option>
                     <option>option 5</option>
                   </select>
                 </div>
-</div>
-<div class="col-md-4">
+				</div>
+
+<div class="col-md-2">
+<form action="#" method="get">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
 </div>
 						
-						<div class="col-md-4">
+						<div class="col-md-8">
 							<!-- Button trigger modal -->
 							<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#roomModal">
 								Add Room
@@ -81,7 +92,7 @@
 												<th>Room</th>
 												<th>Condition</th>
 												<th>Type</th>
-												<th width="140px"></th>
+												<th width="160px"></th>
 												
 										
 											</tr>
@@ -99,6 +110,8 @@
 													<i class="fa  fa-briefcase"></i></a>
 														<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewinvent">
 														<i class="fa  fa-cubes"></i></a>
+														<a class="btn btn-xs btn-default" href="/deleteroom/${item.roomId}">
+														<i class="fa  fa-trash"></i></a>
 													</td>
 											
 													
@@ -139,7 +152,7 @@
 											<th>Room</th>
 											<th>Condition</th>
 											<th>Type</th>
-											<th width="140px"></th>
+											<th width="160px"></th>
 											
 										</tr>
 										<c:forEach items="${occupiedRooms}" var="item">
@@ -155,6 +168,8 @@
 													<i class="fa  fa-briefcase"></i></a>
 														<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewinvent">
 														<i class="fa  fa-cubes"></i></a>
+														<a class="btn btn-xs btn-default" href="/deleteroom/${item.roomId}">
+														<i class="fa  fa-trash"></i></a>
 													</td>
 													
 										</tr>
@@ -193,7 +208,7 @@
 												<th>Room</th>
 												<th>Condition</th>
 												<th>Type</th>
-												<th width="140px"></th>
+												<th width="160px"></th>
 					
 											</tr>
 											<tr>
@@ -209,6 +224,8 @@
 													<i class="fa  fa-briefcase"></i></a>
 														<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewinvent">
 														<i class="fa  fa-cubes"></i></a>
+														<a class="btn btn-xs btn-default" href="/deleteroom/${item.roomId}">
+														<i class="fa  fa-trash"></i></a>
 													</td>
 											
 											</tr>

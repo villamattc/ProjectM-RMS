@@ -1,6 +1,8 @@
 package com.projm.rmsapi.controllers;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import com.projm.rmsapi.entities.Admin;
@@ -20,6 +22,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -66,17 +69,14 @@ public class RoomController {
     }
 
     // DELETE BUTTON ON THE ROW
-    @RequestMapping(value = "/deleteroom/{id}", method = RequestMethod.POST)
-    public ResponseEntity<Object> deleteRoom(@PathVariable("id") long id) {
+    @RequestMapping(value = "/deleteroom/{id}",  method = RequestMethod.GET)
+    public ModelAndView deleteRoom(@PathVariable("id") long id){
 
-        boolean truth = roomRepo.deleteByRoomId(id);
-        if (truth)
-            return new ResponseEntity<>("ROOM DELETEION SUCCESS", HttpStatus.CREATED);
-        else
-            return new ResponseEntity<>("ROOM DELETIO FAILED", HttpStatus.FORBIDDEN);
+        roomRepo.deleteByRoomId(id);
+        return new ModelAndView("redirect:/room");
     }
     
-    // HAVE TO EDIT THE VIEW ROOM IN A WAY TO MATCH THIS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
+    // HAVE TO EDIT THE VIEW ROOM IN A WAY TO MATCH THIS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     @RequestMapping(value = "/updateroom/{id}", method = RequestMethod.POST)
     public ResponseEntity<Object> updateRoom(@Valid @ModelAttribute("room") Room room, BindingResult result, @PathVariable("id") long id){
             if (result.hasErrors()) {

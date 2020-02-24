@@ -33,33 +33,58 @@
               <h3 class="box-title">Room ${room.roomName}</h3>
             </div>
             <!-- /.box-header -->
+            
             <div class="box-body">
-              <form role="form">
+                <form:form action="/updateroom/${room.roomId}" method ="POST" modelAttribute = "room">
                 <!-- text input -->
                 <div class="form-group">
-                  <label>Room Name:</label>
-                  <input type="text" class="form-control" value="${room.roomName}" readonly>
+                  <form:label path="roomName">Room Name:</form:label>
+                  <form:input type="text" class="form-control" path="roomName" value="${room.roomName}"/>
+                </div>
+                <div class="form-group">
+               
+									<label>
+                  
+										<form:label path="roomType">Room Type:</form:label>
+									</label>
+									<form:select class="form-control" path="roomType" multiple="false">
+										<form:options items="${roomTypeOptions}"></form:options>
+									</form:select>
+								</div>
+                 <div class="form-group">
+                  <form:label path="roomStatus">Room Status:</form:label>
+                  <form:input type="text" class="form-control" path="roomStatus" value="${room.roomStatus}"/>
                 </div>
                  <div class="form-group">
-                  <label>Room Status:</label>
-                  <input type="text" class="form-control" value="${room.roomStatus}" readonly>
-                </div>
-                 <div class="form-group">
-                  <label>Room Clean:</label>
-                  <input type="text" class="form-control" value="${room.roomClean}" readonly>
+                  <form:label path="roomClean">Room Clean:</form:label>
+                  <form:input type="text" class="form-control" path="roomClean" value="${room.roomClean}"/>
                 </div>
                 <div class="box-footer with-border">
+
+
+                <div class="row">
+                <div class="col-md-6">
+                <button type="submit" class="btn btn-primary">Update Room</button>
+                </div>
+                <div class="col-md-6">
+                <div class="pull-right">
                 <a class="btn btn-primary" href="/viewroom/${id}/adduserform">Add User</a>
                 <a type="button" class="btn btn-primary" href="/viewroom/${id}/addequipform">Add Equipment</a>
                 <a type="button" class="btn btn-primary" href="/viewroom/${id}/addinventoryform">Add Inventory</a>
+                </div>
+                </div>
+                
+                </div>
+
                 </div>
                 
                 <div class="col-md-2">
                 </div>
                
 
-              </form>
+              </form:form>
             </div>
+            
             <!-- /.box-body -->
           </div>
         
