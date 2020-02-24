@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.projm.rmsapi.entities.Room;
 
-
+ 
 public interface RoomService{
 
     public abstract boolean saveRoom(Room room);

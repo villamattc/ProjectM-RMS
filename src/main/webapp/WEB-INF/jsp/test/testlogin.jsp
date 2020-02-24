@@ -12,9 +12,9 @@
 </head>
 <body>
  
-        <form action="/testlogin" method="POST">
+        <form action="/adminlogin" method="POST">
             Username:<input type = "text" name = "username"/> <br><br>
-            Password:<input type = "password" name = "username"/> <br><br>
+            Password:<input type = "password" name = "password"/> <br><br>
             <button type="submit">uwu</button>
         </form>
 

@@ -1,5 +1,6 @@
 package com.projm.rmsapi.controllers;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import com.projm.rmsapi.entities.Admin;
@@ -49,6 +50,7 @@ public class RoomController {
     @Autowired
     InventoryRepository inventRepo;
     
+    // add room
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ResponseEntity<Object> newRoom(@Valid @ModelAttribute("room") Room room, BindingResult result) {
         if (result.hasErrors()) {
@@ -63,9 +65,10 @@ public class RoomController {
             return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
     }
 
+    // add user through viewing the room info
     @RequestMapping(value = "/room/{id}/adduser", method = RequestMethod.POST)
     public ResponseEntity<Object> addUsertoRoom(@PathVariable("id") long id, @Valid @ModelAttribute("user") User user,
-            BindingResult result) {
+        BindingResult result) {
         if (result.hasErrors()) {
             return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
         }
@@ -94,11 +97,10 @@ public class RoomController {
         return new ResponseEntity<>("SUCCESSFULLY ADDED USER", HttpStatus.CREATED);
 
     }
-
+    // add inventory through viewing the room info
     @RequestMapping(value = "/room/{id}/addinventory", method = RequestMethod.POST)
     public ResponseEntity<Object> addEquiptoRoom(@PathVariable("id") long id,
-    @Valid @ModelAttribute("inventory")Inventory inventory,
-    BindingResult result) {
+        @Valid @ModelAttribute("inventory")Inventory inventory, BindingResult result) {
     if (result.hasErrors()) {
         return new ResponseEntity<>("FAILED TO ADD INVENTORY", HttpStatus.FORBIDDEN);
     }
@@ -119,9 +121,10 @@ public class RoomController {
         return new ResponseEntity<>("SUCCESSFULLY ADDED INVENTORY", HttpStatus.CREATED);
     }
 
+    // add equip through viewing the room info
     @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
     public ResponseEntity<Object> addInventorytoRoom(@PathVariable("id") long id,
-    @Valid @ModelAttribute("equip")Equipment equip,
+        @Valid @ModelAttribute("equip")Equipment equip,
     BindingResult result) {
     if (result.hasErrors()) {
         return new ResponseEntity<>("FAILED TO ADD EQUIPMENT", HttpStatus.FORBIDDEN);
@@ -143,19 +146,7 @@ public class RoomController {
         return new ResponseEntity<>("SUCCESSFULLY ADDED EQUIPMENT", HttpStatus.CREATED);
     }
 
-    // not done... still need sessions
-    @RequestMapping(value = "/testlogin", method = RequestMethod.POST)
-    public ModelAndView adminLogin(@RequestParam String username, @RequestParam String password) {
-
-        Admin userAdmin = new Admin(username,password);
-
-
-        if(userAdmin.equals(adminRepo.findByAdminId((long)1)))
-            return new ModelAndView("testindex", "admin", userAdmin);
-        
-        return new ModelAndView("testindex");
-    }
-
+    // not complete... just to add admin to a the database
     @RequestMapping(value = "/testcreateAdmin", method = RequestMethod.POST)
     public ModelAndView adminregister(@RequestParam String username, @RequestParam String password) {
 
@@ -164,5 +155,13 @@ public class RoomController {
 
         return new ModelAndView("testlogin"); 
     }
+
+    
+    @RequestMapping(value = "/destorysession", method = RequestMethod.POST)
+	public String destroySession(HttpServletRequest request) {
+		request.getSession().invalidate();
+		return "redirect:/";
+    }
+    
 
     }
