@@ -3,17 +3,17 @@
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<mt:admin_template title="View Room">
+<mt:admin_template title="Add Inventory">
 	<jsp:attribute name="content">
-		<div class="content-wrapper" style="min-height: 925.8px;">
+			<div class="content-wrapper" style="min-height: 925.8px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Room Info
-        <small></small>
+        Data Tables
+        <small>advanced tables</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/room"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="http://localhost:8010/room"><i class="fa fa-dashboard"></i> Home</a></li>
         
       </ol>
     </section>
@@ -26,6 +26,7 @@
 
       <div class="col-md-2">
       </div>
+
       
         <div class="col-md-8">
         <div class="box box-warning">
@@ -33,33 +34,29 @@
               <h3 class="box-title">Room ${room.roomName}</h3>
             </div>
             <!-- /.box-header -->
+            <form:form action="/room/${roomId}/addinventory" method ="POST" modelAttribute = "inventory">
             <div class="box-body">
-              <form role="form">
+              
                 <!-- text input -->
                 <div class="form-group">
-                  <label>Room Name:</label>
-                  <input type="text" class="form-control" value="${room.roomName}" readonly>
+                 <form:label path = "inventName">Item Name:</form:label>
+                  <form:input class="form-control" path="inventName" />
                 </div>
-                 <div class="form-group">
-                  <label>Room Status:</label>
-                  <input type="text" class="form-control" value="${room.roomStatus}" readonly>
+                <div class="form-group">
+                 <form:label path = "inventCurrentQuantity">Item Quantity:</form:label>
+                  <form:input class="form-control" path="inventCurrentQuantity" type="number"/>
                 </div>
-                 <div class="form-group">
-                  <label>Room Clean:</label>
-                  <input type="text" class="form-control" value="${room.roomClean}" readonly>
-                </div>
-                <div class="box-footer with-border">
-                <a class="btn btn-primary" href="/viewroom/${id}/adduserform">Add User</a>
-                <a type="button" class="btn btn-primary" href="/viewroom/${id}/addequipform">Add Equipment</a>
-                <a type="button" class="btn btn-primary" href="/viewroom/${id}/addinventoryform">Add Inventory</a>
-                </div>
-                
+                <div class="form-group">
+                 <form:label path = "inventMaxQuantity">Max Quantity:</form:label>
+                  <form:input class="form-control" path="inventMaxQuantity" type="number"/>
+                </div>              
+                 <div class="box-footer with-border">
+                <button type="submit" class="btn btn-primary"> Add Inventory</button>
+                </div>  
                 <div class="col-md-2">
-                </div>
-               
-
-              </form>
+                </div>            
             </div>
+            </form:form>
             <!-- /.box-body -->
           </div>
         

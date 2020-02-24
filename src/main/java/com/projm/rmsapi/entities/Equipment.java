@@ -35,14 +35,16 @@ public class Equipment {
     // needs to have maintenance/repairs or be replace.. the criteria weight is
     // determined by the engineer
 
-    // score 1-100 based on presence and condition of the parts of the equipment
-    private int completenessOfParts;
+    private double assessmentScore=0;
 
-    // score 1-100 based on the outer physical appearance
-    private int appearance;
+    // score 1-100 based on presence and condition of the parts of the equipment  35%
+    private int completenessOfParts=0;
 
-    // score 1-100 based on the how
-    private int functionality;
+    // score 1-100 based on the outer physical appearance 20%
+    private int appearance=0; 
+
+    // score 1-100 based on the how  45%
+    private int functionality=0;
 
     @ManyToOne
     @JoinColumn(name = "room_id", nullable = false)
@@ -61,7 +63,9 @@ public class Equipment {
         
     }
 
-
+    public Room getRoom(){
+        return this.room;
+    }
 
     public void setRoom(Room room) {
         this.room = room;
