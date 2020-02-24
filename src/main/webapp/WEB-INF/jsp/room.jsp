@@ -32,17 +32,31 @@
 				<section class="content">
 					<br>
 					<div class="row">
-						<div class="col-md-10">
-
-						</div>
 						<div class="col-md-2">
+					<div class="form-group">
+                  <label>Select Room</label>
+                  <select class="form-control">
+                    <option value="viewroominvent"><a href="/viewroominvent">View Room Inventory</a></option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                    <option>option 4</option>
+                    <option>option 5</option>
+                  </select>
+                </div>
+</div>
+<div class="col-md-4">
+</div>
+						
+						<div class="col-md-4">
 							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#roomModal">
+							<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#roomModal">
 								Add Room
 							</button>
 						</div>
 					</div>
 					<br>
+
+
 					<div class="row">
 						<div class="col-md-4">
 							<div class="box box-success">
@@ -51,11 +65,11 @@
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">«</a></li>
+											<li><a href="#">ï¿½</a></li>
 											<li><a href="#">1</a></li>
 											<li><a href="#">2</a></li>
 											<li><a href="#">3</a></li>
-											<li><a href="#">»</a></li>
+											<li><a href="#">ï¿½</a></li>
 										</ul>
 									</div>
 								</div>
@@ -108,11 +122,11 @@
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">«</a></li>
+											<li><a href="#">ï¿½</a></li>
 											<li><a href="#">1</a></li>
 											<li><a href="#">2</a></li>
 											<li><a href="#">3</a></li>
-											<li><a href="#">»</a></li>
+											<li><a href="#">ï¿½</a></li>
 										</ul>
 									</div>
 								</div>
@@ -160,11 +174,11 @@
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">«</a></li>
+											<li><a href="#">ï¿½</a></li>
 											<li><a href="#">1</a></li>
 											<li><a href="#">2</a></li>
 											<li><a href="#">3</a></li>
-											<li><a href="#">»</a></li>
+											<li><a href="#">ï¿½</a></li>
 										</ul>
 									</div>
 								</div>
