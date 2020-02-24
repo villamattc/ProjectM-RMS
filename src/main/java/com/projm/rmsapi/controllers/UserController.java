@@ -32,7 +32,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @ControllerAdvice
-public class EquipmentController {
+public class UserController {
 
     @Autowired
     private RoomService roomService;
@@ -51,40 +51,42 @@ public class EquipmentController {
 
     @Autowired
     InventoryRepository inventRepo;
-    
-    @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
-    public ResponseEntity<Object> addEquiptoRoom(@PathVariable("id") long id,
-    @Valid @ModelAttribute("equip")Equipment equip,
+ 
+
+// add user through viewing the room info
+@RequestMapping(value = "/room/{id}/adduser", method = RequestMethod.POST)
+public ResponseEntity<Object> addUsertoRoom(@PathVariable("id") long id, @Valid @ModelAttribute("user") User user,
     BindingResult result) {
     if (result.hasErrors()) {
-        return new ResponseEntity<>("FAILED TO ADD EQUIPMENT", HttpStatus.FORBIDDEN);
+        return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
     }
 
-    try{
+    System.out.println(user.getLastName());
+    System.out.println(user.getFirstName());
+    System.out.println(user.getCheckin());
+    System.out.println(user.getCheckout());
+    System.out.println(user.getNationality());
+    System.out.println(user.getOccupation());
+    System.out.println(user.getBusinessOrvacay());
+    System.out.println(user.getAge());
+
+    try {
 
         Room getRoom = roomRepo.findByRoomId(id);
-        getRoom.addEquipment(equip);
-        equipmentRepo.save(equip);
+        getRoom.addUser(user);
+        userRepo.save(user);
         roomRepo.save(getRoom);
-        
-    }catch(Exception e){
 
+    } catch (Exception e) {
         e.printStackTrace();
-        return new ResponseEntity<>("FAILED TO ADD EQUIPMENT", HttpStatus.FORBIDDEN);
+        return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
     }
 
-        return new ResponseEntity<>("SUCCESSFULLY ADDED EQUIPMENT", HttpStatus.CREATED);
-    }
+    return new ResponseEntity<>("SUCCESSFULLY ADDED USER", HttpStatus.CREATED);
 
-    @RequestMapping(value = "/deleteequip/{id}", method = RequestMethod.POST)
-    public ResponseEntity<Object> deleteRoom(@PathVariable("id") long id) {
+}
 
-        boolean truth = equipmentRepo.deleteByEquipId(id);
-        if (truth)
-            return new ResponseEntity<>("ROOM DELETEION SUCCESS", HttpStatus.CREATED);
-        else
-            return new ResponseEntity<>("ROOM DELETIO FAILED", HttpStatus.FORBIDDEN);
-    }
+    
 
 
     }

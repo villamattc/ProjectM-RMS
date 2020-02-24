@@ -32,7 +32,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @ControllerAdvice
-public class EquipmentController {
+public class InventoryController {
 
     @Autowired
     private RoomService roomService;
@@ -52,39 +52,33 @@ public class EquipmentController {
     @Autowired
     InventoryRepository inventRepo;
     
-    @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
-    public ResponseEntity<Object> addEquiptoRoom(@PathVariable("id") long id,
-    @Valid @ModelAttribute("equip")Equipment equip,
-    BindingResult result) {
-    if (result.hasErrors()) {
-        return new ResponseEntity<>("FAILED TO ADD EQUIPMENT", HttpStatus.FORBIDDEN);
-    }
+    
+// add inventory through viewing the room info
+@RequestMapping(value = "/room/{id}/addinventory", method = RequestMethod.POST)
+public ResponseEntity<Object> addInventorytoRoom(@PathVariable("id") long id,
+    @Valid @ModelAttribute("inventory")Inventory inventory, BindingResult result) {
+if (result.hasErrors()) {
+    return new ResponseEntity<>("FAILED TO ADD INVENTORY", HttpStatus.FORBIDDEN);
+}
 
-    try{
+try{
 
-        Room getRoom = roomRepo.findByRoomId(id);
-        getRoom.addEquipment(equip);
-        equipmentRepo.save(equip);
-        roomRepo.save(getRoom);
-        
-    }catch(Exception e){
+    Room getRoom = roomRepo.findByRoomId(id);
+    getRoom.addInventory(inventory);
+    inventRepo.save(inventory);
+    roomRepo.save(getRoom);
+    
+}catch(Exception e){
 
-        e.printStackTrace();
-        return new ResponseEntity<>("FAILED TO ADD EQUIPMENT", HttpStatus.FORBIDDEN);
-    }
+    e.printStackTrace();
+    return new ResponseEntity<>("FAILED TO ADD INVENTORY", HttpStatus.FORBIDDEN);
+}
 
-        return new ResponseEntity<>("SUCCESSFULLY ADDED EQUIPMENT", HttpStatus.CREATED);
-    }
+    return new ResponseEntity<>("SUCCESSFULLY ADDED INVENTORY", HttpStatus.CREATED);
+}
 
-    @RequestMapping(value = "/deleteequip/{id}", method = RequestMethod.POST)
-    public ResponseEntity<Object> deleteRoom(@PathVariable("id") long id) {
 
-        boolean truth = equipmentRepo.deleteByEquipId(id);
-        if (truth)
-            return new ResponseEntity<>("ROOM DELETEION SUCCESS", HttpStatus.CREATED);
-        else
-            return new ResponseEntity<>("ROOM DELETIO FAILED", HttpStatus.FORBIDDEN);
-    }
+    
 
 
     }
