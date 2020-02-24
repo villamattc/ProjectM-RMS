@@ -127,7 +127,7 @@
         </li>
         <li>
           <a href="/room">
-            <i class="fa fa-files-o"></i>
+            <i class="fa fa-hotel"></i>
             <span>Room</span>
             <span class="pull-right-container">
             </span>
@@ -142,7 +142,7 @@
         </li>
         <li>
           <a href="/inventory">
-            <i class="fa fa-files-o"></i>
+            <i class="fa fa-cubes"></i>
             <span>Inventory</span>
             <span class="pull-right-container">
             </span>
@@ -151,7 +151,7 @@
         </li>
         <li>
           <a href="/equipment">
-            <i class="fa fa-files-o"></i>
+            <i class="fa fa-wrench"></i>
             <span>Equipment</span>
             <span class="pull-right-container">
             </span>
@@ -159,7 +159,7 @@
         </li>
           <li>
           <a href="/logs">
-            <i class="fa fa-files-o"></i>
+            <i class="fa fa-tasks"></i>
             <span>Logs</span>
             <span class="pull-right-container">
             </span>

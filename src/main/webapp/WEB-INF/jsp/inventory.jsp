@@ -28,21 +28,32 @@
 				<!-- Main content -->
 				<section class="content">
 					<br>
+					
 					<div class="row">
-						
-						<div class="form-group col-md-3">
-                  <label>Select Room</label>
+						<div class="col-md-2">
+					<div class="form-group">
+                
                   <select class="form-control">
-                    <option value="viewroominvent"><a href="/viewroominvent">View Room Inventory</a></option>
+                    <option value="viewroominvent">View Room Inventory</option>
                     <option>option 2</option>
                     <option>option 3</option>
                     <option>option 4</option>
                     <option>option 5</option>
                   </select>
                 </div>
-				<div class="col-md-9">
+				</div>
 
-						</div>
+<div class="col-md-2">
+<form action="#" method="get">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-default"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+</div>
 					</div>
 					<br>
 					<div class="row">

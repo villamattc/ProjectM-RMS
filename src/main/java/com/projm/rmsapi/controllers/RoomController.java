@@ -94,6 +94,22 @@ public class RoomController {
 
     }
 
+    @RequestMapping(value = "/searchroom", method = RequestMethod.GET)
+    public ModelAndView searchRoom(@RequestParam String find){
+
+        try{
+        Room searchRoom = roomRepo.findByRoomName(find);
+        Long roomId = searchRoom.getRoomId();
+        String redirectTo = ("redirect:/viewroom/" + roomId);
+        return new ModelAndView(redirectTo);
+
+        }catch(Exception e){
+           // e.printStackTrace();
+            return new ModelAndView("rediret:/room");
+        }
+
+    }
+    
 
 
     }

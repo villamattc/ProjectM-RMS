@@ -21,15 +21,34 @@
 				<!-- Main content -->
 				<section class="content">
 					<br>
+					<br>
+					
 					<div class="row">
-						<div class="col-md-10">
-
-						</div>
 						<div class="col-md-2">
-							<!-- Button trigger modal -->
+					<div class="form-group">
+                
+                  <select class="form-control">
+                    <option value="viewroominvent">View Room Inventory</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                    <option>option 4</option>
+                    <option>option 5</option>
+                  </select>
+                </div>
+				</div>
 
-						</div>
-					</div>
+<div class="col-md-2">
+<form action="#" method="get">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-default"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+</div>
+</div>
 					<br>
 					<div class="row">
 
@@ -37,7 +56,7 @@
 						<div class="col-md-3">
 							<div class="box box-success">
 								<div class="box-header bg-green">
-									<h3 class="box-title">Good Condition</h3>
+									<h3 class="box-title">Good Condition:</h3>
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
@@ -83,9 +102,9 @@
 						<!-- /.col -->
 						<!--Option 2-->
 						<div class="col-md-3">
-							<div class="box box-primary">
-								<div class="box-header bg-blue">
-									<h3 class="box-title">Need Maintainance</h3>
+							<div class="box box-danger">
+								<div class="box-header bg-red">
+									<h3 class="box-title">Need Maintainance:</h3>
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
@@ -127,9 +146,9 @@
 						</div>
 						<!--Option 3-->
 						<div class="col-md-3">
-							<div class="box box-warning">
-								<div class="box-header bg-yellow">
-									<h3 class="box-title">Need Repair</h3>
+							<div class="box box-danger">
+								<div class="box-header bg-red">
+									<h3 class="box-title">Need Repair:</h3>
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
@@ -170,9 +189,9 @@
 						</div>
 						<!--Option 4-->
 						<div class="col-md-3">
-							<div class="box box-danger">
-								<div class="box-header bg-red">
-									<h3 class="box-title">Need Replace</h3>
+							<div class="box box-warning">
+								<div class="box-header bg-yellow">
+									<h3 class="box-title">Need Replace:</h3>
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">

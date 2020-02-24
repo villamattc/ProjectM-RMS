@@ -47,11 +47,11 @@
 				</div>
 
 <div class="col-md-2">
-<form action="#" method="get">
+<form action="/searchroom" method="get">
         <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <input type="text" name="find" class="form-control" placeholder="Search...">
               <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                <button type="submit" name="search" id="search-btn" class="btn btn-default"><i class="fa fa-search"></i>
                 </button>
               </span>
         </div>
@@ -76,11 +76,11 @@
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">�</a></li>
+											<li><a href="#"><<</a></li>
 											<li><a href="#">1</a></li>
 											<li><a href="#">2</a></li>
 											<li><a href="#">3</a></li>
-											<li><a href="#">�</a></li>
+											<li><a href="#">>></a></li>
 										</ul>
 									</div>
 								</div>
@@ -135,11 +135,11 @@
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">�</a></li>
+											<li><a href="#"><<</a></li>
 											<li><a href="#">1</a></li>
 											<li><a href="#">2</a></li>
 											<li><a href="#">3</a></li>
-											<li><a href="#">�</a></li>
+											<li><a href="#">>></a></li>
 										</ul>
 									</div>
 								</div>
@@ -189,11 +189,11 @@
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">�</a></li>
+											<li><a href="#"><<</a></li>
 											<li><a href="#">1</a></li>
 											<li><a href="#">2</a></li>
 											<li><a href="#">3</a></li>
-											<li><a href="#">�</a></li>
+											<li><a href="#">>></a></li>
 										</ul>
 									</div>
 								</div>
@@ -293,7 +293,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary" >Save changes</button>
+							<button type="submit" class="btn btn-primary" onClick="saveRoom();" >Save changes</button>
 							<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="saveRoom();">SweetAlert2</button>
 						</div>
 						</form:form>
@@ -308,7 +308,7 @@
 	</div>
 
 
-	<script type="text/javascript">
+	<script>
 	function saveRoom(){
 		Swal.fire({
 	position: 'center',
