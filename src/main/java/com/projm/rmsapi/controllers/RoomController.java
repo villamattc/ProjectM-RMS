@@ -1,9 +1,6 @@
 package com.projm.rmsapi.controllers;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import com.projm.rmsapi.entities.Admin;
@@ -55,23 +52,17 @@ public class RoomController {
     
     // add room
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public void newRoom(@Valid @ModelAttribute("room") Room room, BindingResult result, HttpServletResponse response) {
-        // if (result.hasErrors()) {
-        //     return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
-        // }
+    public ResponseEntity<Object> newRoom(@Valid @ModelAttribute("room") Room room, BindingResult result) {
+        if (result.hasErrors()) {
+            return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
+        }
 
-        roomService.saveRoom(room);
+        boolean truth = roomService.saveRoom(room);
 
-        // if (truth)
-        //     return new ResponseEntity<>("ROOM CREATION SUCCESS", HttpStatus.CREATED);
-        // else
-        //     return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
-        try {
-			response.sendRedirect("/room");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        if (truth)
+            return new ResponseEntity<>("ROOM CREATION SUCCESS", HttpStatus.CREATED);
+        else
+            return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
     }
 
     // add user through viewing the room info
@@ -108,7 +99,7 @@ public class RoomController {
     }
     // add inventory through viewing the room info
     @RequestMapping(value = "/room/{id}/addinventory", method = RequestMethod.POST)
-    public ResponseEntity<Object> addEquiptoRoom(@PathVariable("id") long id,
+    public ResponseEntity<Object> addInventorytoRoom(@PathVariable("id") long id,
         @Valid @ModelAttribute("inventory")Inventory inventory, BindingResult result) {
     if (result.hasErrors()) {
         return new ResponseEntity<>("FAILED TO ADD INVENTORY", HttpStatus.FORBIDDEN);
@@ -130,32 +121,6 @@ public class RoomController {
         return new ResponseEntity<>("SUCCESSFULLY ADDED INVENTORY", HttpStatus.CREATED);
     }
 
-    // add equip through viewing the room info
-    @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
-    public ResponseEntity<Object> addInventorytoRoom(@PathVariable("id") long id,
-        @Valid @ModelAttribute("equip")Equipment equip,
-    BindingResult result) {
-    if (result.hasErrors()) {
-        return new ResponseEntity<>("FAILED TO ADD EQUIPMENT", HttpStatus.FORBIDDEN);
-    }
-
-    try{
-
-        Room getRoom = roomRepo.findByRoomId(id);
-        getRoom.addEquipment(equip);
-        equipmentRepo.save(equip);
-        roomRepo.save(getRoom);
-        
-    }catch(Exception e){
-
-        e.printStackTrace();
-        return new ResponseEntity<>("FAILED TO ADD EQUIPMENT", HttpStatus.FORBIDDEN);
-    }
-
-        return new ResponseEntity<>("SUCCESSFULLY ADDED EQUIPMENT", HttpStatus.CREATED);
-    }
-
-
     // not complete... just to add admin to a the database
     @RequestMapping(value = "/testcreateAdmin", method = RequestMethod.POST)
     public ModelAndView adminregister(@RequestParam String username, @RequestParam String password) {
@@ -166,11 +131,9 @@ public class RoomController {
         return new ModelAndView("testlogin"); 
     }
 
-    
     @RequestMapping(value = "/destorysession", method = RequestMethod.POST)
-	public String destroySession(HttpServletRequest request) {
+	public void destroySession(HttpServletRequest request) {
 		request.getSession().invalidate();
-		return "redirect:/";
     }
     
 

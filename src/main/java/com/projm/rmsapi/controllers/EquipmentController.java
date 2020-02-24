@@ -53,7 +53,7 @@ public class EquipmentController {
     InventoryRepository inventRepo;
     
     @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
-    public ResponseEntity<Object> addInventorytoRoom(@PathVariable("id") long id,
+    public ResponseEntity<Object> addEquiptoRoom(@PathVariable("id") long id,
     @Valid @ModelAttribute("equip")Equipment equip,
     BindingResult result) {
     if (result.hasErrors()) {
