@@ -357,4 +357,10 @@ public class IndexController{
 
      return new ModelAndView("logs");
  }
+
+ 
+ @RequestMapping(value = "dashboard")
+ public ModelAndView Dashboard (ModelMap map){
+     return new ModelAndView("dashboard");
+ }
 }
