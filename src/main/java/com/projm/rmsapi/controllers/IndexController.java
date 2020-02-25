@@ -259,7 +259,7 @@ public class IndexController {
 
     @RequestMapping(value = "viewroom/{id}/viewequip")
     public ModelAndView ViewEquipment(@PathVariable("id") long id, ModelMap map) {
-        // @@
+        //@@
         Room getRoom = roomRepo.findByRoomId(id);
         map.addAttribute("equip", getRoom.getEquips());
         map.addAttribute("equipment", new Equipment());
@@ -351,12 +351,13 @@ public class IndexController {
 
         return new ModelAndView("logs");
     }
+    
 
     @RequestMapping(value = "updateequip/{id}")
     public ModelAndView updateEquip(@PathVariable("id") long id, ModelMap map) {
-
+        
         Equipment updateEquip = equipRepo.findByEquipId(id);
-        map.addAttribute("updateequip", updateEquip);
+        map.addAttribute("updateequip", updateEquip );
 
         Room previousRoom = updateEquip.getRoom();
         map.addAttribute("prevRoomId", previousRoom.getRoomId());
@@ -370,14 +371,4 @@ public class IndexController {
         map.addAttribute("equipmentStatusOptions", equipmentStatus);
         return new ModelAndView("updateequipform");
     }
-
-    
-    @RequestMapping(value = "equiplogs"/* testing for now */)
-    public ModelAndView Logs(@PathVariable("id") long id, ModelMap map) {
-        
-
-        return new ModelAndView("logs");
-    }
-
-
 }

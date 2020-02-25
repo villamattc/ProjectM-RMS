@@ -1,10 +1,15 @@
 package com.projm.rmsapi.controllers;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import com.projm.rmsapi.entities.Admin;
+import com.projm.rmsapi.entities.Equipment;
 import com.projm.rmsapi.entities.Inventory;
 import com.projm.rmsapi.entities.Room;
-
+import com.projm.rmsapi.entities.User;
 import com.projm.rmsapi.repositories.AdminRepository;
 import com.projm.rmsapi.repositories.EquipmentRepository;
 import com.projm.rmsapi.repositories.InventoryRepository;
@@ -21,6 +26,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
