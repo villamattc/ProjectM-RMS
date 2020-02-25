@@ -60,6 +60,7 @@
 						<th>Business or Vacation
 						</th>
 						
+						
 					</tr>
 
 						<c:forEach items="${user}" var="item">
@@ -72,6 +73,7 @@
 							<td>${item.age}</td>
 							<td>${item.occupation}</td>
 							<td>${item.businessOrvacay}</td>
+							
 						
 					</tr>
 					</c:forEach>

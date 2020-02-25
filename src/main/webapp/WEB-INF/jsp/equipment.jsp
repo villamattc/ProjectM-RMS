@@ -28,7 +28,7 @@
 					<div class="form-group">
                 
                   <select class="form-control">
-                    <option value="viewroominvent">View Room Inventory</option>
+                    <option value="viewroominvent">View Room Equipment</option>
                     <option>option 2</option>
                     <option>option 3</option>
                     <option>option 4</option>
