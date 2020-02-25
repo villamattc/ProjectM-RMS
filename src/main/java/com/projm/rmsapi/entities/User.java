@@ -18,7 +18,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long user_id;
 
-    private String lastName; 
+    private String lastName;
 
     private String firstName;
 
@@ -30,9 +30,13 @@ public class User {
 
     private int age;
 
+    private int adults;
+
+    private int children;
+
     private String occupation;
     // refers to the number of visits
-    //private int visits; // removed cuz u can just count in the log or smthing idk
+    // private int visits; // removed cuz u can just count in the log or smthing idk
 
     private int businessOrvacay;
 
@@ -40,9 +44,27 @@ public class User {
     @JoinColumn(name = "room_id", nullable = false)
     private Room room;
 
-    public User(){
+    public User() {
     }
-    public User(String lastName, String firstName, Date checkin, Date checkout, String nationality, int age, String occupation, int businessOrvacay){
+
+    public int getChildren() {
+        return children;
+    }
+
+    public void setChildren(int children) {
+        this.children = children;
+    }
+
+    public int getAdults() {
+        return adults;
+    }
+
+    public void setAdults(int adults) {
+        this.adults = adults;
+    }
+
+    public User(String lastName, String firstName, Date checkin, Date checkout, String nationality, int age,
+            String occupation, int businessOrvacay) {
        
         this.lastName=lastName;
         this.firstName=firstName;

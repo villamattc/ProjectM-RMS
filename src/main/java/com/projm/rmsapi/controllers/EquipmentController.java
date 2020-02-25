@@ -81,9 +81,9 @@ public class EquipmentController {
 
         boolean truth = equipmentRepo.deleteByEquipId(id);
         if (truth)
-            return new ResponseEntity<>("ROOM DELETEION SUCCESS", HttpStatus.CREATED);
+            return new ResponseEntity<>("EQUIPMENT DELETEION SUCCESS", HttpStatus.ACCEPTED);
         else
-            return new ResponseEntity<>("ROOM DELETIO FAILED", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("EQUIPMENT DELETIO FAILED", HttpStatus.FORBIDDEN);
     }
 
 
