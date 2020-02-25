@@ -3,11 +3,14 @@ package com.projm.rmsapi.entities;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-
+@Entity
+@Table(name = "EQUIPMENTLOG")
 public class EquipmentLog {
 
     @Id

@@ -1,15 +1,10 @@
 package com.projm.rmsapi.controllers;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.transaction.Transactional;
+
 import javax.validation.Valid;
 
-import com.projm.rmsapi.entities.Admin;
-import com.projm.rmsapi.entities.Equipment;
-import com.projm.rmsapi.entities.Inventory;
+
 import com.projm.rmsapi.entities.Room;
-import com.projm.rmsapi.entities.User;
 import com.projm.rmsapi.repositories.AdminRepository;
 import com.projm.rmsapi.repositories.EquipmentRepository;
 import com.projm.rmsapi.repositories.InventoryRepository;
@@ -22,7 +17,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -107,7 +101,6 @@ public class RoomController {
 
         
     }
-    
     
 
 
