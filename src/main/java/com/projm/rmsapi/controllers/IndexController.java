@@ -26,10 +26,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class IndexController{
+public class IndexController {
 
     @Autowired
-    private  RoomService roomService;
+    private RoomService roomService;
     @Autowired
     private RoomRepository roomRepo;
     @Autowired
@@ -37,11 +37,12 @@ public class IndexController{
     @Autowired
     private EquipmentRepository equipRepo;
 
-    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@TESTING VIEW@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@TESTING
+    // VIEW@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     @RequestMapping(value = "testindex")
-    public ModelAndView testJsp(ModelMap map, HttpSession session){
-        String username = (String)session.getAttribute("userSession");
-        if(username == null){
+    public ModelAndView testJsp(ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if (username == null) {
             return new ModelAndView("test/testlogin");
         }
 
@@ -51,7 +52,7 @@ public class IndexController{
     }
 
     @RequestMapping(value = "testroom/{id}")
-    public ModelAndView roomtestJsp(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView roomtestJsp(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
 
@@ -60,7 +61,7 @@ public class IndexController{
     }
 
     @RequestMapping(value = "testroom/{id}/adduserform")
-    public ModelAndView roomuseraddtestJsp(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView roomuseraddtestJsp(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
 
@@ -71,7 +72,7 @@ public class IndexController{
     }
 
     @RequestMapping(value = "testroom/{id}/showusers")
-    public ModelAndView showuserstestJsp(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView showuserstestJsp(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
         map.addAttribute("user", getRoom.getUsers());
@@ -79,7 +80,7 @@ public class IndexController{
     }
 
     @RequestMapping(value = "testroom/{id}/showequips")
-    public ModelAndView showequipstestJsp(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView showequipstestJsp(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
         map.addAttribute("equip", getRoom.getEquips());
@@ -87,7 +88,7 @@ public class IndexController{
     }
 
     @RequestMapping(value = "testroom/{id}/showinvent")
-    public ModelAndView showinventtestJsp(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView showinventtestJsp(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
         map.addAttribute("invent", getRoom.getInvents());
@@ -95,8 +96,8 @@ public class IndexController{
     }
 
     @RequestMapping(value = "testroom")
-    public ModelAndView testroom(ModelMap map){
-        
+    public ModelAndView testroom(ModelMap map) {
+
         Map<Integer, String> options = new HashMap<Integer, String>();
         options.put(1, "Vacant");
         options.put(2, "Occupied");
@@ -112,19 +113,19 @@ public class IndexController{
     }
 
     @RequestMapping(value = "testlogin")
-    public ModelAndView testlogin(HttpSession session){
+    public ModelAndView testlogin(HttpSession session) {
 
-        String x = (String)session.getAttribute("userSession");
+        String x = (String) session.getAttribute("userSession");
 
-        if(session.getAttribute("userSession")==null){
+        if (session.getAttribute("userSession") == null) {
             return new ModelAndView("test/testlogin");
         }
-        System.out.println("wtf is going on la????"+x+x+x+x+x+x);
+        System.out.println("wtf is going on la????" + x + x + x + x + x + x);
         return new ModelAndView("redirect:/testindex");
     }
 
     @RequestMapping(value = "testroom/{id}/addequipform")
-    public ModelAndView roomequipaddtestJsp(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView roomequipaddtestJsp(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
 
@@ -135,9 +136,9 @@ public class IndexController{
     }
 
     // /testroom/${room.roomId}/addinventoryform
-    
+
     @RequestMapping(value = "testroom/{id}/addinventoryform")
-    public ModelAndView roominventoryaddtestJsp(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView roominventoryaddtestJsp(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
 
@@ -148,22 +149,20 @@ public class IndexController{
     }
 
     @RequestMapping(value = "createadminpage")
-    public ModelAndView createAdminPage(ModelMap map){
-
+    public ModelAndView createAdminPage(ModelMap map) {
 
         map.addAttribute("admin", new Admin());
         return new ModelAndView("test/createadminpage");
     }
 
-     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-//asda
-
+    // asda
 
     @RequestMapping(value = "room")
-    public ModelAndView Room(ModelMap map){
+    public ModelAndView Room(ModelMap map) {
 
-        //map.addAttribute("roomlist", roomRepo.findAll());
+        // map.addAttribute("roomlist", roomRepo.findAll());
 
         Map<Integer, String> roomStatusOptions = new HashMap<Integer, String>();
         roomStatusOptions.put(1, "Vacant");
@@ -178,18 +177,17 @@ public class IndexController{
 
         map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
         map.addAttribute("occupiedRooms", roomService.getAllOccupiedRooms());
-        map.addAttribute("reservedRooms", roomService.getAllReservedRooms()); //<c:forEach items="${vacantRooms}" var="item">.
+        map.addAttribute("reservedRooms", roomService.getAllReservedRooms()); // <c:forEach items="${vacantRooms}"
+                                                                              // var="item">.
         map.addAttribute("roomStatusOptions", roomStatusOptions);
         map.addAttribute("roomTypeOptions", roomTypeOptions);
 
         return new ModelAndView("room", "room", new Room());
 
-
     }
 
-    
     @RequestMapping(value = "viewroom/{id}")
-    public ModelAndView viewRoomDetails(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView viewRoomDetails(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
         Map<Integer, String> roomTypeOptions = new HashMap<Integer, String>();
@@ -197,24 +195,21 @@ public class IndexController{
         roomTypeOptions.put(2, "Amuma Spa Suite");
         roomTypeOptions.put(3, "Premier Deluxe Room");
         roomTypeOptions.put(4, "Royal Bungalow");
-        
+
         map.addAttribute("roomTypeOptions", roomTypeOptions);
         map.addAttribute("room", getRoom);
         return new ModelAndView("viewroom");
     }
 
- 
-    
-
-    //login
+    // login
     @RequestMapping(value = "login")
-    public ModelAndView Login(ModelMap map){
+    public ModelAndView Login(ModelMap map) {
 
         return new ModelAndView("login");
     }
-    
+
     @RequestMapping(value = "viewroom/{id}/adduserform")
-    public ModelAndView AddUserForm(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView AddUserForm(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
 
@@ -223,26 +218,28 @@ public class IndexController{
         map.addAttribute("user", new User());
         return new ModelAndView("adduserform");
     }
+
     @RequestMapping(value = "viewroom/{id}/addequipform")
-    public ModelAndView AddEquipForm(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView AddEquipForm(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
-        
+
         Map<Integer, String> equipmentStatus = new HashMap<Integer, String>();
         equipmentStatus.put(1, "Good Condition");
         equipmentStatus.put(2, "Need Maintainance");
         equipmentStatus.put(3, "Need Repair");
         equipmentStatus.put(4, "Need Replacement");
 
-        map.addAttribute("equipmentStatusOptions",equipmentStatus);
+        map.addAttribute("equipmentStatusOptions", equipmentStatus);
 
         map.addAttribute("roomId", id);
         map.addAttribute("room", getRoom);
         map.addAttribute("equip", new Equipment());
         return new ModelAndView("addequipform");
     }
+
     @RequestMapping(value = "viewroom/{id}/addinventoryform")
-    public ModelAndView AddInventoryForm(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView AddInventoryForm(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
 
@@ -253,7 +250,7 @@ public class IndexController{
     }
 
     @RequestMapping(value = "viewroom/{id}/viewusers")
-    public ModelAndView ViewUsers(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView ViewUsers(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
         map.addAttribute("user", getRoom.getUsers());
@@ -261,100 +258,117 @@ public class IndexController{
     }
 
     @RequestMapping(value = "viewroom/{id}/viewequip")
-    public ModelAndView ViewEquipment(@PathVariable("id") long id, ModelMap map){
-
+    public ModelAndView ViewEquipment(@PathVariable("id") long id, ModelMap map) {
+        //@@
         Room getRoom = roomRepo.findByRoomId(id);
         map.addAttribute("equip", getRoom.getEquips());
+        map.addAttribute("equipment", new Equipment());
         return new ModelAndView("viewequip");
     }
 
     @RequestMapping(value = "viewroom/{id}/viewinvent")
-    public ModelAndView ViewInventory(@PathVariable("id") long id, ModelMap map){
+    public ModelAndView ViewInventory(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
         map.addAttribute("invent", getRoom.getInvents());
         return new ModelAndView("viewinvent");
     }
 
+    // EQUIPMENT OPENING PAGE
+    @RequestMapping(value = "equipment")
+    public ModelAndView Equipment(ModelMap map) {
 
-    //EQUIPMENT OPENING PAGE
- @RequestMapping(value = "equipment")
- public ModelAndView Equipment(ModelMap map){
+        List<Equipment> goodCondition = equipRepo.findAllByEquipStatus(1);
+        List<Equipment> needsMaint = equipRepo.findAllByEquipStatus(2);
+        List<Equipment> needsRepair = equipRepo.findAllByEquipStatus(3);
+        List<Equipment> needReplace = equipRepo.findAllByEquipStatus(4);
 
-    List<Equipment> goodCondition = equipRepo.findAllByEquipStatus(1);
-    List<Equipment> needsMaint = equipRepo.findAllByEquipStatus(2);
-    List<Equipment> needsRepair = equipRepo.findAllByEquipStatus(3);
-    List<Equipment> needReplace = equipRepo.findAllByEquipStatus(4);
+        List<String> roomNames1 = new ArrayList<>();
+        List<String> roomNames2 = new ArrayList<>();
+        List<String> roomNames3 = new ArrayList<>();
+        List<String> roomNames4 = new ArrayList<>();
 
-    List<String> roomNames1 = new ArrayList<>();
-    List<String> roomNames2 = new ArrayList<>();
-    List<String> roomNames3 = new ArrayList<>();
-    List<String> roomNames4 = new ArrayList<>();
+        for (Equipment equips : goodCondition) {
 
-    for(Equipment equips: goodCondition){
+            Room room = equips.getRoom();
+            roomNames1.add(room.getRoomName());
 
-        Room room = equips.getRoom();
-        roomNames1.add(room.getRoomName());
+        }
 
+        map.addAttribute("goodconditionRoomName", roomNames1);
+
+        for (Equipment equips : needsMaint) {
+
+            Room room = equips.getRoom();
+            roomNames2.add(room.getRoomName());
+
+        }
+
+        map.addAttribute("needsmaintRoomName", roomNames2);
+
+        for (Equipment equips : needsRepair) {
+
+            Room room = equips.getRoom();
+            roomNames3.add(room.getRoomName());
+
+        }
+
+        map.addAttribute("needsrepairRoomName", roomNames3);
+
+        for (Equipment equips : needReplace) {
+
+            Room room = equips.getRoom();
+            roomNames4.add(room.getRoomName());
+
+        }
+
+        map.addAttribute("needreplaceRoomName", roomNames4);
+
+        map.addAttribute("goodcondition", equipRepo.findAllByEquipStatus(1));
+        map.addAttribute("needsmaint", equipRepo.findAllByEquipStatus(2));
+        map.addAttribute("needsrepair", equipRepo.findAllByEquipStatus(3));
+        map.addAttribute("needreplace", equipRepo.findAllByEquipStatus(4));
+
+        return new ModelAndView("equipment");
     }
 
+    // inventory
+    @RequestMapping(value = "inventory")
+    public ModelAndView Inventory(ModelMap map) {
 
+        return new ModelAndView("inventory");
+    }
 
-    map.addAttribute("goodconditionRoomName", roomNames1);
+    // viewroominventory
+    @RequestMapping(value = "viewroominvent")
+    public ModelAndView viewRoomInventory(ModelMap map) {
 
-    for(Equipment equips: needsMaint){
+        return new ModelAndView("viewroominvent");
+    }
 
-        Room room = equips.getRoom();
-        roomNames2.add(room.getRoomName());
+    @RequestMapping(value = "logs")
+    public ModelAndView Logs(ModelMap map) {
+
+        return new ModelAndView("logs");
+    }
+    
+
+    @RequestMapping(value = "updateequip/{id}")
+    public ModelAndView updateEquip(@PathVariable("id") long id, ModelMap map) {
         
+        Equipment updateEquip = equipRepo.findByEquipId(id);
+        map.addAttribute("updateequip", updateEquip );
 
+        Room previousRoom = updateEquip.getRoom();
+        map.addAttribute("prevRoomId", previousRoom.getRoomId());
+
+        Map<Integer, String> equipmentStatus = new HashMap<Integer, String>();
+        equipmentStatus.put(1, "Good Condition");
+        equipmentStatus.put(2, "Need Maintainance");
+        equipmentStatus.put(3, "Need Repair");
+        equipmentStatus.put(4, "Need Replacement");
+
+        map.addAttribute("equipmentStatusOptions", equipmentStatus);
+        return new ModelAndView("updateequipform");
     }
-
-    map.addAttribute("needsmaintRoomName", roomNames2);
-
-    for(Equipment equips: needsRepair){
-
-        Room room = equips.getRoom();
-        roomNames3.add(room.getRoomName());
-
-    }
-
-    map.addAttribute("needsrepairRoomName", roomNames3);
-
-    for(Equipment equips: needReplace){
-
-        Room room = equips.getRoom();
-        roomNames4.add(room.getRoomName());
-
-    }
-
-    map.addAttribute("needreplaceRoomName", roomNames4);
-
-    map.addAttribute("goodcondition", equipRepo.findAllByEquipStatus(1));
-    map.addAttribute("needsmaint", equipRepo.findAllByEquipStatus(2));
-    map.addAttribute("needsrepair", equipRepo.findAllByEquipStatus(3));
-    map.addAttribute("needreplace", equipRepo.findAllByEquipStatus(4));
-
-     return new ModelAndView("equipment");
- }
-
- //inventory
- @RequestMapping(value = "inventory")
- public ModelAndView Inventory(ModelMap map){
-
-     return new ModelAndView("inventory");
- }
-
- //viewroominventory
- @RequestMapping(value = "viewroominvent")
- public ModelAndView viewRoomInventory(ModelMap map){
-
-     return new ModelAndView("viewroominvent");
- }
-
- @RequestMapping(value = "logs")
- public ModelAndView Logs(ModelMap map){
-
-     return new ModelAndView("logs");
- }
 }
