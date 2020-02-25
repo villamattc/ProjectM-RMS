@@ -135,7 +135,9 @@ public class Equipment {
         this.equipName = equipName;
     }
     
-    
+    public Long getEquipId(){
+        return this.equipId;
+    }
 
 
 }

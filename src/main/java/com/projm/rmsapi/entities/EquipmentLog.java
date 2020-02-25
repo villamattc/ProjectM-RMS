@@ -1,15 +1,12 @@
 package com.projm.rmsapi.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
-import org.apache.tomcat.jni.Time;
 
 public class EquipmentLog {
 
@@ -17,20 +14,28 @@ public class EquipmentLog {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long equipLogId;
 
-    private Time logTime;
+    private LocalTime logTime;
 
-    private Date logDate;
+    private LocalDate logDate;
 
     private String username;
 
     private Long equipId;
 
-    private static Equipment equipmentChanges;
+    private Equipment equipmentChanges;
 
     private String changeDescription;
 
-    public Time getLogTime() {
+    public LocalTime getLogTime() {
         return logTime;
+    }
+
+    public Equipment getEquipmentChanges() {
+        return equipmentChanges;
+    }
+
+    public void setEquipmentChanges(Equipment equipmentChanges) {
+        this.equipmentChanges = equipmentChanges;
     }
 
     public Long getEquipId() {
@@ -49,13 +54,6 @@ public class EquipmentLog {
         this.changeDescription = changeDescription;
     }
 
-    public static Equipment getEquipmentChanges() {
-        return equipmentChanges;
-    }
-
-    public static void setEquipmentChanges(Equipment equipmentChanges) {
-        EquipmentLog.equipmentChanges = equipmentChanges;
-    }
 
     public String getUsername() {
         return username;
@@ -65,15 +63,15 @@ public class EquipmentLog {
         this.username = username;
     }
 
-    public Date getLogDate() {
+    public LocalDate getLogDate() {
         return logDate;
     }
 
-    public void setLogDate(Date logDate) {
+    public void setLogDate(LocalDate logDate) {
         this.logDate = logDate;
     }
 
-    public void setLogTime(Time logTime) {
+    public void setLogTime(LocalTime logTime) {
         this.logTime = logTime;
     }
 

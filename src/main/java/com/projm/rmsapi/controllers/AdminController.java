@@ -2,11 +2,9 @@ package com.projm.rmsapi.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
 import com.projm.rmsapi.entities.Admin;
 import com.projm.rmsapi.repositories.AdminRepository;
 import com.projm.rmsapi.services.AdminService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
