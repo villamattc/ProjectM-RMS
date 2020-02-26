@@ -3,11 +3,14 @@ package com.projm.rmsapi.entities;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-
+@Entity
+@Table(name = "EQUIPMENT")
 public class EquipmentLog {
 
     @Id
@@ -22,7 +25,7 @@ public class EquipmentLog {
 
     private Long equipId;
 
-    private Equipment equipmentChanges;
+    // private Equipment equipmentChanges;
 
     private String changeDescription;
 
@@ -30,13 +33,13 @@ public class EquipmentLog {
         return logTime;
     }
 
-    public Equipment getEquipmentChanges() {
-        return equipmentChanges;
-    }
+    // public Equipment getEquipmentChanges() {
+    //     return equipmentChanges;
+    // }
 
-    public void setEquipmentChanges(Equipment equipmentChanges) {
-        this.equipmentChanges = equipmentChanges;
-    }
+    // public void setEquipmentChanges(Equipment equipmentChanges) {
+    //     this.equipmentChanges = equipmentChanges;
+    // }
 
     public Long getEquipId() {
         return equipId;
