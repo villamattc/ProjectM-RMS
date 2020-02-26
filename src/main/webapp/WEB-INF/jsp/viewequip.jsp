@@ -79,6 +79,9 @@
 							<td>${item.functionality}</td>
 							<td><a href="/updateequip/${item.equipId}" type="button" class="btn btn-info">Update</a></td>
 							<td><button type="button" class="btn btn-success">View Logs</button></td>
+							<td>
+								<a class="btn btn-danger" href="/deleteequip/${item.equipId}">Delete</a>
+							</td>
 						
 					</tr>
 					</c:forEach>

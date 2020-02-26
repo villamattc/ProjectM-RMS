@@ -102,4 +102,11 @@ public class EquipmentController {
 
     }
 
+    @RequestMapping(value = "/deleteequip/{id}",  method = RequestMethod.GET)
+    public ModelAndView deleteEquip(@PathVariable("id") long id){
+//@
+        equipmentRepo.deleteByEquipId(id);
+        return new ModelAndView("redirect:/room");
+    }
+
 }
