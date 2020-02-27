@@ -8,4 +8,5 @@ import com.projm.rmsapi.entities.Admin;
 public interface EquipmentLogService{
 
 
+    public void sad();
 }

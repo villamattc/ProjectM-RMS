@@ -1,13 +1,17 @@
 package com.projm.rmsapi.entities;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -147,9 +151,14 @@ public class Equipment {
         return this.assessmentScore;
     }
 
+    public void setAssessmentScore(double assessmentScore){
+        this.assessmentScore=assessmentScore;
+    }
+
     public double computeAssessmentScore(){
         this.assessmentScore = completenessOfParts * .35 + appearance * .20 + functionality * .45;
         return this.assessmentScore;
     }
+
 
 }
