@@ -71,17 +71,21 @@
                 </div>
                 <div class="row">
                 <div class="form-group col-sm-4">
-                 <form:label path = "completenessOfParts">Completeness of Parts</form:label>
+                 <form:label path = "completenessOfParts">Completeness of Parts:</form:label>
                   <form:input class="form-control" path="completenessOfParts" type="number" min="0" max="100" value="${updateequip.completenessOfParts}"/>
                 </div>
                 <div class="form-group col-sm-4">
-                 <form:label path = "appearance">Appearance</form:label>
+                 <form:label path = "appearance">Appearance:</form:label>
                   <form:input class="form-control" path="appearance" type="number" min="0" max="100" value="${updateequip.appearance}"/>
                 </div>
                 <div class="form-group col-sm-4">
-                 <form:label path = "functionality">Functionality</form:label>
+                 <form:label path = "functionality">Functionality:</form:label>
                   <form:input class="form-control" path="functionality" type="number" min="0" max="100" value="${updateequip.functionality}"/>
+                </div>                
                 </div>
+                <div class="form-group">
+                  <label>Description:</label>
+                  <textarea class="form-control" rows="3"></textarea>
                 </div>
                 <div class="box-footer with-border">
                 <button type="submit" class="btn btn-primary"> Update Equipment</button>
