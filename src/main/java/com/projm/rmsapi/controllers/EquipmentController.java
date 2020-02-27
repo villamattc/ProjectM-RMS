@@ -73,15 +73,6 @@ public class EquipmentController {
         return new ResponseEntity<>("SUCCESSFULLY ADDED EQUIPMENT", HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/deleteequip/{id}", method = RequestMethod.POST)
-    public ResponseEntity<Object> deleteRoom(@PathVariable("id") long id) {
-
-        boolean truth = equipmentRepo.deleteByEquipId(id);
-        if (truth)
-            return new ResponseEntity<>("EQUIPMENT DELETEION SUCCESS", HttpStatus.ACCEPTED);
-        else
-            return new ResponseEntity<>("EQUIPMENT DELETIO FAILED", HttpStatus.FORBIDDEN);
-    }
 
     @RequestMapping(value = "/updateequip/{id}", method = RequestMethod.POST)
     public ResponseEntity<Object> updateEquip(@Valid @ModelAttribute("equip") Equipment equipment, BindingResult result,
