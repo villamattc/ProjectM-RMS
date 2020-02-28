@@ -85,7 +85,7 @@
                 </div>
                 <div class="form-group">
                   <label>Description:</label>
-                  <textarea path="description" class="form-control" rows="3" form="updateform"></textarea>
+                    <form:input class="form-control" rows="3" path="description"></form:input>
                 </div>
                 <div class="box-footer with-border">
                 <button type="submit" class="btn btn-primary"> Update Equipment</button>
