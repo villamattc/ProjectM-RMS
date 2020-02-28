@@ -61,17 +61,8 @@ public ResponseEntity<Object> addUsertoRoom(@PathVariable("id") long id, @Valid 
         return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
     }
 
-    System.out.println(user.getLastName());
-    System.out.println(user.getFirstName());
-    System.out.println(user.getCheckin());
-    System.out.println(user.getCheckout());
-    System.out.println(user.getNationality());
-    System.out.println(user.getOccupation());
-    System.out.println(user.getBusinessOrvacay());
-    System.out.println(user.getAge());
-
     try {
-
+        
         Room getRoom = roomRepo.findByRoomId(id);
         getRoom.addUser(user);
         userRepo.save(user);

@@ -1,13 +1,17 @@
 package com.projm.rmsapi.entities;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +24,8 @@ public class Equipment {
 
     private String equipName;
 
-    // Good, Needs Repair, Needs Maintenance, Needs to be replaced // MAYBE CONNECTED TO ASSESSMENT SCORE
+    // Good, Needs Repair, Needs Maintenance, Needs to be replaced // MAYBE
+    // CONNECTED TO ASSESSMENT SCORE
     private int equipStatus;
 
     private Date dateOfPurchase;
@@ -35,25 +40,28 @@ public class Equipment {
     // needs to have maintenance/repairs or be replace.. the criteria weight is
     // determined by the engineer
 
-    private double assessmentScore=0;
-
-    // score 1-100 based on presence and condition of the parts of the equipment  35%
-    private int completenessOfParts=0;
+    // score 1-100 based on presence and condition of the parts of the equipment 35%
+    private int completenessOfParts = 0;
 
     // score 1-100 based on the outer physical appearance 20%
-    private int appearance=0; 
+    private int appearance = 0;
 
-    // score 1-100 based on the how  45%
-    private int functionality=0;
+    // score 1-100 based on the how 45%
+    private int functionality = 0;
+
+    private double assessmentScore = 0;
 
     @ManyToOne
     @JoinColumn(name = "room_id", nullable = false)
     private Room room;
 
-    public Equipment(){
+    public Equipment() {
 
     }
-    public Equipment(String equipName, int equipStatus, Date dateOfPurchase, 
+
+
+    public Equipment(String equipName, int equipStatus,
+            Date dateOfPurchase, 
     Date dateOfLastMaintenance, int functionalLife){
         this.equipName=equipName;
         this.equipStatus=equipStatus;
@@ -137,6 +145,19 @@ public class Equipment {
     
     public Long getEquipId(){
         return this.equipId;
+    }
+
+    public double getAssessmenScore(){
+        return this.assessmentScore;
+    }
+
+    public void setAssessmentScore(double assessmentScore){
+        this.assessmentScore=assessmentScore;
+    }
+
+    public double computeAssessmentScore(){
+        this.assessmentScore = completenessOfParts * .35 + appearance * .20 + functionality * .45;
+        return this.assessmentScore;
     }
 
 
