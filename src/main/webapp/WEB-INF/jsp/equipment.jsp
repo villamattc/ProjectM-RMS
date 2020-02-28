@@ -159,8 +159,8 @@
 						</div>
 						<!--Option 4-->
 						<div class="col-md-3">
-							<div class="box box-blue">
-								<div class="box-header bg-blue">
+							<div class="box box-info">
+								<div class="box-header" style="background-color: #00C0EF">
 									<h3 class="box-title">Need Replace</h3>
 								</div>
 								<!-- /.box-header -->

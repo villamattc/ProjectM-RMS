@@ -402,6 +402,12 @@ public class IndexController {
  
  @RequestMapping(value = "dashboard")
  public ModelAndView Dashboard (ModelMap map){
+
+    map.addAttribute("goodCondition", equipRepo.countByEquipStatus(1));
+    map.addAttribute("needsMaint", equipRepo.countByEquipStatus(2));
+    map.addAttribute("needsRepair", equipRepo.countByEquipStatus(3));
+    map.addAttribute("needReplace", equipRepo.countByEquipStatus(4));
+    
      return new ModelAndView("dashboard");
  }
 
@@ -409,7 +415,7 @@ public class IndexController {
 public ModelAndView updateInventory(@PathVariable("id") long id, ModelMap map){
 
     Room getRoom = roomRepo.findByRoomId(id);
-    Set<Inventory> roomInvents = getRoom.getInvents();    
+    List<Inventory> roomInvents = inventRepo.getInventoryByRoomId(id);    
     
 
     List<Inventory> inventList = inventRepo.descendingInventoryQuant();

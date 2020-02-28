@@ -56,7 +56,7 @@ To change this template use File | Settings | File Templates.
                       <!-- DONUT CHART -->
                       <div class="box box-danger">
                         <div class="box-header with-border">
-                          <h3 class="box-title">Donut Chart</h3>
+                          <h3 class="box-title">Pie Chart</h3>
             
                           <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -243,12 +243,12 @@ var myChart = new Chart(ctx, {
 //----BAR CHART----//
 var ctx = document.getElementById('barChart').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'pie',
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        labels: ['Good Condtion', 'Need Maintainance', 'Need Repair', 'Need Replace'],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [${goodCondition}, ],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -278,7 +278,15 @@ var myChart = new Chart(ctx, {
         }
     }
 });
-new Chart(document.getElementById("pieChart"),{"type":"pie","data":{"labels":["Red","Blue","Yellow"],"datasets":[{"label":"My First Dataset","data":[300,50,100],"backgroundColor":["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)"]}]}});
+new Chart(document.getElementById("pieChart"),
+      {"type":"pie","data":
+        {"labels":
+          ["Good Condition","Need Maintainance","Need Repair","Need Replace"],
+          "datasets":[{"label":"My First Dataset",
+          "data":
+          [${goodCondition},${needsMaint},${needsRepair},${needReplace}],
+          "backgroundColor":
+          ["#00A65A","#F39C12","#DD4B39","#00C0EF"]}]}});
 </script>
 
 
