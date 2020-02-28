@@ -366,7 +366,7 @@ public class IndexController {
 
         map.addAttribute("equipmentStatusOptions", equipmentStatus);
         return new ModelAndView("updateequipform");
-        //@
+    
     }
 
     @RequestMapping(value = "updateinventform")
