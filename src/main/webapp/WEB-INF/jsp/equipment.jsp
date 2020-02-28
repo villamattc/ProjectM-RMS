@@ -20,7 +20,7 @@
 
 				<!-- Main content -->
 				<section class="content">
-					<br>
+				
 					<br>
 					
 					<div class="row">

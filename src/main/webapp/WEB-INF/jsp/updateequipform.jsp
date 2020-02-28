@@ -38,7 +38,7 @@
         <div class="col-md-8">
         <div class="box box-warning">
             <div class="box-header with-border">
-              <h3 class="box-title">Room ${room.roomName}</h3>
+              <h3 class="box-title">Equipment Update Form</h3>
             </div>
             <!-- /.box-header -->
             <form:form action="/updateequip/${updateequip.equipId}" method ="POST" modelAttribute = "updateequip" id = "updateform">

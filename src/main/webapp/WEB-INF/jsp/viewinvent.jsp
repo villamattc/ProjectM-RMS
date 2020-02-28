@@ -55,13 +55,18 @@
 						</th>
 						<th>Quantity
 						</th>	
-						<th width="100px"></th>
+						<th width="400px"></th>
 					</tr>
 						<c:forEach items="${invent}" var="item">
 						<tr>
 							<td>${item.inventName}</td>
-							<td>${item.inventCurrentQuantity} out of ${item.inventMaxQuantity}</td>
-							<td><button type="button" class="btn btn-success">View Logs</button></td>
+							<td>${item.inventCurrentQuantity} out of ${item.inventMaxQuantity}</td>						
+							<td class="pull-right">
+							<a href="/updateinventform" type="button" class="btn btn-info">Update</a>
+							<button type="button" class="btn btn-success" data-toggle="modal" data-target="#inventLogs">View Logs</button>
+							<a class="btn btn-danger" href="#">Delete</a>
+							</td>
+					
 						
 					</tr>
 					</c:forEach>
@@ -77,6 +82,27 @@
 
 		</section>
 		<!-- /.content -->
+
+
+
+		<div class="modal fade" id="inventLogs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Room Inventory Logs</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 	  </div>
 	</jsp:attribute>
 </mt:admin_template>

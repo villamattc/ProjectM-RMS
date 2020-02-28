@@ -346,11 +346,7 @@ public class IndexController {
         return new ModelAndView("viewroominvent");
     }
 
-    @RequestMapping(value = "logs")
-    public ModelAndView Logs(ModelMap map) {
-
-        return new ModelAndView("logs");
-    }
+   
     
 
     @RequestMapping(value = "updateequip/{id}")
@@ -370,5 +366,12 @@ public class IndexController {
 
         map.addAttribute("equipmentStatusOptions", equipmentStatus);
         return new ModelAndView("updateequipform");
+        //@
+    }
+
+    @RequestMapping(value = "updateinventform")
+    public ModelAndView updateInvent(ModelMap map) {
+
+        return new ModelAndView("updateinventform");
     }
 }
