@@ -6,6 +6,7 @@ import com.projm.rmsapi.entities.Inventory;
 import com.projm.rmsapi.entities.Room;
 import com.projm.rmsapi.entities.User;
 import com.projm.rmsapi.repositories.EquipmentRepository;
+import com.projm.rmsapi.repositories.InventoryRepository;
 import com.projm.rmsapi.repositories.RoomRepository;
 import com.projm.rmsapi.repositories.UserRepository;
 import com.projm.rmsapi.services.RoomService;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -36,6 +38,9 @@ public class IndexController {
     private UserRepository userRepo;
     @Autowired
     private EquipmentRepository equipRepo;
+
+    @Autowired
+    private InventoryRepository inventRepo;
 
     // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@TESTING
     // VIEW@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -335,7 +340,27 @@ public class IndexController {
     // inventory
     @RequestMapping(value = "inventory")
     public ModelAndView Inventory(ModelMap map) {
+        
+        List<Inventory> inventList = inventRepo.descendingInventoryQuant();
+        List<String> inventName = new ArrayList<>();
+        List<Room> roomIdList = new ArrayList<>();
+        
 
+        for(Inventory invent : inventList){
+            Room room = invent.getRoom();
+            inventName.add(room.getRoomName());
+            int x = 0;
+            for(Room id : roomIdList){
+                if(id.getRoomId() == room.getRoomId())   
+                    x++;
+            } //sad
+            if(x==0)
+            roomIdList.add(room);
+        }
+        
+        map.addAttribute("inventListRoomName", inventName);
+        map.addAttribute("inventList", inventList);
+        map.addAttribute("room", roomIdList);
         return new ModelAndView("inventory");
     }
 
@@ -380,6 +405,35 @@ public class IndexController {
      return new ModelAndView("dashboard");
  }
 
-     
+@RequestMapping(value = "inventory/{id}")
+public ModelAndView updateInventory(@PathVariable("id") long id, ModelMap map){
+
+    Room getRoom = roomRepo.findByRoomId(id);
+    Set<Inventory> roomInvents = getRoom.getInvents();    
+    
+
+    List<Inventory> inventList = inventRepo.descendingInventoryQuant();
+    List<String> inventName = new ArrayList<>();
+    List<Room> roomIdList = new ArrayList<>();
+        
+
+    for(Inventory invent : inventList){
+        Room room = invent.getRoom();
+        inventName.add(room.getRoomName());
+        int x = 0;
+        for(Room r : roomIdList){
+            if(r.getRoomId() == room.getRoomId())   
+                x++;
+        } //sad
+        if(x==0)
+        roomIdList.add(room);
+    }
+        map.addAttribute("roomInvents", roomInvents);
+        map.addAttribute("room", roomIdList);
+    return new ModelAndView("updateinvent");
+
+
+}
+
 
 }

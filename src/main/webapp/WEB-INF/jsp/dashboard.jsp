@@ -65,7 +65,7 @@ To change this template use File | Settings | File Templates.
                           </div>
                         </div>
                         <div class="box-body">
-                          <canvas id="pieChart" style="height: 257px; width: 514px;" height="257" width="514"></canvas>
+                         <canvas id="pieChart" class="chartjs" width="830" height="415" style="display: block; height: 332px; width: 664px;"></canvas>
                         </div>
                         <!-- /.box-body -->
                       </div>
@@ -245,7 +245,7 @@ var ctx = document.getElementById('barChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Junuary', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
             label: '# of Votes',
             data: [12, 19, 3, 5, 2, 3],
@@ -278,7 +278,7 @@ var myChart = new Chart(ctx, {
         }
     }
 });
-
+new Chart(document.getElementById("pieChart"),{"type":"pie","data":{"labels":["Red","Blue","Yellow"],"datasets":[{"label":"My First Dataset","data":[300,50,100],"backgroundColor":["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)"]}]}});
 </script>
 
 

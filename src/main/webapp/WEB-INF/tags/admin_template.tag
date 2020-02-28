@@ -400,6 +400,9 @@
 <script src="${pageContext.request.contextPath}/assets/admin/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- datepicker -->
 <script src="${pageContext.request.contextPath}/assets/admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!--Datatables-->
+<script src="${pageContext.request.contextPath}/assets/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="${pageContext.request.contextPath}/assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <!-- Slimscroll -->
@@ -422,6 +425,43 @@
 <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 <script src="sweetalert2.min.js"></script>
 <link rel="stylesheet" href="sweetalert2.min.css">
+
+<script>
+$(document).ready(function(){
+
+var quantitiy=0;
+   $('.quantity-right-plus').click(function(e){
+        
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        var quantity = parseInt($('#quantity').val());
+        
+        // If is not undefined
+            
+            $('#quantity').val(quantity + 1);
+
+          
+            // Increment
+        
+    });
+
+     $('.quantity-left-minus').click(function(e){
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        var quantity = parseInt($('#quantity').val());
+        
+        // If is not undefined
+      
+            // Increment
+            if(quantity>0){
+            $('#quantity').val(quantity - 1);
+            }
+    });
+    
+});
+</script>
 
 </body>
 </html>

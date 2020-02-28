@@ -36,16 +36,18 @@
 						<div class="col-md-2">
 					<div class="form-group">
                 
-                  <select class="form-control">
-                    <option value="viewroominvent">View Room Inventory</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
-                  </select>
+               
                 </div>
 				</div>
 
+
+						
+						<div class="col-md-8">
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#roomModal">
+								Add Room
+							</button>
+						</div>
 <div class="col-md-2">
 <form action="/searchroom" method="get">
         <div class="input-group">
@@ -57,13 +59,7 @@
         </div>
       </form>
 </div>
-						
-						<div class="col-md-8">
-							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#roomModal">
-								Add Room
-							</button>
-						</div>
+
 					</div>
 					<br>
 
@@ -74,19 +70,11 @@
 								<div class="box-header bg-green">
 									<h3 class="box-title">Vacant</h3>
 
-									<div class="box-tools">
-										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">�</a></li>
-											<li><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">�</a></li>
-										</ul>
-									</div>
+								
 								</div>
 								<!-- /.box-header -->
-								<div class="box-body no-padding">
-									<table class="table table-striped">
+								<div class="box-body no-padding table-responsive " style="height: 380px;">
+									<table class="table table-head-fixed">
 										<tbody>
 											<tr>
 												<th>Room</th>
@@ -133,18 +121,10 @@
 								<div class="box-header bg-red">
 									<h3 class="box-title">Occupied</h3>
 
-									<div class="box-tools">
-										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">�</a></li>
-											<li><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">�</a></li>
-										</ul>
-									</div>
+									
 								</div>
 								<!-- /.box-header -->
-								<div class="box-body no-padding">
+								<div class="box-body no-padding table-responsive" style="height: 380px;">
 									<table class="table table-striped table-hover">
 
 
@@ -187,20 +167,12 @@
 								<div class="box-header bg-yellow">
 									<h3 class="box-title">Reserved</h3>
 
-									<div class="box-tools">
-										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">�</a></li>
-											<li><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">�</a></li>
-										</ul>
-									</div>
+								
 								</div>
 								<!-- /.box-header -->
 
 								<!--Reserved-->
-								<div class="box-body no-padding">
+								<div class="box-body no-padding table-responsive" style="height: 380px;">
 									<table class="table table-striped table-hover">
 
 										<tbody>

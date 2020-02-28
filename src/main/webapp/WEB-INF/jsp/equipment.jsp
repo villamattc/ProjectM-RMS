@@ -36,8 +36,8 @@
                   </select>
                 </div>
 				</div>
-
-<div class="col-md-2">
+<div class="col-md-8"></div>
+<div class="col-md-2 pull-right">
 <form action="#" method="get">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
@@ -57,16 +57,6 @@
 							<div class="box box-success">
 								<div class="box-header bg-green">
 									<h3 class="box-title">Good Condition</h3>
-
-									<div class="box-tools">
-										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">«</a></li>
-											<li><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">»</a></li>
-										</ul>
-									</div>
 								</div>
 								<!-- /.box-header -->
 								<div class="box-body no-padding">
@@ -105,16 +95,6 @@
 							<div class="box box-warning">
 								<div class="box-header bg-yellow">
 									<h3 class="box-title">Need Maintainance</h3>
-
-									<div class="box-tools">
-										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">«</a></li>
-											<li><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">»</a></li>
-										</ul>
-									</div>
 								</div>
 								<!-- /.box-header -->
 								<div class="box-body no-padding">
@@ -149,16 +129,6 @@
 							<div class="box box-danger">
 								<div class="box-header bg-red">
 									<h3 class="box-title">Need Repair</h3>
-
-									<div class="box-tools">
-										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">«</a></li>
-											<li><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">»</a></li>
-										</ul>
-									</div>
 								</div>
 								<!-- /.box-header -->
 								<div class="box-body no-padding">
@@ -192,16 +162,6 @@
 							<div class="box box-blue">
 								<div class="box-header bg-blue">
 									<h3 class="box-title">Need Replace</h3>
-
-									<div class="box-tools">
-										<ul class="pagination pagination-sm no-margin pull-right">
-											<li><a href="#">«</a></li>
-											<li><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">»</a></li>
-										</ul>
-									</div>
 								</div>
 								<!-- /.box-header -->
 									<div class="box-body no-padding">

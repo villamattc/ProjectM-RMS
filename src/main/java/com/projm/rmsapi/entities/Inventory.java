@@ -54,6 +54,8 @@ public class Inventory {
         this.room = room;
     }
 
-  
+    public Room getRoom(){
+        return this.room;
+    }
 
 }

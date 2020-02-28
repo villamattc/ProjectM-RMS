@@ -34,7 +34,7 @@
               <h3 class="box-title">Room ${room.roomName}</h3>
             </div>
             <!-- /.box-header -->
-           <form:form action="/room/${roomId}/addinventory" method ="POST" modelAttribute = "inventory">
+           <form action="/room/${roomId}/addinventory" method ="POST">
             <div class="box-body">
               
                 <!-- text input -->
@@ -58,7 +58,7 @@
                 <div class="col-md-2">
                 </div>            
             </div>
-            </form:form>  
+            </form>  
             <!-- /.box-body -->
           </div>
         

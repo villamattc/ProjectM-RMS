@@ -34,7 +34,7 @@
 				<div class="box-header">
 				  <h3 class="box-title">Inventory of ${room.roomName}</h3>
 	
-				  <div class="box-tools">
+				  <%-- <div class="box-tools">
 					<div class="input-group input-group-sm hidden-xs" style="width: 150px;">
 
 					  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
@@ -43,7 +43,7 @@
 					  </div> 
 					 
 					</div>
-				  </div>
+				  </div> --%>
 				</div>
 				<!-- /.box-header -->
 
