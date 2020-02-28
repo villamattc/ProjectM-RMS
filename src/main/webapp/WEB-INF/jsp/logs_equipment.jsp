@@ -3,9 +3,13 @@
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<mt:admin_template title="View Users">
+
+
+<mt:admin_template title="Equipment Logs">
 	<jsp:attribute name="content">
-		<div class="content-wrapper" style="min-height: 925.8px;">
+        
+    
+    <div class="content-wrapper" style="min-height: 925.8px;">
 				<!-- Content Header (Page header) -->
 				<section class="content-header">
 					<h1>

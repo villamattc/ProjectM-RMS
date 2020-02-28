@@ -9,8 +9,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Add Inventory
-        <small>Date today</small>
+        Data Tables
+        <small>advanced tables</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="http://localhost:8010/room"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -34,7 +34,7 @@
               <h3 class="box-title">Room ${room.roomName}</h3>
             </div>
             <!-- /.box-header -->
-            <form:form action="/room/${roomId}/addinventory" method ="POST" modelAttribute = "inventory">
+           <form:form action="/room/${roomId}/addinventory" method ="POST" modelAttribute = "inventory">
             <div class="box-body">
               
                 <!-- text input -->
@@ -58,7 +58,7 @@
                 <div class="col-md-2">
                 </div>            
             </div>
-            </form:form>
+            </form:form>  
             <!-- /.box-body -->
           </div>
         

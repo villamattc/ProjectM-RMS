@@ -21,7 +21,8 @@
 		<!-- Main content -->
 		<section class="content">
 		  <div class="row">
-			<div class="col-xs-12">
+		  <div class="col-md-1"></div>
+			<div class="col-md-9">
 			  <div class="box">
 				<div class="box-header">
 				  <h3 class="box-title">Equipment of ${room.roomName}</h3>
@@ -43,28 +44,44 @@
 				<div class="box-body table-responsive no-padding">
 				  <table class="table table-hover">
 					<tbody><tr>
-						<th>Equipment Name:
+						<th>Name
 						</th>
-						<th>Equipment Status:
+						<th>Status
 						</th>
-						<th>Date of Purchase:
+						<th>Date of Purchase
 						</th>
-						<th>Date of Last Maintainance:
+						<th>Date of Last Maintainance
 						</th>
 						<th>Functional Life
+						</th>
+						<th>Completeness of Parts
+						</th>
+						<th>Appearance
+						</th>
+						<th>Functionality
+						</th>
+
+						<th width="240px">
 						</th>
 						
 						
 					</tr>
 
-						<c:forEach items="${equip}" var="item">
+						<c:forEach items="${equip}" var="item" varStatus="status">
 						<tr>
 							<td>${item.equipName}</td>
 							<td>${item.equipStatus}</td>
 							<td>${item.dateOfPurchase}</td>
 							<td>${item.dateOfLastMaintenance}</td>
 							<td>${item.functionalLife}</td>
-							
+							<td>${item.completenessOfParts}</td>
+							<td>${item.appearance}</td>
+							<td>${item.functionality}</td>
+							<td class="pull-right">
+							<a href="/updateequip/${item.equipId}" type="button" class="btn btn-info">Update</a>
+							<button type="button" class="btn btn-success" data-toggle="modal" data-target="#equipLogs">View Logs</button>
+							<a class="btn btn-danger" href="/deleteequip/${item.equipId}">Delete</a>
+							</td>
 						
 					</tr>
 					</c:forEach>
@@ -74,11 +91,33 @@
 				<!-- /.box-body -->
 			  </div>
 			  <!-- /.box -->
+			  <div class="col-md-1"></div>
 			</div>
 		  </div>
 
 		</section>
 		<!-- /.content -->
+
+<div class="modal fade" id="equipLogs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Room Equipment Logs</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 	  </div>
 	</jsp:attribute>
 </mt:admin_template>
