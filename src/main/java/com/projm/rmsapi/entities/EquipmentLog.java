@@ -8,8 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,7 +27,7 @@ public class EquipmentLog {
     private Long eq_id;
 
     // @@ CHANGES IN DESCRIPTION @@@@@@@@@
-    private String changeDescription;
+    private String description;
 
     private String equipName;
 
@@ -50,6 +48,14 @@ public class EquipmentLog {
 
     public LocalTime getLogTime() {
         return logTime;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getEq_id() {
@@ -124,16 +130,6 @@ public class EquipmentLog {
         this.equipName = equipName;
     }
 
-
-    public String getChangeDescription() {
-        return changeDescription;
-    }
-
-    public void setChangeDescription(String changeDescription) {
-        this.changeDescription = changeDescription;
-    }
-
-
     public String getUsername() {
         return username;
     }
@@ -155,11 +151,11 @@ public class EquipmentLog {
     }
 
 
-    public void saveToLogs(Long id, Equipment e, String username, String changeDescription){
+    public void saveToLogs(Long id, Equipment e, String username){
 
         this.logTime = java.time.LocalTime.now();
         this.logDate = java.time.LocalDate.now();
-        this.changeDescription=changeDescription;
+        this.description= e.getDescription();
         this.username = username;
         this.eq_id = id;
         this.equipName = e.getEquipName();
@@ -169,6 +165,8 @@ public class EquipmentLog {
         this.completenessOfParts = e.getCompletenessOfParts();
         this.appearance = e.getAppearance();
         this.functionality = e.getFunctionality();
+        this.assessmentScore = e.computeAssessmentScore();
+        
     }
 
 

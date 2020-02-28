@@ -41,7 +41,7 @@
               <h3 class="box-title">Room ${room.roomName}</h3>
             </div>
             <!-- /.box-header -->
-            <form:form action="/updateequip/${updateequip.equipId}" method ="POST" modelAttribute = "updateequip">
+            <form:form action="/updateequip/${updateequip.equipId}" method ="POST" modelAttribute = "updateequip" id = "updateform">
             <div class="box-body">
               
                 <!-- text input -->
@@ -85,7 +85,7 @@
                 </div>
                 <div class="form-group">
                   <label>Description:</label>
-                  <textarea class="form-control" rows="3"></textarea>
+                  <textarea path="description" class="form-control" rows="3" form="updateform"></textarea>
                 </div>
                 <div class="box-footer with-border">
                 <button type="submit" class="btn btn-primary"> Update Equipment</button>

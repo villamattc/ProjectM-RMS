@@ -22,6 +22,7 @@ public class Inventory {
 
     private int inventMaxQuantity;
 
+
     @ManyToOne
     @JoinColumn(name = "room_id", nullable = false)
     private Room room;

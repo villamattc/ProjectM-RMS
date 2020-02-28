@@ -51,6 +51,8 @@ public class Equipment {
 
     private double assessmentScore = 0;
 
+    private String description;
+
     @ManyToOne
     @JoinColumn(name = "room_id", nullable = false)
     private Room room;
@@ -59,8 +61,16 @@ public class Equipment {
 
     }
 
+    public String getDescription() {
+        return description;
+    }
 
-    public Equipment(String equipName, int equipStatus,
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Equipment(String equipName,
+            int equipStatus,
             Date dateOfPurchase, 
     Date dateOfLastMaintenance, int functionalLife){
         this.equipName=equipName;

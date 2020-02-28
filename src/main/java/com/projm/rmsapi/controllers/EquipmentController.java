@@ -11,7 +11,6 @@ import com.projm.rmsapi.repositories.EquipmentRepository;
 import com.projm.rmsapi.repositories.InventoryRepository;
 import com.projm.rmsapi.repositories.RoomRepository;
 import com.projm.rmsapi.repositories.UserRepository;
-import com.projm.rmsapi.services.EquipmentLogService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +21,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -91,13 +91,12 @@ public class EquipmentController {
         }
 
         Equipment updateEquip = equipmentRepo.findByEquipId(id);
+        System.out.println(equipment.getDescription());
 
         EquipmentLog eqLog = new EquipmentLog();
-        eqLog.saveToLogs(id,equipment, "admin", "testtttttttt");
+        eqLog.saveToLogs(id, equipment, "admin");
         equipmentLogRepo.save(eqLog);
        
-
-        
         updateEquip.setEquipName(equipment.getEquipName());
         updateEquip.setEquipStatus(equipment.getEquipStatus());
         updateEquip.setDateOfPurchase(equipment.getDateOfPurchase());
@@ -108,7 +107,6 @@ public class EquipmentController {
         updateEquip.setAppearance(equipment.getAppearance());
         updateEquip.setAssessmentScore(updateEquip.computeAssessmentScore());
         
-
         return new ResponseEntity<>("EQUIPMENT UPDATE SUCCESS", HttpStatus.ACCEPTED);
 
     }
