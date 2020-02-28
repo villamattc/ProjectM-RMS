@@ -31,12 +31,12 @@ To change this template use File | Settings | File Templates.
             
                 <!-- Main content -->
                 <section class="content">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <!-- AREA CHART -->
-                      <div class="box box-primary">
+                  <div class="row">              
+                      <!-- PIE CHART -->
+                      <div class="col-md-6">
+                      <div class="box box-default">
                         <div class="box-header with-border">
-                          <h3 class="box-title">Area Chart</h3>
+                          <h3 class="box-title">Equipment Status <small>Pie Chart</small></h3>
             
                           <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -45,39 +45,17 @@ To change this template use File | Settings | File Templates.
                           </div>
                         </div>
                         <div class="box-body">
-                          <div class="chart">
-                            <canvas id="areaChart" style="height: 251px; width: 514px;" height="251" width="514"></canvas>
-                          </div>
+                         <canvas id="pieChart" class="chartjs" width="770" height="385" style="display: block; width: 770px; height: 385px;"></canvas>
                         </div>
                         <!-- /.box-body -->
                       </div>
                       <!-- /.box -->
-            
-                      <!-- DONUT CHART -->
-                      <div class="box box-danger">
-                        <div class="box-header with-border">
-                          <h3 class="box-title">Pie Chart</h3>
-            
-                          <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                          </div>
-                        </div>
-                        <div class="box-body">
-                         <canvas id="pieChart" class="chartjs" width="830" height="415" style="display: block; height: 332px; width: 664px;"></canvas>
-                        </div>
-                        <!-- /.box-body -->
-                      </div>
-                      <!-- /.box -->
-            
                     </div>
-                    <!-- /.col (LEFT) -->
-                    <div class="col-md-6">
-                      <!-- LINE CHART -->
-                      <div class="box box-info">
+                    <!--DOUGHNUT-->
+                  <div class="col-md-6">
+                      <div class="box box-default">
                         <div class="box-header with-border">
-                          <h3 class="box-title">Line Chart</h3>
+                          <h3 class="box-title">Room Type <small>Pie Chart</small></h3>
             
                           <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -86,208 +64,111 @@ To change this template use File | Settings | File Templates.
                           </div>
                         </div>
                         <div class="box-body">
-                          <div class="chart">
-                            <canvas id="lineChart" style="height: 251px; width: 514px;" height="251" width="514"></canvas>
-                          </div>
+                         <canvas id="pieChart1" class="chartjs" width="770" height="385" style="display: block; width: 770px; height: 385px;"></canvas>
                         </div>
                         <!-- /.box-body -->
                       </div>
                       <!-- /.box -->
-            
-                      <!-- BAR CHART -->
-                      <div class="box box-success">
-                        <div class="box-header with-border">
-                          <h3 class="box-title">Bar Chart</h3>
-            
-                          <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                          </div>
-                        </div>
-                        <div class="box-body">
-                          <div class="chart">
-                            <canvas id="barChart" style="height: 231px; width: 514px;" height="231" width="514"></canvas>
-                          </div>
-                        </div>
-                        <!-- /.box-body -->
-                      </div>
-                      <!-- /.box -->
-            
                     </div>
-                    <!-- /.col (RIGHT) -->
                   </div>
                   <!-- /.row -->
+
+
+
+                  <%-- <div class="row">
+
+                  <div class="col-md-6">
+                      <div class="box box-default">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Room Status <small>Polar Area Chart</small></h3>
+            
+                          <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                          </div>
+                        </div>
+                        <div class="box-body">
+                         <canvas id="polarArea" class="chartjs" width="770" height="385" style="display: block; width: 770px; height: 385px;"></canvas>
+                        </div>
+                        <!-- /.box-body -->
+                      </div>
+                      <!-- /.box -->
+                    </div>
+                  </div>
+                  
+                  
+                  </div> --%>
+           
+          
+
             
                 </section>
                 <!-- /.content -->
               </div>
               
 <script>
-    //----AREA CHART----//
-    var ctx = document.getElementById('areaChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Junuary', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-            {fill: 'origin'},
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-//----LINE CHART----//
-var ctx = document.getElementById('lineChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['Junuary', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            fill: false,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-//----DONUT CHART----//
-var ctx = document.getElementById('barChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Junuary', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-//----BAR CHART----//
-var ctx = document.getElementById('barChart').getContext('2d');
-var myChart = new Chart(ctx, {
+
+        //PIE!
+var ctx = document.getElementById('pieChart');
+var myPieChart = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: ['Good Condtion', 'Need Maintainance', 'Need Repair', 'Need Replace'],
+        labels: ['Good Condition', 'Need Maintainance', 'Need Repair', 'Need Replace'],
         datasets: [{
             label: '# of Votes',
-            data: [${goodCondition}, ],
+            data: [${goodCondition},${needsMaint},${needsRepair},${needReplace}],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                '#00A65A',
+                '#F39C12',
+                '#DD4B39',
+                '#00C0EF',
             ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
+          
         }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
     }
 });
-new Chart(document.getElementById("pieChart"),
-      {"type":"pie","data":
-        {"labels":
-          ["Good Condition","Need Maintainance","Need Repair","Need Replace"],
-          "datasets":[{"label":"My First Dataset",
-          "data":
-          [${goodCondition},${needsMaint},${needsRepair},${needReplace}],
-          "backgroundColor":
-          ["#00A65A","#F39C12","#DD4B39","#00C0EF"]}]}});
+//PIE2
+var ctx = document.getElementById('pieChart1');
+var myPieChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Deluxe Room', 'Amuma Spa Suite', 'Premier Deluxe Room', 'Royal Bungalow'],
+        datasets: [{
+            label: '# of Votes',
+            data: [${deluxeRoom},${amumaSpaSuite},${premierDeluxeRoom},${royalBungalow}],
+            backgroundColor: [
+                '#00A65A',
+                '#F39C12',
+                '#DD4B39',
+                '#00C0EF',
+            ],
+          
+        }]
+    }
+});
+
+// //POLAR
+// var ctx = document.getElementById('pieChart1');
+// var myPieChart = new Chart(ctx, {
+//     type: 'polarArea',
+//     data: {
+//         labels: ['Deluxe Room', 'Amuma Spa Suite', 'Premier Deluxe Room', 'Royal Bungalow'],
+//         datasets: [{
+//             label: '# of Votes',
+//             data: [${deluxeRoom},${amumaSpaSuite},${premierDeluxeRoom},${royalBungalow}],
+//             backgroundColor: [
+//                 '#00A65A',
+//                 '#F39C12',
+//                 '#DD4B39',
+//                 '#00C0EF',
+//             ],
+          
+//         }]
+//     }
+// });
 </script>
+
 
 
               

@@ -408,6 +408,11 @@ public class IndexController {
     map.addAttribute("needsRepair", equipRepo.countByEquipStatus(3));
     map.addAttribute("needReplace", equipRepo.countByEquipStatus(4));
     
+
+    map.addAttribute("deluxeRoom", roomRepo.countByRoomType(1));
+    map.addAttribute("amumaSpaSuite", roomRepo.countByRoomType(2));
+    map.addAttribute("premierDeluxeRoom", roomRepo.countByRoomType(3));
+    map.addAttribute("royalBungalow", roomRepo.countByRoomType(4));
      return new ModelAndView("dashboard");
  }
 
