@@ -157,15 +157,7 @@
             </span>
           </a>
         </li>
-          <li>
-          <a href="/logs">
-            <i class="fa fa-tasks"></i>
-            <span>Logs</span>
-            <span class="pull-right-container">
-            </span>
-          </a>
-
-        </li>
+        
 
 
           </ul>
