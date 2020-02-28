@@ -80,7 +80,7 @@ public class EquipmentController {
         if (truth)
             return new ResponseEntity<>("EQUIPMENT DELETEION SUCCESS", HttpStatus.ACCEPTED);
         else
-            return new ResponseEntity<>("EQUIPMENT DELETIO FAILED", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("EQUIPMENT DELETION FAILED", HttpStatus.FORBIDDEN);
     }
 
     @RequestMapping(value = "/updateequip/{id}", method = RequestMethod.POST)
