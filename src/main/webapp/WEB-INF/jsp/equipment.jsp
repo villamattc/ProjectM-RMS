@@ -56,7 +56,7 @@
 						<div class="col-md-3">
 							<div class="box box-success">
 								<div class="box-header bg-green">
-									<h3 class="box-title">Good Condition:</h3>
+									<h3 class="box-title">Good Condition</h3>
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
@@ -75,7 +75,7 @@
 											<tr>
 												<th>Name</th>
 												<th>Room No.</th>
-												<th>Last Maintainance:</th>
+												<th>Last Maintainance</th>
 												
 												
 										
@@ -102,9 +102,9 @@
 						<!-- /.col -->
 						<!--Option 2-->
 						<div class="col-md-3">
-							<div class="box box-danger">
-								<div class="box-header bg-red">
-									<h3 class="box-title">Need Maintainance:</h3>
+							<div class="box box-warning">
+								<div class="box-header bg-yellow">
+									<h3 class="box-title">Need Maintainance</h3>
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
@@ -124,7 +124,7 @@
 										<tbody><tr>
 											<th>Name</th>
 											<th>Room No.</th>
-											<th>Last Maintainance:</th>
+											<th>Last Maintainance</th>
 											
 											
 										</tr>
@@ -148,7 +148,7 @@
 						<div class="col-md-3">
 							<div class="box box-danger">
 								<div class="box-header bg-red">
-									<h3 class="box-title">Need Repair:</h3>
+									<h3 class="box-title">Need Repair</h3>
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
@@ -168,7 +168,7 @@
 										<tbody><tr>
 											<th>Name</th>
 											<th>Room No.</th>
-											<th>Last Maintainance:</th>
+											<th>Last Maintainance</th>
 											
 										</tr>
 										<c:forEach items="${needsrepair}" var="item" varStatus = "status">
@@ -189,9 +189,9 @@
 						</div>
 						<!--Option 4-->
 						<div class="col-md-3">
-							<div class="box box-warning">
-								<div class="box-header bg-yellow">
-									<h3 class="box-title">Need Replace:</h3>
+							<div class="box box-blue">
+								<div class="box-header bg-blue">
+									<h3 class="box-title">Need Replace</h3>
 
 									<div class="box-tools">
 										<ul class="pagination pagination-sm no-margin pull-right">
@@ -210,7 +210,7 @@
 											<tr>
 											<th>Name</th>
 											<th>Room No.</th>
-											<th>Last Maintainance:</th>
+											<th>Last Maintainance</th>
 																
 											</tr>
 
