@@ -77,6 +77,17 @@ try{
     return new ResponseEntity<>("SUCCESSFULLY ADDED INVENTORY", HttpStatus.CREATED);
 }
 
+@RequestMapping(value = "/updateinvent/{id}", method = RequestMethod.POST)
+public ResponseEntity<Object> updateInventory(@Valid @ModelAttribute("equip") Inventory inventory, BindingResult result,
+        @PathVariable("id") long id) {
+    if (result.hasErrors()) {
+        return new ResponseEntity<>("EQUIPMENT UPDATE FAILED", HttpStatus.FORBIDDEN);
+    }
+
+    return new ResponseEntity<>("EQUIPMENT UPDATE FAILED", HttpStatus.FORBIDDEN);
+    
+
+}
 
 
 }
