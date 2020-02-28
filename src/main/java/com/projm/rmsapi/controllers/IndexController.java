@@ -371,7 +371,15 @@ public class IndexController {
 
     @RequestMapping(value = "updateinventform")
     public ModelAndView updateInvent(ModelMap map) {
-
-        return new ModelAndView("updateinventform");
+   return new ModelAndView("updateinventform");
     }
+
+ 
+ @RequestMapping(value = "dashboard")
+ public ModelAndView Dashboard (ModelMap map){
+     return new ModelAndView("dashboard");
+ }
+
+     
+
 }
