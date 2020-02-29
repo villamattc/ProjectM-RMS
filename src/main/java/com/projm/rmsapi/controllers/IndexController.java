@@ -400,7 +400,7 @@ public class IndexController {
     public ModelAndView updateInvent(ModelMap map) {
    return new ModelAndView("updateinventform");
     }
-
+    
  
  @RequestMapping(value = "dashboard")
  public ModelAndView Dashboard (ModelMap map){

@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 @ControllerAdvice
 public class AdminController {
-
+    //test
 
     @Autowired
     AdminRepository adminRepo;
