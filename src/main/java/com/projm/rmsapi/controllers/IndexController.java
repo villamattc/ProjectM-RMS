@@ -5,6 +5,7 @@ import com.projm.rmsapi.entities.Equipment;
 import com.projm.rmsapi.entities.Inventory;
 import com.projm.rmsapi.entities.Room;
 import com.projm.rmsapi.entities.User;
+import com.projm.rmsapi.repositories.EquipmentLogRepository;
 import com.projm.rmsapi.repositories.EquipmentRepository;
 import com.projm.rmsapi.repositories.InventoryRepository;
 import com.projm.rmsapi.repositories.RoomRepository;
@@ -38,9 +39,10 @@ public class IndexController {
     private UserRepository userRepo;
     @Autowired
     private EquipmentRepository equipRepo;
-
     @Autowired
     private InventoryRepository inventRepo;
+    @Autowired
+    private EquipmentLogRepository equipmentLogRepo;
 
     // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@TESTING
     // VIEW@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -444,6 +446,16 @@ public ModelAndView updateInventory(@PathVariable("id") long id, ModelMap map){
     return new ModelAndView("updateinvent");
 
 
+}
+
+@RequestMapping(value = "viewroom/{id}/viewequip/equiplogs/{eid}")
+public ModelAndView viewEquipmentLogs(@PathVariable("eid") long eid, ModelMap map){
+
+   //sad
+
+   map.addAttribute("equipLog", equipmentLogRepo.findAllByEqId(eid));
+
+    return new ModelAndView("equiplogs");
 }
 
 

@@ -24,7 +24,7 @@ public class EquipmentLog {
 
     private String username;
 
-    private Long eq_id;
+    private Long eqId;
 
     // @@ CHANGES IN DESCRIPTION @@@@@@@@@
     private String description;
@@ -50,20 +50,20 @@ public class EquipmentLog {
         return logTime;
     }
 
+    public Long getEqId() {
+        return eqId;
+    }
+
+    public void setEqId(Long eqId) {
+        this.eqId = eqId;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Long getEq_id() {
-        return eq_id;
-    }
-
-    public void setEq_id(Long eq_id) {
-        this.eq_id = eq_id;
     }
 
     public double getAssessmentScore() {
@@ -150,14 +150,13 @@ public class EquipmentLog {
         this.logTime = logTime;
     }
 
-
-    public void saveToLogs(Long id, Equipment e, String username){
+    public void saveToLogs(Long id, Equipment e, String username) {
 
         this.logTime = java.time.LocalTime.now();
         this.logDate = java.time.LocalDate.now();
-        this.description= e.getDescription();
+        this.description = e.getDescription();
         this.username = username;
-        this.eq_id = id;
+        this.setEqId(id);
         this.equipName = e.getEquipName();
         this.equipStatus = e.getEquipStatus();
         this.dateOfPurchase = e.getDateOfPurchase();

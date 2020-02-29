@@ -3,7 +3,7 @@
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<mt:admin_template title="View Equipment">
+<mt:admin_template title="View Equipment Logs">
 	<jsp:attribute name="content">
 			<div class="content-wrapper" style="min-height: 661px;">
 		<!-- Content Header (Page header) -->
@@ -21,8 +21,8 @@
 		<!-- Main content -->
 		<section class="content">
 		  <div class="row">
-		  <div class="col-md-1"></div>
-			<div class="col-md-9">
+		  
+			<div class="col-md-12">
 			  <div class="box">
 				<div class="box-header">
 				  <h3 class="box-title">Equipment of ${room.roomName}</h3>
@@ -44,44 +44,55 @@
 				<div class="box-body table-responsive no-padding">
 				  <table class="table table-hover">
 					<tbody><tr>
-						<th>Name
+						
+						<th>Log Time
 						</th>
-						<th>Status
+						<th>Log Date
+						</th>
+						<th>Username
+						</th>
+						<th>Equipment ID
+						</th>
+						<th>Description
+						</th>
+						<th>Equipment Name
+						</th>
+						<th>Equipment Status
 						</th>
 						<th>Date of Purchase
 						</th>
-						<th>Date of Last Maintainance
+                        <th>Date of Last Maintainance
 						</th>
-						<th>Functional Life
+                        <th>Completeness of Parts
 						</th>
-						<th>Completeness of Parts
+                        <th>Appearance
 						</th>
-						<th>Appearance
+                        <th>Functionality
 						</th>
-						<th>Functionality
+                        <th>Assesment Score
 						</th>
 
-						<th width="240px">
-						</th>
 						
 						
 					</tr>
 
-						<c:forEach items="${equip}" var="item" varStatus="status">
-						<tr>
+					<c:forEach items="${equipLog}" var="item" varStatus="status">
+					<tr>
+							<td>${item.logTime}</td>
+                            <td>${item.logDate}</td>
+							<td>${item.username}</td>
+							<td>${item.eqId}</td>
+							<td>${item.description}</td>
 							<td>${item.equipName}</td>
 							<td>${item.equipStatus}</td>
 							<td>${item.dateOfPurchase}</td>
-							<td>${item.dateOfLastMaintenance}</td>
-							<td>${item.functionalLife}</td>
-							<td>${item.completenessOfParts}</td>
-							<td>${item.appearance}</td>
-							<td>${item.functionality}</td>
-							<td class="pull-right">
-							<a href="/updateequip/${item.equipId}" type="button" class="btn btn-info">Update</a>
-							<a href="/viewroom/${item.equipId}/viewequip/equiplogs/${item.equipId}" type="button" class="btn btn-success">View Logs</a>
-							<a class="btn btn-danger" href="/deleteequip/${item.equipId}">Delete</a>
-							</td>
+                            <td>${item.dateOfLastMaintenance}</td>
+                            <td>${item.completenessOfParts}</td>
+                            <td>${item.appearance}</td>
+                            <td>${item.functionality}</td>
+                            <td>${item.assessmentScore}</td>
+                      
+
 						
 					</tr>
 					</c:forEach>
@@ -91,7 +102,7 @@
 				<!-- /.box-body -->
 			  </div>
 			  <!-- /.box -->
-			  <div class="col-md-1"></div>
+			
 			</div>
 		  </div>
 
