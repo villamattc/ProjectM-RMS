@@ -77,8 +77,6 @@ public ResponseEntity<Object> updateInventory(@Valid @ModelAttribute("attachInve
         return new ResponseEntity<>("EQUIPMENT UPDATE FAILED", HttpStatus.FORBIDDEN);
     }
 
-    System.out.println("111111111111"+attachInvents.getAttach());
-    System.out.println("222222222222"+attachInvents.getList());
 
     List<Inventory> invents = inventRepo.getInventoryByRoomId(id);
     

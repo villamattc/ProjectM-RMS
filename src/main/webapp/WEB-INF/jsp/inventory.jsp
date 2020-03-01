@@ -63,8 +63,8 @@
 					<div class="row">
 
 					<!--Option 1-->
-					<div class="col-md-3"></div>
-						<div class="col-md-6">
+				
+						<div class="col-md-12">
 							<div class="box box-success">
 								<div class="box-header bg-green">
 									<h3 class="box-title">Room Name</h3>
@@ -103,7 +103,6 @@
 							<!-- /.box -->
 						</div>
 
-					<div class="col-md-3"></div>
 					
 						
 							<!-- /.box -->

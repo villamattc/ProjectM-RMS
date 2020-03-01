@@ -5,6 +5,7 @@ import com.projm.rmsapi.entities.Equipment;
 import com.projm.rmsapi.entities.Inventory;
 import com.projm.rmsapi.entities.Room;
 import com.projm.rmsapi.entities.User;
+import com.projm.rmsapi.model.ListAttach;
 import com.projm.rmsapi.repositories.EquipmentLogRepository;
 import com.projm.rmsapi.repositories.EquipmentRepository;
 import com.projm.rmsapi.repositories.InventoryRepository;
@@ -276,6 +277,7 @@ public class IndexController {
 
     @RequestMapping(value = "updateinventform")
     public ModelAndView updateInvent(ModelMap map) {
+        
    return new ModelAndView("updateinventform");
     }
 
@@ -299,26 +301,37 @@ public class IndexController {
 @RequestMapping(value = "inventory/{id}")
 public ModelAndView updateInventory(@PathVariable("id") long id, ModelMap map){
 
-    Room getRoom = roomRepo.findByRoomId(id);
+    Room room = roomRepo.findByRoomId(id); //testindex
     List<Inventory> roomInvents = inventRepo.getInventoryByRoomId(id);    
-    
-
     List<Inventory> inventList = inventRepo.descendingInventoryQuant();
     List<String> inventName = new ArrayList<>();
     List<Room> roomIdList = new ArrayList<>();
+    ListAttach inventoryAttach = new ListAttach(); //testindex
+    List<Inventory> updatedInvents = room.getInvents(); //testindex
         
-
     for(Inventory invent : inventList){
-        Room room = invent.getRoom();
-        inventName.add(room.getRoomName());
+        Room distinctRoom = invent.getRoom();
+        inventName.add(distinctRoom.getRoomName());
         int x = 0;
         for(Room r : roomIdList){
-            if(r.getRoomId() == room.getRoomId())   
+            if(r.getRoomId() == distinctRoom.getRoomId())   
                 x++;
         } //sad
         if(x==0)
-        roomIdList.add(room);
+        roomIdList.add(distinctRoom);
     }
+
+    inventoryAttach.setList(updatedInvents);
+        map.addAttribute("attachInvents", inventoryAttach);
+
+
+        if(updatedInvents.isEmpty())
+            System.out.println("asdadasdasdsadsadsadsadasdasdasdasdasdasdsadasd");
+        
+            List<Inventory> invents = inventRepo.getInventoryByRoomId(id);
+        //ArrayList<Inventory> currentQuant = new ArrayList<Inventory>(invents);
+
+        map.addAttribute("invents", invents);
         map.addAttribute("roomInvents", roomInvents);
         map.addAttribute("room", roomIdList);
     return new ModelAndView("updateinvent");

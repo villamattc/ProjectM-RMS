@@ -44,7 +44,7 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue-light sidebar-mini sidebar-collapse">
+<body class="hold-transition skin-blue-light sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
@@ -122,7 +122,8 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li>
           <a href="/dashboard">
-            <i class="fa fa-dashboard"></i><span>Dashboard</span>
+            <i class="fa fa-dashboard"></i>
+            <span style="font-size: 18px;">Dashboard</span>
             <span class="pull-right-container">
             </span>
           </a>
@@ -130,14 +131,15 @@
         <li>
           <a href="/room">
             <i class="fa fa-hotel"></i>
-            <span>Room</span>
+            <span style="font-size: 18px;">Room</span>
             <span class="pull-right-container">
             </span>
           </a>
         </li>
         <li>
           <a href="#">
-            <i class="fa fa-th"></i> <span>Google Docs</span>
+            <i class="fa fa-th"></i> 
+            <span style="font-size: 18px;">Google Docs</span>
             <span class="pull-right-container">
             </span>
           </a>
@@ -145,7 +147,7 @@
         <li>
           <a href="/inventory">
             <i class="fa fa-cubes"></i>
-            <span>Inventory</span>
+            <span style="font-size: 18px;">Inventory</span>
             <span class="pull-right-container">
             </span>
           </a>
@@ -154,7 +156,7 @@
         <li>
           <a href="/equipment">
             <i class="fa fa-wrench"></i>
-            <span>Equipment</span>
+            <span style="font-size: 18px;">Equipment</span>
             <span class="pull-right-container">
             </span>
           </a>

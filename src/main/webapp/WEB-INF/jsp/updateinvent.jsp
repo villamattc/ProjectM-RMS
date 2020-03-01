@@ -63,8 +63,8 @@
 					<div class="row">
 
 					<!--Option 1-->
-					<div class="col-md-3"></div>
-						<div class="col-md-6">
+					
+						<div class="col-md-12">
 							<div class="box box-success">
 								<div class="box-header bg-green">
 									<h3 class="box-title">Room Name</h3>
@@ -73,22 +73,36 @@
 								<!-- /.box-header -->
 								<div class="box-body no-padding">
 									<table class="table table-striped">
+									<form:form action= "/${id}/testupdateinvent" method ="POST" 
+                modelAttribute = "attachInvents" >
 										<tbody>
 											<tr>
-												<th>Room No.</th>
+											
 												<th>Name</th>
-												<th>Current</th>
 												<th>Max</th>
+												<th>Current</th>
 												<th></th>
-										
 											</tr>
-										<c:forEach items="${roomInvents}" var="item" varStatus = "status">
+											<tr>
+               									<td hidden="true">
+                    							<%-- ${item.inventName} --%>
+                   								<form:input class="form-control" path="attach" value = "${attachInvents.attach}"/>
+                								</td>
+            								</tr>
+									   <c:forEach items="${attachInvents.list}" var="item" varStatus="status">
 											<tr>			
-													<td>${inventListRoomName[status.index]}</td>								
-													<td>${item.inventName}</td>
-													<td>${item.inventCurrentQuantity}</td>		
-													<td>${item.inventMaxQuantity}</td>
 													<td>
+                       								<%-- ${item.inventName} --%>
+                        							<form:input class="form-control" path="list[${status.index}].inventName" value="${item.inventName}" />
+                    								</td>												
+													<td>  
+                        							<%-- ${item.inventMaxQuantity} --%>
+                        							<form:input class="form-control" path="list[${status.index}].inventMaxQuantity" value="${item.inventMaxQuantity}"/>
+                   									</td>
+													 <td>  
+                        <form:input type="number" class="form-control" path="list[${status.index}].inventCurrentQuantity" value="${item.inventCurrentQuantity}"/>
+                    </td>
+													<%-- <td>
                                                       <div class="input-group">
                                     <span class="input-group-btn">
                                         <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
@@ -101,14 +115,15 @@
                                             <span class="glyphicon glyphicon-plus"></span>
                                         </button>
                                     </span>
-                                </div>
-                                                    </td>
+                               						 </div>
+                                                    </td> --%>
 												
 											
 													
 												</tr>
 						</c:forEach>
 										</tbody>
+										</form:form>
 									</table>
 
 
@@ -119,7 +134,7 @@
 							<!-- /.box -->
 						</div>
 
-					<div class="col-md-3"></div>
+
 					
 						
 							<!-- /.box -->
