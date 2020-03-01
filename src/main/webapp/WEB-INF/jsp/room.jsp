@@ -17,27 +17,79 @@
 		<jsp:attribute name="content">
 			<div class="content-wrapper" style="min-height: 925.8px;">
 				<!-- Content Header (Page header) -->
-				<section class="content-header">
-					<h1>
-						Rooms
-						<small>Date today</small>
-					</h1>
-					<ol class="breadcrumb">
-						<li><a href="/room"><i class="fa fa-dashboard"></i> Home</a></li>
-						
-					</ol>
-				</section>
+			
 
 				<!-- Main content -->
 				<section class="content">
-					<br>
-					
+				<div class="row"></div>
+
+
 					<div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="ion ion-ios-gear-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">CPU Traffic</span>
+              <span class="info-box-number">90<small>%</small></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Likes</span>
+              <span class="info-box-number">41,410</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-cart-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Sales</span>
+              <span class="info-box-number">760</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+      <div class="col-md-1" style="margin-top: 55.5px">
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#roomModal">
+								Add Room
+							</button>
+						</div>
+<div class="col-md-2" style="margin-top: 55.5px">
+<form action="/searchroom" method="get">
+        <div class="input-group">
+          <input type="text" name="find" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-default"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+</div>
+
+      </div>
+
+					<%-- <div class="row">
 						<div class="col-md-2">
-					<div class="form-group">
-                
-               
-                </div>
 				</div>
 
 
@@ -60,7 +112,7 @@
       </form>
 </div>
 
-					</div>
+					</div> --%>
 					<br>
 
 
