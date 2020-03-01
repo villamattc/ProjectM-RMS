@@ -14,7 +14,7 @@
 				<section class="content-header">
 					<h1>
 						Logs Details
-						<small>Date today</small>
+						<small>Time: <span id="time"></small>
 					</h1>
 					<ol class="breadcrumb">
 						<li><a href="/room"><i class="fa fa-dashboard"></i> Home</a></li>

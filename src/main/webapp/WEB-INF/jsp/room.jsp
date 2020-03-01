@@ -17,7 +17,13 @@
 		<jsp:attribute name="content">
 			<div class="content-wrapper" style="min-height: 925.8px;">
 				<!-- Content Header (Page header) -->
-			
+				<section class="content-header">
+					<h1>
+						Room
+						<small>Time: <span id="time"></small>
+					</h1>
+					
+				</section>
 
 				<!-- Main content -->
 				<section class="content">
@@ -27,10 +33,10 @@
 					<div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="ion ion-ios-gear-outline"></i></span>
+            <span class="info-box-icon bg-green"><i class="glyphicon glyphicon-ok"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">CPU Traffic</span>
+              <span class="info-box-text">Vacant</span>
               <span class="info-box-number">90<small>%</small></span>
             </div>
             <!-- /.info-box-content -->
@@ -40,10 +46,10 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+            <span class="info-box-icon bg-red"><i class="glyphicon glyphicon-remove"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Likes</span>
+              <span class="info-box-text">Occupied</span>
               <span class="info-box-number">41,410</span>
             </div>
             <!-- /.info-box-content -->
@@ -57,10 +63,10 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-cart-outline"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="glyphicon glyphicon-calendar"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Sales</span>
+              <span class="info-box-text">Reserved</span>
               <span class="info-box-number">760</span>
             </div>
             <!-- /.info-box-content -->
@@ -125,7 +131,7 @@
 								
 								</div>
 								<!-- /.box-header -->
-								<div class="box-body no-padding table-responsive " style="height: 380px;">
+								<div class="box-body no-padding table-responsive" style="height: 500px;">
 									<table class="table table-head-fixed">
 										<tbody>
 											<tr>

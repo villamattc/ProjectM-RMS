@@ -17,7 +17,7 @@
     <section class="content-header">
       <h1>
         Equipment Form
-        <small>Add Equipment</small>
+        <small>Time: <span id="time"></small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/room"><i class="fa fa-dashboard"></i> Home</a></li>

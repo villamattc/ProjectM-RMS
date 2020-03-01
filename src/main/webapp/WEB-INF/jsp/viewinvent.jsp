@@ -17,7 +17,7 @@
 		<section class="content-header">
 		  <h1>
 			Inventory
-			<small>list</small>
+			<small>Time: <span id="time"></small>
 		  </h1>
 		  <ol class="breadcrumb">
 

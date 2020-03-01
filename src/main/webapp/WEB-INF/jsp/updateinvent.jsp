@@ -16,13 +16,10 @@
 				<!-- Content Header (Page header) -->
 				<section class="content-header">
 					<h1>
-						Inventory
-						<small>Date today</small>
+						Update Inventory
+						<small>Time: <span id="time"></small>
 					</h1>
-					<ol class="breadcrumb">
-						<li><a href="/room"><i class="fa fa-dashboard"></i> Home</a></li>
-						
-					</ol>
+					
 				</section>
 
 				<!-- Main content -->
@@ -46,7 +43,7 @@
             </div>
                 </div>
 				</div>
-
+<div class="col-md-8"></div>
 <div class="col-md-2">
 <form action="#" method="get">
         <div class="input-group">
@@ -60,6 +57,7 @@
 </div>
 					</div>
 					<br>
+					<form:form action= "/${id}/testupdateinvent" method ="POST" modelAttribute = "attachInvents">
 					<div class="row">
 
 					<!--Option 1-->
@@ -73,24 +71,23 @@
 								<!-- /.box-header -->
 								<div class="box-body no-padding">
 									<table class="table table-striped">
-									<form:form action= "/${id}/testupdateinvent" method ="POST" 
-                modelAttribute = "attachInvents" >
+									
 										<tbody>
 											<tr>
 											
 												<th>Name</th>
 												<th>Max</th>
 												<th>Current</th>
-												<th></th>
+												
 											</tr>
 											<tr>
                									<td hidden="true">
                     							<%-- ${item.inventName} --%>
                    								<form:input class="form-control" path="attach" value = "${attachInvents.attach}"/>
                 								</td>
-            								</tr>
-									   <c:forEach items="${attachInvents.list}" var="item" varStatus="status">
-											<tr>			
+            										</tr>
+									   				<c:forEach items="${attachInvents.list}" var="item" varStatus="status">
+													<tr>			
 													<td>
                        								<%-- ${item.inventName} --%>
                         							<form:input class="form-control" path="list[${status.index}].inventName" value="${item.inventName}" />
@@ -100,8 +97,24 @@
                         							<form:input class="form-control" path="list[${status.index}].inventMaxQuantity" value="${item.inventMaxQuantity}"/>
                    									</td>
 													 <td>  
-                        <form:input type="number" class="form-control" path="list[${status.index}].inventCurrentQuantity" value="${item.inventCurrentQuantity}"/>
-                    </td>
+                        							<form:input type="number" class="form-control" path="list[${status.index}].inventCurrentQuantity" value="${item.inventCurrentQuantity}"/>
+
+													<%-- <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                                          <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                    </span>
+                                    <form:input type="text" id="quantity" name="quantity"  class="form-control input-number" path="list[${status.index}].inventCurrentQuantity" value="${item.inventCurrentQuantity}" min="1" max="${item.inventMaxQuantity}">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                        </div> --%>
+
+                    								</td>
 													<%-- <td>
                                                       <div class="input-group">
                                     <span class="input-group-btn">
@@ -117,14 +130,16 @@
                                     </span>
                                						 </div>
                                                     </td> --%>
-												
-											
-													
+									
 												</tr>
-						</c:forEach>
+												
+											</c:forEach>
+											
 										</tbody>
-										</form:form>
+										
+										
 									</table>
+									
 
 
 
@@ -132,7 +147,10 @@
 								<!-- /.box-body -->
 							</div>
 							<!-- /.box -->
+							<button type="submit" class="btn btn-primary pull-right"> Update Invetory</button>
 						</div>
+						</form:form>
+						
 
 
 					
