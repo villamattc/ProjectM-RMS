@@ -1,15 +1,12 @@
 package com.projm.rmsapi.controllers;
 
-import java.io.IOException;
+import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import com.projm.rmsapi.entities.Admin;
-import com.projm.rmsapi.entities.Equipment;
 import com.projm.rmsapi.entities.Inventory;
 import com.projm.rmsapi.entities.Room;
-import com.projm.rmsapi.entities.User;
+import com.projm.rmsapi.model.ListAttach;
 import com.projm.rmsapi.repositories.AdminRepository;
 import com.projm.rmsapi.repositories.EquipmentRepository;
 import com.projm.rmsapi.repositories.InventoryRepository;
@@ -26,16 +23,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @ControllerAdvice
 public class InventoryController {
-
-    @Autowired
-    private RoomService roomService;
 
     @Autowired
     RoomRepository roomRepo;
@@ -77,14 +70,32 @@ try{
     return new ResponseEntity<>("SUCCESSFULLY ADDED INVENTORY", HttpStatus.CREATED);
 }
 
-@RequestMapping(value = "/updateinvent/{id}", method = RequestMethod.POST)
-public ResponseEntity<Object> updateInventory(@Valid @ModelAttribute("equip") Inventory inventory, BindingResult result,
+@RequestMapping(value = "/{id}/testupdateinvent", method = RequestMethod.POST)
+public ResponseEntity<Object> updateInventory(@Valid @ModelAttribute("attachInvents") ListAttach attachInvents, BindingResult result,
         @PathVariable("id") long id) {
     if (result.hasErrors()) {
         return new ResponseEntity<>("EQUIPMENT UPDATE FAILED", HttpStatus.FORBIDDEN);
     }
 
-    return new ResponseEntity<>("EQUIPMENT UPDATE FAILED", HttpStatus.FORBIDDEN);
+    System.out.println("111111111111"+attachInvents.getAttach());
+    System.out.println("222222222222"+attachInvents.getList());
+
+    List<Inventory> invents = inventRepo.getInventoryByRoomId(id);
+    
+    List<Inventory> updatedInvents = attachInvents.getList();
+    Inventory[] updatedInventsArray = new Inventory[updatedInvents.size()];
+    updatedInventsArray = updatedInvents.toArray(updatedInventsArray);
+    // //Inventory[] updatedInventsArray = updatedInvents.stream().toArray(Inventory[]::new);
+    
+    int x = 0;
+    for(Inventory i : invents){
+
+        i.setInventCurrentQuantity(updatedInventsArray[x].getInventCurrentQuantity());
+        x++;
+    }
+
+
+    return new ResponseEntity<>("EQUIPMENT UPDATE SUCCESS", HttpStatus.FORBIDDEN);
     
 
 }

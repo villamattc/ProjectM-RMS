@@ -27,6 +27,13 @@ public class Inventory {
     @JoinColumn(name = "room_id", nullable = false)
     private Room room;
 
+    public Inventory(){}
+    public Inventory(String inventName, int inventCurrentQuantity, int inventMaxQuantity){
+        this.inventName=inventName;
+        this.inventCurrentQuantity=inventCurrentQuantity;
+        this.inventMaxQuantity=inventMaxQuantity;
+    }
+
     public String getInventName() {
         return inventName;
     }

@@ -1,6 +1,8 @@
 package com.projm.rmsapi.entities;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -93,8 +95,8 @@ public class Room {
 
 
 
-    public Set<Inventory> getInvents() {
-        return this.invents;
+    public List<Inventory> getInvents() {
+        return new ArrayList<Inventory>(invents);
     }
 
     public Set<Equipment> getEquips() {
@@ -119,7 +121,7 @@ public class Room {
         this.setRoomName(room.getRoomName());
         this.setRoomStatus(room.getRoomStatus());
         this.setRoomClean(room.isRoomClean());
-        this.invents = room.getInvents();
+        this.invents = new HashSet<Inventory>(room.getInvents());
         this.equips = room.getEquips();
         this.users = room.getUsers();
     }
