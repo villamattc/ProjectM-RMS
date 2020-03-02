@@ -9,7 +9,7 @@
 	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 			pageEncoding="ISO-8859-1" %>
 	<%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
-
+	
 	<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
@@ -142,12 +142,14 @@
 												
 										
 											</tr>
-											<c:forEach items="${vacantRooms}" var="item">
+											<c:forEach items="${vacantRooms}" var="item" >
 											<tr>
 											
 													<td>${item.roomName}</td>
-													<td>${item.roomClean}</td>		
-													<td>${item.roomType}</td>									
+													<td>${item.roomClean ? 'Clean' : 'UNCLEAN'}</td>		
+													<td>${item.roomType == 1 ? 'Deluxe Room': ''}${item.roomType == 2 ? 'Amumum Spa Suite': ''}
+														${item.roomType == 3 ? 'Premiere Deluxe Room': ''}${item.roomType == 4 ? 'Royal Bungalow': ''}
+													</td>									
 													<td><a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}">
 														<i class="fa fa-eye"></i></a>
 													<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewusers">
@@ -196,8 +198,10 @@
 										<c:forEach items="${occupiedRooms}" var="item">
 										<tr>
 											<td>${item.roomName}</td>
-											<td>${item.roomClean}</td>
-											<td>${item.roomType}</td>
+											<td>${item.roomClean ? 'Clean' : 'UNCLEAN'}</td>
+											<td>${item.roomType == 1 ? 'Deluxe Room': ''}${item.roomType == 2 ? 'Amumum Spa Suite': ''}
+												${item.roomType == 3 ? 'Premiere Deluxe Room': ''}${item.roomType == 4 ? 'Royal Bungalow': ''}
+											</td>
 											<td><a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}">
 														<i class="fa fa-eye"></i></a>
 													<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewusers">
@@ -244,8 +248,10 @@
 											<tr>
 											<c:forEach items="${reservedRooms}" var="item">
 												<td>${item.roomName}</td>
-												<td>${item.roomClean}</td>
-												<td>${item.roomType}</td>
+												<td>${item.roomClean ? 'Clean' : 'UNCLEAN'}</td>
+												<td>${item.roomType == 1 ? 'Deluxe Room': ''}${item.roomType == 2 ? 'Amumum Spa Suite': ''}
+												${item.roomType == 3 ? 'Premiere Deluxe Room': ''}${item.roomType == 4 ? 'Royal Bungalow': ''}
+											</td>
 												<td><a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}">
 														<i class="fa fa-eye"></i></a>
 													<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewusers">
@@ -316,7 +322,9 @@
 									<label>
 										<form:label path="roomClean">Room Clean:</form:label>
 									</label>
-									<form:input class="form-control" path="roomClean" value="true" />
+									<form:select class="form-control" path="roomClean" multiple="false">
+										<form:options items="${roomCleanOptions}"></form:options>
+									</form:select>
 								</div>
 
 

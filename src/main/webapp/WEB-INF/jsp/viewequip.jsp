@@ -21,8 +21,8 @@
 		<!-- Main content -->
 		<section class="content">
 		  <div class="row">
-		  <div class="col-md-1"></div>
-			<div class="col-md-9">
+
+			<div class="col-md-12">
 			  <div class="box">
 				<div class="box-header">
 				  <h3 class="box-title">Equipment of ${room.roomName}</h3>
@@ -60,7 +60,8 @@
 						</th>
 						<th>Functionality
 						</th>
-
+						<th>Assessment Score
+						</th>
 						<th width="240px">
 						</th>
 						
@@ -77,6 +78,7 @@
 							<td>${item.completenessOfParts}</td>
 							<td>${item.appearance}</td>
 							<td>${item.functionality}</td>
+							<td>${item.assessmentScore}</td>
 							<td class="pull-right">
 							<a href="/updateequip/${item.equipId}" type="button" class="btn btn-info">Update</a>
 							<a href="/viewroom/${item.equipId}/viewequip/equiplogs/${item.equipId}" type="button" class="btn btn-success">View Logs</a>
@@ -91,7 +93,6 @@
 				<!-- /.box-body -->
 			  </div>
 			  <!-- /.box -->
-			  <div class="col-md-1"></div>
 			</div>
 		  </div>
 

@@ -159,6 +159,7 @@ public class TestIndexController {
     @RequestMapping(value = "createadminpage")
     public ModelAndView createAdminPage(ModelMap map) {
 
+        
         map.addAttribute("admin", new Admin());
         return new ModelAndView("test/createadminpage");
     }   

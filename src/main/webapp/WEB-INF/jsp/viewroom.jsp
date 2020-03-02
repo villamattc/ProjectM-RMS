@@ -52,12 +52,20 @@
 									</form:select>
 								</div>
                  <div class="form-group">
-                  <form:label path="roomStatus">Room Status:</form:label>
-                  <form:input type="text" class="form-control" path="roomStatus" value="${room.roomStatus}"/>
+                  <label>
+										<form:label path="roomStatus">Room Status:</form:label>
+									</label>
+									<form:select class="form-control" path="roomStatus" multiple="false" value="${room.roomStatus}">
+										<form:options items="${roomStatusOptions}"></form:options>
+									</form:select>
                 </div>
                  <div class="form-group">
-                  <form:label path="roomClean">Room Clean:</form:label>
-                  <form:input type="text" class="form-control" path="roomClean" value="${room.roomClean}"/>
+                  <label>
+										<form:label path="roomClean">Room Clean:</form:label>
+									</label>
+									<form:select class="form-control" path="roomClean" multiple="false" value="${room.roomClean}">
+										<form:options items="${roomCleanOptions}"></form:options>
+									</form:select>
                 </div>
                 <div class="box-footer with-border">
 

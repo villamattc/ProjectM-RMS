@@ -68,15 +68,22 @@ public class IndexController {
         roomTypeOptions.put(3, "Premier Deluxe Room");
         roomTypeOptions.put(4, "Royal Bungalow");
 
+        Map<Boolean, String> roomCleanOptions = new HashMap<Boolean, String>();
+        roomCleanOptions.put(true, "Room is clean");
+        roomCleanOptions.put(false, "Room is UNCLEAN");
+
+
         System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@"+roomRepo.countByRoomStatus(1));
 
+        
         map.addAttribute("vacantNumbers", roomRepo.countByRoomStatus(1));
         map.addAttribute("occupiedNumbers", roomRepo.countByRoomStatus(2));
         map.addAttribute("reservedNumbers", roomRepo.countByRoomStatus(3));
         map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
         map.addAttribute("occupiedRooms", roomService.getAllOccupiedRooms());
-        map.addAttribute("reservedRooms", roomService.getAllReservedRooms()); // <c:forEach items="${vacantRooms}"
-                                                                              // var="item">.
+        map.addAttribute("reservedRooms", roomService.getAllReservedRooms()); 
+                                                                              
+        map.addAttribute("roomCleanOptions", roomCleanOptions);                                                                     
         map.addAttribute("roomStatusOptions", roomStatusOptions);
         map.addAttribute("roomTypeOptions", roomTypeOptions);
 
@@ -88,14 +95,27 @@ public class IndexController {
     public ModelAndView viewRoomDetails(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
+
         Map<Integer, String> roomTypeOptions = new HashMap<Integer, String>();
         roomTypeOptions.put(1, "Deluxe Room");
         roomTypeOptions.put(2, "Amuma Spa Suite");
         roomTypeOptions.put(3, "Premier Deluxe Room");
         roomTypeOptions.put(4, "Royal Bungalow");
 
+        Map<Integer, String> roomStatusOptions = new HashMap<Integer, String>();
+        roomStatusOptions.put(1, "Vacant");
+        roomStatusOptions.put(2, "Occupied");
+        roomStatusOptions.put(3, "Reserved");
+
+        Map<Boolean, String> roomCleanOptions = new HashMap<Boolean, String>();
+        roomCleanOptions.put(true, "Room is clean");
+        roomCleanOptions.put(false, "Room is UNCLEAN");
+
+        map.addAttribute("roomCleanOptions", roomCleanOptions);                                                                     
+        map.addAttribute("roomStatusOptions", roomStatusOptions);
         map.addAttribute("roomTypeOptions", roomTypeOptions);
         map.addAttribute("room", getRoom);
+
         return new ModelAndView("viewroom");
     }
 
@@ -111,6 +131,11 @@ public class IndexController {
 
         Room getRoom = roomRepo.findByRoomId(id);
 
+        Map<Integer, String> business1OrVacation2 = new HashMap<Integer, String>();
+        business1OrVacation2.put(1, "Business");
+        business1OrVacation2.put(2, "Vacation");
+
+        map.addAttribute("busiOrVacaOption",business1OrVacation2);
         map.addAttribute("roomId", id);
         map.addAttribute("room", getRoom);
         map.addAttribute("user", new User());

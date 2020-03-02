@@ -49,11 +49,11 @@
                 <div class="row">
                 <div class="col-md-6 form-group">
                 <label>Adult/s:</label>
-                 <input class="form-control" type="number"/>
+                 <input class="form-control" type="number" value="0"/>
                 </div>
                 <div class="col-md-6 form-group">
                 <label>Child/Children:</label>
-                <input class="form-control" type="number"/>
+                <input class="form-control" type="number" value="0"/>
                 </div>
                 </div>
                  <div class="form-group">
@@ -77,8 +77,10 @@
                   <form:input class="form-control" path="occupation" />
                 </div>
                 <div class="form-group">
-                   <form:label path = "businessOrvacay">Is room clean:</form:label>
-                  <form:input class="form-control" path="businessOrvacay" input="number"/>
+                   <form:label path = "businessOrvacay">Business Or Vacation</form:label>
+                   <form:select class="form-control" path="businessOrvacay" multiple="false">
+										<form:options items="${busiOrVacaOption}"></form:options>
+									</form:select>
                 </div>
 
                 <div class="box-footer with-border">

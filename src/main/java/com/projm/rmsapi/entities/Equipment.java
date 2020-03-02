@@ -21,17 +21,12 @@ public class Equipment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long equipId;
-
     private String equipName;
-
     // Good, Needs Repair, Needs Maintenance, Needs to be replaced // MAYBE
     // CONNECTED TO ASSESSMENT SCORE
     private int equipStatus;
-
     private Date dateOfPurchase;
-
     private Date dateOfLastMaintenance;
-
     // refers to the life span according to the manufacturer in years
     private int functionalLife;
 
@@ -39,18 +34,13 @@ public class Equipment {
     // equipments
     // needs to have maintenance/repairs or be replace.. the criteria weight is
     // determined by the engineer
-
     // score 1-100 based on presence and condition of the parts of the equipment 35%
     private int completenessOfParts = 0;
-
     // score 1-100 based on the outer physical appearance 20%
     private int appearance = 0;
-
     // score 1-100 based on the how 45%
     private int functionality = 0;
-
     private double assessmentScore = 0;
-
     private String description;
 
     @ManyToOne
@@ -61,18 +51,9 @@ public class Equipment {
 
     }
 
-    public String getDescription() {
-        return description;
-    }
+    public Equipment(String equipName, int equipStatus,Date dateOfPurchase, 
+        Date dateOfLastMaintenance, int functionalLife){
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Equipment(String equipName,
-            int equipStatus,
-            Date dateOfPurchase, 
-    Date dateOfLastMaintenance, int functionalLife){
         this.equipName=equipName;
         this.equipStatus=equipStatus;
         this.dateOfPurchase=dateOfPurchase;
@@ -81,6 +62,20 @@ public class Equipment {
         
     }
 
+    public double getAssessmentScore() {
+        return assessmentScore;
+    }
+
+    public void setAssessmentScore(double assessmentScore) {
+        this.assessmentScore = assessmentScore;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public String getDescription() {
+        return description;
+    }
     public Room getRoom(){
         return this.room;
     }
@@ -157,18 +152,11 @@ public class Equipment {
         return this.equipId;
     }
 
-    public double getAssessmenScore(){
-        return this.assessmentScore;
-    }
-
-    public void setAssessmentScore(double assessmentScore){
-        this.assessmentScore=assessmentScore;
-    }
 
     public double computeAssessmentScore(){
         this.assessmentScore = completenessOfParts * .35 + appearance * .20 + functionality * .45;
         return this.assessmentScore;
-    }
+   }
 
 
 }

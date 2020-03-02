@@ -36,8 +36,8 @@ public class User {
 
     private String occupation;
     // refers to the number of visits
-    // private int visits; // removed cuz u can just count in the log or smthing idk
-
+    
+    // 1 for business and 2 for vacation
     private int businessOrvacay;
 
     @ManyToOne

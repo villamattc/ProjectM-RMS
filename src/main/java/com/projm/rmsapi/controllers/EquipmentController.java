@@ -51,10 +51,10 @@ public class EquipmentController {
     EquipmentLogRepository equipmentLogRepo;
 
     @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
-    public ResponseEntity<Object> addEquiptoRoom(@PathVariable("id") long id,
+    public ModelAndView addEquiptoRoom(@PathVariable("id") long id,
             @Valid @ModelAttribute("equip") Equipment equip, BindingResult result) {
         if (result.hasErrors()) {
-            return new ResponseEntity<>("FAILED TO ADD EQUIPMENT", HttpStatus.FORBIDDEN);
+            
         }
 
         try {
@@ -67,13 +67,13 @@ public class EquipmentController {
         } catch (Exception e) {
 
             e.printStackTrace();
-            return new ResponseEntity<>("FAILED TO ADD EQUIPMENT", HttpStatus.FORBIDDEN);
+            return new ModelAndView("forward:/viewroom/"+id+"/addequipform");
         }
 
-        return new ResponseEntity<>("SUCCESSFULLY ADDED EQUIPMENT", HttpStatus.CREATED);
+        return new ModelAndView("redirect:/viewroom/"+id+"/viewequip");
     }
 
-    @RequestMapping(value = "/deleteequip/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/deleteequip/{id}", method = RequestMethod.GET)
     public ModelAndView deleteRoom(@PathVariable("id") long id) {
 
         Equipment deleteEquip = equipmentRepo.findByEquipId(id);
