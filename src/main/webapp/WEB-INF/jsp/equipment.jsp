@@ -24,29 +24,74 @@
 					<br>
 					
 					<div class="row">
-						<div class="col-md-2">
-					<div class="form-group">
-                
-                  <select class="form-control">
-                    <option value="viewroominvent">View Room Equipment</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
-                  </select>
-                </div>
-				</div>
-<div class="col-md-8"></div>
+					<div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="glyphicon glyphicon-ok"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Good Condition</span>
+              <span class="info-box-number"><h1>${countGoodCondition}</h1></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="glyphicon glyphicon-remove"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Need Maintainance</span>
+              <span class="info-box-number"><h1>${countNeedsMaint}</h1></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="glyphicon glyphicon-calendar"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Need Repair</span>
+              <span class="info-box-number"><h1>${countNeedsRepair}</h1></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+		 <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon" style="background-color: #00C0EF"><i class="glyphicon glyphicon-calendar"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Need Replace</span>
+              <span class="info-box-number"><h1>${countNeedReplace}</h1></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+<div class="row">
 <div class="col-md-2 pull-right">
-<form action="#" method="get">
+<form action="/searchequipbyroom" method="get">
         <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <input type="text" name="find" class="form-control" placeholder="Search...">
               <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-default"><i class="fa fa-search"></i>
                 </button>
               </span>
         </div>
       </form>
+</div>
 </div>
 </div>
 					<br>

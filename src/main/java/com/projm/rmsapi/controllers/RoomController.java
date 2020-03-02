@@ -55,17 +55,21 @@ public class RoomController {
     
     // add room
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ResponseEntity<Object> addRoom(@Valid @ModelAttribute("room") Room room, BindingResult result) {
+    public ModelAndView addRoom(@Valid @ModelAttribute("room") Room room, BindingResult result) {
         if (result.hasErrors()) {
-            return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
+
+            return new ModelAndView("redirect:/room");
         }
+        try{
+            roomRepo.save(room);
+        }catch(Exception e){
+            e.printStackTrace();
+            return new ModelAndView("redirect:/room");
+        }
+        
+        return new ModelAndView("redirect:/room");
 
-        boolean truth = roomService.saveRoom(room);
-
-        if (truth)
-            return new ResponseEntity<>("ROOM CREATION SUCCESS", HttpStatus.CREATED);
-        else
-            return new ResponseEntity<>("ROOM CREATION FAILED", HttpStatus.FORBIDDEN);
+        
     }
 
     // DELETE BUTTON ON THE ROW

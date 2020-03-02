@@ -19,6 +19,8 @@ public interface RoomRepository extends JpaRepository<Room, Long>{
     // public List<Inventory> findAllBy
     public int countByRoomType(int rType);
 
+    public int countByRoomStatus(int status);
+
     @Transactional
     public void deleteByRoomId(Long id);
 

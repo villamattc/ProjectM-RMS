@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import com.projm.rmsapi.entities.Equipment;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 
@@ -15,7 +16,10 @@ public interface EquipmentRepository extends JpaRepository<Equipment, Long>{
     
     public List<Equipment> findAllByEquipStatus(int status);
     
+    @Query(value = "SELECT * FROM inventory i WHERE i.room_id=? ", nativeQuery = true)
+    public List<Equipment> findAllByRoomId(Long id);
     public Equipment findByEquipId(Long id);
+    public Equipment findByEquipName(String equipName);
     public int countByEquipStatus(int eqStatus);
 
     @Transactional

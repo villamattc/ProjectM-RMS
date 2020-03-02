@@ -1,5 +1,7 @@
 package com.projm.rmsapi.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import com.projm.rmsapi.entities.Equipment;
@@ -109,6 +111,20 @@ public class EquipmentController {
         
         return new ResponseEntity<>("EQUIPMENT UPDATE SUCCESS", HttpStatus.ACCEPTED);
 
+    }
+
+    @RequestMapping(value = "/searchequipbyroom", method = RequestMethod.GET)
+    public ModelAndView searchRoom(@RequestParam String find){
+
+        Room searchRoom = roomRepo.findByRoomName(find);
+        if(searchRoom == null)
+            return new ModelAndView("forward:/equipment");
+
+        Long roomId = searchRoom.getRoomId();
+        String redirectTo = ("redirect:/viewroom/" + roomId+ "/viewequip");
+        return new ModelAndView(redirectTo);
+
+        
     }
 
 }

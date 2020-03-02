@@ -45,6 +45,13 @@ public class IndexController {
     @Autowired
     private EquipmentLogRepository equipmentLogRepo;
 
+    @RequestMapping(value="")
+    public ModelAndView defaultPage(){
+        return new ModelAndView("redirect:/dashboard");
+    }
+
+
+
     @RequestMapping(value = "room")
     public ModelAndView Room(ModelMap map) {
 
@@ -61,6 +68,11 @@ public class IndexController {
         roomTypeOptions.put(3, "Premier Deluxe Room");
         roomTypeOptions.put(4, "Royal Bungalow");
 
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@"+roomRepo.countByRoomStatus(1));
+
+        map.addAttribute("vacantNumbers", roomRepo.countByRoomStatus(1));
+        map.addAttribute("occupiedNumbers", roomRepo.countByRoomStatus(2));
+        map.addAttribute("reservedNumbers", roomRepo.countByRoomStatus(3));
         map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
         map.addAttribute("occupiedRooms", roomService.getAllOccupiedRooms());
         map.addAttribute("reservedRooms", roomService.getAllReservedRooms()); // <c:forEach items="${vacantRooms}"
@@ -215,6 +227,10 @@ public class IndexController {
         map.addAttribute("needsrepair", equipRepo.findAllByEquipStatus(3));
         map.addAttribute("needreplace", equipRepo.findAllByEquipStatus(4));
 
+        map.addAttribute("countGoodCondition", equipRepo.countByEquipStatus(1));
+        map.addAttribute("countNeedsMaint", equipRepo.countByEquipStatus(2));
+        map.addAttribute("countNeedsRepair", equipRepo.countByEquipStatus(3));
+        map.addAttribute("countNeedReplace", equipRepo.countByEquipStatus(4));
         return new ModelAndView("equipment");
     }
 
@@ -282,20 +298,32 @@ public class IndexController {
     }
 
  
- @RequestMapping(value = "dashboard")
- public ModelAndView Dashboard (ModelMap map){
-
-    map.addAttribute("goodCondition", equipRepo.countByEquipStatus(1));
-    map.addAttribute("needsMaint", equipRepo.countByEquipStatus(2));
-    map.addAttribute("needsRepair", equipRepo.countByEquipStatus(3));
-    map.addAttribute("needReplace", equipRepo.countByEquipStatus(4));
-    
-
+    @RequestMapping(value = "dashboard")
+    public ModelAndView Dashboard (ModelMap map){
+   //Equipment Status//
+     map.addAttribute("goodCondition", equipRepo.countByEquipStatus(1));
+     map.addAttribute("needMaintenance", equipRepo.countByEquipStatus(2));
+     map.addAttribute("needRepair", equipRepo.countByEquipStatus(3));
+     map.addAttribute("needReplacement", equipRepo.countByEquipStatus(4));
+    //Nationality//
+    map.addAttribute("filipino", userRepo.countByNationality("Filipino"));
+    map.addAttribute("chinese", userRepo.countByNationality("Chinese"));
+    map.addAttribute("korean", userRepo.countByNationality("Korean"));
+    map.addAttribute("american", userRepo.countByNationality("American"));
+    map.addAttribute("japanese", userRepo.countByNationality("Japanese"));
+    map.addAttribute("vietnamese", userRepo.countByNationality("Vietnamese"));
+    map.addAttribute("taiwanese", userRepo.countByNationality("Taiwanese"));
+    map.addAttribute("others", userRepo.countByNationality("Others"));
+    //Room type//
     map.addAttribute("deluxeRoom", roomRepo.countByRoomType(1));
     map.addAttribute("amumaSpaSuite", roomRepo.countByRoomType(2));
     map.addAttribute("premierDeluxeRoom", roomRepo.countByRoomType(3));
     map.addAttribute("royalBungalow", roomRepo.countByRoomType(4));
-     return new ModelAndView("dashboard");
+    //Room Status//
+    map.addAttribute("vacant", roomRepo.countByRoomStatus(1));
+    map.addAttribute("occupied", roomRepo.countByRoomStatus(2));
+    map.addAttribute("reserved", roomRepo.countByRoomStatus(1));
+        return new ModelAndView("dashboard");
  }
 
 @RequestMapping(value = "inventory/{id}")

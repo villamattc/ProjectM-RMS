@@ -37,7 +37,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Vacant</span>
-              <span class="info-box-number">90<small>%</small></span>
+              <span class="info-box-number"><h1>${vacantNumbers}</h1></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -50,7 +50,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Occupied</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-number"><h1>${occupiedNumbers}</h1></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -67,7 +67,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Reserved</span>
-              <span class="info-box-number">760</span>
+              <span class="info-box-number"><h1>${reservedNumbers}</h1></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -131,7 +131,7 @@
 								
 								</div>
 								<!-- /.box-header -->
-								<div class="box-body no-padding table-responsive" style="height: 500px;">
+								<div class="box-body no-padding table-responsive" style="height: 380px;">
 									<table class="table table-head-fixed">
 										<tbody>
 											<tr>
