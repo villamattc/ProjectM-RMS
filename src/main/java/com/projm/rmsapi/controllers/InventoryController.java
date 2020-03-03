@@ -48,10 +48,10 @@ public class InventoryController {
     
 // add inventory through viewing the room info
 @RequestMapping(value = "/room/{id}/addinventory", method = RequestMethod.POST)
-public ResponseEntity<Object> addInventorytoRoom(@PathVariable("id") long id,
+public ModelAndView addInventorytoRoom(@PathVariable("id") long id,
     @Valid @ModelAttribute("inventory")Inventory inventory, BindingResult result) {
 if (result.hasErrors()) {
-    return new ResponseEntity<>("FAILED TO ADD INVENTORY", HttpStatus.FORBIDDEN);
+    return new ModelAndView("forward:/viewroom/"+id+"/viewinvent");
 }
 
 try{
@@ -64,10 +64,10 @@ try{
 }catch(Exception e){
 
     e.printStackTrace();
-    return new ResponseEntity<>("FAILED TO ADD INVENTORY", HttpStatus.FORBIDDEN);
+    return new ModelAndView("forward:/viewroom/"+id+"/viewinvent");
 }
 
-    return new ResponseEntity<>("SUCCESSFULLY ADDED INVENTORY", HttpStatus.CREATED);
+    return new ModelAndView("redirect:/viewroom/"+id+"/viewinvent");
 }
 
 @RequestMapping(value = "/{id}/testupdateinvent", method = RequestMethod.POST)
