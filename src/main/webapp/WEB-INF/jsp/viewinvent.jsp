@@ -28,8 +28,8 @@
 		<!-- Main content -->
 		<section class="content">
 		  <div class="row">
-		  <div class="col-md-3"></div>
-			<div class="col-md-6">
+		  <div class="col-md-1"></div>
+			<div class="col-md-10">
 			  <div class="box">
 				<div class="box-header">
 				  <h3 class="box-title">Inventory of ${room.roomName}</h3>
@@ -62,9 +62,9 @@
 							<td>${item.inventName}</td>
 							<td>${item.inventCurrentQuantity} out of ${item.inventMaxQuantity}</td>						
 							<td class="pull-right">
-							<a href="/updateinventform" type="button" class="btn btn-info">Update</a>
-							<button type="button" class="btn btn-success" data-toggle="modal" data-target="#inventLogs">View Logs</button>
-							<a class="btn btn-danger" href="#">Delete</a>
+							<a href="/inventory/${item.roomId}" type="button" class="btn btn-xs btn-info">Update</a>
+							<button type="button" class="btn btn-xs btn-success">View Logs</button>
+							<a class="btn btn-xs btn-danger" href="#">Delete</a>
 							</td>
 					
 						
@@ -77,32 +77,12 @@
 			  </div>
 			  <!-- /.box -->
 			</div>
-			 <div class="col-md-3"></div>
+			 <div class="col-md-1"></div>
 		  </div>
 
 		</section>
 		<!-- /.content -->
 
-
-
-		<div class="modal fade" id="inventLogs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Room Inventory Logs</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 	  </div>
 	</jsp:attribute>
 </mt:admin_template>

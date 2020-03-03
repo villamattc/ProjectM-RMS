@@ -377,13 +377,11 @@ public ModelAndView updateInventory(@PathVariable("id") long id, ModelMap map){
     inventoryAttach.setList(updatedInvents);
         map.addAttribute("attachInvents", inventoryAttach);
 
-
-        if(updatedInvents.isEmpty())
-            System.out.println("asdadasdasdsadsadsadsadasdasdasdasdasdasdsadasd");
         
             List<Inventory> invents = inventRepo.getInventoryByRoomId(id);
         //ArrayList<Inventory> currentQuant = new ArrayList<Inventory>(invents);
 
+        
         map.addAttribute("invents", invents);
         map.addAttribute("roomInvents", roomInvents);
         map.addAttribute("room", roomIdList);
