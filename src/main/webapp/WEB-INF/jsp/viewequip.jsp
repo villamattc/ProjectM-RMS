@@ -80,9 +80,9 @@
 							<td>${item.functionality}</td>
 							<td>${item.assessmentScore}</td>
 							<td class="pull-right">
-							<a href="/updateequip/${item.equipId}" type="button" class="btn btn-info">Update</a>
-							<a href="/viewroom/${item.equipId}/viewequip/equiplogs/${item.equipId}" type="button" class="btn btn-success">View Logs</a>
-							<a class="btn btn-danger" href="/deleteequip/${item.equipId}">Delete</a>
+							<a href="/updateequip/${item.equipId}" type="button" class="btn btn-xs btn-info">Update</a>
+							<a href="/viewroom/${item.equipId}/viewequip/equiplogs/${item.equipId}" type="button" class="btn btn-xs btn-success">View Logs</a>
+							<a class="btn btn-xs btn-danger" href="/deleteequip/${item.equipId}">Delete</a>
 							</td>
 						
 					</tr>
@@ -99,24 +99,6 @@
 		</section>
 		<!-- /.content -->
 
-<div class="modal fade" id="equipLogs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Room Equipment Logs</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 	  </div>
