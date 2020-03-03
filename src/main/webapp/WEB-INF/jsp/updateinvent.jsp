@@ -89,11 +89,9 @@
 									   				<c:forEach items="${attachInvents.list}" var="item" varStatus="status">
 													<tr>			
 													<td>
-                       								<%-- ${item.inventName} --%>
-                        							<form:input class="form-control" path="list[${status.index}].inventName" value="${item.inventName}" />
+                        							<form:input class="form-control" path="list[${status.index}].inventName" value="${item.inventName}" hidden="true" />
                     								</td>												
 													<td>  
-                        							<%-- ${item.inventMaxQuantity} --%>
                         							<form:input class="form-control" path="list[${status.index}].inventMaxQuantity" value="${item.inventMaxQuantity}"/>
                    									</td>
 													 <td>  

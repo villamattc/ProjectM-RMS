@@ -193,6 +193,7 @@ public class IndexController {
     public ModelAndView ViewInventory(@PathVariable("id") long id, ModelMap map) {
 
         Room getRoom = roomRepo.findByRoomId(id);
+        map.addAttribute("room",getRoom);
         map.addAttribute("invent", getRoom.getInvents());
         return new ModelAndView("viewinvent");
     }
@@ -315,13 +316,6 @@ public class IndexController {
         return new ModelAndView("updateequipform");
     
     }
-
-    @RequestMapping(value = "updateinventform")
-    public ModelAndView updateInvent(ModelMap map) {
-        
-   return new ModelAndView("updateinventform");
-    }
-
  
     @RequestMapping(value = "dashboard")
     public ModelAndView Dashboard (ModelMap map){

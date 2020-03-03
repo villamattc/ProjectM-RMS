@@ -62,7 +62,7 @@
 							<td>${item.inventName}</td>
 							<td>${item.inventCurrentQuantity} out of ${item.inventMaxQuantity}</td>						
 							<td class="pull-right">
-							<a href="/updateinventform" type="button" class="btn btn-info">Update</a>
+							<a href="/inventory/${room.roomId}" type="button" class="btn btn-info">Update</a>
 							<button type="button" class="btn btn-success" data-toggle="modal" data-target="#inventLogs">View Logs</button>
 							<a class="btn btn-danger" href="#">Delete</a>
 							</td>
