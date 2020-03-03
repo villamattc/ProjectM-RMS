@@ -77,7 +77,7 @@
 											
 												<th>Name</th>
 												<th>Max</th>
-												<th>Current</th>
+												<th width="380px">Current</th>
 												
 											</tr>
 											<tr>
@@ -86,49 +86,23 @@
                    								<form:input class="form-control" path="attach" value = "${attachInvents.attach}"/>
                 								</td>
             										</tr>
-									   				<c:forEach items="${attachInvents.list}" var="item" varStatus="status">
-													<tr>			
-													<td>
-                        							<form:input class="form-control" path="list[${status.index}].inventName" value="${item.inventName}" hidden="true" />
+									   				
+                                                       
+                                                       
+                                                       <c:forEach items="${attachInvents.list}" var="item" varStatus="status">
+                                                    <tr>
+
+													<td hidden="true">
+                        							<form:input class="form-control" path="list[${status.index}].inventName" value="${item.inventName}" />
                     								</td>												
-													<td>  
+													<td hidden="true">  
                         							<form:input class="form-control" path="list[${status.index}].inventMaxQuantity" value="${item.inventMaxQuantity}"/>
                    									</td>
+                                                       <td>${item.inventName}</td>
+                                                       <td>${item.inventMaxQuantity}</td>
 													 <td>  
                         							<form:input type="number" class="form-control" path="list[${status.index}].inventCurrentQuantity" value="${item.inventCurrentQuantity}"/>
-
-													<%-- <div class="input-group">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                                          <span class="glyphicon glyphicon-minus"></span>
-                                        </button>
-                                    </span>
-                                    <form:input type="text" id="quantity" name="quantity"  class="form-control input-number" path="list[${status.index}].inventCurrentQuantity" value="${item.inventCurrentQuantity}" min="1" max="${item.inventMaxQuantity}">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                                            <span class="glyphicon glyphicon-plus"></span>
-                                        </button>
-                                    </span>
-                                </div>
-                        </div> --%>
-
-                    								</td>
-													<%-- <td>
-                                                      <div class="input-group">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                                          <span class="glyphicon glyphicon-minus"></span>
-                                        </button>
-                                    </span>
-                                    <input type="text" id="quantity" name="quantity" class="form-control input-number" value="${item.inventCurrentQuantity}" min="1" max="${item.inventMaxQuantity}">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                                            <span class="glyphicon glyphicon-plus"></span>
-                                        </button>
-                                    </span>
-                               						 </div>
-                                                    </td> --%>
-									
+	                                                </td>
 												</tr>
 												
 											</c:forEach>
