@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -71,10 +72,10 @@ try{
 }
 
 @RequestMapping(value = "/{id}/testupdateinvent", method = RequestMethod.POST)
-public ResponseEntity<Object> updateInventory(@Valid @ModelAttribute("attachInvents") ListAttach attachInvents, BindingResult result,
+public ModelAndView updateInventory(@Valid @ModelAttribute("attachInvents") ListAttach attachInvents, BindingResult result,
         @PathVariable("id") long id) {
     if (result.hasErrors()) {
-        return new ResponseEntity<>("EQUIPMENT UPDATE FAILED", HttpStatus.FORBIDDEN);
+        return new ModelAndView("forward:/viewroom/"+id+"/viewinvent");
     }
 
 
@@ -93,10 +94,35 @@ public ResponseEntity<Object> updateInventory(@Valid @ModelAttribute("attachInve
     }
 
 
-    return new ResponseEntity<>("EQUIPMENT UPDATE SUCCESS", HttpStatus.FORBIDDEN);
+    return new ModelAndView("redirect:/viewroom/"+id+"/viewinvent");
     
 
 }
 
+@RequestMapping(value = "/deleteinvent/{id}", method = RequestMethod.GET)
+public ModelAndView deleteInventory(@PathVariable("id") long id) {
+
+    Inventory deleteInvent = inventRepo.findByInventId(id);
+    Long roomId = deleteInvent.getRoom().getRoomId();
+
+    equipmentRepo.deleteByEquipId(id);
+
+    
+    return new ModelAndView("redirect:/viewroom/" + roomId +"/viewequip");
+}
+
+@RequestMapping(value = "/searchinventbyroom", method = RequestMethod.GET)
+public ModelAndView searchRoom(@RequestParam String find){
+
+    Room searchRoom = roomRepo.findByRoomName(find);
+    if(searchRoom == null)
+        return new ModelAndView("forward:/inventory");
+
+    Long roomId = searchRoom.getRoomId();
+    String redirectTo = ("redirect:/viewroom/" + roomId+ "/viewinvent");
+    return new ModelAndView(redirectTo);
+
+    
+}
 
 }

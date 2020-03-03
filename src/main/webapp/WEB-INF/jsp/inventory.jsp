@@ -48,9 +48,9 @@
 				</div>
 <div class="col-md-8"></div>
 <div class="col-md-2">
-<form action="#" method="get">
+<form action="/searchinventbyroom" method="get">
         <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <input type="text" name="find" class="form-control" placeholder="Search...">
               <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-default"><i class="fa fa-search"></i>
                 </button>

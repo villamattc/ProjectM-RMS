@@ -74,7 +74,7 @@ public class EquipmentController {
     }
 
     @RequestMapping(value = "/deleteequip/{id}", method = RequestMethod.GET)
-    public ModelAndView deleteRoom(@PathVariable("id") long id) {
+    public ModelAndView deleteEquip(@PathVariable("id") long id) {
 
         Equipment deleteEquip = equipmentRepo.findByEquipId(id);
         Long roomId = deleteEquip.getRoom().getRoomId();
