@@ -63,7 +63,6 @@
 							<td>${item.inventCurrentQuantity} out of ${item.inventMaxQuantity}</td>						
 							<td class="pull-right">
 
-							<a href="/inventory/${room.roomId}" type="button" class="btn btn-xs btn-info">Update</a>
 							<button type="button" class="btn btn-xs btn-success">View Logs</button>
 							<a class="btn btn-xs btn-danger" href="#">Delete</a>
 
@@ -77,6 +76,7 @@
 				</div>
 				<!-- /.box-body -->
 			  </div>
+			  <a href="/inventory/${room.roomId}" type="button" class="btn btn-info pull-right">Update</a>
 			  <!-- /.box -->
 			</div>
 			 <div class="col-md-1"></div>

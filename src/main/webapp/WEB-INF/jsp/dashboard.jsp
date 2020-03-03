@@ -126,7 +126,7 @@ To change this template use File | Settings | File Templates.
 <script>
     //----PIE CHART----//
     var ctx = document.getElementById('pieChart').getContext('2d');
-var myChart = new Chart(ctx, {
+  var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
         labels: ['Good Condition', 'Need Maintenance', 'Need Repair', 'Need Replacement'],

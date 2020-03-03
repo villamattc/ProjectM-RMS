@@ -93,32 +93,6 @@
 </div>
 
       </div>
-
-					<%-- <div class="row">
-						<div class="col-md-2">
-				</div>
-
-
-						
-						<div class="col-md-8">
-							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#roomModal">
-								Add Room
-							</button>
-						</div>
-<div class="col-md-2">
-<form action="/searchroom" method="get">
-        <div class="input-group">
-          <input type="text" name="find" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-default"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-</div>
-
-					</div> --%>
 					<br>
 
 
@@ -135,6 +109,7 @@
 									<table class="table table-head-fixed">
 										<tbody>
 											<tr>
+												<th hidden="true">Room Id</th>
 												<th>Room</th>
 												<th>Condition</th>
 												<th>Type</th>
@@ -144,7 +119,7 @@
 											</tr>
 											<c:forEach items="${vacantRooms}" var="item" >
 											<tr>
-											
+													<td hidden="true">${item.roomId}</td>
 													<td>${item.roomName}</td>
 													<td>${item.roomClean ? 'Clean' : 'UNCLEAN'}</td>		
 													<td>${item.roomType == 1 ? 'Deluxe Room': ''}${item.roomType == 2 ? 'Amumum Spa Suite': ''}
@@ -158,7 +133,7 @@
 													<i class="fa  fa-briefcase"></i></a>
 														<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewinvent">
 														<i class="fa  fa-cubes"></i></a>
-														<a class="btn btn-xs btn-default" href="/deleteroom/${item.roomId}">
+														<a class="btn btn-xs btn-default delete" href="" >
 														<i class="fa  fa-trash"></i></a>
 													</td>
 											
@@ -189,6 +164,7 @@
 
 
 										<tbody><tr>
+										<th hidden="true">Room Id</th>
 											<th>Room</th>
 											<th>Condition</th>
 											<th>Type</th>
@@ -197,6 +173,7 @@
 										</tr>
 										<c:forEach items="${occupiedRooms}" var="item">
 										<tr>
+										<td hidden="true">${item.roomId}</td>
 											<td>${item.roomName}</td>
 											<td>${item.roomClean ? 'Clean' : 'UNCLEAN'}</td>
 											<td>${item.roomType == 1 ? 'Deluxe Room': ''}${item.roomType == 2 ? 'Amumum Spa Suite': ''}
@@ -210,7 +187,7 @@
 													<i class="fa  fa-briefcase"></i></a>
 														<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewinvent">
 														<i class="fa  fa-cubes"></i></a>
-														<a class="btn btn-xs btn-default" href="/deleteroom/${item.roomId}">
+														<a class="btn btn-xs btn-default delete" href="" >
 														<i class="fa  fa-trash"></i></a>
 													</td>
 													
@@ -239,6 +216,7 @@
 
 										<tbody>
 											<tr>
+											<th hidden="true">Room Id</th>
 												<th>Room</th>
 												<th>Condition</th>
 												<th>Type</th>
@@ -247,6 +225,7 @@
 											</tr>
 											<tr>
 											<c:forEach items="${reservedRooms}" var="item">
+											<td hidden="true">${item.roomId}</td>
 												<td>${item.roomName}</td>
 												<td>${item.roomClean ? 'Clean' : 'UNCLEAN'}</td>
 												<td>${item.roomType == 1 ? 'Deluxe Room': ''}${item.roomType == 2 ? 'Amumum Spa Suite': ''}
@@ -260,7 +239,7 @@
 													<i class="fa  fa-briefcase"></i></a>
 														<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewinvent">
 														<i class="fa  fa-cubes"></i></a>
-														<a class="btn btn-xs btn-default" href="/deleteroom/${item.roomId}">
+														<a class="btn btn-xs btn-default delete" href="" >
 														<i class="fa  fa-trash"></i></a>
 													</td>
 											
@@ -346,17 +325,47 @@
 	</div>
 
 
-	<script type="text/javascript">
-	function saveRoom(){
-		Swal.fire({
-	position: 'center',
-	icon: 'success',
-	title: 'Your work has been saved',
-	showConfirmButton: false,
-	timer: 1500
-	})
-	}
-	</script>
+
+
+
+
+	<script >
+$(document).ready(function(){
+
+	//DELETE CLICK
+	 $('.delete').on('click', function () {
+	        var $tds = $(this).parents("tr").find('td');
+			roomId = $tds.eq(0).text().trim();
+ 	        roomName = $tds.eq(1).text().trim();
+ 	        roomStatus = $tds.eq(2).text().trim();
+ 	        roomType = $tds.eq(3).text().trim();
+	        var r = confirm('Are you sure to delete '+roomName+', '+roomStatus+' '+roomType+'?');
+	        if (r==true) {
+     	        deleteRoom(roomId);
+	            $(this).parents("tr").remove();
+	        }
+	        return false;
+	 });
+	
+
+   	//AJAX DELETE TRAINEE
+    function deleteRoom(roomId){
+
+        $.ajax({
+        type : "GET",
+        contentType : "application/json",
+        url : "/deleteroom/"+roomId,
+        dataType : 'json',
+        success : function(result) {
+        },
+        error : function(e) {
+        }
+      }); 
+    } 
+});
+</script>
+
+	
 
 		</jsp:attribute>
 	</mt:admin_template>

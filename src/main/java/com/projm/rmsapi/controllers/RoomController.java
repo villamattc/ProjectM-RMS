@@ -75,7 +75,7 @@ public class RoomController {
     // DELETE BUTTON ON THE ROW
     @RequestMapping(value = "/deleteroom/{id}",  method = RequestMethod.GET)
     public ModelAndView deleteRoom(@PathVariable("id") long id){
-
+        
         roomRepo.deleteByRoomId(id);
         return new ModelAndView("redirect:/room");
     }

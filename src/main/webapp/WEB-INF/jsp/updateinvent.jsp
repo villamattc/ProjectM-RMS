@@ -65,7 +65,7 @@
 						<div class="col-md-12">
 							<div class="box box-success">
 								<div class="box-header bg-green">
-									<h3 class="box-title">Room Name</h3>
+									<h3 class="box-title">Inventory List</h3>
 
 								</div>
 								<!-- /.box-header -->
@@ -119,7 +119,7 @@
 								<!-- /.box-body -->
 							</div>
 							<!-- /.box -->
-							<button type="submit" class="btn btn-primary pull-right"> Update Invetory</button>
+							<button type="submit" class="btn btn-info pull-right"> Update Invetory</button>
 						</div>
 						</form:form>
 						
