@@ -181,7 +181,7 @@
 													<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewusers">
 													<i class="fa  fa-users"></i></a>
 												
-														<a class="btn btn-xs btn-default delete" href="" >
+														<a class="btn btn-xs btn-default delete"  href="" >
 														<i class="fa  fa-trash"></i></a>
 													</td>
 													
@@ -232,7 +232,6 @@
 												
 														<a class="btn btn-xs btn-default delete" href="" >
 														<i class="fa fa-trash"></i></a>
-														<button onClick="deleteRoomSA()"></button>
 													</td>
 											
 											</tr>
@@ -303,7 +302,6 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
 							<button type="submit" class="btn btn-primary" >Save changes</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="saveRoom();">SweetAlert2</button>
 						</div>
 						</form:form>
 					</div>
@@ -337,7 +335,7 @@ $(document).ready(function(){
 	 });
 	
 
-   	//AJAX DELETE TRAINEE
+   	//AJAX DELETE ROOM
     function deleteRoom(roomId){
 
         $.ajax({
@@ -354,6 +352,5 @@ $(document).ready(function(){
     } 
 });
 </script>
-
 		</jsp:attribute>
 	</mt:admin_template>

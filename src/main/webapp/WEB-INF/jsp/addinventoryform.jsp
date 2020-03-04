@@ -57,7 +57,6 @@
                 </div>           
                  <div class="box-footer with-border">
                 <button type="submit" class="btn btn-primary"> Add Inventory</button>
-                <button class="btn btn-default" onclick="goBack()">Go Back</button>
                 </div>  
                 <div class="col-md-2">
                 </div>            

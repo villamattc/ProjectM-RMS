@@ -19,10 +19,12 @@
     </section>
 
     <!-- Main content -->
-    <br>
+ 
     <section class="content">
       <div class="row">
-
+<button class="btn btn-default" onclick="goBack()">Go Back</button>
+    <br>
+    <br>
       
         <div class="col-md-6">
         <div class="box box-warning">
@@ -107,6 +109,8 @@
 				<div class="box-body table-responsive no-padding" style="height: 339px;">
 				  <table class="table table-hover">
 					<tbody><tr>
+						<th hidden="true">Invent Id
+					</th>
 						<th>Name
 						</th>
 						<th>Quantity
@@ -117,10 +121,12 @@
 						<tr>
 							<td hidden="true">${item.inventId}</td>
 							<td>${item.inventName}</td>
-							<td>${item.inventCurrentQuantity} out of ${item.inventMaxQuantity}</td>						
+							<td>${item.inventCurrentQuantity}</td>		
+							<td>${item.inventMaxQuantity}</td>					
 							<td class="pull-right">
 
-							<a class="deleteinvent" href="">Delete</a>
+							<button type="button" class="btn btn-xs btn-success">View Logs</button>
+							<a class="btn btn-xs btn-danger delete" href="" >Delete</a>
 
 							</td>
 					
@@ -155,6 +161,7 @@
 				<div class="box-body table-responsive no-padding">
 				  <table class="table table-hover">
 					<tbody><tr>
+					<th hidden="true">ID</th>
 						<th>Name
 						</th>
 						<th>Status
@@ -181,7 +188,7 @@
 
 						<c:forEach items="${equip}" var="item" varStatus="status">
 						<tr>
-							<td hidden="true">${item.equipId}</td>
+						<td hidden="true">${item.equipId}</td>
 							<td>${item.equipName}</td>
 							<td>${item.equipStatus}</td>
 							<td>${item.dateOfPurchase}</td>
@@ -194,7 +201,7 @@
 							<td class="pull-right">
 							<a href="/updateequip/${item.equipId}" type="button" class="btn btn-xs btn-info">Update</a>
 							<a href="/viewroom/${item.equipId}/viewequip/equiplogs/${item.equipId}" type="button" class="btn btn-xs btn-success">View Logs</a>
-							<a class="deleteequip" href="">Delete</a>
+							<a class="btn btn-xs btn-danger deleteequip" href="">Delete</a>
 							</td>
 						
 					</tr>
@@ -210,85 +217,9 @@
     </section>
     <!-- /.content -->
   </div>
+
+
+
+ 
 	</jsp:attribute>
 </mt:admin_template>
-
-<script >
-	$(document).ready(function(){
-	
-		//DELETE CLICK
-		 $('.deleteequip').on('click', function () {
-				var $tds = $(this).parents("tr").find('td');
-				equipId = $tds.eq(0).text().trim();
-				$tds.eq(1).text().trim();
-				$tds.eq(2).text().trim();
-				$tds.eq(4).text().trim();
-				$tds.eq(5).text().trim();
-				$tds.eq(6).text().trim();
-				$tds.eq(7).text().trim();
-				$tds.eq(8).text().trim();
-				var r = confirm('Are you sure to delete ?');
-				if (r==true) {
-					 deleteEquip(equipId);
-					$(this).parents("tr").remove();
-					swal("Deleted!", "Equipment is successfully deleted!", "success")
-				}
-				return false;
-		 });
-		
-	
-		   //AJAX DELETE TRAINEE
-		function deleteEquip(roomId){
-	
-			$.ajax({
-			type : "GET",
-			contentType : "application/json",
-			url : "/deleteequip/"+roomId,
-			dataType : 'json',
-			success : function(result) {
-				
-			},
-			error : function(e) {
-			}
-		  }); 
-		} 
-	});
-
-	$(document).ready(function(){
-	
-	//DELETE CLICK
-	 $('.deleteinvent').on('click', function () {
-			var $tds = $(this).parents("tr").find('td');
-			inventId = $tds.eq(0).text().trim();
-			$tds.eq(1).text().trim();
-			$tds.eq(2).text().trim();
-
-			var r = confirm('Are you sure to delete ?');
-			if (r==true) {
-				 deleteInvent(inventId);
-				$(this).parents("tr").remove();
-				swal("Deleted!", "Equipment is successfully deleted!", "success")
-			}
-			return false;
-	 });
-	
-
-	   //AJAX DELETE TRAINEE
-	function deleteInvent(inventId){
-
-		$.ajax({
-		type : "GET",
-		contentType : "application/json",
-		url : "/deleteinvent/"+inventId,
-		dataType : 'json',
-		success : function(result) {
-			
-		},
-		error : function(e) {
-		}
-	  }); 
-	} 
-});
-
-
-	</script>

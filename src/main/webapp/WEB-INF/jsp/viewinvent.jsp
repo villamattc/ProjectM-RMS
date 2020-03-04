@@ -28,7 +28,6 @@
 		<!-- Main content -->
 		<section class="content">
 		<button class="btn btn-default" onclick="goBack()">Go Back</button>
-		
 		<br>
 		<br>
 		  <div class="row">
@@ -55,20 +54,25 @@
 				<div class="box-body table-responsive no-padding">
 				  <table class="table table-hover">
 					<tbody><tr>
+					<th hidden="true">Invent Id
+					</th>
 						<th>Name
 						</th>
-						<th>Quantity
+						<th>Current
+						</th>
+						<th>Max
 						</th>	
 						<th width="400px"></th>
 					</tr>
 						<c:forEach items="${invent}" var="item">
 						<tr>
+						<td hidden="true">${item.inventId}</td>
 							<td>${item.inventName}</td>
-							<td>${item.inventCurrentQuantity} out of ${item.inventMaxQuantity}</td>						
+							<td>${item.inventCurrentQuantity}</td>		
+							<td>${item.inventMaxQuantity}</td>				
 							<td class="pull-right">
-
 							<button type="button" class="btn btn-xs btn-success">View Logs</button>
-							<a class="btn btn-xs btn-danger" href="#">Delete</a>
+							<a class="btn btn-xs btn-danger deleteinvent" href="">Delete</a>
 
 							</td>
 					
@@ -90,5 +94,8 @@
 		<!-- /.content -->
 
 	  </div>
+
+
+
 	</jsp:attribute>
 </mt:admin_template>

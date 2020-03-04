@@ -21,9 +21,7 @@ public interface InventoryRepository extends JpaRepository<Inventory, Long>{
     public List<Inventory> getInventoryByRoomId(Long id);
 
     public Inventory findByInventId(Long id);
-
+    
     @Transactional
     public void deleteByInventId(Long id);
-
-
 }

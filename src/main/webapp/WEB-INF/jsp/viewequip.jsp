@@ -75,7 +75,7 @@
 							<td class="pull-right">
 							<a href="/updateequip/${item.equipId}" type="button" class="btn btn-xs btn-info">Update</a>
 							<a href="/viewroom/${item.equipId}/viewequip/equiplogs/${item.equipId}" type="button" class="btn btn-xs btn-success">View Logs</a>
-							<a class="btn btn-xs btn-danger" href="/deleteequip/${item.equipId}">Delete</a>
+							<a class="btn btn-xs btn-danger deleteequip">Delete</a>
 							</td>
 						
 					</tr>
