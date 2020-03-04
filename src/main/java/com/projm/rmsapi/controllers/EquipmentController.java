@@ -70,7 +70,7 @@ public class EquipmentController {
             return new ModelAndView("forward:/viewroom/"+id+"/addequipform");
         }
 
-        return new ModelAndView("redirect:/viewroom/"+id+"/viewequip");
+        return new ModelAndView("redirect:/viewroom/"+id);
     }
 
     @RequestMapping(value = "/deleteequip/{id}", method = RequestMethod.GET)

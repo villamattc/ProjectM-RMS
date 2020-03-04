@@ -23,7 +23,6 @@ public class Equipment {
     private Long equipId;
     private String equipName;
     // Good, Needs Repair, Needs Maintenance, Needs to be replaced // MAYBE
-    // CONNECTED TO ASSESSMENT SCORE
     private int equipStatus;
     private Date dateOfPurchase;
     private Date dateOfLastMaintenance;
