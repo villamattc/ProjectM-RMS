@@ -221,6 +221,8 @@ public class IndexController {
         List<String> roomNames3 = new ArrayList<>();
         List<String> roomNames4 = new ArrayList<>();
 
+        List<Room> rooms = new ArrayList<>();
+
         for (Equipment equips : goodCondition) {
 
             Room room = equips.getRoom();
@@ -256,6 +258,15 @@ public class IndexController {
         }
 
         map.addAttribute("needreplaceRoomName", roomNames4);
+
+
+
+        for(Long l: equipRepo.getDistinctRoomId()){
+            rooms.add(roomRepo.findByRoomId(l));
+        }
+
+
+        map.addAttribute("roomNameOptions", rooms);
 
         map.addAttribute("goodcondition", equipRepo.findAllByEquipStatus(1));
         map.addAttribute("needsmaint", equipRepo.findAllByEquipStatus(2));

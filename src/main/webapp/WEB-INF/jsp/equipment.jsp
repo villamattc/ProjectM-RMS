@@ -92,9 +92,9 @@
              <span class="caret"></span>
              </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" style="">
-                 
-                <li><a href="/inventory/58">Room 2</a></li>    
-                
+				<c:forEach items="${roomNameOptions}" var="item" varStatus = "status"> 
+					<li><a href="/viewroom/${item.roomId}/viewequip">Room ${item.roomName}</a></li>    
+				</c:forEach>
             </ul>
             </div>
                 </div>
