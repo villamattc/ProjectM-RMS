@@ -25,4 +25,6 @@ public interface EquipmentRepository extends JpaRepository<Equipment, Long>{
     @Transactional
     public void deleteByEquipId(Long id);
 
+    @Query(value = "SELECT DISTINCT room_id FROM inventory" ,nativeQuery = true)
+    public List<Long> getDistinctRoomId();
 }
