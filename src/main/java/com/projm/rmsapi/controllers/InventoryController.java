@@ -68,7 +68,7 @@ try{ //@
     return new ModelAndView("forward:../");
 }
 
-    return new ModelAndView("redirect:/viewroom/"+id+"/viewinvent");
+    return new ModelAndView("redirect:/viewroom/"+id);
 }
 
 @RequestMapping(value = "/{id}/testupdateinvent", method = RequestMethod.POST)

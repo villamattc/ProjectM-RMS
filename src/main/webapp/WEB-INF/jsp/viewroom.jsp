@@ -119,7 +119,6 @@
 							<td>${item.inventCurrentQuantity} out of ${item.inventMaxQuantity}</td>						
 							<td class="pull-right">
 
-							<button type="button" class="btn btn-xs btn-success">View Logs</button>
 							<a class="btn btn-xs btn-danger" href="#">Delete</a>
 
 							</td>
