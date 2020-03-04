@@ -19,8 +19,11 @@
     </section>
 
     <!-- Main content -->
-    <br>
+ 
     <section class="content">
+	<button class="btn btn-default" onclick="goBack()">Go Back</button>
+		<br>
+		<br>
       <div class="row">
 
       
@@ -107,6 +110,8 @@
 				<div class="box-body table-responsive no-padding" style="height: 339px;">
 				  <table class="table table-hover">
 					<tbody><tr>
+						<th hidden="true">Invent Id
+					</th>
 						<th>Name
 						</th>
 						<th>Quantity
@@ -115,12 +120,14 @@
 					</tr>
 						<c:forEach items="${invent}" var="item">
 						<tr>
+							<td hidden="true">${item.inventId}</td>
 							<td>${item.inventName}</td>
-							<td>${item.inventCurrentQuantity} out of ${item.inventMaxQuantity}</td>						
+							<td>${item.inventCurrentQuantity}</td>		
+							<td>${item.inventMaxQuantity}</td>					
 							<td class="pull-right">
 
 							<button type="button" class="btn btn-xs btn-success">View Logs</button>
-							<a class="btn btn-xs btn-danger" href="#">Delete</a>
+							<a class="btn btn-xs btn-danger delete" href="" >Delete</a>
 
 							</td>
 					
@@ -155,6 +162,7 @@
 				<div class="box-body table-responsive no-padding">
 				  <table class="table table-hover">
 					<tbody><tr>
+					<th hidden="true">ID</th>
 						<th>Name
 						</th>
 						<th>Status
@@ -181,6 +189,7 @@
 
 						<c:forEach items="${equip}" var="item" varStatus="status">
 						<tr>
+						<td hidden="true">${item.equipId}</td>
 							<td>${item.equipName}</td>
 							<td>${item.equipStatus}</td>
 							<td>${item.dateOfPurchase}</td>
@@ -193,7 +202,7 @@
 							<td class="pull-right">
 							<a href="/updateequip/${item.equipId}" type="button" class="btn btn-xs btn-info">Update</a>
 							<a href="/viewroom/${item.equipId}/viewequip/equiplogs/${item.equipId}" type="button" class="btn btn-xs btn-success">View Logs</a>
-							<a class="btn btn-xs btn-danger" href="/deleteequip/${item.equipId}">Delete</a>
+							<a class="btn btn-xs btn-danger deleteequip" href="">Delete</a>
 							</td>
 						
 					</tr>
@@ -209,5 +218,9 @@
     </section>
     <!-- /.content -->
   </div>
+
+
+
+ 
 	</jsp:attribute>
 </mt:admin_template>

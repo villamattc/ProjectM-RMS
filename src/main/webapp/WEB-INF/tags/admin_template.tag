@@ -458,6 +458,90 @@ function goBack() {
 }
 </script>
 
+
+
+ <script >
+$(document).ready(function(){
+
+	//DELETE CLICK FOR INVENTORY
+	 $('.deleteinvent').on('click', function () {
+	        var $tds = $(this).parents("tr").find('td');
+			inventId = $tds.eq(0).text().trim();
+ 	        inventName = $tds.eq(1).text().trim();
+ 	        inventCurrentQuantity = $tds.eq(2).text().trim();
+ 	        inventMaxQuantity = $tds.eq(3).text().trim();
+	        var r = confirm('Are you sure to delete '+inventName+ '?');
+	        if (r==true) {
+     	        deleteInvent(inventId);
+	            $(this).parents("tr").remove();
+				swal("Deleted!", "Inventory is successfully deleted!", "success")
+	        }
+	        return false;
+	 });
+	
+
+   	//AJAX DELETE INVENTORY
+    function deleteInvent(inventId){
+
+        $.ajax({
+        type : "GET",
+        contentType : "application/json",
+        url : "/deleteinvent/"+inventId,
+        dataType : 'json',
+        success : function(result) {
+			
+        },
+        error : function(e) {
+        }
+      }); 
+    } 
+});
+</script>
+
+<script >
+$(document).ready(function(){
+
+	//DELETE CLICK FOR EQUIP
+	 $('.deleteequip').on('click', function () {
+	        var $tds = $(this).parents("tr").find('td');
+			equipId = $tds.eq(0).text().trim();
+ 	        equipName = $tds.eq(1).text().trim();
+ 	        equipStatus = $tds.eq(2).text().trim();
+ 	        dateOfPurchase = $tds.eq(3).text().trim();
+			dateOfLastMaintenance = $tds.eq(4).text().trim();
+ 	        functionalLife = $tds.eq(5).text().trim();
+ 	        completenessOfParts = $tds.eq(6).text().trim();
+ 	        appearance = $tds.eq(7).text().trim();
+			functionality = $tds.eq(8).text().trim();
+			assessmentScore = $tds.eq(9).text().trim();			 
+	        var r = confirm('Are you sure to delete '+equipName+ '?');
+	        if (r==true) {
+     	        deleteEquip(equipId);
+	            $(this).parents("tr").remove();
+				swal("Deleted!", "Equipment is successfully deleted!", "success")
+	        }
+	        return false;
+	 });
+	
+
+   	//AJAX DELETE EQUIP
+    function deleteEquip(equipId){
+
+        $.ajax({
+        type : "GET",
+        contentType : "application/json",
+        url : "/deleteequip/"+equipId,
+        dataType : 'json',
+        success : function(result) {
+			
+        },
+        error : function(e) {
+        }
+      }); 
+    } 
+});
+</script>
+
 </body>
 </html>
 

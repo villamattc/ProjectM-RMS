@@ -105,7 +105,7 @@ public ModelAndView deleteInventory(@PathVariable("id") long id) {
     Inventory deleteInvent = inventRepo.findByInventId(id);
     Long roomId = deleteInvent.getRoom().getRoomId();
 
-    equipmentRepo.deleteByEquipId(id);
+    inventRepo.deleteByInventId(id);
 
     
     return new ModelAndView("redirect:/viewroom/" + roomId +"/viewequip");

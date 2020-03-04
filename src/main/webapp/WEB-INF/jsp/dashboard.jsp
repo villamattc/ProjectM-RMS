@@ -135,10 +135,10 @@ To change this template use File | Settings | File Templates.
             label: 'Equipment Status',
             data: [${goodCondition},${needMaintenance},${needRepair},${needReplacement}],
             backgroundColor: [
-                'rgba(251, 141, 166)',
-                'rgba(151, 213, 231)',
-                'rgba(255, 242, 157)',
-                'rgba(171, 209, 175)'
+                'rgb(0,166,90)',
+                'rgb(243,156,18)',
+                'rgb(221,75,57)',
+                'rgb(0,192,239)'
             ],
             borderWidth: 1
         }]
@@ -155,9 +155,9 @@ var myChart = new Chart(ctx, {
             data: [${vacant},${occupied},${reserved}],
             fill: false,
             backgroundColor: [
-                'rgba(255, 166, 254)',
-                'rgba(168, 193, 168)',
-                'rgba(159, 157, 186)'
+                'rgb(0,166,90)',
+                'rgb(221,75,57)',
+                'rgb(243,156,18)'
             ],
             borderWidth: 1
         }]

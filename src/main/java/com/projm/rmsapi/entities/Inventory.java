@@ -28,10 +28,18 @@ public class Inventory {
     private Room room;
 
     public Inventory(){}
-    public Inventory(String inventName, int inventCurrentQuantity, int inventMaxQuantity){
+    public Inventory(Long inventId, String inventName, int inventCurrentQuantity, int inventMaxQuantity){
+        this.inventId=inventId;
         this.inventName=inventName;
         this.inventCurrentQuantity=inventCurrentQuantity;
         this.inventMaxQuantity=inventMaxQuantity;
+    }
+    public Long getInventId() {
+        return inventId;
+    }
+
+    public Long setInventId(Long inventId) {
+        return inventId;
     }
 
     public String getInventName() {
