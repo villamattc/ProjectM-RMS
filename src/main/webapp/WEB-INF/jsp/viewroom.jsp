@@ -115,11 +115,12 @@
 					</tr>
 						<c:forEach items="${invent}" var="item">
 						<tr>
+							<td hidden="true">${item.inventId}</td>
 							<td>${item.inventName}</td>
 							<td>${item.inventCurrentQuantity} out of ${item.inventMaxQuantity}</td>						
 							<td class="pull-right">
 
-							<a class="btn btn-xs btn-danger" href="#">Delete</a>
+							<a class="deleteinvent" href="">Delete</a>
 
 							</td>
 					
@@ -180,6 +181,7 @@
 
 						<c:forEach items="${equip}" var="item" varStatus="status">
 						<tr>
+							<td hidden="true">${item.equipId}</td>
 							<td>${item.equipName}</td>
 							<td>${item.equipStatus}</td>
 							<td>${item.dateOfPurchase}</td>
@@ -192,7 +194,7 @@
 							<td class="pull-right">
 							<a href="/updateequip/${item.equipId}" type="button" class="btn btn-xs btn-info">Update</a>
 							<a href="/viewroom/${item.equipId}/viewequip/equiplogs/${item.equipId}" type="button" class="btn btn-xs btn-success">View Logs</a>
-							<a class="btn btn-xs btn-danger" href="/deleteequip/${item.equipId}">Delete</a>
+							<a class="deleteequip" href="">Delete</a>
 							</td>
 						
 					</tr>
@@ -210,3 +212,83 @@
   </div>
 	</jsp:attribute>
 </mt:admin_template>
+
+<script >
+	$(document).ready(function(){
+	
+		//DELETE CLICK
+		 $('.deleteequip').on('click', function () {
+				var $tds = $(this).parents("tr").find('td');
+				equipId = $tds.eq(0).text().trim();
+				$tds.eq(1).text().trim();
+				$tds.eq(2).text().trim();
+				$tds.eq(4).text().trim();
+				$tds.eq(5).text().trim();
+				$tds.eq(6).text().trim();
+				$tds.eq(7).text().trim();
+				$tds.eq(8).text().trim();
+				var r = confirm('Are you sure to delete ?');
+				if (r==true) {
+					 deleteEquip(equipId);
+					$(this).parents("tr").remove();
+					swal("Deleted!", "Equipment is successfully deleted!", "success")
+				}
+				return false;
+		 });
+		
+	
+		   //AJAX DELETE TRAINEE
+		function deleteEquip(roomId){
+	
+			$.ajax({
+			type : "GET",
+			contentType : "application/json",
+			url : "/deleteequip/"+roomId,
+			dataType : 'json',
+			success : function(result) {
+				
+			},
+			error : function(e) {
+			}
+		  }); 
+		} 
+	});
+
+	$(document).ready(function(){
+	
+	//DELETE CLICK
+	 $('.deleteinvent').on('click', function () {
+			var $tds = $(this).parents("tr").find('td');
+			inventId = $tds.eq(0).text().trim();
+			$tds.eq(1).text().trim();
+			$tds.eq(2).text().trim();
+
+			var r = confirm('Are you sure to delete ?');
+			if (r==true) {
+				 deleteInvent(inventId);
+				$(this).parents("tr").remove();
+				swal("Deleted!", "Equipment is successfully deleted!", "success")
+			}
+			return false;
+	 });
+	
+
+	   //AJAX DELETE TRAINEE
+	function deleteInvent(inventId){
+
+		$.ajax({
+		type : "GET",
+		contentType : "application/json",
+		url : "/deleteinvent/"+inventId,
+		dataType : 'json',
+		success : function(result) {
+			
+		},
+		error : function(e) {
+		}
+	  }); 
+	} 
+});
+
+
+	</script>
