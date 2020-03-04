@@ -22,12 +22,7 @@ public class Inventory {
 
     private int inventMaxQuantity;
 
-    public void setInventId(Long inventId){
-        this.inventId=inventId;
-    }
-    public Long getInventId(){
-        return this.inventId;
-    }
+ 
 
     @ManyToOne
     @JoinColumn(name = "room_id", nullable = false)
@@ -80,11 +75,5 @@ public class Inventory {
         return this.room;
     }
 
-    public void setInventId(Long inventId){
-        this.inventId=inventId;
-    }
-    public Long getInventId(){
-        return this.inventId;
-    }
-
+ 
 }

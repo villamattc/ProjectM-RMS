@@ -21,10 +21,11 @@
     <!-- Main content -->
  
     <section class="content">
+	<button class="btn btn-default" onclick="goBack()">Go Back</button>
+    <br>
+    <br>
       <div class="row">
-<button class="btn btn-default" onclick="goBack()">Go Back</button>
-    <br>
-    <br>
+
       
         <div class="col-md-6">
         <div class="box box-warning">
