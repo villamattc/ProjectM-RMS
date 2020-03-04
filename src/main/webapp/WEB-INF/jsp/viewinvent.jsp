@@ -27,6 +27,10 @@
 	
 		<!-- Main content -->
 		<section class="content">
+		<button class="btn btn-default" onclick="goBack()">Go Back</button>
+		
+		<br>
+		<br>
 		  <div class="row">
 		  <div class="col-md-1"></div>
 			<div class="col-md-10">

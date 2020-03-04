@@ -25,7 +25,6 @@
 				<!-- Main content -->
 				<section class="content">
 					
-					<br>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="box box-success">

@@ -23,10 +23,10 @@
 				
 					<br>
 					
-					<div class="row">
-					<div class="col-md-3 col-sm-6 col-xs-12">
+	<div class="row">
+		<div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="glyphicon glyphicon-ok"></i></span>
+            <span class="info-box-icon bg-green"><i class="fa fa-thumbs-o-up"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Good Condition</span>
@@ -39,7 +39,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="glyphicon glyphicon-remove"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="fa fa-calendar-check-o"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Need Maintainance</span>
@@ -56,7 +56,7 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="glyphicon glyphicon-calendar"></i></span>
+            <span class="info-box-icon bg-red"><i class="fa fa-wrench"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Need Repair</span>
@@ -68,34 +68,55 @@
         </div>
         <!-- /.col -->
 
-		 <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon" style="background-color: #00C0EF"><i class="glyphicon glyphicon-calendar"></i></span>
+		 	<div class="col-md-3 col-sm-6 col-xs-12">
+         	 <div class="info-box">
+          	  <span class="info-box-icon" style="background-color: #00C0EF"><i class="fa fa-refresh"></i></span>
 
-            <div class="info-box-content">
+           	 <div class="info-box-content">
               <span class="info-box-text">Need Replace</span>
               <span class="info-box-number"><h1>${countNeedReplace}</h1></span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
+           	 </div>
+           	 <!-- /.info-box-content -->
+          	</div>
           <!-- /.info-box -->
-        </div>
-<div class="row">
-<div class="col-md-2 pull-right">
-<form action="/searchequipbyroom" method="get">
+    	</div>
+	</div>
+
+	<div class="row">
+<div class="col-md-2">
+					    <div class="form-group">
+                
+                 <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select Room
+             <span class="caret"></span>
+             </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" style="">
+                 
+                <li><a href="/inventory/58">Room 2</a></li>    
+                
+            </ul>
+            </div>
+                </div>
+				</div>
+				<div class="col-md-8"></div>
+
+	<div class="col-md-2 pull-right">
+	<form action="/searchequipbyroom" method="get">
         <div class="input-group">
           <input type="text" name="find" class="form-control" placeholder="Search...">
               <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-default"><i class="fa fa-search"></i>
                 </button>
               </span>
-        </div>
-      </form>
+        	</div>
+    </form>
+	</div>
+	
 </div>
-</div>
-</div>
+
 					<br>
-					<div class="row">
+				<div class="row">
 
 					<!--Option 1-->
 						<div class="col-md-3">
@@ -248,5 +269,10 @@
 
 
 	</div>
+
+
+	
+
+
 	</jsp:attribute>
 </mt:admin_template>
