@@ -68,7 +68,7 @@ try{ //@
     return new ModelAndView("forward:../");
 }
 
-    return new ModelAndView("redirect:/viewroom/"+id+"/viewinvent");
+    return new ModelAndView("redirect:/viewroom/"+id);
 }
 
 @RequestMapping(value = "/{id}/testupdateinvent", method = RequestMethod.POST)
@@ -108,7 +108,7 @@ public ModelAndView deleteInventory(@PathVariable("id") long id) {
     inventRepo.deleteByInventId(id);
 
     
-    return new ModelAndView("redirect:/viewroom/" + roomId +"/viewequip");
+    return new ModelAndView("redirect:/viewroom/" + roomId);
 }
 
 @RequestMapping(value = "/searchinventbyroom", method = RequestMethod.GET)

@@ -2,7 +2,6 @@ package com.projm.rmsapi.controllers;
 
 import javax.validation.Valid;
 
-
 import com.projm.rmsapi.entities.Room;
 import com.projm.rmsapi.entities.User;
 import com.projm.rmsapi.repositories.AdminRepository;
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @RestController
@@ -45,10 +45,10 @@ public class UserController {
 
 // add user through viewing the room info
 @RequestMapping(value = "/room/{id}/adduser", method = RequestMethod.POST)
-public ResponseEntity<Object> addUsertoRoom(@PathVariable("id") long id, @Valid @ModelAttribute("user") User user,
+public ModelAndView addUsertoRoom(@PathVariable("id") long id, @Valid @ModelAttribute("user") User user,
     BindingResult result) {
     if (result.hasErrors()) {
-        return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
+        return new ModelAndView("forward:/"+id+"/adduserform");
     }
 
     try {
@@ -60,10 +60,10 @@ public ResponseEntity<Object> addUsertoRoom(@PathVariable("id") long id, @Valid 
 
     } catch (Exception e) {
         e.printStackTrace();
-        return new ResponseEntity<>("FAILED TO ADD USER", HttpStatus.FORBIDDEN);
+        return new ModelAndView("forward:/viewroom/"+id+"/adduserform");
     }
 
-    return new ResponseEntity<>("SUCCESSFULLY ADDED USER", HttpStatus.CREATED);
+    return new ModelAndView("redirect:/viewroom/"+id);
 
 }
 
