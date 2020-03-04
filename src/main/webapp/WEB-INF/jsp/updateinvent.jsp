@@ -27,14 +27,17 @@
 					<br>
 					
 					<div class="row">
+					<div class="col-md-8">
+					<button class="btn btn-default" onclick="goBack()">Go Back</button>
+    </div>
 						<div class="col-md-2">
 					<div class="form-group">
                 
-                <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Select Room
-    <span class="caret"></span>
-    </button>
+                <div class="dropdown pull-right">
+    	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	Select Room
+    	<span class="caret"></span>
+    	</button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" style="">
                 <c:forEach items="${room}" var="item" varStatus = "status"> 
                 <li><a href="/inventory/${item.roomId}">Room ${item.roomName}</a></li>    
@@ -43,7 +46,6 @@
             </div>
                 </div>
 				</div>
-<div class="col-md-8"></div>
 <div class="col-md-2">
 <form action="#" method="get">
         <div class="input-group">
@@ -116,10 +118,32 @@
 
 
 								</div>
+								<div class="box-footer with-border">
+
+
+                  <div class="row">
+                  <div class="col-md-6">
+                  
+                  </div>
+                  <div class="col-md-6">
+                  <div class="pull-right">
+                  
+				  <button type="submit" class="btn btn-sm btn-info"> Update Invetory</button>
+                  </div>
+                  </div>
+                
+                  </div>
+
+                  </div>
+                
+               
+
+                
+                </div>
 								<!-- /.box-body -->
 							</div>
 							<!-- /.box -->
-							<button type="submit" class="btn btn-info pull-right"> Update Invetory</button>
+							
 						</div>
 						</form:form>
 						
@@ -130,42 +154,8 @@
 							<!-- /.box -->
 						</div>
 					</section></div>
+
+					
 	</jsp:attribute>
 </mt:admin_template>
 
-<script>
-$(document).ready(function(){
-
-var quantitiy=0;
-   $('.quantity-right-plus').click(function(e){
-        
-        // Stop acting like a button
-        e.preventDefault();
-        // Get the field name
-        var quantity = parseInt($('#quantity').val());
-        
-        // If is not undefined
-            
-            $('#quantity').val(quantity + 1);
-
-          
-            // Increment
-        
-    });
-
-     $('.quantity-left-minus').click(function(e){
-        // Stop acting like a button
-        e.preventDefault();
-        // Get the field name
-        var quantity = parseInt($('#quantity').val());
-        
-        // If is not undefined
-      
-            // Increment
-            if(quantity>0){
-            $('#quantity').val(quantity - 1);
-            }
-    });
-    
-});
-</script>

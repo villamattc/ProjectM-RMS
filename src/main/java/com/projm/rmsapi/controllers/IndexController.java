@@ -116,6 +116,18 @@ public class IndexController {
         map.addAttribute("roomTypeOptions", roomTypeOptions);
         map.addAttribute("room", getRoom);
 
+
+        // Room getRoom = roomRepo.findByRoomId(id);
+
+        //List of Invents
+        map.addAttribute("room",getRoom);
+        map.addAttribute("invent", getRoom.getInvents());
+
+        //List of Equips
+        map.addAttribute("equip", getRoom.getEquips());
+        map.addAttribute("equipment", new Equipment());
+      
+
         return new ModelAndView("viewroom");
     }
 

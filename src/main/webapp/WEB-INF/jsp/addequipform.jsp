@@ -26,8 +26,11 @@
     </section>
 
     <!-- Main content -->
-    <br>
+  
     <section class="content">
+                <button class="btn btn-default" onclick="goBack()">Go Back</button>
+    <br>
+    <br>
       <div class="row">
 
 

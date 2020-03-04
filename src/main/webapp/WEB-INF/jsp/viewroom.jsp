@@ -23,11 +23,8 @@
     <section class="content">
       <div class="row">
 
-
-      <div class="col-md-2">
-      </div>
       
-        <div class="col-md-8">
+        <div class="col-md-6">
         <div class="box box-warning">
             <div class="box-header with-border">
               <h3 class="box-title">Room ${room.roomName}</h3>
@@ -70,34 +67,145 @@
                 <div class="box-footer with-border">
 
 
-                <div class="row">
-                <div class="col-md-6">
-                <button type="submit" class="btn btn-primary">Update Room</button>
-                </div>
-                <div class="col-md-6">
-                <div class="pull-right">
-                <a class="btn btn-primary" href="/viewroom/${id}/adduserform">Add User</a>
-                <a type="button" class="btn btn-primary" href="/viewroom/${id}/addequipform">Add Equipment</a>
-                <a type="button" class="btn btn-primary" href="/viewroom/${id}/addinventoryform">Add Inventory</a>
-                </div>
-                </div>
+                  <div class="row">
+                  <div class="col-md-6">
+                  <button type="submit" class="btn btn-sm btn-primary">Update Room</button>
+                  </div>
+                  <div class="col-md-6">
+                  <div class="pull-right">
+                  <a class="btn btn-xs btn-primary" href="/viewroom/${id}/adduserform">Add User</a>
+                  <a type="button" class="btn btn-xs btn-primary" href="/viewroom/${id}/addequipform">Add Equipment</a>
+                  <a type="button" class="btn btn-xs btn-primary" href="/viewroom/${id}/addinventoryform">Add Inventory</a>
+                  </div>
+                  </div>
                 
-                </div>
+                  </div>
 
-                </div>
+                  </div>
                 
-                <div class="col-md-2">
-                </div>
                
 
-              </form:form>
-            </div>
+                  </form:form>
+                </div>
             
             <!-- /.box-body -->
+            
           </div>
+          
         
       </div>
+      <div class="col-md-6">
+			  <div class="box">
+				<div class="box-header">
+				  <h3 class="box-title">Inventory of ${room.roomName}</h3>
+	
+			
+				</div>
+				<!-- /.box-header -->
+
+
+				<div class="box-body table-responsive no-padding" style="height: 339px;">
+				  <table class="table table-hover">
+					<tbody><tr>
+						<th>Name
+						</th>
+						<th>Quantity
+						</th>	
+						<th width="400px"></th>
+					</tr>
+						<c:forEach items="${invent}" var="item">
+						<tr>
+							<td>${item.inventName}</td>
+							<td>${item.inventCurrentQuantity} out of ${item.inventMaxQuantity}</td>						
+							<td class="pull-right">
+
+							<button type="button" class="btn btn-xs btn-success">View Logs</button>
+							<a class="btn btn-xs btn-danger" href="#">Delete</a>
+
+							</td>
+					
+						
+					</tr>
+					</c:forEach>
+				  </tbody>
+				  </table>
+				
+        
+        </div>
+				<!-- /.box-body -->
+				<div class="box-footer with-border">
+        <a href="/inventory/${room.roomId}" type="button" class="btn btn-info btn-xs pull-right">Update</a>
+        </div>
+			  </div>
+			  
+			  <!-- /.box -->
+			</div>
+      </div>
       <!-- /.row -->
+      <div class="row">
+
+			<div class="col-md-12">
+			  <div class="box" style="height: 500px;">
+				<div class="box-header">
+				  <h3 class="box-title">Equipment of ${room.roomName}</h3>
+				</div>
+
+
+				<!-- /.box-header -->
+				<div class="box-body table-responsive no-padding">
+				  <table class="table table-hover">
+					<tbody><tr>
+						<th>Name
+						</th>
+						<th>Status
+						</th>
+						<th>Date of Purchase
+						</th>
+						<th>Date of Last Maintainance
+						</th>
+						<th>Functional Life
+						</th>
+						<th>Completeness of Parts
+						</th>
+						<th>Appearance
+						</th>
+						<th>Functionality
+						</th>
+						<th>Assessment Score
+						</th>
+						<th width="240px">
+						</th>
+						
+						
+					</tr>
+
+						<c:forEach items="${equip}" var="item" varStatus="status">
+						<tr>
+							<td>${item.equipName}</td>
+							<td>${item.equipStatus}</td>
+							<td>${item.dateOfPurchase}</td>
+							<td>${item.dateOfLastMaintenance}</td>
+							<td>${item.functionalLife}</td>
+							<td>${item.completenessOfParts}</td>
+							<td>${item.appearance}</td>
+							<td>${item.functionality}</td>
+							<td>${item.assessmentScore}</td>
+							<td class="pull-right">
+							<a href="/updateequip/${item.equipId}" type="button" class="btn btn-xs btn-info">Update</a>
+							<a href="/viewroom/${item.equipId}/viewequip/equiplogs/${item.equipId}" type="button" class="btn btn-xs btn-success">View Logs</a>
+							<a class="btn btn-xs btn-danger" href="/deleteequip/${item.equipId}">Delete</a>
+							</td>
+						
+					</tr>
+					</c:forEach>
+				  </tbody>
+				  </table>
+				</div>
+				<!-- /.box-body -->
+			  </div>
+			  <!-- /.box -->
+			</div>
+		  </div>
     </section>
     <!-- /.content -->
   </div>

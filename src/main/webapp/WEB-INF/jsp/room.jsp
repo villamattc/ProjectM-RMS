@@ -33,7 +33,7 @@
 					<div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="glyphicon glyphicon-ok"></i></span>
+            <span class="info-box-icon bg-green"><i class="fa fa-check"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Vacant</span>
@@ -46,7 +46,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="glyphicon glyphicon-remove"></i></span>
+            <span class="info-box-icon bg-red"><i class="fa fa-minus"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Occupied</span>
@@ -63,7 +63,7 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="glyphicon glyphicon-calendar"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="fa fa-calendar"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Reserved</span>
@@ -113,7 +113,7 @@
 												<th>Room</th>
 												<th>Condition</th>
 												<th>Type</th>
-												<th width="160px"></th>
+												<th width="110px"></th>
 												
 										
 											</tr>
@@ -129,10 +129,7 @@
 														<i class="fa fa-eye"></i></a>
 													<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewusers">
 													<i class="fa  fa-users"></i></a>
-												<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewequip">
-													<i class="fa  fa-briefcase"></i></a>
-														<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewinvent">
-														<i class="fa  fa-cubes"></i></a>
+												
 														<a class="btn btn-xs btn-default delete" href="" >
 														<i class="fa  fa-trash"></i></a>
 													</td>
@@ -168,7 +165,7 @@
 											<th>Room</th>
 											<th>Condition</th>
 											<th>Type</th>
-											<th width="160px"></th>
+											<th width="110px"></th>
 											
 										</tr>
 										<c:forEach items="${occupiedRooms}" var="item">
@@ -183,10 +180,7 @@
 														<i class="fa fa-eye"></i></a>
 													<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewusers">
 													<i class="fa  fa-users"></i></a>
-												<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewequip">
-													<i class="fa  fa-briefcase"></i></a>
-														<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewinvent">
-														<i class="fa  fa-cubes"></i></a>
+												
 														<a class="btn btn-xs btn-default delete" href="" >
 														<i class="fa  fa-trash"></i></a>
 													</td>
@@ -220,7 +214,7 @@
 												<th>Room</th>
 												<th>Condition</th>
 												<th>Type</th>
-												<th width="160px"></th>
+												<th width="110px"></th>
 					
 											</tr>
 											<tr>
@@ -235,12 +229,10 @@
 														<i class="fa fa-eye"></i></a>
 													<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewusers">
 													<i class="fa  fa-users"></i></a>
-												<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewequip">
-													<i class="fa  fa-briefcase"></i></a>
-														<a class="btn btn-xs btn-default" href="/viewroom/${item.roomId}/viewinvent">
-														<i class="fa  fa-cubes"></i></a>
+												
 														<a class="btn btn-xs btn-default delete" href="" >
-														<i class="fa  fa-trash"></i></a>
+														<i class="fa fa-trash"></i></a>
+														<button onClick="deleteRoomSA()"></button>
 													</td>
 											
 											</tr>
@@ -325,11 +317,7 @@
 	</div>
 
 
-
-
-
-
-	<script >
+<script >
 $(document).ready(function(){
 
 	//DELETE CLICK
@@ -343,6 +331,7 @@ $(document).ready(function(){
 	        if (r==true) {
      	        deleteRoom(roomId);
 	            $(this).parents("tr").remove();
+				swal("Deleted!", "Room is successfully deleted!", "success")
 	        }
 	        return false;
 	 });
@@ -357,6 +346,7 @@ $(document).ready(function(){
         url : "/deleteroom/"+roomId,
         dataType : 'json',
         success : function(result) {
+			
         },
         error : function(e) {
         }
@@ -364,8 +354,6 @@ $(document).ready(function(){
     } 
 });
 </script>
-
-	
 
 		</jsp:attribute>
 	</mt:admin_template>

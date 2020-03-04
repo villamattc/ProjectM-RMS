@@ -55,7 +55,7 @@ if (result.hasErrors()) {
     return new ModelAndView("forward:/viewroom/"+id+"/viewinvent");
 }
 
-try{
+try{ //@
 
     Room getRoom = roomRepo.findByRoomId(id);
     getRoom.addInventory(inventory);
@@ -65,7 +65,7 @@ try{
 }catch(Exception e){
 
     e.printStackTrace();
-    return new ModelAndView("forward:/viewroom/"+id+"/viewinvent");
+    return new ModelAndView("forward:../");
 }
 
     return new ModelAndView("redirect:/viewroom/"+id+"/viewinvent");

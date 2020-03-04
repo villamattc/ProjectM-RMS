@@ -19,8 +19,11 @@
     </section>
 
     <!-- Main content -->
-    <br>
+   
     <section class="content">
+    <button class="btn btn-default" onclick="goBack()">Go Back</button>
+    <br>
+    <br>
       <div class="row">
 
 
@@ -85,6 +88,7 @@
 
                 <div class="box-footer with-border">
                 <button type="submit" class="btn btn-primary"> Add User</button>
+                
                 </div>
                 
                 <div class="col-md-2">
@@ -93,6 +97,7 @@
             </form:form>
             <!-- /.box-body -->
           </div>
+          
         
       </div>
       <!-- /.row -->
