@@ -56,7 +56,7 @@ To change this template use File | Settings | File Templates.
                       <!-- DONUT CHART -->
                       <div class="box box-danger">
                         <div class="box-header with-border">
-                          <h3 class="box-title">Most Visited Room</h3>
+                          <h3 class="box-title">Room Types</h3>
             
                           <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -135,10 +135,20 @@ To change this template use File | Settings | File Templates.
             label: 'Equipment Status',
             data: [${goodCondition},${needMaintenance},${needRepair},${needReplacement}],
             backgroundColor: [
-                'rgb(0,166,90)',
-                'rgb(243,156,18)',
-                'rgb(221,75,57)',
-                'rgb(0,192,239)'
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 1
         }]
@@ -155,9 +165,20 @@ var myChart = new Chart(ctx, {
             data: [${vacant},${occupied},${reserved}],
             fill: false,
             backgroundColor: [
-                'rgb(0,166,90)',
-                'rgb(221,75,57)',
-                'rgb(243,156,18)'
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 1
         }]
@@ -174,9 +195,20 @@ var myChart = new Chart(ctx, {
             label: 'Most Visited Room',
             data: [${deluxeRoom},${amumaSpaSuite},${premierDeluxeRoom},${royalBungalow}],
             backgroundColor: [
-                'rgba(121, 168, 166)',
-                'rgba(166, 141, 165)',
-                'rgba(185, 153, 136)'
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 1
         }]
@@ -193,14 +225,20 @@ var myChart = new Chart(ctx, {
             label: 'Nationalities',
             data: [${filipino},${chinese},${korean},${american},${japanese},${vietnamese},${taiwanese},${others}],
             backgroundColor: [
-                'rgba(250, 209, 64)',
-                'rgba(189, 65, 58)',
-                'rgba(250, 164, 149)',
-                'rgba(183, 177, 220)',
-                'rgba(78, 179, 205)',
-                'rgba(117, 200, 158)',
-                'rgba(136, 144, 153)',
-                'rgba(208, 192, 146)'
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 1
         }]
