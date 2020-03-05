@@ -30,8 +30,9 @@
 					<br>
 					
 					<div class="row">
+					<div class="col-md-8"></div>
 						<div class="col-md-2">
-					    <div class="form-group">
+					    <div class="form-group pull-right">
                 
                  <div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,7 +47,7 @@
             </div>
                 </div>
 				</div>
-<div class="col-md-8"></div>
+
 <div class="col-md-2">
 <form action="/searchinventbyroom" method="get">
         <div class="input-group">

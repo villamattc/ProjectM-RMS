@@ -83,8 +83,9 @@
 	</div>
 
 	<div class="row">
+	<div class="col-md-8"></div>
 <div class="col-md-2">
-					    <div class="form-group">
+					    <div class="form-group pull-right">
                 
                  <div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,14 +93,14 @@
              <span class="caret"></span>
              </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" style="">
-				<c:forEach items="${roomNameOptions}" var="item" varStatus = "status"> 
-					<li><a href="/viewroom/${item.roomId}/viewequip">Room ${item.roomName}</a></li>    
-				</c:forEach>
+                 <c:forEach items="${room}" var="item" varStatus = "status"> 
+                <li><a href="/equipment/${item.roomId}">Room ${item.roomName}</a></li>    
+                </c:forEach>
             </ul>
             </div>
                 </div>
 				</div>
-				<div class="col-md-8"></div>
+				
 
 	<div class="col-md-2 pull-right">
 	<form action="/searchequipbyroom" method="get">
