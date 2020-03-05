@@ -34,13 +34,6 @@ public class Inventory {
         this.inventCurrentQuantity=inventCurrentQuantity;
         this.inventMaxQuantity=inventMaxQuantity;
     }
-    public Long getInventId() {
-        return inventId;
-    }
-
-    public Long setInventId(Long inventId) {
-        return inventId;
-    }
 
     public String getInventName() {
         return inventName;

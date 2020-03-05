@@ -28,7 +28,7 @@
 			<div class="col-md-12">
 			  <div class="box">
 				<div class="box-header">
-				  <h3 class="box-title">Equipment of ${room.roomName}</h3>
+				  <h3 class="box-title">Equipment of Room ${id}</h3>
 	
 				  <%-- <div class="box-tools">
 					<div class="input-group input-group-sm hidden-xs" style="width: 150px;">
@@ -53,8 +53,6 @@
 						<th>Log Date
 						</th>
 						<th>Username
-						</th>
-						<th>Equipment ID
 						</th>
 						<th>Description
 						</th>
@@ -84,7 +82,6 @@
 							<td>${item.logTime}</td>
                             <td>${item.logDate}</td>
 							<td>${item.username}</td>
-							<td>${item.eqId}</td>
 							<td>${item.description}</td>
 							<td>${item.equipName}</td>
 							<td>${item.equipStatus}</td>

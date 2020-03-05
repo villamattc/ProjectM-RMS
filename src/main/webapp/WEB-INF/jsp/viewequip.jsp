@@ -29,7 +29,7 @@
 			<div class="col-md-12">
 			  <div class="box">
 				<div class="box-header">
-				  <h3 class="box-title">Equipment of ${room.roomName}</h3>
+				  <h3 class="box-title">Equipment of Room ${roomId}</h3>
 				</div>
 
 
@@ -74,7 +74,7 @@
 							<td>${item.assessmentScore}</td>
 							<td class="pull-right">
 							<a href="/updateequip/${item.equipId}" type="button" class="btn btn-xs btn-info">Update</a>
-							<a href="/viewroom/${item.equipId}/viewequip/equiplogs/${item.equipId}" type="button" class="btn btn-xs btn-success">View Logs</a>
+							<a href="/viewroom/${roomId}/viewequip/equiplogs/${item.equipId}" type="button" class="btn btn-xs btn-success">View Logs</a>
 							<a class="btn btn-xs btn-danger deleteequip">Delete</a>
 							</td>
 						
