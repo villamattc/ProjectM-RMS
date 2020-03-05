@@ -183,7 +183,6 @@
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
     </div>
-    <p style="text-align:center"><strong><font color ="#3c8dbc">Home is Bluewater</font></strong></p>
   </footer>
 
   <!-- Control Sidebar -->

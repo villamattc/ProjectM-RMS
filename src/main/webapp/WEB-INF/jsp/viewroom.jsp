@@ -114,7 +114,9 @@
 					</th>
 						<th>Name
 						</th>
-						<th>Quantity
+						<th>Current
+						</th>	
+						<th>Max
 						</th>	
 						<th width="400px"></th>
 					</tr>

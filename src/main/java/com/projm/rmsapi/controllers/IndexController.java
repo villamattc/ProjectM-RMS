@@ -257,8 +257,6 @@ public class IndexController {
 
         map.addAttribute("needreplaceRoomName", roomNames4);
 
-
-
         for(Long l: equipRepo.getDistinctRoomId()){
             rooms.add(roomRepo.findByRoomId(l));
         }
