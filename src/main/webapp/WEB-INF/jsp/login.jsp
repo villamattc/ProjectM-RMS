@@ -36,9 +36,9 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in</p>
 
-    <form action="../../index2.html" method="post">
+    <form action="logininin" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Admin">
+        <input  class="form-control" placeholder="Admin">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
