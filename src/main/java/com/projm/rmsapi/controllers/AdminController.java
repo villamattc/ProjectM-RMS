@@ -83,6 +83,11 @@ public class AdminController {
         }
         
 
+
+        @RequestMapping(value = "/logininin", method = RequestMethod.POST)
+        public ModelAndView logindemo(){
     
+            return new ModelAndView("redirect:/room");
+        }
 
     }
