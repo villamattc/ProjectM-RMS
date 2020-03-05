@@ -69,10 +69,6 @@ public class IndexController {
         roomCleanOptions.put(true, "Room is clean");
         roomCleanOptions.put(false, "Room is UNCLEAN");
 
-
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@"+roomRepo.countByRoomStatus(1));
-
-        
         map.addAttribute("vacantNumbers", roomRepo.countByRoomStatus(1));
         map.addAttribute("occupiedNumbers", roomRepo.countByRoomStatus(2));
         map.addAttribute("reservedNumbers", roomRepo.countByRoomStatus(3));
@@ -191,10 +187,12 @@ public class IndexController {
 
     @RequestMapping(value = "viewroom/{id}/viewequip")
     public ModelAndView ViewEquipment(@PathVariable("id") long id, ModelMap map) {
-        //@@
+
         Room getRoom = roomRepo.findByRoomId(id);
+        map.addAttribute("roomId", id);
         map.addAttribute("equip", getRoom.getEquips());
         map.addAttribute("equipment", new Equipment());
+        
         return new ModelAndView("viewequip");
     }
 
@@ -258,8 +256,6 @@ public class IndexController {
         }
 
         map.addAttribute("needreplaceRoomName", roomNames4);
-
-
 
         for(Long l: equipRepo.getDistinctRoomId()){
             rooms.add(roomRepo.findByRoomId(l));
@@ -405,11 +401,11 @@ public ModelAndView updateInventory(@PathVariable("id") long id, ModelMap map){
 }
 
 @RequestMapping(value = "viewroom/{id}/viewequip/equiplogs/{eid}")
-public ModelAndView viewEquipmentLogs(@PathVariable("eid") long eid, ModelMap map){
+public ModelAndView viewEquipmentLogs(@PathVariable("id") Long id,@PathVariable("eid") Long eid, ModelMap map){
 
    //sad
-
-   map.addAttribute("equipLog", equipmentLogRepo.findAllByEqId(eid));
+    map.addAttribute("id",id);
+    map.addAttribute("equipLog", equipmentLogRepo.findAllByEqId(eid));
 
     return new ModelAndView("equiplogs");
 }

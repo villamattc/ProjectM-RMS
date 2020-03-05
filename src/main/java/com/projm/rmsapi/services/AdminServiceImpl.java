@@ -1,7 +1,5 @@
 package com.projm.rmsapi.services;
 
-import java.util.List;
-
 import com.projm.rmsapi.entities.Admin;
 import com.projm.rmsapi.repositories.AdminRepository;
 
@@ -13,7 +11,6 @@ public class AdminServiceImpl implements AdminService{
 
     @Autowired
     AdminRepository adminRepo;
-
 
 
     public boolean checkCredentials(String username, String password){

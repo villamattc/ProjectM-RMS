@@ -73,7 +73,7 @@
           	  <span class="info-box-icon" style="background-color: #00C0EF"><i class="fa fa-refresh"></i></span>
 
            	 <div class="info-box-content">
-              <span class="info-box-text">Need Replace</span>
+              <span class="info-box-text">Need Replacement</span>
               <span class="info-box-number"><h1>${countNeedReplace}</h1></span>
            	 </div>
            	 <!-- /.info-box-content -->
@@ -93,9 +93,9 @@
              <span class="caret"></span>
              </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" style="">
-                 <c:forEach items="${room}" var="item" varStatus = "status"> 
-                <li><a href="/equipment/${item.roomId}">Room ${item.roomName}</a></li>    
-                </c:forEach>
+                 <c:forEach items="${roomNameOptions}" var="item" varStatus = "status"> 
+					<li><a href="/viewroom/${item.roomId}/viewequip">Room ${item.roomName}</a></li>    
+				</c:forEach>
             </ul>
             </div>
                 </div>
@@ -228,7 +228,7 @@
 						<div class="col-md-3">
 							<div class="box box-info">
 								<div class="box-header" style="background-color: #00C0EF">
-									<h3 class="box-title">Need Replace</h3>
+									<h3 class="box-title">Need Replacement</h3>
 								</div>
 								<!-- /.box-header -->
 									<div class="box-body no-padding">

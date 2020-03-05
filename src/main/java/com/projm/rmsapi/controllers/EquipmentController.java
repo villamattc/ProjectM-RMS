@@ -1,7 +1,5 @@
 package com.projm.rmsapi.controllers;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import com.projm.rmsapi.entities.Equipment;
@@ -15,8 +13,6 @@ import com.projm.rmsapi.repositories.RoomRepository;
 import com.projm.rmsapi.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -86,13 +82,15 @@ public class EquipmentController {
     }
 
     @RequestMapping(value = "/updateequip/{id}", method = RequestMethod.POST)
-    public ResponseEntity<Object> updateEquip(@Valid @ModelAttribute("equip") Equipment equipment, BindingResult result,
+    public ModelAndView updateEquip(@Valid @ModelAttribute("equip") Equipment equipment, BindingResult result,
             @PathVariable("id") long id) {
         if (result.hasErrors()) {
-            return new ResponseEntity<>("EQUIPMENT UPDATE FAILED", HttpStatus.FORBIDDEN);
+            return new ModelAndView("forward:/updateequip/"+id);
         }
 
+
         Equipment updateEquip = equipmentRepo.findByEquipId(id);
+        Room room = updateEquip.getRoom();
         System.out.println(equipment.getDescription());
 
         EquipmentLog eqLog = new EquipmentLog();
@@ -109,8 +107,7 @@ public class EquipmentController {
         updateEquip.setAppearance(equipment.getAppearance());
         updateEquip.setAssessmentScore(updateEquip.computeAssessmentScore());
         
-        return new ResponseEntity<>("EQUIPMENT UPDATE SUCCESS", HttpStatus.ACCEPTED);
-
+        return new ModelAndView("redirect:/viewroom/"+room.getRoomId()+"/viewequip");
     }
 
     @RequestMapping(value = "/searchequipbyroom", method = RequestMethod.GET)

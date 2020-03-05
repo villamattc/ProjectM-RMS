@@ -29,12 +29,13 @@ public class Inventory {
     private Room room;
 
     public Inventory(){}
-    public Inventory(Long inventId, String inventName, int inventCurrentQuantity, int inventMaxQuantity){
+    public Inventory(final Long inventId, final String inventName, final int inventCurrentQuantity, final int inventMaxQuantity){
         this.inventId=inventId;
         this.inventName=inventName;
         this.inventCurrentQuantity=inventCurrentQuantity;
         this.inventMaxQuantity=inventMaxQuantity;
     }
+
     public Long getInventId() {
         return inventId;
     }
@@ -51,7 +52,7 @@ public class Inventory {
         return inventMaxQuantity;
     }
 
-    public void setInventMaxQuantity(int inventMaxQuantity) {
+    public void setInventMaxQuantity(final int inventMaxQuantity) {
         this.inventMaxQuantity = inventMaxQuantity;
     }
 
@@ -59,21 +60,23 @@ public class Inventory {
         return inventCurrentQuantity;
     }
 
-    public void setInventCurrentQuantity(int inventCurrentQuantity) {
+    public void setInventCurrentQuantity(final int inventCurrentQuantity) {
         this.inventCurrentQuantity = inventCurrentQuantity;
     }
 
-    public void setInventName(String inventName) {
+    public void setInventName(final String inventName) {
         this.inventName = inventName;
     }
 
-    public void setRoom(Room room){
+    public void setRoom(final Room room){
         this.room = room;
     }
 
     public Room getRoom(){
         return this.room;
     }
+    
+   
 
  
 }
