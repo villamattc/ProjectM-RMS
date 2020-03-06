@@ -223,7 +223,8 @@ var myChart = new Chart(ctx, {
         datasets: [
           {
             label: 'Nationalities',
-            data: [${filipino},${chinese},${korean},${american},${japanese},${vietnamese},${taiwanese},${others}],
+            data: [${Afghan},${Algerian},${Australian},${Bengali},${Chinese},${Colombian},${Czech},${Egyptian},${Malaysian},${Mexican},
+            ${Mongolian},${Pakistani},${Filipino},${Russian},${Slovak},${Spanish},${Swedish},${Thai},${Turkish},${Ugandan},${Others}],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

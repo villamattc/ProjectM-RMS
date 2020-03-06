@@ -26,7 +26,7 @@ public class User {
 
     private Date checkout;
 
-    private String nationality;
+    private int nationality;
 
     private int age;
 
@@ -63,7 +63,7 @@ public class User {
         this.adults = adults;
     }
 
-    public User(String lastName, String firstName, Date checkin, Date checkout, String nationality, int age,
+    public User(String lastName, String firstName, Date checkin, Date checkout, int nationality, int age,
             String occupation, int businessOrvacay) {
        
         this.lastName=lastName;
@@ -105,11 +105,11 @@ public class User {
         this.age = age;
     }
 
-    public String getNationality() {
+    public int getNationality() {
         return nationality;
     }
 
-    public void setNationality(String nationality) {
+    public void setNationality(int nationality) {
         this.nationality = nationality;
     }
 

@@ -68,8 +68,10 @@
                   <form:input class="form-control" path="checkout" type="date"/>
                 </div>
                 <div class="form-group">
-                  <form:label path = "nationality">Nationality: </form:label>
-                  <form:input class="form-control" path="nationality" />
+                   <form:label path = "nationality">Nationality</form:label>
+                   <form:select class="form-control" path="nationality" multiple="false">
+										<form:options items="${userNationality}"></form:options>
+									</form:select>
                 </div>
                 <div class="form-group">
                   <form:label path = "age">Age:</form:label>

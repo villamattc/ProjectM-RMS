@@ -47,7 +47,7 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue-light sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
@@ -126,7 +126,7 @@
         <li>
           <a href="/dashboard">
             <i class="fa fa-dashboard"></i>
-            <span>DASHBOARD</span>
+            <span style="font-size: 18px;">Dashboard</span>
             <span class="pull-right-container">
             </span>
           </a>
@@ -134,7 +134,7 @@
         <li>
           <a href="/room">
             <i class="fa fa-hotel"></i>
-            <span>ROOM</span>
+            <span style="font-size: 18px;">Room</span>
             <span class="pull-right-container">
             </span>
           </a>
@@ -142,7 +142,7 @@
         <li>
           <a href="#">
             <i class="fa fa-th"></i> 
-            <span>GOOGLE DOCS</span>
+            <span style="font-size: 18px;">Google Docs</span>
             <span class="pull-right-container">
             </span>
           </a>
@@ -150,7 +150,7 @@
         <li>
           <a href="/inventory">
             <i class="fa fa-cubes"></i>
-            <span>INVENTORY</span>
+            <span style="font-size: 18px;">Inventory</span>
             <span class="pull-right-container">
             </span>
           </a>
@@ -159,7 +159,7 @@
         <li>
           <a href="/equipment">
             <i class="fa fa-wrench"></i>
-            <span>EQUIPMENT</span>
+            <span style="font-size: 18px;">Equipment</span>
             <span class="pull-right-container">
             </span>
           </a>
@@ -465,7 +465,7 @@ $(document).ready(function(){
 	//DELETE CLICK FOR INVENTORY
 	 $('.deleteinvent').on('click', function () {
 	        var $tds = $(this).parents("tr").find('td');
-			inventId = $tds.eq(0).text().trim();
+			    inventId = $tds.eq(0).text().trim();
  	        inventName = $tds.eq(1).text().trim();
  	        inventCurrentQuantity = $tds.eq(2).text().trim();
  	        inventMaxQuantity = $tds.eq(3).text().trim();
