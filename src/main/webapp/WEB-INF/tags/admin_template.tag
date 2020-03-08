@@ -47,7 +47,7 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue-light sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
@@ -140,7 +140,11 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#"
+            onclick="window.open('https://docs.google.com/document/u/0/', 
+                         'newwindow', 
+                         'width=550,height=650'); 
+              return false;">
             <i class="fa fa-th"></i> 
             <span style="font-size: 18px;">Google Docs</span>
             <span class="pull-right-container">
