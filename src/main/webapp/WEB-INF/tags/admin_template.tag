@@ -141,7 +141,7 @@
         </li>
         <li>
           <a href="#"
-            onclick="window.open('https://docs.google.com/document/u/0/', 
+            onclick="window.open('https://docs.google.com/spreadsheets/u/0/', 
                          'newwindow', 
                          'width=550,height=650'); 
               return false;">
