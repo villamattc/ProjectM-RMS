@@ -22,7 +22,7 @@ To change this template use File | Settings | File Templates.
                 <section class="content-header">
                   <h1>
                     Dashboard
-                    <small>Date today</small>
+                    <small>Time: <span id="time"></small>
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -31,6 +31,168 @@ To change this template use File | Settings | File Templates.
             
                 <!-- Main content -->
                 <section class="content">
+                
+<div class="row">
+		<div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="fa fa-thumbs-o-up" style="margin-top: 15px;"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Good Condition</span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countGoodCondition}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-calendar-check-o" style="margin-top: 15px;"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Need Maintainance</span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countNeedsMaint}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="fa fa-wrench" style="margin-top: 15px;"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Need Repair</span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countNeedsRepair}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+		 	<div class="col-md-3 col-sm-6 col-xs-12">
+         	 <div class="info-box">
+          	  <span class="info-box-icon" style="background-color: #00C0EF"><i class="fa fa-refresh" style="margin-top: 15px;"></i></span>
+
+           	 <div class="info-box-content">
+              <span class="info-box-text">Need Replacement</span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countNeedReplace}</span>
+           	 </div>
+           	 <!-- /.info-box-content -->
+          	</div>
+          <!-- /.info-box -->
+    	</div>
+	</div>
+
+                
+                  <div class="row">
+                  <div class="col-md-4">
+							<div class="box box-warning">
+								<div class="box-header bg-yellow">
+									<h3 class="box-title">Scheduled Maintainance</h3>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body no-padding table-responsive" style="height: 250px">
+									<table class="table table-head-fixed">
+										<tbody>
+											<tr>
+												<th>Name</th>
+												<th>Room No.</th>
+												<th>Date</th>
+                        <th></th>
+											</tr>
+                      <c:forEach items="${EquipmentOneMonthBeforeMaintenance}" var="item" varStatus = "status">
+											<tr>											
+												<td>${item.equipName}</td>
+												<td>${EquipmentOneMonthBeforeMaintenanceRoomNumbers[status.index]}</td>											
+												<td>${DatePlus90[status.index]}</td>		
+                        
+											</tr>
+                      </c:forEach>
+										</tbody>
+									</table>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+                  
+						</div>
+
+            <div class="col-md-4">
+							<div class="box box-danger">
+								<div class="box-header bg-red">
+									<h3 class="box-title">To be repaired</h3>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body no-padding" style="height: 250px">
+									<table class="table table-striped">
+										<tbody>
+											<tr>
+												<th>Name</th>
+												<th>Room No.</th>
+												<th>Date</th>
+											</tr>
+                      <c:forEach items="${needsrepair}" var="item" varStatus = "status">
+										<tr>
+												<td>${item.equipName}</td>
+													<td>${needsrepairRoomName[status.index]}</td>											
+												<td>${item.dateOfLastMaintenance}</td>		
+													
+										</tr>
+										</c:forEach>
+										</tbody>
+									</table>
+
+
+
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+						</div>
+
+            <div class="col-md-4">
+							<div class="box box-info">
+								<div class="box-header" style="background-color: #00C0EF">
+									<h3 class="box-title">To be replaced</h3>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body no-padding" style="height: 250px">
+									<table class="table table-striped">
+										<tbody>
+											<tr>
+												<th>Name</th>
+												<th>Room No.</th>
+												<th>Date</th>
+											</tr>
+											<c:forEach items="${needreplace}" var="item" varStatus = "status">
+											<tr>										
+												<td>${item.equipName}</td>
+													<td>${needreplaceRoomName[status.index]}</td>											
+												<td>${item.dateOfLastMaintenance}</td>												
+											</tr>	
+											</c:forEach>	
+										</tbody>
+									</table>
+
+
+
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+						</div>
+            <!--/.row-->
+                  </div>
+
+
                   <div class="row">
                     <div class="col-md-6">
                       <!-- PIE CHART -->
@@ -131,7 +293,7 @@ To change this template use File | Settings | File Templates.
     data: {
         labels: ['Good Condition', 'Need Maintenance', 'Need Repair', 'Need Replacement'],
         datasets: [
-          {
+          { 
             label: 'Equipment Status',
             data: [${goodCondition},${needMaintenance},${needRepair},${needReplacement}],
             backgroundColor: [
@@ -257,6 +419,23 @@ var myChart = new Chart(ctx, {
 
 </script>
 
+<script>
+function addDate(){
+  var theDate = new Date(${item.dateOfLastMaintenance});
+var myNewDate = new Date(theDate);
+myNewDate.setDate(myNewDate.getDate() + 90);
+
+}
+</script>
+
+<script>
+function addDays(date, days) {
+  var result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
+}
+document.getElementById('addDays').innerHTML=v;
+</script>
 
               
     </jsp:attribute>

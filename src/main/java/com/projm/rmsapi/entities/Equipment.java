@@ -18,7 +18,7 @@ public class Equipment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long equipId;
     private String equipName;
-    // Good, Needs Repair, Needs Maintenance, Needs to be replaced // MAYBE
+    // Good, Needs Repair, Needs Maintenance, Needs to be replaced
     private int equipStatus;
     private Date dateOfPurchase;
     private Date dateOfLastMaintenance;

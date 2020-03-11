@@ -40,7 +40,7 @@
              <span class="caret"></span>
              </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" style="">
-                <c:forEach items="${room}" var="item" varStatus = "status"> 
+                <c:forEach items="${roomDropDown}" var="item" varStatus = "status"> 
                 <li><a href="/inventory/${item.roomId}">Room ${item.roomName}</a></li>    
                 </c:forEach>
             </ul>
@@ -68,12 +68,12 @@
 						<div class="col-md-10">
 							<div class="box box-success">
 								<div class="box-header bg-green">
-									<h3 class="box-title">Room Name</h3>
+									<h3 class="box-title">Rooms</h3>
 
 								</div>
 								<!-- /.box-header -->
-								<div class="box-body no-padding">
-									<table class="table table-striped">
+								<div class="box-body no-padding table-responsive" style="height: 450px">
+									<table class="table table-head-fixed">
 										<tbody>
 											<tr>
 												<th>Room No.</th>

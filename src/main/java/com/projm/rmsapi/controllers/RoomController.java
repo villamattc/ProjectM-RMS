@@ -82,9 +82,9 @@ public class RoomController {
     
     // HAVE TO EDIT THE VIEW ROOM IN A WAY TO MATCH THIS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     @RequestMapping(value = "/updateroom/{id}", method = RequestMethod.POST)
-    public ResponseEntity<Object> updateRoom(@Valid @ModelAttribute("room") Room room, BindingResult result, @PathVariable("id") long id){
+    public ModelAndView updateRoom(@Valid @ModelAttribute("room") Room room, BindingResult result, @PathVariable("id") long id){
             if (result.hasErrors()) {
-                return new ResponseEntity<>("ROOM UPDATE FAILED", HttpStatus.FORBIDDEN);
+                return new ModelAndView("redirect:/viewroom/" + id);
             }
 
             Room updatedRoom = roomRepo.findByRoomId(id);
@@ -93,7 +93,7 @@ public class RoomController {
             updatedRoom.setRoomType(room.getRoomType());
             updatedRoom.setRoomClean(room.isRoomClean());
 
-            return new ResponseEntity<>("ROOM UPDATE SUCCESS", HttpStatus.ACCEPTED);
+            return new ModelAndView("redirect:/viewroom/" + id);
 
 
     }
