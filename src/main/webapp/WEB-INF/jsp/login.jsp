@@ -36,13 +36,13 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in</p>
 
-    <form action="logininin" method="post">
+    <form action="adminlogin" method="post">
       <div class="form-group has-feedback">
-        <input  class="form-control" placeholder="Admin">
+        <input  class="form-control" placeholder="Admin" name = "username">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" placeholder="Password" name = "password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
