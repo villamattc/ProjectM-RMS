@@ -19,15 +19,70 @@
 						Inventory
 						<small>Time: <span id="time"></small>
 					</h1>
-					<ol class="breadcrumb">
-						<li><a href="/room"><i class="fa fa-dashboard"></i> Home</a></li>
-						
-					</ol>
+					
+					
 				</section>
 
 				<!-- Main content -->
 				<section class="content">
-					<br>
+					<div class="row">
+		<div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"><img src="${pageContext.request.contextPath}/imgs/1-deluxeroom.png" style="width: 80px; height: 80px; margin-bottom: 11px;"></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Deluxe Room</span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countGoodCondition}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><img src="${pageContext.request.contextPath}/imgs/2-amumaspasuite.png" style="width: 80px; height: 80px; margin-bottom: 11px;"></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Amuma Spa Suite</span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countNeedsMaint}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><img src="${pageContext.request.contextPath}/imgs/3-premierdeluxeroom.png" style="width: 80px; height: 80px; margin-bottom: 11px;"></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Premier Deluxe Room</span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countNeedsRepair}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+		 	<div class="col-md-3 col-sm-6 col-xs-12">
+         	 <div class="info-box">
+          	  <span class="info-box-icon" style="background-color: #00C0EF"><img src="${pageContext.request.contextPath}/imgs/4-royalbungalow.png" style="width: 80px; height: 80px; margin-bottom: 11px;"></span>
+
+           	 <div class="info-box-content">
+              <span class="info-box-text">Royal Bungalow</span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countNeedReplace}</span>
+           	 </div>
+           	 <!-- /.info-box-content -->
+          	</div>
+          <!-- /.info-box -->
+    	</div>
+	</div>
 					
 					<div class="row">
 					<div class="col-md-8"></div>
@@ -64,31 +119,25 @@
 					<div class="row">
 
 					<!--Option 1-->
-				<div class="col-md-1"></div>
-						<div class="col-md-10">
+						<div class="col-md-3">
 							<div class="box box-success">
 								<div class="box-header bg-green">
-									<h3 class="box-title">Rooms</h3>
-
+									<h3 class="box-title">Deluxe Room</h3>
 								</div>
 								<!-- /.box-header -->
-								<div class="box-body no-padding table-responsive" style="height: 450px">
+								<div class="box-body no-padding table-responsive" style="height: 500px">
 									<table class="table table-head-fixed">
 										<tbody>
 											<tr>
 												<th>Room No.</th>
-												<th>Name</th>
-												<th>Current</th>
-												<th>Max</th>
-										
+												<th>Item</th>
+												<th>Current out of Max</th>
 											</tr>
-										<c:forEach items="${inventList}" var="item" varStatus = "status">
-											<tr>			
-													<td>${inventListRoomName[status.index]}</td>								
-													<td>${item.inventName}</td>
-													<td>${item.inventCurrentQuantity}</td>		
-													<td>${item.inventMaxQuantity}</td>
-												
+										<c:forEach items="${goodcondition}" var="item" varStatus = "status">
+											<tr>											
+													<td>${item.equipName}</td>
+													<td>${goodconditionRoomName[status.index]}</td>											
+												<td>${item.dateOfLastMaintenance}</td>		
 											
 													
 												</tr>
@@ -103,13 +152,153 @@
 							</div>
 							<!-- /.box -->
 						</div>
-                        <div class="col-md-1"></div>
+						<!-- /.col -->
+						<!--Option 2-->
+						<div class="col-md-3">
+							<div class="box box-warning">
+								<div class="box-header bg-yellow">
+									<h3 class="box-title">Amuma Spa Suite</h3>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body no-padding table-responsive" style="height: 500px" >
+									<table class="table table-head-fixed">
+
+
+										<tbody><tr>
+											<th>Room No.</th>
+											<th>Item</th>
+											<th>Current out of Max</th>
+										</tr>
+										<c:forEach items="${needsmaint}" var="item" varStatus = "status">
+										<tr>
+											<td>${item.equipName}</td>
+													<td>${needsmaintRoomName[status.index]}</td>											
+												<td>${item.dateOfLastMaintenance}</td>				
+													
+										</tr>
+										</c:forEach>
+									
+										</tbody></table>
+
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+						</div>
+						<!--Option 3-->
+						<div class="col-md-3">
+							<div class="box box-danger">
+								<div class="box-header bg-red">
+									<h3 class="box-title">Premier Deluxe Room</h3>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body no-padding table-responsive" style="height: 500px">
+									<table class="table table-head-fixed">
+
+
+										<tbody><tr>
+											<th>Room No.</th>
+											<th>Item</th>
+											<th>Current out of Max</th>
+											
+										</tr>
+										<c:forEach items="${needsrepair}" var="item" varStatus = "status">
+										<tr>
+												<td>${item.equipName}</td>
+													<td>${needsrepairRoomName[status.index]}</td>											
+												<td>${item.dateOfLastMaintenance}</td>		
+													
+										</tr>
+										</c:forEach>
+									
+										</tbody></table>
+
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+						</div>
+						<!--Option 4-->
+						<div class="col-md-3">
+							<div class="box box-info">
+								<div class="box-header" style="background-color: #00C0EF">
+									<h3 class="box-title">Royal Bungalow</h3>
+								</div>
+								<!-- /.box-header -->
+									<div class="box-body no-padding table-responsive" style="height: 500px">
+									<table class="table table-head-fixed">
+										<tbody>
+											<tr>
+											<th>Room No.</th>
+											<th>Item</th>
+											<th>Current out of Max</th>
+																
+											</tr>
+
+											<c:forEach items="${needreplace}" var="item" varStatus = "status">
+											<tr>										
+												<td>${item.equipName}</td>
+													<td>${needreplaceRoomName[status.index]}</td>											
+												<td>${item.dateOfLastMaintenance}</td>												
+											</tr>	
+											</c:forEach>								
+										</tbody>
+									</table>
+								</div>
+						
+
+								</div>
+								<!-- /.box-header -->
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+						</div>
+						<div class="row">
+
+						<!--Option 1-->
+				
+						<div class="col-md-12">
+							<div class="box box-default">
+								<div class="box-header bg-default">
+									<h3 class="box-title">Inventory List</h3>
+
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body no-padding table-responsive" style="height: 450px">
+									<table class="table table-head-fixed">
+										<tbody>
+											<tr>
+												<th>Room No.</th>
+												<th>Name</th>
+												<th>Current</th>
+												<th>Max</th>
+										
+											</tr>
+										<c:forEach items="${inventList}" var="item" varStatus = "status">
+												<tr>			
+													<td>${inventListRoomName[status.index]}</td>								
+													<td>${item.inventName}</td>
+													<td>${item.inventCurrentQuantity}</td>		
+													<td>${item.inventMaxQuantity}</td>
+												</tr>
+										</c:forEach>
+										</tbody>
+										</table>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+						</div>
+                        
 
 					
 						
 							<!-- /.box -->
-						</div>
-					</section></div>
+				</div>
+				</div>
+					
+					</section>
+					</div>
 	</jsp:attribute>
 </mt:admin_template>
 
