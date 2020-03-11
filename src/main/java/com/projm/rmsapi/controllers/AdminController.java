@@ -47,8 +47,10 @@ public class AdminController {
          Admin admin = adminRepo.findByUsername(username);
          if(admin == null){
             System.out.println("User does not exist");
-            return new ModelAndView("test/testlogin");
+            return new ModelAndView("forward:/testlogin");
          }
+
+         System.out.println(admin.getAdminName()+"@@@@@@@@@@@@@@@@@");
 
         if(adminService.checkCredentials(username, password)){
             request.getSession().setAttribute("userSession", admin.getUsername());

@@ -30,7 +30,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Good Condition</span>
-              <span class="info-box-number"><h1>${countGoodCondition}</h1></span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countGoodCondition}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -43,7 +43,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Need Maintainance</span>
-              <span class="info-box-number"><h1>${countNeedsMaint}</h1></span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countNeedsMaint}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -60,7 +60,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Need Repair</span>
-              <span class="info-box-number"><h1>${countNeedsRepair}</h1></span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countNeedsRepair}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -74,7 +74,7 @@
 
            	 <div class="info-box-content">
               <span class="info-box-text">Need Replacement</span>
-              <span class="info-box-number"><h1>${countNeedReplace}</h1></span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countNeedReplace}</span>
            	 </div>
            	 <!-- /.info-box-content -->
           	</div>
@@ -126,8 +126,8 @@
 									<h3 class="box-title">Good Condition</h3>
 								</div>
 								<!-- /.box-header -->
-								<div class="box-body no-padding">
-									<table class="table table-striped">
+								<div class="box-body no-padding table-responsive" style="height: 500px">
+									<table class="table table-head-fixed">
 										<tbody>
 											<tr>
 												<th>Name</th>
@@ -164,8 +164,8 @@
 									<h3 class="box-title">Need Maintainance</h3>
 								</div>
 								<!-- /.box-header -->
-								<div class="box-body no-padding">
-									<table class="table table-striped table-hover">
+								<div class="box-body no-padding table-responsive" style="height: 500px" >
+									<table class="table table-head-fixed">
 
 
 										<tbody><tr>
@@ -198,8 +198,8 @@
 									<h3 class="box-title">Need Repair</h3>
 								</div>
 								<!-- /.box-header -->
-								<div class="box-body no-padding">
-									<table class="table table-striped table-hover">
+								<div class="box-body no-padding table-responsive" style="height: 500px">
+									<table class="table table-head-fixed">
 
 
 										<tbody><tr>
@@ -231,8 +231,8 @@
 									<h3 class="box-title">Need Replacement</h3>
 								</div>
 								<!-- /.box-header -->
-									<div class="box-body no-padding">
-									<table class="table table-striped table-hover">
+									<div class="box-body no-padding table-responsive" style="height: 500px">
+									<table class="table table-head-fixed">
 										<tbody>
 											<tr>
 											<th>Name</th>
