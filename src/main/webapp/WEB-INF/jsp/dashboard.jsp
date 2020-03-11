@@ -31,6 +31,67 @@ To change this template use File | Settings | File Templates.
             
                 <!-- Main content -->
                 <section class="content">
+                
+<div class="row">
+		<div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="fa fa-thumbs-o-up" style="margin-top: 15px;"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Good Condition</span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countGoodCondition}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-calendar-check-o" style="margin-top: 15px;"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Need Maintainance</span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countNeedsMaint}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="fa fa-wrench" style="margin-top: 15px;"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Need Repair</span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countNeedsRepair}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+		 	<div class="col-md-3 col-sm-6 col-xs-12">
+         	 <div class="info-box">
+          	  <span class="info-box-icon" style="background-color: #00C0EF"><i class="fa fa-refresh" style="margin-top: 15px;"></i></span>
+
+           	 <div class="info-box-content">
+              <span class="info-box-text">Need Replacement</span>
+              <span class="info-box-number" style="font-size: 40px; font-weight: normal;">${countNeedReplace}</span>
+           	 </div>
+           	 <!-- /.info-box-content -->
+          	</div>
+          <!-- /.info-box -->
+    	</div>
+	</div>
+
+                
                   <div class="row">
                   <div class="col-md-4">
 							<div class="box box-warning">

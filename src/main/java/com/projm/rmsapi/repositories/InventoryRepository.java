@@ -25,7 +25,7 @@ public interface InventoryRepository extends JpaRepository<Inventory, Long>{
     @Query(value = "SELECT room_name FROM room,inventory  WHERE inventory.room_id = room.room_id ORDER BY invent_current_quantity" ,nativeQuery = true)
     public List<String> ascInventoryQuantRoomName();
 
-    @Query(value = "SELECT DISTINCT inventory.room_id FROM room,inventory WHERE inventory.room_id = room.room_id ORDER BY room_name",nativeQuery = true)
+    @Query(value = "SELECT DISTINCT inventory.room_id FROM room,inventory WHERE inventory.room_id = room.room_id ORDER BY room_name ",nativeQuery = true)
     public List<Long> DistinctRoomIdWithInvetories();
 
     public Inventory findByInventId(Long id);

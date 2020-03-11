@@ -365,6 +365,9 @@ public class IndexController {
     @RequestMapping(value = "dashboard")
     public ModelAndView Dashboard(ModelMap map) {
 
+        
+
+        
         List<Equipment> EquipmentOneMonthBeforeMaintenance = equipRepo.getEquipmentOneMonthBeforeMaintenance();
 
         List<Room> EquipmentOneMonthBeforeMaintenanceRoom = new ArrayList<>();
@@ -509,6 +512,11 @@ public class IndexController {
         map.addAttribute("vacant", roomRepo.countByRoomStatus(1));
         map.addAttribute("occupied", roomRepo.countByRoomStatus(2));
         map.addAttribute("reserved", roomRepo.countByRoomStatus(1));
+        // Equipment Count
+        map.addAttribute("countGoodCondition", equipRepo.countByEquipStatus(1));
+        map.addAttribute("countNeedsMaint", equipRepo.countByEquipStatus(2));
+        map.addAttribute("countNeedsRepair", equipRepo.countByEquipStatus(3));
+        map.addAttribute("countNeedReplace", equipRepo.countByEquipStatus(4));
         return new ModelAndView("dashboard");
     }
 
