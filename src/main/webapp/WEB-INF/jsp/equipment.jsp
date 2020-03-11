@@ -126,8 +126,8 @@
 									<h3 class="box-title">Good Condition</h3>
 								</div>
 								<!-- /.box-header -->
-								<div class="box-body no-padding">
-									<table class="table table-striped">
+								<div class="box-body no-padding table-responsive" style="height: 500px">
+									<table class="table table-head-fixed">
 										<tbody>
 											<tr>
 												<th>Name</th>
@@ -164,8 +164,8 @@
 									<h3 class="box-title">Need Maintainance</h3>
 								</div>
 								<!-- /.box-header -->
-								<div class="box-body no-padding">
-									<table class="table table-striped table-hover">
+								<div class="box-body no-padding table-responsive" style="height: 500px" >
+									<table class="table table-head-fixed">
 
 
 										<tbody><tr>
@@ -198,8 +198,8 @@
 									<h3 class="box-title">Need Repair</h3>
 								</div>
 								<!-- /.box-header -->
-								<div class="box-body no-padding">
-									<table class="table table-striped table-hover">
+								<div class="box-body no-padding table-responsive" style="height: 500px">
+									<table class="table table-head-fixed">
 
 
 										<tbody><tr>
@@ -231,8 +231,8 @@
 									<h3 class="box-title">Need Replacement</h3>
 								</div>
 								<!-- /.box-header -->
-									<div class="box-body no-padding">
-									<table class="table table-striped table-hover">
+									<div class="box-body no-padding table-responsive" style="height: 500px">
+									<table class="table table-head-fixed">
 										<tbody>
 											<tr>
 											<th>Name</th>

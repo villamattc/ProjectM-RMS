@@ -52,7 +52,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>RMS</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -92,7 +92,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="/login" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -110,19 +110,16 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p><b>Admin</b></p>
-        </div>
-
-      </div>
-
-
+     
+      <div class="center">
+</div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
+
+      <li class="header">
+        <img src="${pageContext.request.contextPath}/imgs/maribagologo.png" style="width: auto; height: 80px; margin-left: 10px;">
+      </li>
+
         <li>
           <a href="/dashboard">
             <i class="fa fa-dashboard"></i>
@@ -141,7 +138,7 @@
         </li>
         <li>
           <a href="#"
-            onclick="window.open('https://docs.google.com/document/u/0/', 
+            onclick="window.open('https://docs.google.com/spreadsheets/u/0/', 
                          'newwindow', 
                          'width=550,height=650'); 
               return false;">
