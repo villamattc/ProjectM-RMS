@@ -482,27 +482,27 @@ public class IndexController {
         map.addAttribute("needreplace", equipRepo.findAllByEquipStatus(4));
 
         // Nationality//
-        map.addAttribute("Afghan", userRepo.countByNationality(0));
-        map.addAttribute("Algerian", userRepo.countByNationality(1));
-        map.addAttribute("Australian", userRepo.countByNationality(2));
-        map.addAttribute("Bengali", userRepo.countByNationality(3));
-        map.addAttribute("Chinese", userRepo.countByNationality(4));
-        map.addAttribute("Colombian", userRepo.countByNationality(5));
-        map.addAttribute("Czech", userRepo.countByNationality(6));
-        map.addAttribute("Egyptian", userRepo.countByNationality(7));
-        map.addAttribute("Malaysian", userRepo.countByNationality(8));
-        map.addAttribute("Mexican", userRepo.countByNationality(9));
-        map.addAttribute("Mongolian", userRepo.countByNationality(10));
-        map.addAttribute("Pakistani", userRepo.countByNationality(11));
-        map.addAttribute("Filipino", userRepo.countByNationality(12));
-        map.addAttribute("Russian", userRepo.countByNationality(13));
-        map.addAttribute("Slovak", userRepo.countByNationality(14));
-        map.addAttribute("Spanish", userRepo.countByNationality(15));
-        map.addAttribute("Swedish", userRepo.countByNationality(16));
-        map.addAttribute("Thai", userRepo.countByNationality(17));
-        map.addAttribute("Turkish", userRepo.countByNationality(18));
-        map.addAttribute("Ugandan", userRepo.countByNationality(19));
-        map.addAttribute("Others", userRepo.countByNationality(20));
+        map.addAttribute("afghan", userRepo.countByNationality(0));
+        map.addAttribute("algerian", userRepo.countByNationality(1));
+        map.addAttribute("australian", userRepo.countByNationality(2));
+        map.addAttribute("bengali", userRepo.countByNationality(3));
+        map.addAttribute("chinese", userRepo.countByNationality(4));
+        map.addAttribute("colombian", userRepo.countByNationality(5));
+        map.addAttribute("czech", userRepo.countByNationality(6));
+        map.addAttribute("egyptian", userRepo.countByNationality(7));
+        map.addAttribute("malaysian", userRepo.countByNationality(8));
+        map.addAttribute("mexican", userRepo.countByNationality(9));
+        map.addAttribute("mongolian", userRepo.countByNationality(10));
+        map.addAttribute("pakistani", userRepo.countByNationality(11));
+        map.addAttribute("filipino", userRepo.countByNationality(12));
+        map.addAttribute("russian", userRepo.countByNationality(13));
+        map.addAttribute("slovak", userRepo.countByNationality(14));
+        map.addAttribute("spanish", userRepo.countByNationality(15));
+        map.addAttribute("swedish", userRepo.countByNationality(16));
+        map.addAttribute("thai", userRepo.countByNationality(17));
+        map.addAttribute("turkish", userRepo.countByNationality(18));
+        map.addAttribute("ugandan", userRepo.countByNationality(19));
+        map.addAttribute("others", userRepo.countByNationality(20));
         // Room type//
         map.addAttribute("deluxeRoom", roomRepo.countByRoomType(1));
         map.addAttribute("amumaSpaSuite", roomRepo.countByRoomType(2));
@@ -511,7 +511,7 @@ public class IndexController {
         // Room Status//
         map.addAttribute("vacant", roomRepo.countByRoomStatus(1));
         map.addAttribute("occupied", roomRepo.countByRoomStatus(2));
-        map.addAttribute("reserved", roomRepo.countByRoomStatus(1));
+        map.addAttribute("reserved", roomRepo.countByRoomStatus(3));
         // Equipment Count
         map.addAttribute("countGoodCondition", equipRepo.countByEquipStatus(1));
         map.addAttribute("countNeedsMaint", equipRepo.countByEquipStatus(2));
