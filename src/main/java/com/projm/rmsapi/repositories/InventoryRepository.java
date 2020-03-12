@@ -28,6 +28,34 @@ public interface InventoryRepository extends JpaRepository<Inventory, Long>{
     @Query(value = "SELECT DISTINCT inventory.room_id FROM room,inventory WHERE inventory.room_id = room.room_id ORDER BY room_name ",nativeQuery = true)
     public List<Long> DistinctRoomIdWithInvetories();
 
+    @Query(value = "SELECT * FROM inventory,room WHERE inventory.room_id = room.room_id AND room.room_type = 1 ORDER BY invent_current_quantity",nativeQuery = true)
+    public List<Inventory> deluxeRoomInventoryList();
+
+    @Query(value = "SELECT * FROM    inventory,room WHERE inventory.room_id = room.room_id AND room.room_type = 2 ORDER BY invent_current_quantity",nativeQuery = true)
+    public List<Inventory> amumuSuiteInventoryList();
+
+    @Query(value = "SELECT * FROM inventory,room WHERE inventory.room_id = room.room_id AND room.room_type = 3 ORDER BY invent_current_quantity",nativeQuery = true)
+    public List<Inventory> premierDeluxeInventoryList();
+
+    @Query(value = "SELECT * FROM inventory,room WHERE inventory.room_id = room.room_id AND room.room_type = 4 ORDER BY invent_current_quantity",nativeQuery = true)
+    public List<Inventory> royalBungalowInventoryList();
+
+    
+
+
+    @Query(value = "SELECT room_name FROM room,inventory  WHERE inventory.room_id = room.room_id AND room.room_type = 1 ORDER BY invent_current_quantity" ,nativeQuery = true)
+    public List<String> deluxeRoomInventoryRoomName();
+    
+    @Query(value = "SELECT room_name FROM room,inventory  WHERE inventory.room_id = room.room_id AND room.room_type = 2 ORDER BY invent_current_quantity" ,nativeQuery = true)
+    public List<String> amumuSuiteInventoryRoomName();
+
+    @Query(value = "SELECT room_name FROM room,inventory  WHERE inventory.room_id = room.room_id AND room.room_type = 3 ORDER BY invent_current_quantity" ,nativeQuery = true)
+    public List<String> premierDeluxeInventoryRoomName();
+
+    @Query(value = "SELECT room_name FROM room,inventory  WHERE inventory.room_id = room.room_id AND room.room_type = 4 ORDER BY invent_current_quantity" ,nativeQuery = true)
+    public List<String> royalBungalowInventoryRoomName();
+
+
     public Inventory findByInventId(Long id);
     
     @Transactional
