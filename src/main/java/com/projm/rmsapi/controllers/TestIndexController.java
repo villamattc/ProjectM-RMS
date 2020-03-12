@@ -20,13 +20,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -37,22 +35,23 @@ public class TestIndexController {
     @Autowired
     private RoomRepository roomRepo;
     @Autowired
-    private UserRepository userRepo;
-    @Autowired
-    private EquipmentRepository equipRepo;
-    @Autowired
     private InventoryRepository inventRepo;
-    @Autowired
-    private EquipmentLogRepository equipmentLogRepo;
+
 
     // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@TESTING
     // VIEW@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     @RequestMapping(value = "testindex")
     public ModelAndView testJsp(ModelMap map, HttpSession session) {
-        String username = (String) session.getAttribute("userSession");
-        if (username == null) {
-            return new ModelAndView("test/testlogin");
+        try{
+            
+            String username = (String) session.getAttribute("userSession");
+
+        }catch(Exception e){
+            e.printStackTrace();
+            return new ModelAndView("redirect:/login");
         }
+
+       
 
         map.addAttribute("vacantRooms", roomService.getAllVacantRooms());
         map.addAttribute("roomlist", roomRepo.findAll());
