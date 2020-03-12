@@ -128,7 +128,7 @@
 							<td>${item.inventMaxQuantity}</td>					
 							<td class="pull-right">
 
-							<button type="button" class="btn btn-xs btn-success">View Logs</button>
+							<a href="#" class="btn btn-xs btn-success">View Logs</a>
 							<a class="btn btn-xs btn-danger delete" href="" >Delete</a>
 
 							</td>
