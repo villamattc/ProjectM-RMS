@@ -51,7 +51,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <a href="/dashboard" class="btn btn-primary btn-block btn-flat">Sign In</a>
         </div>
         <!-- /.col -->
       </div>

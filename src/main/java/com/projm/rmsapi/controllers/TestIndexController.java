@@ -42,11 +42,13 @@ public class TestIndexController {
     // VIEW@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     @RequestMapping(value = "testindex")
     public ModelAndView testJsp(ModelMap map, HttpSession session) {
-       
+        try{
             String username = (String) session.getAttribute("userSession");
-            if(username == null)
-                return new ModelAndView("redirect:/login");
-  
+            map.addAttribute("adminname", username);
+        }catch(Exception e){
+            e.printStackTrace();
+            return new ModelAndView("redirect:/login");
+        }
 
        
 

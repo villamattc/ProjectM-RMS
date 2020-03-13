@@ -53,6 +53,8 @@ public class IndexController {
     @RequestMapping(value = "room")
     public ModelAndView Room(ModelMap map) {
 
+        map.addAttribute("adminname", "Dan");
+
         Map<Integer, String> roomStatusOptions = new HashMap<Integer, String>();
         roomStatusOptions.put(1, "Vacant");
         roomStatusOptions.put(2, "Occupied");
@@ -317,8 +319,6 @@ public class IndexController {
     @RequestMapping(value = "inventory")
     public ModelAndView Inventory(ModelMap map) {
 
-        
-        List<Inventory> inventList = inventRepo.ascInventoryQuant();
 
         List<Room> roomIdList = new ArrayList<>();
 
@@ -327,9 +327,25 @@ public class IndexController {
         }
 
 
-        map.addAttribute("inventListRoomName", inventRepo.ascInventoryQuantRoomName());
+
+        map.addAttribute("deluxeInventList", inventRepo.deluxeRoomInventoryList());
+
+        map.addAttribute("amumuSuiteInventList", inventRepo.amumuSuiteInventoryList());
+
+        map.addAttribute("premierDeluxeInventList", inventRepo.premierDeluxeInventoryList());
+
+        map.addAttribute("royalBungalowInventList", inventRepo.royalBungalowInventoryList());
+
+
+        map.addAttribute("deluxeRoomNameList", inventRepo.deluxeRoomInventoryRoomName());
+
+        map.addAttribute("amumaSuiteRoomNameList", inventRepo.amumuSuiteInventoryRoomName());
+
+        map.addAttribute("premierDeluxeRoomNameList", inventRepo.premierDeluxeInventoryRoomName());
+
+        map.addAttribute("royalBungalowRoomNameList", inventRepo.royalBungalowInventoryRoomName());
         
-        map.addAttribute("inventList", inventList);
+        
 
         map.addAttribute("roomDropDown", roomIdList);
         return new ModelAndView("inventory");
