@@ -1,20 +1,19 @@
 package com.projm.rmsapi.repositories;
 
-import java.util.HashMap;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
 import com.projm.rmsapi.entities.Inventory;
-import com.projm.rmsapi.entities.Room;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
 public interface InventoryRepository extends JpaRepository<Inventory, Long>{
+
+    public Inventory findByInventId(Long id);
 
     @Query(value = "SELECT * FROM Inventory ORDER BY invent_current_quantity", nativeQuery = true)
     public List<Inventory> ascInventoryQuant();
@@ -28,8 +27,7 @@ public interface InventoryRepository extends JpaRepository<Inventory, Long>{
     @Query(value = "SELECT DISTINCT inventory.room_id FROM room,inventory WHERE inventory.room_id = room.room_id ORDER BY room_name ",nativeQuery = true)
     public List<Long> DistinctRoomIdWithInvetories();
 
-    public Inventory findByInventId(Long id);
-    
     @Transactional
     public void deleteByInventId(Long id);
+    
 }

@@ -20,7 +20,7 @@ public class AdminServiceImpl implements AdminService{
         if(checkAdmin==null)
             return false;
 
-        if(checkAdmin.getPassword().equals(username))
+        if(checkAdmin.getPassword().equals(password))
             return true;
 
         return false;
