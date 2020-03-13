@@ -29,6 +29,6 @@ public interface EquipmentRepository extends JpaRepository<Equipment, Long>{
     @Query(value = "SELECT DISTINCT room_id FROM inventory" ,nativeQuery = true)
     public List<Long> getDistinctRoomId();
 
-    @Query(value = "SELECT * FROM equipment e WHERE DATEADD(DAY, 60, e.date_of_last_maintenance) < getDate() ", nativeQuery = true )
+    @Query(value = "SELECT * FROM equipment e WHERE e.date_of_last_maintenance + 60 < now() ORDER BY date_of_last_maintenance", nativeQuery = true )
     public List<Equipment> getEquipmentOneMonthBeforeMaintenance();
 }

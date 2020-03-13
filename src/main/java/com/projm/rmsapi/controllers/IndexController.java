@@ -1,6 +1,5 @@
 package com.projm.rmsapi.controllers;
 
-import com.projm.rmsapi.entities.Admin;
 import com.projm.rmsapi.entities.Equipment;
 import com.projm.rmsapi.entities.Inventory;
 import com.projm.rmsapi.entities.Room;
@@ -27,6 +26,16 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+// Probably better to have separate view controllers
+// session login.. probably better to have a different kind of login maybe?? idk 
+// inventory needs better attributes
+// javascript would be nice to have
+// probably different type of admins
+// dashboard should have a PUSH design.. PUSH meaning it pushes the admin to do stuff, makes it feel more proactive
+// not all entities have services, dont really need them.
+// we arent creative people
+
 
 @Controller
 public class IndexController {
@@ -237,9 +246,6 @@ public class IndexController {
     @RequestMapping(value = "equipment")
     public ModelAndView Equipment(ModelMap map) {
         
-        
-
-
         List<Equipment> goodCondition = equipRepo.findAllByEquipStatus(1);
         List<Equipment> needsMaint = equipRepo.findAllByEquipStatus(2);
         List<Equipment> needsRepair = equipRepo.findAllByEquipStatus(3);
@@ -303,14 +309,12 @@ public class IndexController {
         map.addAttribute("needsmaint", equipRepo.findAllByEquipStatus(2));
         map.addAttribute("needsrepair", equipRepo.findAllByEquipStatus(3));
         map.addAttribute("needreplace", equipRepo.findAllByEquipStatus(4));
-        // ==================
 
         //for the view count above the tables ==================
         map.addAttribute("countGoodCondition", equipRepo.countByEquipStatus(1));
         map.addAttribute("countNeedsMaint", equipRepo.countByEquipStatus(2));
         map.addAttribute("countNeedsRepair", equipRepo.countByEquipStatus(3));
         map.addAttribute("countNeedReplace", equipRepo.countByEquipStatus(4));
-        // ==================
 
         return new ModelAndView("equipment");
     }
@@ -319,34 +323,22 @@ public class IndexController {
     @RequestMapping(value = "inventory")
     public ModelAndView Inventory(ModelMap map) {
 
-
         List<Room> roomIdList = new ArrayList<>();
 
         for(Long l:inventRepo.DistinctRoomIdWithInvetories()){
             roomIdList.add(roomRepo.findByRoomId(l));
         }
 
-
-
         map.addAttribute("deluxeInventList", inventRepo.deluxeRoomInventoryList());
-
         map.addAttribute("amumuSuiteInventList", inventRepo.amumuSuiteInventoryList());
-
         map.addAttribute("premierDeluxeInventList", inventRepo.premierDeluxeInventoryList());
-
         map.addAttribute("royalBungalowInventList", inventRepo.royalBungalowInventoryList());
 
-
         map.addAttribute("deluxeRoomNameList", inventRepo.deluxeRoomInventoryRoomName());
-
         map.addAttribute("amumaSuiteRoomNameList", inventRepo.amumuSuiteInventoryRoomName());
-
         map.addAttribute("premierDeluxeRoomNameList", inventRepo.premierDeluxeInventoryRoomName());
-
         map.addAttribute("royalBungalowRoomNameList", inventRepo.royalBungalowInventoryRoomName());
         
-        
-
         map.addAttribute("roomDropDown", roomIdList);
         return new ModelAndView("inventory");
     }
@@ -380,14 +372,10 @@ public class IndexController {
 
     @RequestMapping(value = "dashboard")
     public ModelAndView Dashboard(ModelMap map) {
-
-        
-
         
         List<Equipment> EquipmentOneMonthBeforeMaintenance = equipRepo.getEquipmentOneMonthBeforeMaintenance();
 
         List<Room> EquipmentOneMonthBeforeMaintenanceRoom = new ArrayList<>();
-
         List<String> EquipmentOneMonthBeforeMaintenanceRoomNumbers = new ArrayList<>();
 
         for (Equipment e : EquipmentOneMonthBeforeMaintenance) {
@@ -427,7 +415,6 @@ public class IndexController {
         for (Date d : CaltoDate) {
 
             DateToString.add(simpleDateFormat.format(d));
-
         }
         map.addAttribute("DatePlus90", DateToString);
 
@@ -455,7 +442,6 @@ public class IndexController {
 
             Room room = equips.getRoom();
             roomNames1.add(room.getRoomName());
-
         }
 
         map.addAttribute("goodconditionRoomName", roomNames1);
@@ -464,7 +450,6 @@ public class IndexController {
 
             Room room = equips.getRoom();
             roomNames2.add(room.getRoomName());
-
         }
 
         map.addAttribute("needsmaintRoomName", roomNames2);
@@ -473,7 +458,6 @@ public class IndexController {
 
             Room room = equips.getRoom();
             roomNames3.add(room.getRoomName());
-
         }
 
         map.addAttribute("needsrepairRoomName", roomNames3);
@@ -482,7 +466,6 @@ public class IndexController {
 
             Room room = equips.getRoom();
             roomNames4.add(room.getRoomName());
-
         }
 
         map.addAttribute("needreplaceRoomName", roomNames4);

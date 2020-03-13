@@ -39,32 +39,28 @@ public class AdminController {
 
     }
 
-    //needs work... fml
+    
     @RequestMapping(value = "/adminlogin", method = RequestMethod.POST)
     public ModelAndView LoginAsAdmin(@RequestParam("username") String username, 
         @RequestParam("password") String password ,HttpServletRequest request) {
-        //@SuppressWarnings("unchecked")
+
          Admin admin = adminRepo.findByUsername(username);
          if(admin == null){
             System.out.println("User does not exist");
-            return new ModelAndView("forward:/testlogin");
+            // should redirect to the login page
+            return new ModelAndView("redirect:/login");
          }
-
-         System.out.println(admin.getAdminName()+"@@@@@@@@@@@@@@@@@");
 
         if(adminService.checkCredentials(username, password)){
             request.getSession().setAttribute("userSession", admin.getUsername());
             
-            System.out.println("LOGIN SUCESSFUL");
+
             // set this to whatever home page
-            return new ModelAndView("redirect:/testindex"); // "redirect:/redirectedUrl"
+            return new ModelAndView("redirect:/dashboard");
 
         }
-    
-        // add error here
 
         //set this back to login page
-        System.out.println("WRONG PASSWORD");
         return new ModelAndView("redirect:/testlogin");
 
     }

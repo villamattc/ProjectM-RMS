@@ -1,28 +1,18 @@
 package com.projm.rmsapi.controllers;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 
-import com.projm.rmsapi.entities.Admin;
-import com.projm.rmsapi.entities.Equipment;
-import com.projm.rmsapi.entities.Inventory;
 import com.projm.rmsapi.entities.Room;
-import com.projm.rmsapi.entities.User;
+
 import com.projm.rmsapi.repositories.AdminRepository;
 import com.projm.rmsapi.repositories.EquipmentRepository;
 import com.projm.rmsapi.repositories.InventoryRepository;
 import com.projm.rmsapi.repositories.RoomRepository;
 import com.projm.rmsapi.repositories.UserRepository;
-import com.projm.rmsapi.services.RoomService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,9 +24,6 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 @ControllerAdvice
 public class RoomController {
-
-    @Autowired
-    private RoomService roomService;
 
     @Autowired
     RoomRepository roomRepo;
@@ -53,7 +40,7 @@ public class RoomController {
     @Autowired
     InventoryRepository inventRepo;
     
-    // add room
+    // ADD ROOM
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView addRoom(@Valid @ModelAttribute("room") Room room, BindingResult result) {
         if (result.hasErrors()) {
@@ -80,7 +67,7 @@ public class RoomController {
         return new ModelAndView("redirect:/room");
     }
     
-    // HAVE TO EDIT THE VIEW ROOM IN A WAY TO MATCH THIS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    // UPDATE THE VALUES OF ROOM
     @RequestMapping(value = "/updateroom/{id}", method = RequestMethod.POST)
     public ModelAndView updateRoom(@Valid @ModelAttribute("room") Room room, BindingResult result, @PathVariable("id") long id){
             if (result.hasErrors()) {
@@ -98,6 +85,7 @@ public class RoomController {
 
     }
 
+    //SEARCH BASED ON THE ROOMNAME
     @RequestMapping(value = "/searchroom", method = RequestMethod.GET)
     public ModelAndView searchRoom(@RequestParam String find){
 
@@ -109,7 +97,6 @@ public class RoomController {
         String redirectTo = ("redirect:/viewroom/" + roomId);
         return new ModelAndView(redirectTo);
 
-        
     }
     
     

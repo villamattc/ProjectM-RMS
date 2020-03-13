@@ -49,10 +49,14 @@ public class InventoryController {
 public ModelAndView addInventorytoRoom(@PathVariable("id") long id,
     @Valid @ModelAttribute("inventory")Inventory inventory, BindingResult result) {
 if (result.hasErrors()) {
-    return new ModelAndView("forward:/viewroom/"+id+"/viewinvent");
+    return new ModelAndView("redirect:/viewroom/"+id+"/addinventoryform");
 }
 
-try{ //@
+
+if(inventory.getInventName()=="")
+    return new ModelAndView("redirect:/viewroom/"+id+"/addinventoryform");
+
+try{ 
 
     Room getRoom = roomRepo.findByRoomId(id);
     getRoom.addInventory(inventory);

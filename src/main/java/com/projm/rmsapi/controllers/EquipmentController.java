@@ -46,11 +46,12 @@ public class EquipmentController {
     @Autowired
     EquipmentLogRepository equipmentLogRepo;
 
+    // ADD EQUIPMENT TO THE ROOM
     @RequestMapping(value = "/room/{id}/addequip", method = RequestMethod.POST)
     public ModelAndView addEquiptoRoom(@PathVariable("id") long id,
             @Valid @ModelAttribute("equip") Equipment equip, BindingResult result) {
         if (result.hasErrors()) {
-            
+            return new ModelAndView("forward:/viewroom/"+id+"/addequipform");
         }
 
         try {
@@ -69,6 +70,7 @@ public class EquipmentController {
         return new ModelAndView("redirect:/viewroom/"+id);
     }
 
+    // DELETE THE EQUIPMENT BASED ON THE EQUIPMENT ID
     @RequestMapping(value = "/deleteequip/{id}", method = RequestMethod.GET)
     public ModelAndView deleteEquip(@PathVariable("id") long id) {
 
@@ -81,6 +83,7 @@ public class EquipmentController {
         return new ModelAndView("redirect:/viewroom/" + roomId +"/viewequip");
     }
 
+    //UPDATE EQUIPMENT 
     @RequestMapping(value = "/updateequip/{id}", method = RequestMethod.POST)
     public ModelAndView updateEquip(@Valid @ModelAttribute("equip") Equipment equipment, BindingResult result,
             @PathVariable("id") long id) {
@@ -110,16 +113,16 @@ public class EquipmentController {
         return new ModelAndView("redirect:/viewroom/"+room.getRoomId()+"/viewequip");
     }
 
+    // SEARCH EQUIPMENT
     @RequestMapping(value = "/searchequipbyroom", method = RequestMethod.GET)
-    public ModelAndView searchRoom(@RequestParam String find){
+    public ModelAndView searchEquip(@RequestParam String find){
 
         Room searchRoom = roomRepo.findByRoomName(find);
         if(searchRoom == null)
             return new ModelAndView("forward:/equipment");
 
         Long roomId = searchRoom.getRoomId();
-        String redirectTo = ("redirect:/viewroom/" + roomId+ "/viewequip");
-        return new ModelAndView(redirectTo);
+        return new ModelAndView("redirect:/viewroom/" + roomId+ "/viewequip");
 
         
     }
