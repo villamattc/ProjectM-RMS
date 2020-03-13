@@ -249,49 +249,6 @@
 							</div>
 							<!-- /.box -->
 						</div>
-						<div class="row">
-
-						<!--Option 1-->
-				
-						<div class="col-md-12">
-							<div class="box box-default">
-								<div class="box-header bg-default">
-									<h3 class="box-title">Inventory List</h3>
-
-								</div>
-								<!-- /.box-header -->
-								<div class="box-body no-padding table-responsive" style="height: 450px">
-									<table class="table table-head-fixed">
-										<tbody>
-											<tr>
-												<th>Room No.</th>
-												<th>Name</th>
-												<th>Current</th>
-												<th>Max</th>
-										
-											</tr>
-										<c:forEach items="${inventList}" var="item" varStatus = "status">
-												<tr>			
-													<td>${inventListRoomName[status.index]}</td>								
-													<td>${item.inventName}</td>
-													<td>${item.inventCurrentQuantity}</td>		
-													<td>${item.inventMaxQuantity}</td>
-												</tr>
-										</c:forEach>
-										</tbody>
-										</table>
-								</div>
-								<!-- /.box-body -->
-							</div>
-							<!-- /.box -->
-						</div>
-                        
-
-					
-						
-							<!-- /.box -->
-				</div>
-				</div>
 					
 					</section>
 					</div>

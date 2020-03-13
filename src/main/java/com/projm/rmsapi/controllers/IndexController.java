@@ -53,6 +53,8 @@ public class IndexController {
     @RequestMapping(value = "room")
     public ModelAndView Room(ModelMap map) {
 
+        map.addAttribute("adminname", "Dan");
+
         Map<Integer, String> roomStatusOptions = new HashMap<Integer, String>();
         roomStatusOptions.put(1, "Vacant");
         roomStatusOptions.put(2, "Occupied");

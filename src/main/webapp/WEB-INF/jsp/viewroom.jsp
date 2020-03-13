@@ -129,7 +129,7 @@
 							<td class="pull-right">
 
 							<a href="#" class="btn btn-xs btn-success">View Logs</a>
-							<a class="btn btn-xs btn-danger delete" href="" >Delete</a>
+							<a class="btn btn-xs btn-danger deleteinvent" href="" >Delete</a>
 
 							</td>
 					

@@ -45,7 +45,7 @@ public class TestIndexController {
         try{
             
             String username = (String) session.getAttribute("userSession");
-
+            map.addAttribute("adminname", username);
         }catch(Exception e){
             e.printStackTrace();
             return new ModelAndView("redirect:/login");
