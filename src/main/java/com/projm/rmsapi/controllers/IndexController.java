@@ -27,6 +27,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 // Probably better to have separate view controllers
 // session login.. probably better to have a different kind of login maybe?? idk 
 // inventory needs better attributes
@@ -60,7 +62,11 @@ public class IndexController {
 
     
     @RequestMapping(value = "room")
-    public ModelAndView Room(ModelMap map) {
+    public ModelAndView Room(ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
 
         map.addAttribute("adminname", "Dan");
 
@@ -95,7 +101,11 @@ public class IndexController {
     }
 
     @RequestMapping(value = "viewroom/{id}")
-    public ModelAndView viewRoomDetails(@PathVariable("id") long id, ModelMap map) {
+    public ModelAndView viewRoomDetails(@PathVariable("id") long id, ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
 
         Room getRoom = roomRepo.findByRoomId(id);
 
@@ -140,7 +150,11 @@ public class IndexController {
     }
 
     @RequestMapping(value = "viewroom/{id}/adduserform")
-    public ModelAndView AddUserForm(@PathVariable("id") long id, ModelMap map) {
+    public ModelAndView AddUserForm(@PathVariable("id") long id, ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
 
         Room getRoom = roomRepo.findByRoomId(id);
 
@@ -180,7 +194,11 @@ public class IndexController {
     }
 
     @RequestMapping(value = "viewroom/{id}/addequipform")
-    public ModelAndView AddEquipForm(@PathVariable("id") long id, ModelMap map) {
+    public ModelAndView AddEquipForm(@PathVariable("id") long id, ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
 
         Room getRoom = roomRepo.findByRoomId(id);
 
@@ -199,7 +217,11 @@ public class IndexController {
     }
 
     @RequestMapping(value = "viewroom/{id}/addinventoryform")
-    public ModelAndView AddInventoryForm(@PathVariable("id") long id, ModelMap map) {
+    public ModelAndView AddInventoryForm(@PathVariable("id") long id, ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
 
         Room getRoom = roomRepo.findByRoomId(id);
 
@@ -210,7 +232,11 @@ public class IndexController {
     }
 
     @RequestMapping(value = "viewroom/{id}/viewusers")
-    public ModelAndView ViewUsers(@PathVariable("id") long id, ModelMap map) {
+    public ModelAndView ViewUsers(@PathVariable("id") long id, ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
 
         Room getRoom = roomRepo.findByRoomId(id);
 
@@ -220,7 +246,11 @@ public class IndexController {
     }
 
     @RequestMapping(value = "viewroom/{id}/viewequip")
-    public ModelAndView ViewEquipment(@PathVariable("id") long id, ModelMap map) {
+    public ModelAndView ViewEquipment(@PathVariable("id") long id, ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
 
         Room getRoom = roomRepo.findByRoomId(id);
 
@@ -232,7 +262,11 @@ public class IndexController {
     }
 
     @RequestMapping(value = "viewroom/{id}/viewinvent")
-    public ModelAndView ViewInventory(@PathVariable("id") long id, ModelMap map) {
+    public ModelAndView ViewInventory(@PathVariable("id") long id, ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
 
         Room getRoom = roomRepo.findByRoomId(id);
 
@@ -244,7 +278,11 @@ public class IndexController {
 
     // EQUIPMENT OPENING PAGE
     @RequestMapping(value = "equipment")
-    public ModelAndView Equipment(ModelMap map) {
+    public ModelAndView Equipment(ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
         
         List<Equipment> goodCondition = equipRepo.findAllByEquipStatus(1);
         List<Equipment> needsMaint = equipRepo.findAllByEquipStatus(2);
@@ -321,7 +359,11 @@ public class IndexController {
 
   
     @RequestMapping(value = "inventory")
-    public ModelAndView Inventory(ModelMap map) {
+    public ModelAndView Inventory(ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
 
         List<Room> roomIdList = new ArrayList<>();
 
@@ -345,13 +387,21 @@ public class IndexController {
 
     // viewroominventory
     @RequestMapping(value = "viewroominvent")
-    public ModelAndView viewRoomInventory(ModelMap map) {
+    public ModelAndView viewRoomInventory(ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
 
         return new ModelAndView("viewroominvent");
     }
 
     @RequestMapping(value = "updateequip/{id}")
-    public ModelAndView updateEquip(@PathVariable("id") long id, ModelMap map) {
+    public ModelAndView updateEquip(@PathVariable("id") long id, ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
 
         Equipment updateEquip = equipRepo.findByEquipId(id);
         map.addAttribute("updateequip", updateEquip);
@@ -371,7 +421,11 @@ public class IndexController {
     }
 
     @RequestMapping(value = "dashboard")
-    public ModelAndView Dashboard(ModelMap map) {
+    public ModelAndView Dashboard(ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
         
         List<Equipment> EquipmentOneMonthBeforeMaintenance = equipRepo.getEquipmentOneMonthBeforeMaintenance();
 
@@ -520,7 +574,11 @@ public class IndexController {
     }
 
     @RequestMapping(value = "inventory/{id}")
-    public ModelAndView updateInventory(@PathVariable("id") long id, ModelMap map) {
+    public ModelAndView updateInventory(@PathVariable("id") long id, ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
 
         Room room = roomRepo.findByRoomId(id); // testindex
         List<Inventory> roomInvents = inventRepo.getInventoryByRoomId(id);
@@ -556,9 +614,12 @@ public class IndexController {
     }
 
     @RequestMapping(value = "viewroom/{id}/viewequip/equiplogs/{eid}")
-    public ModelAndView viewEquipmentLogs(@PathVariable("id") Long id, @PathVariable("eid") Long eid, ModelMap map) {
+    public ModelAndView viewEquipmentLogs(@PathVariable("id") Long id, @PathVariable("eid") Long eid, ModelMap map, HttpSession session) {
+        String username = (String) session.getAttribute("userSession");
+        if(username == null)
+            return new ModelAndView("redirect:/login");
+        map.addAttribute("adminname", username);
 
-        // sad
         map.addAttribute("id", id);
         map.addAttribute("equipLog", equipmentLogRepo.findAllByEqId(eid));
 
