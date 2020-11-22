@@ -6,11 +6,8 @@ import com.projm.rmsapi.entities.Inventory;
 import com.projm.rmsapi.entities.Room;
 import com.projm.rmsapi.entities.User;
 import com.projm.rmsapi.model.ListAttach;
-import com.projm.rmsapi.repositories.EquipmentLogRepository;
-import com.projm.rmsapi.repositories.EquipmentRepository;
 import com.projm.rmsapi.repositories.InventoryRepository;
 import com.projm.rmsapi.repositories.RoomRepository;
-import com.projm.rmsapi.repositories.UserRepository;
 import com.projm.rmsapi.services.RoomService;
 
 import org.springframework.beans.factory.annotation.Autowired;

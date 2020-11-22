@@ -2,6 +2,7 @@ package com.projm.rmsapi.repositories;
 
 import com.projm.rmsapi.entities.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,7 +22,12 @@ public interface RoomRepository extends JpaRepository<Room, Long>{
 
     public int countByRoomStatus(int status);
 
+    @Query(value = "SELECT room_name FROM room WHERE room.room_status = 1" ,nativeQuery = true)
+    public List<String> findVacantRoomNameList();
+
     @Transactional
     public void deleteByRoomId(Long id);
+
+
 
 }

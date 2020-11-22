@@ -25,8 +25,10 @@ public class Room {
     @Column(unique=true)
     private String roomName;
 
+    // 1-VACANT/2-OCCUPIED/3-RESERVED
     private int roomStatus;
 
+    // DELUXE/AMUMU SPA SUITE/PREMIERE DELUXE/ROYAL BUNGALOW
     private int roomType;
 
     private boolean roomClean = false;
