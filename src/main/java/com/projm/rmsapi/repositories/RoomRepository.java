@@ -22,8 +22,15 @@ public interface RoomRepository extends JpaRepository<Room, Long>{
 
     public int countByRoomStatus(int status);
 
+
     @Query(value = "SELECT room_name FROM room WHERE room.room_status = 1" ,nativeQuery = true)
     public List<String> findVacantRoomNameList();
+
+    @Query(value = "SELECT room_name FROM room WHERE room.room_status = 2" ,nativeQuery = true)
+    public List<String> findOccupiedRoomNameList();
+
+    @Query(value = "SELECT room_name FROM room WHERE room.room_status = 3" ,nativeQuery = true)
+    public List<String> findReservedRoomNameList();
 
     @Transactional
     public void deleteByRoomId(Long id);
